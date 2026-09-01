@@ -1,0 +1,54 @@
+---
+import type { ToolReviewFaq } from '../../lib/reviews';
+import type { ToolReviewSource } from '../../lib/reviews/types';
+import { formatDate } from '../../lib/site';
+
+interface Props {
+  faq: ToolReviewFaq[];
+  sources: Array<ToolReviewSource & { toolName: string }>;
+  latestReviewedOn: string;
+  comparisonUpdated: string;
+}
+
+const { faq, sources, latestReviewedOn, comparisonUpdated } = Astro.props;
+---
+
+{
+  faq.length > 0 && (
+    <section id="faq" class="mt-10">
+      <h2 class="article-heading">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-4">
+        {faq.map((item) => (
+          <div class="card">
+            <dt class="font-heading font-semibold text-fg">{item.question}</dt>
+            <dd class="mt-2 leading-relaxed text-muted">{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+
+<section id="sources" class="mt-10">
+  <h2 class="article-heading">Sources & review status</h2>
+  <div class="review-meta card mt-4">
+    <p class="text-sm text-muted">
+      Comparison updated {formatDate(comparisonUpdated)} · Tool reviews last verified{' '}
+      {formatDate(latestReviewedOn)} ·{' '}
+      <a href="/methodology/">How we write comparisons</a>
+    </p>
+    <ul class="mt-4 space-y-2 text-sm">
+      {
+        sources.map((source) => (
+          <li>
+            <span class="text-muted">{source.toolName}: </span>
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              {source.label}
+            </a>
+            <span class="text-muted"> — checked {formatDate(source.checkedOn)}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

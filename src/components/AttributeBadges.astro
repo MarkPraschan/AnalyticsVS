@@ -1,0 +1,30 @@
+---
+import { resolveToolAttributes, type ToolData } from '../lib/attributes';
+import Badge from './Badge.astro';
+
+interface Props {
+  tool: ToolData;
+  limit?: number;
+}
+
+const { tool, limit } = Astro.props;
+const attributes = resolveToolAttributes(tool);
+const visible = limit != null ? attributes.slice(0, limit) : attributes;
+---
+
+{
+  visible.length > 0 && (
+    <ul class="flex flex-wrap gap-1.5" aria-label="Tool attributes">
+      {visible.map((attribute) => (
+        <li>
+          <Badge
+            label={attribute.label}
+            dotClassName={attribute.dotClassName}
+            bgClassName={attribute.bgClassName}
+            borderBClassName={attribute.borderBClassName}
+          />
+        </li>
+      ))}
+    </ul>
+  )
+}

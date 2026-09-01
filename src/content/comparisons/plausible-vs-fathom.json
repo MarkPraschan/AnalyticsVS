@@ -1,0 +1,28 @@
+{
+  "title": "Plausible vs Fathom",
+  "description": "Plausible Analytics vs Fathom Analytics — two leading privacy-first analytics tools compared on pricing, features, and performance.",
+  "tools": ["plausible", "fathom"],
+  "category": "privacy-analytics",
+  "verdict": "Both are excellent privacy-first alternatives to GA4. Plausible tends to be slightly cheaper at lower traffic tiers and offers open-source self-hosting. Fathom offers hosted simplicity plus Fathom Lite for free self-hosting with fewer features.",
+  "quickAnswer": "**Plausible** and **Fathom** solve the same core problem: simple, privacy-respecting website analytics without GA4 complexity. The choice usually comes down to pricing at your traffic level, whether you need self-hosting (Plausible open source vs Fathom Lite), and whether you want a managed hosted dashboard.",
+  "bottomLine": "You can't go wrong with either for privacy-focused web analytics. Choose **Plausible** for lower hosted entry pricing and open-source self-hosting. Choose **hosted Fathom Analytics** for a polished managed experience at moderate traffic, or **Fathom Lite** if you want free self-hosting and can handle ops yourself.",
+  "faq": [
+    {
+      "question": "Are Plausible and Fathom both cookieless?",
+      "answer": "Yes. Both tools are designed to work without cookies and without collecting personal data, making them popular GDPR-friendly choices."
+    },
+    {
+      "question": "Which is cheaper for a small blog?",
+      "answer": "Plausible starts at $9/month for 10K pageviews. Fathom starts at $15/month for 100K pageviews. For very small sites, Plausible is typically less expensive."
+    },
+    {
+      "question": "Can I self-host either tool?",
+      "answer": "Plausible offers a self-hosted open-source edition. Fathom's hosted product (Fathom Analytics) is cloud-only, but Fathom Lite is a separate free self-hosted option with fewer features and no vendor support."
+    },
+    {
+      "question": "Do both support custom events?",
+      "answer": "Yes. Both Plausible and Fathom support custom event tracking for goals like signups, downloads, and button clicks."
+    }
+  ],
+  "editorialNotes": []
+}

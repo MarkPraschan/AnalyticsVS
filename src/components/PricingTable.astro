@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatCurrency } from '../lib/site';
+
+interface Props {
+  tool: CollectionEntry<'tools'>;
+}
+
+const { tool } = Astro.props;
+const { pricing } = tool.data;
+---
+
+<div class="overflow-x-auto rounded-xl border border-border">
+  {
+    pricing.tiers && pricing.tiers.length > 0 ? (
+      <table class="data-table w-full border-collapse text-sm">
+        <thead>
+          <tr>
+            <th scope="col">Tier</th>
+            <th scope="col">Limit</th>
+            <th scope="col">Price / month</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pricing.tiers.map((tier) => (
+            <tr>
+              <td>{tier.label ?? '—'}</td>
+              <td class="font-mono text-indigo">{tier.limit.toLocaleString()}</td>
+              <td class="font-semibold text-fg">
+                {formatCurrency(tier.price, pricing.currency)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p class="p-4 text-sm text-muted">
+        {pricing.model === 'free'
+          ? `Free for up to ${pricing.freeLimit?.toLocaleString() ?? 'most'} hits/month.`
+          : 'Custom pricing — contact vendor.'}
+      </p>
+    )
+  }
+  {pricing.notes && <p class="border-t border-border px-4 py-3 font-mono text-xs text-muted">{pricing.notes}</p>}
+</div>

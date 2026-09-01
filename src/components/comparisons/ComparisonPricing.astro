@@ -1,0 +1,31 @@
+---
+import PricingTable from '../PricingTable.astro';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import type { ComparisonToolContext } from '../../lib/comparisons';
+
+interface Props {
+  tools: ComparisonToolContext[];
+}
+
+const { tools } = Astro.props;
+---
+
+<section id="pricing" class="mt-10">
+  <h2 class="article-heading">Pricing comparison</h2>
+  <div class="comparison-pricing-grid mt-4">
+    {
+      tools.map(({ tool, review }) => (
+        <div class="comparison-pricing-panel">
+          <h3 class="font-heading text-lg font-semibold text-fg">{tool.data.name}</h3>
+          <div class="prose-content review-prose mt-3" set:html={renderReviewMarkdown(review.pricingNotes)} />
+          <div class="mt-4">
+            <PricingTable tool={tool} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <p class="mt-4 text-sm">
+    <a href="/calculators/pricing/">Use the pricing calculator</a> to compare costs at your traffic or event volume.
+  </p>
+</section>

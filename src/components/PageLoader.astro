@@ -1,0 +1,48 @@
+<div
+  id="page-loader"
+  class="pointer-events-none fixed top-0 left-0 z-[200] h-0 w-0 opacity-0 gradient-primary transition-[width,opacity,height] duration-300 ease-out"
+  role="progressbar"
+  aria-hidden="true"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+>
+</div>
+
+<script is:inline>
+  (function () {
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+
+    let resetTimer;
+
+    function setProgress(width, opacity) {
+      loader.style.width = width;
+      loader.style.opacity = String(opacity);
+      loader.setAttribute('aria-valuenow', width.replace('%', ''));
+    }
+
+    function start() {
+      clearTimeout(resetTimer);
+      loader.style.height = '2px';
+      setProgress('20%', 1);
+      window.requestAnimationFrame(() => setProgress('45%', 1));
+    }
+
+    function advance() {
+      setProgress('80%', 1);
+    }
+
+    function finish() {
+      setProgress('100%', 1);
+      resetTimer = window.setTimeout(() => {
+        setProgress('0%', 0);
+        loader.style.height = '0';
+      }, 280);
+    }
+
+    document.addEventListener('astro:before-preparation', start);
+    document.addEventListener('astro:after-preparation', advance);
+    document.addEventListener('astro:page-load', finish);
+  })();
+</script>

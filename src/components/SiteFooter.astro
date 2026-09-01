@@ -1,0 +1,49 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<footer class="relative z-10 mt-16 border-t border-border bg-base">
+  <div class="gradient-rule mb-0" aria-hidden="true"></div>
+  <div class="mx-auto max-w-5xl px-4 py-12">
+    <div class="grid gap-10 sm:grid-cols-2">
+      <div>
+        <p class="font-heading text-lg font-bold text-gradient-primary">{SITE.name}</p>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          Independent benchmark directory and comparison engine for web, product, and revenue
+          analytics tools.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-6 text-sm">
+        <div>
+          <p class="label-mono mb-3">Explore</p>
+          <ul class="space-y-2 text-muted">
+            <li><a href="/compare/" class="no-underline hover:text-indigo-dark">Comparisons</a></li>
+            <li><a href="/tools/" class="no-underline hover:text-indigo-dark">Directory</a></li>
+            <li>
+              <a href="/calculators/pricing/" class="no-underline hover:text-indigo-dark"
+                >Pricing Calculator</a
+              >
+            </li>
+            <li><a href="/benchmarks/" class="no-underline hover:text-indigo-dark">Benchmarks</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="label-mono mb-3">About</p>
+          <ul class="space-y-2 text-muted">
+            <li><a href="/methodology/" class="no-underline hover:text-indigo-dark">Methodology</a></li>
+            <li>
+              <a href="/disclosure/" class="no-underline hover:text-indigo-dark">Affiliate Disclosure</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="mt-10 border-t border-border pt-6 font-mono text-xs text-muted">
+      © {new Date().getFullYear()} {SITE.name} · Pricing verified periodically — confirm on vendor
+      sites before purchasing.
+      <span class="mt-1 block">
+        Some visit links are affiliate links. <a href="/disclosure/" class="text-muted hover:text-indigo-dark">Disclosure</a>
+      </span>
+    </p>
+  </div>
+</footer>

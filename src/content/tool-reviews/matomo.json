@@ -1,0 +1,69 @@
+{
+  "tool": "matomo",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Matomo** is the best fit when you need **GA-like depth with full data ownership** — self-hosted or EU cloud — and strong privacy controls. Skip it if you want zero ops and a five-minute setup — **Plausible** or **Fathom** are faster for simple marketing analytics.",
+  "bestFor": [
+    "Organizations with **GDPR, HIPAA, or data-residency** requirements",
+    "Teams wanting **on-prem or self-hosted** analytics without Google processing",
+    "Sites needing **ecommerce, goals, and custom dimensions** beyond lightweight tools",
+    "Agencies managing multiple client properties from one Matomo instance"
+  ],
+  "notFor": [
+    "Founders who want install-and-forget cloud analytics in 15 minutes",
+    "Teams without anyone to **maintain, patch, and backup** self-hosted software",
+    "Product-led teams needing feature flags and session replay — **PostHog** fits better",
+    "Indie Stripe revenue attribution — **DataFast** is more direct"
+  ],
+  "sections": [
+    {
+      "id": "data-ownership",
+      "title": "Data ownership",
+      "dimension": "privacy-compliance",
+      "content": "Matomo's headline advantage is **you own the data**. Self-hosted deployments store hits on your servers; Matomo Cloud keeps data in managed EU or other regions depending on plan. This appeals to public sector, healthcare-adjacent, and EU companies wary of Google Analytics transfers.\n\nMatomo can import GA data historically and mirrors many UA-era concepts teams already understand — easing migration psychologically even if GA4's model differs.\n\nOwnership comes with responsibility: backups, upgrades, and security patching for self-hosted installs."
+    },
+    {
+      "id": "feature-depth",
+      "title": "Feature depth",
+      "dimension": "analytics-scope",
+      "content": "Matomo covers **web analytics, ecommerce, goals, funnels, custom dimensions, and tag manager** (Matomo Tag Manager). Plugin marketplace extends media analytics, A/B testing, and more.\n\nDepth approaches GA4 for many marketing use cases while staying privacy-configurable — including **cookieless tracking** modes and anonymization options. It is still primarily **web analytics**, not a full product analytics suite.\n\nHeatmaps and session recording exist via plugins or integrations but are not as polished as Hotjar out of the box."
+    },
+    {
+      "id": "deployment",
+      "title": "Cloud vs self-hosted",
+      "dimension": "deployment",
+      "content": "**Matomo Cloud** starts around **$23/month for 50K hits** in our directory — ops-free but paid per hit tier.**Self-hosted** is free open-source software plus your infrastructure and labor.\n\nSelf-hosting suits regulated industries and high-traffic sites where SaaS per-hit pricing would sting. Cloud suits teams that want Matomo's privacy story without running PHP/MySQL (or recommended stack) themselves.\n\nWrong choice here is the most common Matomo failure mode: self-hosting without a maintainer."
+    }
+  ],
+  "setupNotes": "**Typical setup (cloud):**\n\n1. Create a Matomo Cloud site or install self-hosted on your server.\n2. Add the **tracking JavaScript** snippet or use Matomo Tag Manager.\n3. Configure **goals**, ecommerce (if applicable), and user privacy settings.\n4. Set up **consent** integration if required in your regions.\n5. Validate tracking with Matomo's real-time debugger.\n\nExpect **1–4 hours** for cloud; **1–2 days** for a production-grade self-hosted install including SSL, backups, and updates.\n\n**Common pitfalls:** under-resourced self-hosting, misconfigured cookieless mode breaking attribution, and comparing \"hits\" to GA4 \"events\" without alignment.",
+  "pricingNotes": "Matomo Cloud uses **monthly hit tiers** from **$23/50K hits** up to **$249/10M hits** in our directory. Self-hosted software is free; you pay hosting, SSL, backups, and engineer time.\n\nPlugins and support contracts add cost on self-hosted. For tiny blogs, Plausible is cheaper and simpler. For regulated mid-size sites, Matomo's TCO can beat GA4 once legal and export work is counted.\n\nUse our [pricing calculator](/calculators/pricing/) with your hit/pageview estimates.",
+  "limitations": [
+    "Self-hosted ops burden is non-trivial — not a weekend project at scale.",
+    "UI and onboarding are less modern than Fathom/Plausible for casual users.",
+    "Product analytics, flags, and replay are not native core strengths.",
+    "Plugin ecosystem quality varies — vet before production dependency.",
+    "Script performance benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Matomo vs Google Analytics 4?",
+      "answer": "Choose Matomo for data ownership, EU hosting options, and privacy configurability. Choose GA4 for free scale and Google Ads integration depth."
+    },
+    {
+      "question": "Is Matomo really GDPR-friendly?",
+      "answer": "Matomo provides tools for anonymization, consent, and EU hosting, but compliance depends on your configuration and legal context — not the logo alone."
+    },
+    {
+      "question": "Self-hosted or cloud?",
+      "answer": "Cloud if you lack ops staff. Self-hosted if data must stay on your infrastructure and you can maintain it."
+    },
+    {
+      "question": "Matomo vs Plausible?",
+      "answer": "Plausible for simplicity and speed. Matomo when you need deeper reporting, ecommerce, or self-hosting with GA-like flexibility."
+    }
+  ],
+  "sources": [
+    { "label": "Matomo pricing", "url": "https://matomo.org/pricing/", "checkedOn": "2026-08-27" },
+    { "label": "Matomo privacy", "url": "https://matomo.org/privacy/", "checkedOn": "2026-08-27" },
+    { "label": "Self-hosting guide", "url": "https://matomo.org/docs/installation/", "checkedOn": "2026-08-27" }
+  ]
+}

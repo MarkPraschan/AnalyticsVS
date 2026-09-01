@@ -1,0 +1,58 @@
+{
+  "id": "fathom",
+  "name": "Fathom Analytics",
+  "slug": "fathom",
+  "category": "privacy-analytics",
+  "tagline": "Simple, privacy-focused website analytics",
+  "website": "https://usefathom.com",
+  "brandColor": "#9187D6",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "monthly_pageviews",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 100000, "price": 15 },
+      { "limit": 200000, "price": 25 },
+      { "limit": 500000, "price": 39 },
+      { "limit": 1000000, "price": 59 },
+      { "limit": 2000000, "price": 79 },
+      { "limit": 5000000, "price": 119 },
+      { "limit": 10000000, "price": 169 }
+    ],
+    "notes": "Pricing as of Aug 2026 — verify on vendor site.",
+    "projectLimits": {
+      "included": 1,
+      "billingModel": "per_site",
+      "notes": "Each site typically needs its own Fathom subscription."
+    }
+  },
+  "features": {
+    "cookieless": true,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": false,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": false,
+    "self_hosted": false
+  },
+  "variants": [
+    {
+      "id": "fathom-lite",
+      "name": "Fathom Lite",
+      "deployment": "self-hosted",
+      "website": "https://usefathom.com/pricing/lite",
+      "summary": "Free self-hosted analytics you install and maintain yourself. Fewer metrics and features than hosted Fathom Analytics, and no vendor support.",
+      "features": {
+        "self_hosted": true,
+        "cookieless": true,
+        "gdpr_compliant": true,
+        "custom_events": false
+      }
+    }
+  ]
+}

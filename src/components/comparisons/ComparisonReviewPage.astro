@@ -1,0 +1,143 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonProfileHeader from '../../components/ComparisonProfileHeader.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import QuickAnswerCallout from '../../components/QuickAnswerCallout.astro';
+import TryTheseToolsSection from '../../components/TryTheseToolsSection.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import BenchmarkCard from '../../components/BenchmarkCard.astro';
+import ComparisonFitGrid from '../../components/comparisons/ComparisonFitGrid.astro';
+import ComparisonDimensions from '../../components/comparisons/ComparisonDimensions.astro';
+import ComparisonPricing from '../../components/comparisons/ComparisonPricing.astro';
+import ComparisonSetup from '../../components/comparisons/ComparisonSetup.astro';
+import ComparisonLimitations from '../../components/comparisons/ComparisonLimitations.astro';
+import ComparisonVerdict from '../../components/comparisons/ComparisonVerdict.astro';
+import ComparisonClosing from '../../components/comparisons/ComparisonClosing.astro';
+import type { CollectionEntry } from 'astro:content';
+import type { ComparisonPageContext } from '../../lib/comparisons';
+import { getBenchmarksForComparison } from '../../lib/comparisons';
+import { getEntryUpdatedDate, getComparisonPageUpdatedDate } from '../../lib/contentDates';
+import { getToolReviewEntry } from '../../lib/reviews';
+import { SITE } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
+
+interface Props {
+  comparison: CollectionEntry<'comparisons'>;
+  context: ComparisonPageContext;
+}
+
+const { comparison, context } = Astro.props;
+const tools = context.tools.map(({ tool }) => tool);
+const benchmarks = await getBenchmarksForComparison(comparison.data.tools);
+
+const tocHeadings = [
+  { depth: 2, slug: 'quick-answer', text: 'Quick answer' },
+  { depth: 2, slug: 'who-should-pick', text: 'Who should pick which?' },
+  { depth: 2, slug: 'feature-comparison', text: 'Feature comparison table' },
+  ...(context.dimensions.length > 0
+    ? [
+        { depth: 2, slug: 'head-to-head', text: 'Head-to-head by topic' },
+        ...context.dimensions.map((dimension) => ({
+          depth: 3,
+          slug: dimension.slug,
+          text: dimension.title,
+        })),
+      ]
+    : []),
+  { depth: 2, slug: 'pricing', text: 'Pricing comparison' },
+  { depth: 2, slug: 'setup', text: 'Setup & implementation' },
+  ...(benchmarks.length > 0
+    ? [{ depth: 2, slug: 'benchmarks', text: 'Performance benchmarks' }]
+    : []),
+  { depth: 2, slug: 'limitations', text: 'Limitations compared' },
+  { depth: 2, slug: 'bottom-line', text: 'Bottom line' },
+  ...(context.mergedFaq.length > 0 ? [{ depth: 2, slug: 'faq', text: 'FAQ' }] : []),
+  { depth: 2, slug: 'sources', text: 'Sources & review status' },
+];
+
+const pageUrl = new URL(`/compare/${comparison.id}/`, SITE.url).href;
+const reviewEntries = await Promise.all(
+  comparison.data.tools.map((toolId) => getToolReviewEntry(toolId)),
+);
+const comparisonUpdated = getEntryUpdatedDate(comparison);
+const updatedDate = getComparisonPageUpdatedDate(
+  comparison,
+  tools,
+  reviewEntries.filter((entry): entry is NonNullable<typeof entry> => entry != null),
+);
+
+const schema = [
+  buildArticleSchema({
+    title: comparison.data.title,
+    description: comparison.data.description,
+    url: pageUrl,
+    dateModified: updatedDate,
+    breadcrumbs: [],
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Comparisons', url: new URL('/compare/', SITE.url).href },
+    { name: comparison.data.title, url: pageUrl },
+  ]),
+  buildFaqSchema(context.mergedFaq),
+].filter((item): item is Record<string, unknown> => item != null);
+---
+
+<ArticleLayout title={comparison.data.title} description={comparison.data.description} schema={schema}>
+  <ComparisonProfileHeader
+    title={comparison.data.title}
+    description={comparison.data.description}
+    updatedDate={updatedDate}
+    tools={tools}
+    slot="header"
+  />
+
+  <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
+    <div class="min-w-0">
+      <QuickAnswerCallout content={comparison.data.quickAnswer} />
+
+      <ComparisonFitGrid tools={context.tools} />
+
+      <section id="feature-comparison" class="mt-10">
+        <h2 class="article-heading">Feature comparison table</h2>
+        <div class="mt-4">
+          <ComparisonTable tools={tools} />
+        </div>
+      </section>
+
+      <ComparisonDimensions dimensions={context.dimensions} />
+      <ComparisonPricing tools={context.tools} />
+      <ComparisonSetup tools={context.tools} />
+
+      {
+        benchmarks.length > 0 && (
+          <section id="benchmarks" class="mt-10">
+            <h2 class="article-heading">Performance benchmarks</h2>
+            <div class="mt-4 space-y-4">
+              {benchmarks.map((benchmark) => (
+                <BenchmarkCard benchmark={benchmark} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <ComparisonLimitations tools={context.tools} />
+      <ComparisonVerdict
+        bottomLine={comparison.data.bottomLine}
+        editorialNotes={comparison.data.editorialNotes}
+      />
+      <ComparisonClosing
+        faq={context.mergedFaq}
+        sources={context.sources}
+        latestReviewedOn={context.latestReviewedOn}
+        comparisonUpdated={comparisonUpdated}
+      />
+    </div>
+    <aside class="hidden lg:block">
+      <TableOfContents headings={tocHeadings} />
+    </aside>
+  </div>
+
+  <TryTheseToolsSection tools={tools} class="mt-12" />
+</ArticleLayout>

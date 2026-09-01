@@ -1,0 +1,69 @@
+{
+  "tool": "hotjar",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Hotjar** is the best fit when you need **heatmaps, session recordings, and on-site surveys** to understand why users struggle — not just what they clicked. Skip it if you only need traffic counts or product analytics with feature flags — **Plausible** or **PostHog** cover those roles better.",
+  "bestFor": [
+    "Marketing and UX teams optimizing **landing pages and checkout flows**",
+    "Teams asking **why** conversion dropped, not only **where** traffic came from",
+    "Organizations running **feedback polls** and surveys on live pages",
+    "Complementing GA4 or Plausible with **qualitative behavior** data"
+  ],
+  "notFor": [
+    "Primary web analytics and channel attribution — pair with GA4 or Plausible",
+    "Product analytics with retention cohorts and feature flags — use **PostHog**",
+    "Privacy-minimal stacks avoiding session recording — consider policy impact first",
+    "Headless or API-only products with no traditional DOM to record"
+  ],
+  "sections": [
+    {
+      "id": "heatmaps-recordings",
+      "title": "Heatmaps & recordings",
+      "dimension": "product-capabilities",
+      "content": "Hotjar's signature features are **click, move, and scroll heatmaps** plus **session recordings** that replay user journeys. These tools expose rage clicks, form abandonment, and confusing layouts that aggregate metrics miss.\n\nRecordings are sampled based on plan limits — high-traffic sites need higher tiers or filters to stay within quota. Mask sensitive fields in forms and exclude admin areas before going live.\n\nHotjar complements analytics; it rarely replaces them. Most teams keep a traffic tool and add Hotjar for UX diagnosis."
+    },
+    {
+      "id": "feedback-tools",
+      "title": "Feedback & surveys",
+      "dimension": "product-capabilities",
+      "content": "Hotjar includes **Feedback widgets** and **Surveys** to collect on-page qualitative input — useful after redesigns or pricing changes. Targeting rules show prompts on specific URLs or behaviors.\n\nThis is valuable for marketing and CX teams without a dedicated research stack. It is not a full user-research repository like Dovetail — export and synthesize insights in your workflow.\n\nSurvey fatigue is real; use sparingly on high-intent pages."
+    },
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "Session recording captures **DOM content and interactions** — treat Hotjar as processing potentially personal data. Configure **suppression**, honor consent where required, and document processing in your privacy policy.\n\nHotjar offers GDPR-oriented features and data processing terms, but recording tools generally face **stricter scrutiny** than cookie-light pageview analytics. Legal review before enabling recordings on logged-in areas is prudent.\n\nNot a fit for high-security environments where client-side recording is prohibited."
+    }
+  ],
+  "setupNotes": "**Typical setup:**\n\n1. Create a Hotjar site and install the tracking snippet (often via GTM).\n2. Configure **heatmap** and **recording** targets for key URLs.\n3. Set up **field suppression** for passwords, payment fields, and PII.\n4. Define **surveys or feedback** widgets with targeting rules.\n5. Review sample recordings weekly with your UX or growth team.\n\nExpect **1–2 hours** for initial install; ongoing value comes from ritual review, not one-time setup.\n\n**Common pitfalls:** recording internal traffic, unmasked sensitive inputs, and paying for sessions you never watch.",
+  "pricingNotes": "Hotjar pricing combines **daily session limits** for recordings and feature access across tiers. Our directory lists entry at **$39/month (Plus)** with higher tiers for more daily sessions and team features — verify current plans on hotjar.com/pricing.\n\nCosts scale with **recorded session volume**, not pageviews alone. Filter recordings to conversion pages to control spend.\n\nCompare total stack cost: Hotjar + Plausible/GA4 vs an all-in-one like PostHog on our [pricing calculator](/calculators/pricing/).",
+  "limitations": [
+    "Not a replacement for web analytics or product analytics baselines.",
+    "Session recording has privacy, consent, and performance implications.",
+    "High-traffic sites hit daily session caps quickly on lower tiers.",
+    "Limited value on non-visual or heavily native app experiences without web UI.",
+    "Script weight benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Hotjar vs PostHog session replay?",
+      "answer": "Hotjar optimizes for marketing/UX teams with heatmaps and surveys. PostHog ties replay to product events, flags, and funnels for engineering-led teams."
+    },
+    {
+      "question": "Do I still need Google Analytics with Hotjar?",
+      "answer": "Usually yes. Hotjar explains behavior on pages; GA4 or Plausible still tells you traffic volume and acquisition channels."
+    },
+    {
+      "question": "Is Hotjar GDPR-compliant?",
+      "answer": "Hotjar provides compliance tooling, but session recording typically requires consent and careful configuration in EU contexts. Involve legal counsel."
+    },
+    {
+      "question": "Can Hotjar slow my site?",
+      "answer": "Any third-party script can affect performance. Defer loading, limit recording scope, and test Core Web Vitals after install."
+    }
+  ],
+  "sources": [
+    { "label": "Hotjar pricing", "url": "https://www.hotjar.com/pricing/", "checkedOn": "2026-08-27" },
+    { "label": "Hotjar privacy", "url": "https://www.hotjar.com/legal/policies/privacy/", "checkedOn": "2026-08-27" },
+    { "label": "Hotjar installation docs", "url": "https://help.hotjar.com/hc/en-us/articles/115009336727", "checkedOn": "2026-08-27" }
+  ]
+}

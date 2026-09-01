@@ -1,0 +1,47 @@
+{
+  "id": "datafast",
+  "name": "DataFast",
+  "slug": "datafast",
+  "category": "revenue-analytics",
+  "tagline": "Revenue-first analytics with Stripe and payment attribution",
+  "website": "https://datafa.st",
+  "brandColor": "#0F172A",
+  "affiliate": {
+    "enabled": true,
+    "url": "https://datafa.st/?via=analyticsvs",
+    "commission": "50%"
+  },
+  "pricing": {
+    "model": "monthly_events",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 10000, "price": 9 },
+      { "limit": 100000, "price": 29 },
+      { "limit": 200000, "price": 49 },
+      { "limit": 500000, "price": 79 },
+      { "limit": 1000000, "price": 99 },
+      { "limit": 2000000, "price": 149 },
+      { "limit": 5000000, "price": 199 },
+      { "limit": 10000000, "price": 299 }
+    ],
+    "notes": "Starter plan pricing as of Aug 2026 — verify on vendor site. Growth tier adds multi-site and team features at higher base price.",
+    "hasFreeTrial": true,
+    "projectLimits": {
+      "included": 1,
+      "plans": [{ "name": "Growth", "maxProjects": 30, "notes": "Growth covers up to 30 sites on one account." }]
+    }
+  },
+  "features": {
+    "cookieless": true,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": true,
+    "self_hosted": false,
+    "revenue_tracking": true
+  }
+}

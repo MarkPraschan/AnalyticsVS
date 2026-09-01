@@ -1,0 +1,15 @@
+---
+import { renderReviewMarkdown } from '../lib/markdown';
+import type { ToolReview } from '../lib/reviews';
+
+interface Props {
+  setupNotes: string;
+}
+
+const { setupNotes } = Astro.props;
+---
+
+<section id="setup" class="mt-10">
+  <h2 class="article-heading">Setup & implementation</h2>
+  <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(setupNotes)} />
+</section>

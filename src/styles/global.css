@@ -1,0 +1,865 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #f7f8fc;
+  --color-base: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f1f4f9;
+  --color-border: #e2e8f0;
+  --color-border-bright: #cbd5e1;
+  --color-fg: #0f172a;
+  --color-muted: #475569;
+
+  --color-indigo: #5b21ff;
+  --color-indigo-dark: #4a18d9;
+  --color-cyan: #00b8d4;
+  --color-mint: #059669;
+  --color-chartreuse: #65a30d;
+
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: Inter, system-ui, -apple-system, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* Squircle corners read tighter — bump each step one size up */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    scrollbar-gutter: stable;
+    color-scheme: light;
+  }
+
+  /* Astro's fade() defaults to plus-lighter, which hides light UI after client navigations. */
+  [data-astro-transition-scope],
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    mix-blend-mode: normal;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+
+  body {
+    @apply bg-void text-fg font-body text-base antialiased;
+    line-height: 1.6;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading text-fg leading-tight;
+  }
+
+  [id] {
+    scroll-margin-top: 100px;
+  }
+
+  a {
+    @apply text-indigo-dark underline decoration-indigo-dark/30 underline-offset-[0.2em] transition-colors hover:decoration-indigo-dark;
+  }
+
+  :focus {
+    @apply outline-none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-indigo);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-indigo) 20%, white);
+    color: var(--color-fg);
+  }
+
+  @supports (corner-shape: squircle) {
+    :where([class*='rounded']) {
+      corner-shape: squircle;
+    }
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto max-w-5xl px-4 py-10 sm:py-12;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:px-4 focus:py-3 focus:font-semibold focus:shadow-lg;
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+    color: white;
+    text-decoration: none;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse));
+  }
+
+  .text-gradient-primary {
+    color: var(--color-indigo-dark);
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @supports not (background-clip: text) {
+    .text-gradient-primary {
+      -webkit-text-fill-color: unset;
+      color: var(--color-indigo-dark);
+    }
+  }
+
+  .text-gradient-secondary {
+    color: var(--color-mint);
+    background: linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @supports not (background-clip: text) {
+    .text-gradient-secondary {
+      -webkit-text-fill-color: unset;
+      color: var(--color-mint);
+    }
+  }
+
+  .border-gradient-primary {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan)) border-box;
+  }
+
+  .border-gradient-secondary {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse)) border-box;
+  }
+
+  .glow-orb-primary {
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .glow-orb-secondary {
+    background: linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse));
+  }
+
+  .heading-xl {
+    @apply font-heading text-4xl font-extrabold tracking-tight leading-[1.05] sm:text-5xl lg:text-6xl;
+  }
+
+  .heading-lg {
+    @apply font-heading text-2xl font-bold tracking-tight leading-[1.3] sm:text-3xl sm:leading-[1.3];
+  }
+
+  .heading-lg.text-gradient-primary,
+  .heading-lg .text-gradient-primary {
+    display: inline-block;
+    overflow: visible;
+    padding-bottom: 0.1em;
+  }
+
+  .comparison-title__vs {
+    @apply px-2 font-normal text-muted/45;
+  }
+
+  .comparison-title__brand {
+    @apply no-underline decoration-transparent transition-opacity hover:opacity-80;
+  }
+
+  .prose-width {
+    max-width: 65ch;
+  }
+
+  .prose-content {
+    @apply max-w-none text-fg/90 leading-[1.7];
+    max-width: 65ch;
+
+    & h2 {
+      @apply mt-10 mb-4 text-2xl font-semibold leading-tight;
+    }
+
+    & h3 {
+      @apply mt-8 mb-3 text-xl font-semibold leading-tight;
+    }
+
+    & p {
+      @apply mb-4;
+    }
+
+    & ul,
+    & ol {
+      @apply mb-4 ml-6 space-y-2;
+    }
+
+    & ul {
+      @apply list-disc;
+    }
+
+    & ol {
+      @apply list-decimal;
+    }
+
+    & li {
+      @apply pl-1;
+    }
+
+    & strong {
+      @apply font-semibold text-fg;
+    }
+
+    & table {
+      @apply mb-6 w-full border-collapse text-sm;
+    }
+
+    & th {
+      @apply border border-border bg-surface-raised px-3 py-2 text-left font-semibold;
+    }
+
+    & td {
+      @apply border border-border bg-base px-3 py-2;
+    }
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-sm;
+
+    & caption {
+      @apply mb-3 text-left font-mono text-xs text-muted;
+    }
+
+    & th {
+      @apply border border-border bg-surface-raised px-3 py-3 text-left font-mono text-xs font-medium uppercase tracking-wider text-muted;
+    }
+
+    & td {
+      @apply border border-border bg-base px-3 py-3;
+    }
+  }
+
+  .pricing-calculator__inputs {
+    @apply grid gap-8 lg:grid-cols-3 lg:gap-6;
+  }
+
+  .pricing-calculator__field {
+    @apply min-w-0;
+  }
+
+  .pricing-calculator__label {
+    @apply mb-1 block text-sm font-medium text-muted;
+  }
+
+  .pricing-calculator__metric-value,
+  .pricing-calculator__pageviews-value {
+    @apply font-heading text-4xl font-bold tracking-tight text-fg tabular-nums sm:text-5xl;
+  }
+
+  .pricing-calculator__metric-input {
+    @apply w-full min-w-0 border-0 bg-transparent p-0 font-heading text-4xl font-bold tracking-tight text-fg tabular-nums shadow-none ring-0 appearance-none focus:outline-none focus:ring-0 sm:text-5xl;
+  }
+
+  .pricing-calculator__metric-input::-webkit-outer-spin-button,
+  .pricing-calculator__metric-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .pricing-calculator__metric-input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  .pricing-calculator__metric-input {
+    @apply w-full min-w-0 border-0 bg-transparent p-0 font-heading text-4xl font-bold tracking-tight text-fg tabular-nums shadow-none ring-0 appearance-none focus:outline-none focus:ring-0 sm:text-5xl;
+  }
+
+  .pricing-calculator__slider {
+    @apply mt-4 h-2.5 w-full cursor-pointer appearance-none rounded-full;
+    background: linear-gradient(
+      to right in oklab,
+      var(--color-indigo) 0%,
+      var(--color-cyan) var(--slider-progress, 0%),
+      var(--color-border) var(--slider-progress, 0%),
+      var(--color-border) 100%
+    );
+  }
+
+  .pricing-calculator__slider::-webkit-slider-runnable-track {
+    @apply h-2.5 rounded-full;
+  }
+
+  .pricing-calculator__slider::-webkit-slider-thumb {
+    @apply -mt-1.5 h-5 w-5 appearance-none rounded-full border-2 border-white shadow-md;
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .pricing-calculator__slider::-moz-range-track {
+    @apply h-2.5 rounded-full bg-transparent;
+  }
+
+  .pricing-calculator__slider::-moz-range-thumb {
+    @apply h-5 w-5 rounded-full border-2 border-white shadow-md;
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .pricing-calculator__hint {
+    @apply mt-3 text-sm leading-relaxed text-muted;
+  }
+
+  .pricing-calculator .input-field {
+    @apply font-body;
+  }
+
+  .pricing-table {
+    @apply w-full text-sm;
+
+    & caption {
+      @apply mb-3 text-right text-sm text-muted;
+    }
+
+    & thead th {
+      @apply border-0 border-b border-border bg-surface-raised/60 px-4 py-2.5 text-left text-sm font-medium text-muted;
+    }
+
+    & thead th:first-child,
+    & tbody td:first-child {
+      @apply w-[1%] whitespace-nowrap pl-4 pr-8;
+    }
+
+    & thead th:last-child,
+    & tbody td:last-child {
+      @apply w-[1%] whitespace-nowrap text-right;
+    }
+
+    & tbody td {
+      @apply border-0 border-b border-border px-4 py-3 align-middle;
+    }
+
+    & tbody tr:last-child td {
+      @apply border-b-0;
+    }
+  }
+
+  .pricing-table__tool {
+    @apply inline-flex min-h-11 items-center gap-2.5 whitespace-nowrap font-semibold text-indigo-dark no-underline hover:underline;
+  }
+
+  .pricing-table__estimate {
+    @apply w-full;
+  }
+
+  .pricing-table__cost {
+    @apply font-heading text-2xl font-bold tracking-tight text-fg tabular-nums leading-none;
+  }
+
+  .pricing-table__plan {
+    @apply mt-1.5 text-sm leading-snug text-muted;
+  }
+
+  .pricing-table__action {
+    @apply inline-flex min-h-11 items-center whitespace-nowrap text-sm font-medium text-indigo-dark no-underline hover:underline;
+  }
+
+  .comparison-table-wrap {
+    @apply w-full max-w-none;
+  }
+
+  .comparison-table {
+    @apply w-full text-base;
+    table-layout: auto;
+  }
+
+  .comparison-table th {
+    @apply !text-sm;
+  }
+
+  .comparison-table td {
+    @apply text-base;
+  }
+
+  .comparison-table__feature-col {
+    width: 1%;
+  }
+
+  .comparison-table__tool-col {
+    width: 11rem;
+    min-width: 11rem;
+  }
+
+  .comparison-table__corner {
+    @apply align-bottom whitespace-nowrap;
+  }
+
+  .comparison-table__tool-head {
+    @apply w-[11rem] min-w-[11rem] !text-center !font-body !normal-case !tracking-normal align-middle;
+  }
+
+  .comparison-table__tool-link {
+    @apply inline-flex flex-col items-center justify-center gap-1.5 font-heading text-sm font-semibold leading-tight text-indigo-dark no-underline hover:underline md:flex-row md:gap-2;
+  }
+
+  .comparison-table__tool-name {
+    @apply text-center;
+  }
+
+  .comparison-table__feature-name {
+    @apply !bg-surface !font-body !text-base !font-medium !normal-case !tracking-normal !text-fg whitespace-nowrap;
+  }
+
+  .comparison-table__value {
+    @apply w-[11rem] min-w-[11rem] text-center;
+  }
+
+  .comparison-table__partial-trigger {
+    @apply mx-auto;
+  }
+
+  .comparison-table__mark {
+    @apply font-mono text-lg font-semibold leading-none;
+  }
+
+  .comparison-table__mark--yes {
+    @apply text-mint;
+  }
+
+  .comparison-table__mark--no {
+    @apply text-muted/40;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white no-underline shadow-md transition hover:brightness-105 active:scale-[0.98];
+    background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-border-bright bg-base px-5 py-2.5 text-sm font-semibold text-fg no-underline transition hover:border-indigo/40 hover:bg-surface-raised;
+  }
+
+  .card {
+    @apply rounded-xl border border-border bg-surface p-6 shadow-sm;
+  }
+
+  .card-interactive {
+    @apply block rounded-xl border border-border bg-surface p-6 no-underline shadow-sm transition hover:shadow-md;
+  }
+
+  .card-interactive:hover,
+  .card-interactive:focus-visible {
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(to bottom right in oklab, var(--color-indigo) 60%, var(--color-cyan)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 14px color-mix(in oklab, var(--color-indigo) 12%, transparent);
+  }
+
+  .nav-link {
+    @apply inline-flex min-h-11 items-center rounded-lg px-3 py-2 font-body text-sm font-medium text-muted no-underline transition hover:bg-surface-raised hover:text-indigo-dark;
+  }
+
+  .nav-link[aria-current='page'] {
+    @apply bg-surface-raised font-semibold text-indigo-dark;
+  }
+
+  .tag {
+    @apply inline-block rounded-md px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-wider text-mint;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse)) border-box;
+  }
+
+  .label-mono {
+    @apply mb-2 block font-mono text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .input-field {
+    @apply min-h-11 w-full rounded-lg border border-border bg-base px-3 py-2 font-mono text-sm text-fg transition sm:w-auto;
+  }
+
+  .input-field:focus-visible {
+    border-color: color-mix(in oklab, var(--color-indigo) 50%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-indigo) 15%, transparent);
+  }
+
+  .section-heading {
+    @apply font-heading text-2xl font-bold tracking-tight leading-tight sm:text-3xl;
+  }
+
+  .article-heading {
+    @apply mb-4 text-2xl font-semibold leading-tight;
+  }
+
+  .quick-answer-callout {
+    @apply rounded-xl p-5 shadow-sm sm:p-6;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(
+        135deg in oklab,
+        color-mix(in oklab, var(--color-mint) 8%, var(--color-surface)) 0%,
+        color-mix(in oklab, var(--color-chartreuse) 12%, var(--color-surface)) 100%
+      )
+      padding-box,
+      linear-gradient(to bottom right in oklab, var(--color-mint) 70%, var(--color-chartreuse)) border-box;
+  }
+
+  .quick-answer-callout__header {
+    @apply flex items-start gap-3 sm:gap-4;
+  }
+
+  .quick-answer-callout__icon {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white shadow-sm;
+    background: linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse));
+  }
+
+  .quick-answer-callout__body {
+    @apply mt-3 max-w-none text-base leading-relaxed text-fg/90;
+
+    & p {
+      @apply m-0;
+    }
+
+    & strong {
+      @apply font-semibold text-fg;
+    }
+  }
+
+  .prose-content .fit-checklist {
+    @apply mb-4 ml-6 list-none space-y-2;
+
+    & > li {
+      @apply relative pl-1 text-pretty text-fg/90;
+    }
+  }
+
+  .prose-content .fit-checklist__marker {
+    @apply absolute top-[0.2em] -left-6 w-6 text-center font-mono text-sm leading-none;
+  }
+  .feature-checklist {
+    @apply mt-4 grid gap-2;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  }
+
+  .feature-checklist__item {
+    @apply flex items-center gap-2 text-base whitespace-nowrap;
+  }
+
+  .feature-checklist__partial-wrap {
+    @apply relative inline-flex shrink-0;
+  }
+
+  .feature-checklist__partial-trigger {
+    @apply inline-flex cursor-help items-center justify-center rounded-sm border-0 bg-transparent p-0;
+  }
+
+  .feature-checklist__partial-trigger:focus-visible {
+    @apply outline-2 outline-offset-2 outline-indigo;
+  }
+
+  .feature-checklist__tooltip {
+    @apply pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 w-max max-w-[16rem] -translate-x-1/2 rounded-md border border-border bg-surface-raised px-2.5 py-1.5 text-center font-mono text-xs leading-snug text-fg opacity-0 shadow-md transition-opacity duration-150;
+  }
+
+  .feature-checklist__partial-wrap:hover .feature-checklist__tooltip,
+  .feature-checklist__partial-wrap:focus-within .feature-checklist__tooltip {
+    @apply opacity-100;
+  }
+
+  .review-prose {
+    @apply max-w-none;
+
+    & p:last-child,
+    & ul:last-child,
+    & ol:last-child {
+      @apply mb-0;
+    }
+  }
+
+  .review-inline-code {
+    @apply rounded-md bg-surface-raised px-1.5 py-0.5 font-mono text-xs text-fg;
+  }
+
+  .review-status {
+    @apply font-mono text-xs font-medium uppercase tracking-wider text-mint;
+  }
+
+  .comparison-fit-grid {
+    @apply grid gap-4 lg:grid-cols-2;
+  }
+
+  .comparison-fit-panel__header {
+    @apply flex items-center gap-2;
+  }
+
+  .comparison-dimension__header {
+    @apply flex flex-wrap items-center gap-3;
+  }
+
+  .comparison-dimension__badge {
+    @apply rounded-md border border-border bg-surface-raised px-2.5 py-0.5 font-mono text-xs uppercase tracking-wider text-muted;
+  }
+
+  .comparison-dimension__grid {
+    @apply grid gap-4 lg:grid-cols-2;
+  }
+
+  .comparison-dimension__grid--single {
+    @apply lg:grid-cols-1;
+  }
+
+  .comparison-dimension__panel-header {
+    @apply flex items-center gap-2;
+  }
+
+  .comparison-pricing-grid {
+    @apply grid gap-8 lg:grid-cols-2;
+  }
+
+  .comparison-pricing-panel {
+    @apply min-w-0;
+  }
+
+  .page-section {
+    @apply mt-16 sm:mt-20;
+  }
+
+  .page-intro {
+    @apply text-lg leading-relaxed text-muted;
+    max-width: 65ch;
+  }
+
+  .gradient-rule {
+    @apply h-px w-full border-0;
+    background: linear-gradient(
+      to bottom right in oklab,
+      transparent,
+      var(--color-indigo) 20%,
+      var(--color-cyan) 50%,
+      var(--color-mint) 80%,
+      transparent
+    );
+  }
+
+  .directory-card {
+    @apply flex h-full flex-col divide-y divide-border overflow-hidden rounded-xl border border-border bg-surface shadow-sm transition hover:shadow-md;
+  }
+
+  .directory-card:hover {
+    border-color: color-mix(in oklab, var(--color-indigo) 35%, var(--color-border));
+  }
+
+  .directory-card__body {
+    @apply flex flex-1 flex-col p-5 sm:p-6;
+  }
+
+  .tool-mark-link {
+    @apply block no-underline;
+  }
+
+  .tool-mark {
+    @apply flex items-center justify-center rounded-xl font-bold tracking-tight;
+  }
+
+  .tool-mark--sm {
+    @apply h-8 w-8 text-xs;
+  }
+
+  .tool-mark--md {
+    @apply h-12 w-12 text-sm;
+  }
+
+  .tool-mark--lg {
+    @apply h-16 w-16 text-lg;
+  }
+
+  .tool-mark--xl {
+    @apply h-[4.5rem] w-[4.5rem] text-xl;
+  }
+
+  .tool-mark-stack {
+    @apply relative inline-flex shrink-0;
+  }
+
+  .tool-mark-stack--logo {
+    @apply flex items-center justify-center overflow-hidden rounded-xl bg-surface-raised;
+    box-shadow: inset 0 0 0 1px var(--color-border);
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--sm {
+    @apply h-8 w-8;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--sm:has(.tool-mark-stack__logo) {
+    @apply p-1.5;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--md {
+    @apply h-12 w-12;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--md:has(.tool-mark-stack__logo) {
+    @apply p-2;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--lg {
+    @apply h-16 w-16;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--lg:has(.tool-mark-stack__logo) {
+    @apply p-2.5;
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--xl {
+    @apply h-[4.5rem] w-[4.5rem];
+  }
+
+  .tool-mark-stack--logo.tool-mark-stack--xl:has(.tool-mark-stack__logo) {
+    @apply p-3;
+  }
+
+  .tool-mark-stack--logo > .tool-mark--initials {
+    @apply h-full w-full bg-transparent font-semibold text-muted;
+    box-shadow: none;
+  }
+
+  .tool-mark-stack--logo .tool-mark-stack__fallback {
+    @apply absolute inset-0 z-0 text-transparent;
+  }
+
+  .tool-mark-stack--logo .tool-mark-stack__fallback.is-visible {
+    @apply z-10 text-muted;
+  }
+
+  .tool-mark-stack__logo {
+    @apply relative z-10 block h-full w-full object-contain;
+  }
+
+  .tool-mark--initials {
+    @apply bg-surface-raised font-semibold text-muted;
+    box-shadow: inset 0 0 0 1px var(--color-border);
+  }
+
+  .tool-mark-overlap {
+    @apply relative z-0;
+  }
+
+  .comparison-pair {
+    @apply inline-flex items-center;
+  }
+
+  .comparison-pair--card,
+  .comparison-pair--hero {
+    @apply mr-auto;
+  }
+
+  .comparison-pair__vs {
+    @apply relative z-20 -mx-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-white font-mono text-[8px] font-semibold lowercase tracking-wider text-muted ring-2 ring-surface-raised shadow-sm;
+  }
+
+  .comparison-pair--hero .comparison-pair__vs {
+    @apply -mx-1.5 size-7.5 text-xs;
+  }
+
+  .directory-card__actions {
+    @apply -mt-px flex divide-x divide-border;
+  }
+
+  .directory-card__action {
+    @apply relative inline-flex w-0 min-h-11 flex-1 items-center justify-center gap-2 px-4 py-4 text-center text-sm font-semibold text-neutral-900 no-underline transition hover:bg-surface-raised hover:text-neutral-900;
+  }
+
+  .toc-link {
+    @apply relative block py-0.5 pl-3 text-muted no-underline transition hover:text-indigo-dark;
+  }
+
+  .toc-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 4px;
+    border-radius: 3px;
+    background: transparent;
+    transition: background 0.2s ease;
+  }
+
+  .toc-link-active {
+    @apply font-medium text-fg;
+  }
+
+  .toc-link-active::before {
+    background: linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse));
+  }
+
+  .profile-header {
+    @apply mb-10 rounded-xl border border-border bg-white p-6 shadow-sm sm:p-8;
+  }
+
+  @supports (corner-shape: squircle) {
+    :is(
+      .skip-link:focus,
+      .btn-primary,
+      .btn-secondary,
+      .card,
+      .card-interactive,
+      .nav-link,
+      .tag,
+      .input-field,
+      .directory-card,
+      .tool-mark-stack--logo,
+      .comparison-pair__vs,
+      .profile-header
+    ) {
+      corner-shape: squircle;
+    }
+  }
+}

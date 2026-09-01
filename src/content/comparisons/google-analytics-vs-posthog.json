@@ -1,0 +1,34 @@
+{
+  "title": "Google Analytics vs PostHog",
+  "description": "Google Analytics 4 vs PostHog — compare web analytics vs full product analytics, pricing models, and when each tool fits.",
+  "tools": ["google-analytics-4", "posthog"],
+  "category": "product-analytics",
+  "winner": null,
+  "verdict": "GA4 is a free, general-purpose web analytics platform deeply integrated with Google. PostHog is a product analytics suite with event tracking, funnels, session replay, and feature flags — better for SaaS and app teams.",
+  "quickAnswer": "**Google Analytics 4** answers \"how much traffic does my site get and where does it come from?\" **PostHog** answers \"what are users doing inside my product and which features drive retention?\" They overlap on pageviews but serve different primary use cases.",
+  "bottomLine": "Don't pit these tools as direct competitors unless you only need pageview tracking. For marketing analytics, GA4 (or a privacy alternative) wins on cost and ecosystem. For product teams shipping features weekly, PostHog is the more capable platform.",
+  "faq": [
+    {
+      "question": "Is PostHog a replacement for Google Analytics?",
+      "answer": "For basic website traffic reporting, PostHog can replace GA4. PostHog shines when you need product analytics — tracking user journeys, feature adoption, and running experiments."
+    },
+    {
+      "question": "Is PostHog free?",
+      "answer": "PostHog Cloud includes 1 million events per month free. GA4 is free for most websites. Compare ongoing costs with our pricing calculator as your event volume grows."
+    },
+    {
+      "question": "Which is better for a SaaS product?",
+      "answer": "PostHog is generally the better fit for SaaS. It supports user identification, funnels, retention analysis, feature flags, and A/B testing out of the box."
+    },
+    {
+      "question": "Can PostHog be self-hosted?",
+      "answer": "Yes. PostHog offers open-source self-hosting for teams that want full data control. GA4 is cloud-only through Google."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Use case fit",
+      "content": "For a **marketing website or blog**, GA4 or a privacy tool like Plausible is usually enough. For a **SaaS product with user accounts**, PostHog fits better. For **content sites with ad attribution**, GA4 wins. For **feature flags and A/B tests**, choose PostHog. For **free analytics at high traffic**, GA4 has no direct SaaS cost."
+    }
+  ]
+}

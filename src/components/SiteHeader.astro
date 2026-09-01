@@ -1,0 +1,65 @@
+---
+const nav = [
+  { href: '/compare/', label: 'Comparisons', match: '/compare' },
+  { href: '/tools/', label: 'Directory', match: '/tools' },
+  { href: '/calculators/pricing/', label: 'Calculator', match: '/calculators' },
+  { href: '/benchmarks/', label: 'Benchmarks', match: '/benchmarks' },
+];
+
+const path = Astro.url.pathname;
+
+function isActive(match: string) {
+  return path === match || path.startsWith(`${match}/`);
+}
+---
+
+<header class="sticky top-0 z-50 border-b border-border bg-base/90 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:py-4">
+    <a href="/" class="group flex min-h-11 items-center gap-2 no-underline" aria-label="AnalyticsVS home">
+      <span
+        class="gradient-primary flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-bold text-white"
+        aria-hidden="true">VS</span
+      >
+      <span class="font-heading text-lg font-bold tracking-tight text-fg group-hover:text-gradient-primary"
+        >AnalyticsVS</span
+      >
+    </a>
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="nav-link"
+            aria-current={isActive(item.match) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <details class="group relative md:hidden">
+      <summary
+        class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-border px-4 font-body text-sm font-medium text-muted [&::-webkit-details-marker]:hidden"
+        aria-label="Open navigation menu"
+      >
+        Menu
+      </summary>
+      <nav
+        class="absolute right-0 z-50 mt-2 w-52 rounded-xl border border-border bg-base p-2 shadow-lg"
+        aria-label="Mobile navigation"
+      >
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              class="nav-link w-full"
+              aria-current={isActive(item.match) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+  </div>
+</header>

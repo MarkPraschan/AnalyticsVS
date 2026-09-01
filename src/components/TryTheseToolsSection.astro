@@ -1,0 +1,31 @@
+---
+import AffiliateCTA from './AffiliateCTA.astro';
+import AffiliateDisclosure from './AffiliateDisclosure.astro';
+import { getToolVisitUrl, isAffiliateTool, type ToolEntry } from '../lib/tools';
+
+interface Props {
+  tools: ToolEntry[];
+  heading?: string;
+  class?: string;
+}
+
+const { tools, heading = 'Try these tools', class: className } = Astro.props;
+const hasAffiliateLink = tools.some((tool) => isAffiliateTool(tool.data));
+---
+
+<section class:list={className}>
+  <h2 class="section-heading">{heading}</h2>
+  <div class="mt-4 grid gap-4 sm:grid-cols-2">
+    {
+      tools.map((tool) => (
+        <AffiliateCTA
+          name={tool.data.name}
+          url={getToolVisitUrl(tool.data)}
+          affiliate={isAffiliateTool(tool.data)}
+          tool={tool.data}
+        />
+      ))
+    }
+  </div>
+  {hasAffiliateLink && <AffiliateDisclosure class="mt-3" />}
+</section>

@@ -1,0 +1,67 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import BenchmarkCard from '../../components/BenchmarkCard.astro';
+import { getCollection } from 'astro:content';
+import { getToolById } from '../../lib/tools';
+import { SITE } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const benchmarks = await getCollection('benchmarks');
+  return benchmarks.map((benchmark) => ({
+    params: { slug: benchmark.data.slug },
+    props: { benchmark },
+  }));
+}
+
+const { benchmark } = Astro.props;
+const tool = await getToolById(benchmark.data.tool);
+
+const pageUrl = new URL(`/benchmarks/${benchmark.data.slug}/`, SITE.url).href;
+
+const schema = [
+  buildArticleSchema({
+    title: benchmark.data.title,
+    description: `Script performance benchmark for ${tool?.data.name ?? benchmark.data.tool}`,
+    url: pageUrl,
+    dateModified: benchmark.data.testDate,
+    breadcrumbs: [],
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Benchmarks', url: new URL('/benchmarks/', SITE.url).href },
+    { name: benchmark.data.title, url: pageUrl },
+  ]),
+];
+---
+
+<ArticleLayout
+  title={benchmark.data.title}
+  description={`Performance benchmark for ${tool?.data.name ?? benchmark.data.tool}. Recorded by AnalyticsVS under controlled test conditions.`}
+  lastUpdated={benchmark.data.testDate}
+  schema={schema}
+>
+  <BenchmarkCard benchmark={benchmark} />
+
+  {
+    tool && (
+      <section class="mt-10">
+        <h2 class="section-heading">About {tool.data.name}</h2>
+        <p class="mt-2 text-muted">{tool.data.tagline}</p>
+        <p class="mt-4">
+          <a href={`/tools/${tool.data.slug}/`}>View full {tool.data.name} profile →</a>
+        </p>
+      </section>
+    )
+  }
+
+  <section class="mt-10 card">
+    <h2 class="font-heading text-lg font-semibold text-gradient-secondary">Methodology</h2>
+    <p class="mt-2 text-sm leading-relaxed text-muted">
+      {benchmark.data.methodology}
+    </p>
+    <p class="mt-4 text-sm">
+      <a href="/methodology/">Full benchmark methodology →</a>
+    </p>
+  </section>
+</ArticleLayout>

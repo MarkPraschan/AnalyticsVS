@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolDirectoryCard from '../../components/ToolDirectoryCard.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import { getAllTools } from '../../lib/tools';
+import { isAffiliateTool } from '../../lib/affiliate';
+
+const tools = await getAllTools();
+const hasAffiliateTools = tools.some((tool) => isAffiliateTool(tool.data));
+---
+
+<BaseLayout
+  title="Analytics Directory"
+  description="Browse analytics tools with pricing data, feature breakdowns, and benchmark results."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-10">
+      <h1 class="section-heading text-gradient-primary">Directory</h1>
+      <p class="page-intro mt-4">
+        Profiles for web analytics, privacy analytics, behavior analytics, and product analytics
+        platforms. Each profile includes pricing tiers, feature flags, and links to comparisons.
+      </p>
+    </header>
+
+    {
+      tools.length === 0 ? (
+        <p class="rounded-xl border border-border bg-surface-raised px-5 py-4 text-sm text-muted" role="status">
+          No tools loaded. If you are running locally, stop the dev server and run{' '}
+          <code class="font-mono text-fg">npm run dev</code> again to refresh the content cache.
+        </p>
+      ) : (
+        <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {tools.map((tool) => (
+            <li class="col-span-1 h-full">
+              <ToolDirectoryCard tool={tool} />
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {hasAffiliateTools && (
+      <AffiliateDisclosure class="mt-8" />
+    )}
+  </div>
+</BaseLayout>

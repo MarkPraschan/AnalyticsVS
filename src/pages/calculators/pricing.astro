@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PricingCalculator from '../../components/PricingCalculator.astro';
+---
+
+<BaseLayout
+  title="Analytics Pricing Calculator"
+  description="Compare estimated monthly costs for Google Analytics, Plausible, Fathom, Hotjar, and PostHog at your traffic level."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-8">
+      <h1 class="section-heading text-gradient-primary">Pricing calculator</h1>
+      <p class="page-intro mt-4">
+        Compare estimated monthly costs across analytics platforms at your traffic level. Enter your
+        monthly pageviews, optional custom events, and how many sites you track — we map each input to
+        published pricing tiers and sort tools from lowest to highest estimated cost.
+      </p>
+    </header>
+
+    <PricingCalculator />
+
+    <section class="mt-10 card" aria-labelledby="how-estimates-work">
+      <h2 id="how-estimates-work" class="font-heading text-lg font-semibold text-gradient-secondary">
+        How estimates work
+      </h2>
+      <div class="mt-4 space-y-4 text-base leading-relaxed text-muted">
+        <p>
+          This calculator is a <strong class="text-fg">directional comparison</strong>, not a quote.
+          It uses pricing tiers and project limits we maintain in our{' '}
+          <a href="/tools/">tools directory</a>. When a vendor publishes clear tier tables, we map
+          your inputs to the cheapest plan that fits. When pricing is usage-based or sales-led, we
+          show <strong class="text-fg">Contact sales</strong> instead of guessing.
+        </p>
+        <ul class="list-disc space-y-2 pl-5">
+          <li>
+            <strong class="text-fg">Pageviews</strong> drive Plausible, Fathom, and Hotjar estimates.
+            Hotjar is approximated from pageviews (assuming ~3 pages per session).
+          </li>
+          <li>
+            <strong class="text-fg">Custom events</strong> are added to pageviews for event-based
+            tools (PostHog, Umami, DataFast, Matomo Cloud).
+          </li>
+          <li>
+            <strong class="text-fg">Sites / projects</strong> can change the required plan: GA4 stays
+            free across properties; Plausible switches to Growth for 2–3 sites; DataFast switches to
+            Growth for 2–30 sites; Fathom, Hotjar, and Matomo Cloud are estimated per site.
+          </li>
+        </ul>
+        <p>
+          <strong class="text-fg">What we do not model yet:</strong> annual discounts, add-ons,
+          team seats, data retention upgrades, exact PostHog usage above 1M events, or enterprise
+          contracts (GA4 360). Those need a vendor quote.
+        </p>
+      </div>
+      <p class="mt-4 text-sm">
+        <a href="/methodology/">Read our full methodology →</a>
+      </p>
+    </section>
+  </div>
+</BaseLayout>

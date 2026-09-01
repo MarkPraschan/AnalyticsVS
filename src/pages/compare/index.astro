@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComparisonCard from '../../components/ComparisonCard.astro';
+import { getCollection } from 'astro:content';
+import { getToolsByIds } from '../../lib/tools';
+
+const comparisons = (await getCollection('comparisons')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+const comparisonTools = await Promise.all(
+  comparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+---
+
+<BaseLayout
+  title="Analytics Tool Comparisons"
+  description="Side-by-side comparisons of web, product, and behavior analytics tools."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-10">
+      <h1 class="section-heading text-gradient-primary">Comparisons</h1>
+      <p class="page-intro mt-4">
+        In-depth "X vs Y" guides for analytics tools. Each comparison includes feature matrices,
+        pricing context, and FAQ sections designed for search engines and AI citations.
+      </p>
+    </header>
+
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {
+        comparisonTools.map(({ comparison, tools }) => (
+          <li>
+            <ComparisonCard comparison={comparison} tools={tools} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

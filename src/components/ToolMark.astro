@@ -1,0 +1,65 @@
+---
+import type { ToolEntry } from '../lib/tools';
+import { getToolInitial } from '../lib/tools';
+import { getBrandLogoUrl } from '../lib/brand-logos';
+
+interface Props {
+  tool: ToolEntry['data'];
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string | false;
+  class?: string;
+}
+
+const { tool, size = 'md', href, class: className } = Astro.props;
+const initial = getToolInitial(tool.name);
+const brandLogoUrl = getBrandLogoUrl(tool.id);
+const profileUrl = `/tools/${tool.slug}/`;
+const linkHref = href === false ? null : (href ?? profileUrl);
+const sizePx = size === 'sm' ? 32 : size === 'lg' ? 64 : size === 'xl' ? 72 : 48;
+const sizeClass = `tool-mark--${size}`;
+const Tag = linkHref ? 'a' : 'span';
+const tagProps = linkHref
+  ? {
+      href: linkHref,
+      class: 'tool-mark-link shrink-0',
+      'aria-label': `View ${tool.name} profile`,
+    }
+  : { class: 'inline-flex shrink-0' };
+---
+
+<Tag {...tagProps}>
+  <span
+    class:list={[
+      'tool-mark-stack',
+      'tool-mark-stack--logo',
+      `tool-mark-stack--${size}`,
+      className,
+    ]}
+  >
+    <span
+      class:list={[
+        'tool-mark',
+        sizeClass,
+        'tool-mark--initials',
+        brandLogoUrl && 'tool-mark-stack__fallback',
+      ]}
+      aria-hidden={brandLogoUrl ? 'true' : undefined}
+    >
+      {initial}
+    </span>
+    {
+      brandLogoUrl && (
+        <img
+          src={brandLogoUrl}
+          alt=""
+          width={sizePx}
+          height={sizePx}
+          class="tool-mark-stack__logo"
+          loading="lazy"
+          decoding="async"
+          onerror="this.remove(); this.parentElement?.querySelector('.tool-mark-stack__fallback')?.classList.add('is-visible')"
+        />
+      )
+    }
+  </span>
+</Tag>

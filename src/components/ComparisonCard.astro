@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { ToolEntry } from '../lib/tools';
+import ComparisonPairMarks from './ComparisonPairMarks.astro';
+import Reicon from './Reicon.astro';
+
+interface Props {
+  comparison: CollectionEntry<'comparisons'>;
+  tools: ToolEntry[];
+  heading?: 'h2' | 'h3';
+}
+
+const { comparison, tools, heading: Heading = 'h2' } = Astro.props;
+---
+
+<a href={`/compare/${comparison.id}/`} class="card-interactive flex h-full flex-col">
+  <ComparisonPairMarks tools={tools} size="card" />
+  <Heading class="mt-4 font-heading text-lg font-semibold text-fg sm:text-xl">
+    {comparison.data.title}
+  </Heading>
+  <p class="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">{comparison.data.verdict}</p>
+  <span class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-neutral-900">
+    <Reicon name="book" />
+    Read more
+  </span>
+</a>

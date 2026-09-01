@@ -1,0 +1,49 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LastUpdated from '../components/LastUpdated.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lastUpdated?: Date | string;
+  schema?: Record<string, unknown> | Record<string, unknown>[] | null;
+}
+
+const { title, description, lastUpdated, schema } = Astro.props;
+const hasCustomHeader = Astro.slots.has('header');
+const hasLead = Astro.slots.has('lead');
+---
+
+<BaseLayout title={title} description={description} ogType="article" schema={schema}>
+  <article class="page-shell">
+    {
+      hasCustomHeader ? (
+        <slot name="header" />
+      ) : (
+        <header class="mb-10 border-b border-border pb-8">
+      <div class:list={[hasLead && 'flex items-start gap-4 sm:gap-5']}>
+        {
+          hasLead && (
+            <div class="shrink-0 pt-1">
+              <slot name="lead" />
+            </div>
+          )
+        }
+        <div class="min-w-0">
+          <h1 class="heading-lg text-gradient-primary">{title}</h1>
+          <p class="page-intro mt-4">{description}</p>
+          {
+            lastUpdated && (
+              <div class="mt-4">
+                <LastUpdated date={lastUpdated} />
+              </div>
+            )
+          }
+        </div>
+      </div>
+        </header>
+      )
+    }
+    <slot />
+  </article>
+</BaseLayout>

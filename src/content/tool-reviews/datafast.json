@@ -1,0 +1,69 @@
+{
+  "tool": "datafast",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**DataFast** is the best fit if you run a small SaaS or indie product on Stripe (or similar processors) and need to know which **marketing channels drive revenue**, not just traffic. Skip it if you need enterprise analytics, session replay, or deep in-product behavior analysis — **PostHog** or **GA4** are better starting points for that.",
+  "bestFor": [
+    "Indie hackers and solo founders shipping on Stripe, Lemon Squeezy, Polar, Paddle, or Shopify",
+    "Teams optimizing paid and organic channels against **revenue per visitor**",
+    "Multi-project operators who want one dashboard for several small sites (Growth plan)",
+    "Privacy-conscious teams that want lightweight web analytics without a GA4-style stack"
+  ],
+  "notFor": [
+    "Enterprises needing SSO, audit logs, warehouse export, or advanced access controls",
+    "Product teams that need session replay, heatmaps, or feature-flag-driven experimentation",
+    "Content sites with no payment flow — Plausible or Fathom cover traffic analytics more simply",
+    "Teams that cannot add payment-metadata wiring (Stripe Checkout metadata or Payment API calls)"
+  ],
+  "sections": [
+    {
+      "id": "revenue-attribution",
+      "title": "Revenue attribution",
+      "dimension": "revenue-attribution",
+      "content": "DataFast's core value is joining **website visits to completed payments**. On first visit, the script sets first-party cookies (`datafast_visitor_id`, `datafast_session_id`). When a customer pays, those IDs must reach your payment provider — typically via **Stripe Checkout or PaymentIntent metadata** — so DataFast can match revenue to referrer, campaign, and landing page.\n\nSupported processors include **Stripe, Lemon Squeezy, Polar, Paddle, Shopify, and WooCommerce**, plus a **Payment API** for custom stacks. Connected providers sync automatically; custom flows require a server-side POST when payment succeeds.\n\nThis depends on correct metadata wiring and cookies surviving through checkout. One-off payments and short attribution windows are well supported; complex B2B sales cycles with offline closes are a weaker fit."
+    },
+    {
+      "id": "web-analytics",
+      "title": "Web analytics & funnels",
+      "dimension": "analytics-scope",
+      "content": "Beyond revenue, DataFast covers standard **web analytics**: pageviews, referrers, devices, countries, and realtime visitors. You can define **goals and funnels** to see where visitors drop off before payment.\n\nCompared with GA4, reporting depth is intentionally narrower — fewer dimensions, no BigQuery export, no ad-platform native integrations. Compared with Plausible, you get **revenue-aware channel reports** that privacy-first tools do not offer out of the box.\n\nIf your primary question is \"which blog post led to sales this week?\", DataFast answers it directly. If your question is \"how do power users navigate our app?\", look at product analytics tools instead."
+    },
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "DataFast markets a **privacy-friendly** posture: no third-party ad cookies, no cross-site tracking network, and GDPR-oriented documentation. Revenue attribution still relies on **first-party cookies** to link visitors to payments — so you may still need consent messaging depending on jurisdiction and counsel's interpretation.\n\nData is not self-hostable. Retention is **3 years on Starter** and **5+ years on Growth** per vendor plan pages. For strict data-residency or air-gapped requirements, consider Matomo self-hosted instead."
+    }
+  ],
+  "setupNotes": "**Typical setup (Stripe SaaS):**\n\n1. Add the DataFast script to your marketing site or app shell.\n2. Connect Stripe (or another supported processor) in the DataFast dashboard.\n3. Pass `datafast_visitor_id` and `datafast_session_id` into Stripe Checkout or PaymentIntent **metadata** on your backend.\n4. Confirm a test payment appears with referrer and channel data in the dashboard.\n\nExpect **1–2 hours** for a standard Next.js + Stripe Checkout stack if you read the docs first. No webhook is required for basic Stripe metadata pass-through — DataFast pulls from the processor API.\n\n**Common pitfalls:** metadata not forwarded on custom checkout flows, cookies blocked before payment on a different subdomain, and counting custom product events that inflate tier usage.",
+  "pricingNotes": "Plans combine a **base subscription** with **event-volume tiers**. Starter is **$9/month** (10K events, 1 site, 1 seat); Growth is **$19/month** (10K events, up to 30 sites, 30 seats, extended retention). Higher event bands scale to **$299/month at 10M events** per our directory data.\n\nEvents include pageviews and tracked custom events — heavy event instrumentation increases cost faster than pageview-only analytics. A **14-day free trial** (no card required per vendor) lowers evaluation risk.\n\nUse our [pricing calculator](/calculators/pricing/) with pageviews + custom events to estimate your band.",
+  "limitations": [
+    "Revenue attribution requires developer work (metadata or Payment API) — not plug-and-play like dropping in GA4 alone.",
+    "First-party cookies are required for attribution; cookieless positioning applies to third-party tracking, not the attribution flow itself.",
+    "No session replay, heatmaps, or A/B testing — pair with Hotjar or PostHog if you need behavior tooling.",
+    "Cloud-only — no self-hosted deployment.",
+    "Script performance benchmark not yet published on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Does DataFast replace Google Analytics?",
+      "answer": "For marketing sites that only need traffic reports, probably not — GA4 is free and deeper for ad integrations. DataFast makes sense when revenue per channel is the metric you optimize for and you use a supported payment processor."
+    },
+    {
+      "question": "Which payment providers work out of the box?",
+      "answer": "Stripe, Lemon Squeezy, Polar, Paddle, Shopify, and WooCommerce can be connected in the dashboard. Custom billing stacks can use the Payment API with your server sending transaction data after checkout."
+    },
+    {
+      "question": "How hard is Stripe attribution to implement?",
+      "answer": "For Stripe Checkout or PaymentIntents, add datafast_visitor_id and datafast_session_id to payment metadata on your backend. Skipping this step means revenue will not tie to traffic sources."
+    },
+    {
+      "question": "DataFast vs Plausible — when do I pick each?",
+      "answer": "Pick Plausible for simple, privacy-first traffic analytics without payments. Pick DataFast when you sell online and need to know which channels produce paying customers, not just visits."
+    }
+  ],
+  "sources": [
+    { "label": "DataFast pricing", "url": "https://datafa.st/pricing", "checkedOn": "2026-08-28" },
+    { "label": "Stripe PaymentIntent attribution docs", "url": "https://datafa.st/docs/stripe-payment-intent-api", "checkedOn": "2026-08-28" },
+    { "label": "Payment API docs", "url": "https://datafa.st/docs/payments-api", "checkedOn": "2026-08-28" }
+  ]
+}

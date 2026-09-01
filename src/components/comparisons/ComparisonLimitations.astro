@@ -1,0 +1,41 @@
+---
+import ToolMark from '../ToolMark.astro';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import type { ComparisonToolContext } from '../../lib/comparisons';
+
+interface Props {
+  tools: ComparisonToolContext[];
+}
+
+const { tools } = Astro.props;
+
+function renderListItem(item: string) {
+  return renderReviewMarkdown(item).replace(/^<p>|<\/p>$/g, '');
+}
+---
+
+<section id="limitations" class="mt-10">
+  <h2 class="article-heading">Limitations compared</h2>
+  <div class="comparison-dimension__grid mt-4">
+    {
+      tools.map(({ tool, review }) => (
+        <div class="comparison-dimension__panel card">
+          <div class="comparison-dimension__panel-header">
+            <ToolMark tool={tool.data} size="sm" href={false} />
+            <h3 class="font-heading font-semibold text-fg">{tool.data.name}</h3>
+          </div>
+          <ul class="fit-checklist mt-3">
+            {
+              review.limitations.map((item) => (
+                <li>
+                  <span class="fit-checklist__marker text-muted/70" aria-hidden="true">−</span>
+                  <span set:html={renderListItem(item)} />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

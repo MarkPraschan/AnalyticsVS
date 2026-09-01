@@ -1,0 +1,43 @@
+{
+  "id": "matomo",
+  "name": "Matomo",
+  "slug": "matomo",
+  "category": "web-analytics",
+  "tagline": "Open-source web analytics with cloud or self-hosted deployment",
+  "website": "https://matomo.org",
+  "brandColor": "#3450A3",
+  "affiliate": {
+    "enabled": false,
+    "url": "https://matomo.org"
+  },
+  "pricing": {
+    "model": "monthly_events",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 50000, "price": 23, "label": "Cloud · up to 50K hits" },
+      { "limit": 100000, "price": 49, "label": "Cloud · up to 100K hits" },
+      { "limit": 250000, "price": 99, "label": "Cloud · up to 250K hits" },
+      { "limit": 500000, "price": 189, "label": "Cloud · up to 500K hits" },
+      { "limit": 1000000, "price": 389, "label": "Cloud · up to 1M hits" }
+    ],
+    "notes": "Matomo Cloud pricing as of Aug 2026. Self-hosted is free. Hits include pageviews and tracked events.",
+    "projectLimits": {
+      "included": 1,
+      "billingModel": "per_site",
+      "notes": "Matomo Cloud subscriptions are typically per site. Self-hosted has no site cap."
+    }
+  },
+  "features": {
+    "cookieless": false,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": true,
+    "session_recordings": true,
+    "ab_testing": true,
+    "product_analytics": false,
+    "self_hosted": true,
+    "open_source": true
+  }
+}

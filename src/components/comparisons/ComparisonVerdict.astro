@@ -1,0 +1,30 @@
+---
+import { renderReviewMarkdown, renderSimpleMarkdown } from '../../lib/markdown';
+
+interface Props {
+  bottomLine: string;
+  editorialNotes: Array<{ title: string; content: string }>;
+}
+
+const { bottomLine, editorialNotes } = Astro.props;
+---
+
+<section id="bottom-line" class="mt-10">
+  <h2 class="article-heading">Bottom line</h2>
+  <div class="prose-content mt-4" set:html={renderSimpleMarkdown(bottomLine)} />
+</section>
+
+{
+  editorialNotes.length > 0 && (
+    <div class="mt-10 space-y-10">
+      {
+        editorialNotes.map((note) => (
+          <section class="prose-content review-prose">
+            <h2 class="article-heading">{note.title}</h2>
+            <div class="mt-4" set:html={renderReviewMarkdown(note.content)} />
+          </section>
+        ))
+      }
+    </div>
+  )
+}

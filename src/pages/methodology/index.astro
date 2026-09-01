@@ -1,0 +1,79 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+---
+
+<ArticleLayout
+  title="Methodology"
+  description="How AnalyticsVS sources pricing data, writes comparisons, and records script performance benchmarks."
+>
+  <div class="prose-content max-w-3xl">
+    <h2>Editorial independence</h2>
+    <p>
+      AnalyticsVS is an independent comparison site. We are not owned by any analytics vendor. Some
+      links are affiliate links (see our <a href="/disclosure/">disclosure page</a>), but
+      affiliate relationships do not influence our comparisons or benchmark results.
+    </p>
+
+    <h2>Tool review methodology</h2>
+    <p>
+      Each tool review declares a <strong>review scope</strong> — the exact product edition we are
+      evaluating. Vendors often ship related products under one brand (for example, hosted SaaS vs a
+      self-hosted &ldquo;Lite&rdquo; edition). We document those as <strong>variants</strong> so
+      comparisons do not conflate them.
+    </p>
+    <ul>
+      <li>Feature checklists and pricing tables reflect the primary product unless a variant is explicitly noted.</li>
+      <li>Self-hosted variants require a dedicated vendor source URL and appear on the tool review page.</li>
+      <li>Build-time checks flag reviews that deny capabilities a documented variant provides.</li>
+    </ul>
+
+    <h2>Comparison methodology</h2>
+    <p>
+      Each "X vs Y" comparison is built from our verified <a href="/tools/">tool reviews</a>.
+      We lead with a direct verdict, assemble side-by-side fit, pricing, setup, and limitations from
+      those reviews, and add comparison-specific FAQ and bottom-line judgment where automation cannot
+      replace editorial context.
+    </p>
+    <ul>
+      <li>Both tools in a comparison must have a published review before the page ships.</li>
+      <li>Head-to-head sections align review topics by dimension (privacy, scope, deployment, etc.).</li>
+      <li>Feature data is sourced from vendor documentation and verified manually.</li>
+      <li>Pricing data is checked against vendor pricing pages and dated on each profile.</li>
+      <li>We note when a tool is better for a specific audience rather than declaring universal winners.</li>
+    </ul>
+
+    <h2>Pricing calculator methodology</h2>
+    <p>
+      The <a href="/calculators/pricing/">pricing calculator</a> uses published vendor tier data
+      stored in our tools directory. Each tool has its own pricing model:
+    </p>
+    <ul>
+      <li><strong>Pageview-based</strong> (Plausible, Fathom): tier lookup by monthly pageviews.</li>
+      <li><strong>Free tier</strong> (GA4, PostHog): free up to published limits.</li>
+      <li><strong>Session-based</strong> (Hotjar): estimated from pageviews with stated assumptions.</li>
+    </ul>
+    <p>
+      Calculator results are estimates. Vendor pricing changes, promotional offers, and annual
+      billing discounts are not always reflected. Always confirm on the vendor's website.
+    </p>
+
+    <h2>Benchmark methodology</h2>
+    <p>
+      Script performance benchmarks are recorded by AnalyticsVS on controlled test pages. We
+      measure transfer size, decoded body size, and main-thread blocking time under defined network
+      and device conditions.
+    </p>
+    <ul>
+      <li>We never publish estimated, scraped, or AI-generated performance numbers.</li>
+      <li>Benchmarks marked "pending" have not yet been recorded.</li>
+      <li>Each published benchmark includes the test date and environment details.</li>
+      <li>Raw results will be linked when available.</li>
+    </ul>
+
+    <h2>Updates and corrections</h2>
+    <p>
+      Analytics tools change frequently. Each page shows a "last updated" date. If you find
+      inaccurate information, please reach out so we can correct it.
+    </p>
+  </div>
+</ArticleLayout>

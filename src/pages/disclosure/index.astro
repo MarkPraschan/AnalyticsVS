@@ -1,0 +1,72 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getAllTools } from '../../lib/tools';
+import { getAffiliatePartners } from '../../lib/affiliate';
+
+const tools = await getAllTools();
+const partners = getAffiliatePartners(tools);
+---
+
+<ArticleLayout
+  title="Affiliate Disclosure"
+  description="AnalyticsVS affiliate relationships and editorial independence policy."
+>
+  <div class="prose-content max-w-3xl">
+    <h2>Affiliate relationships</h2>
+    <p>
+      Some outbound links on AnalyticsVS are affiliate links. If you click one and later subscribe
+      or purchase, we may earn a commission at no extra cost to you.
+    </p>
+
+    {
+      partners.length > 0 && (
+        <>
+          <h3>Current affiliate partners</h3>
+          <p>
+            We participate in affiliate programs for the following tools. Commission rates are set
+            by each vendor and may change without notice.
+          </p>
+          <ul>
+            {partners.map((partner) => (
+              <li>
+                <strong>{partner.name}</strong>
+                {partner.commission && ` — up to ${partner.commission} commission`}
+              </li>
+            ))}
+          </ul>
+          <p class="text-sm text-muted">
+            Tools without affiliate programs (e.g. Google Analytics, Umami) link directly to vendor
+            sites with no commission.
+          </p>
+        </>
+      )
+    }
+
+    <h2>Editorial independence</h2>
+    <p>
+      Affiliate relationships do not influence our comparisons, rankings, or benchmark results. We
+      recommend tools based on fit for specific use cases. Tools with and without affiliate
+      programs receive the same treatment — including cases where a non-affiliate tool is the better
+      fit.
+    </p>
+
+    <h2>How to identify affiliate links</h2>
+    <p>
+      Affiliate visit buttons include a short commission note and use <code>rel="sponsored"</code>.
+      Direct vendor links (no commission) go to the product website without that attribute.
+    </p>
+
+    <h2>No sponsored content</h2>
+    <p>
+      We do not publish sponsored comparisons or paid placements. Vendors cannot pay for higher
+      rankings or favorable verdicts. If this policy changes, it will be disclosed prominently on
+      affected pages.
+    </p>
+
+    <h2>Display advertising</h2>
+    <p>
+      AnalyticsVS does not run third-party display ads on comparison or review content. Monetization
+      is limited to clearly labeled affiliate links on vendor visit buttons.
+    </p>
+  </div>
+</ArticleLayout>

@@ -1,0 +1,92 @@
+{
+  "tool": "ahrefs",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Ahrefs Web Analytics** is the best fit if you want a **free, cookieless GA4 alternative** with **SEO context** — AI bot traffic, Search Console keywords, and lightweight reporting tied to the Ahrefs platform. Skip it if you need product analytics, session replay, or analytics outside the Ahrefs ecosystem — **Plausible**, **PostHog**, or **GA4** are stronger there.",
+  "bestFor": [
+    "Marketing and SEO teams already using **Ahrefs** who want simple traffic reporting in the same dashboard",
+    "Site owners migrating off GA4 for a **privacy-friendly, cookie-free** script (~2 KB)",
+    "Teams tracking **AI referral traffic** (ChatGPT, Perplexity, Gemini, etc.) alongside classic referrers",
+    "Publishers who want **Google Search Console** keyword data next to on-site conversion funnels"
+  ],
+  "notFor": [
+    "Teams that do not want an Ahrefs account or SEO suite bundled with analytics",
+    "Product-led SaaS needing cohorts, feature flags, or session replay — use **PostHog** or **Hotjar**",
+    "Stripe-native revenue attribution — use **DataFast** or custom GA4 ecommerce",
+    "Self-hosted or open-source requirements — use **Umami** or **Plausible** self-hosted"
+  ],
+  "sections": [
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "Ahrefs Web Analytics is marketed as **cookie-free** and **privacy-friendly**, with **no personal data collected** in default configurations. That positions it alongside Plausible and Fathom for teams reducing consent-banner friction in the EU and UK — still verify with counsel for your tracking setup.\n\nBecause data lives in Ahrefs' cloud (Singapore-based company), data residency and DPA terms follow Ahrefs' platform policies, not your own infrastructure. This is a different tradeoff than self-hosted Umami or Matomo.\n\nThe lightweight script (~2 KB claimed) also reduces performance impact versus heavier GA4 tags."
+    },
+    {
+      "id": "analytics-scope",
+      "title": "Web analytics scope",
+      "dimension": "analytics-scope",
+      "content": "Ahrefs covers core **marketing site metrics**: pageviews, referrers, devices, geography, **custom events**, **funnels**, and **outbound link** clicks. Real-time reporting is emphasized — visitors can appear within about a minute of an event.\n\nDifferentiators versus generic privacy analytics: **AI traffic breakdown** (which AI tools send visitors), **Search Console integration** for keyword-to-landing-page context, and **UTM** breakdowns for paid and partner campaigns.\n\nScope stays web/marketing focused — not a full product analytics or data warehouse platform. Historical data is described as **unlimited** on the product page, unlike GA4's retention limits."
+    },
+    {
+      "id": "integrations",
+      "title": "SEO & ecosystem integrations",
+      "dimension": "integrations",
+      "content": "Web Analytics is **included with Ahrefs Free** and sits inside the broader Ahrefs workspace alongside Site Explorer, Site Audit, and Rank Tracker on paid plans. That integration is the main reason to choose it over standalone Plausible — your traffic data lives next to SEO workflows.\n\n**Google Search Console** connection is a headline feature for tying rankings to on-site behavior. There is no native Google Ads or BigQuery export comparable to GA4's marketing platform depth.\n\nYou can **import historical data from GA4** to ease migration, which lowers switching friction for teams leaving Google Analytics."
+    },
+    {
+      "id": "deployment",
+      "title": "Cloud-only deployment",
+      "dimension": "deployment",
+      "content": "Ahrefs Web Analytics is **cloud-only SaaS** — install a JavaScript snippet or use GA4 import, then manage projects in the Ahrefs dashboard. Verified domain ownership is required for the free tier.\n\nThere is no self-hosted edition. Teams with strict data-sovereignty requirements should compare **Matomo** or **Umami** instead.\n\nSetup is intentionally simple (copy-paste snippet, installation checker) and aimed at marketers rather than data engineers."
+    }
+  ],
+  "setupNotes": "**Typical setup:**\n\n1. Create or sign in to an **Ahrefs Free** account.\n2. Add a **Web Analytics** project and verify site ownership.\n3. Paste the **JavaScript snippet** into your site `<head>` (or use the GA4 import path if migrating).\n4. Run the in-app **installation check** to confirm events are flowing.\n5. Optionally connect **Google Search Console** and configure **custom events** or **funnels** for key conversions.\n\nExpect **15–30 minutes** for a standard marketing site. No tag manager is required, though you can deploy via GTM if preferred.\n\n**Common pitfalls:** mixing Ahrefs event counts with GA4 pageview definitions, forgetting verification for the free tier, and tracking staging domains you did not intend to bill against project limits.",
+  "pricingNotes": "Ahrefs Web Analytics is **free up to 1 million events per verified project per month** on Ahrefs Free. Above that, **per-project add-ons** scale event limits — Ahrefs documents tiers at roughly **$99/month (up to 5M events)**, **$299/month (20M)**, and **$999/month (100M)** per project as of Sep 2026.\n\nThis is separate from Ahrefs SEO subscriptions (Lite, Standard, Advanced), though Web Analytics appears across plans. High-traffic sites pay per project for headroom, not a single global pool.\n\nUse our [pricing calculator](/calculators/pricing/) to estimate Web Analytics add-on cost at your event volume.",
+  "limitations": [
+    "Requires an Ahrefs account — not a standalone analytics SKU you can buy in isolation from the platform.",
+    "No session replay, heatmaps, or product analytics depth — pair with Hotjar or PostHog if needed.",
+    "Cloud-only — no self-hosted or open-source path.",
+    "No public affiliate program — AnalyticsVS links direct to Ahrefs (no commission).",
+    "Script performance benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Is Ahrefs Web Analytics really free?",
+      "answer": "Yes for verified projects up to 1 million events per month on Ahrefs Free. Higher volumes require paid per-project add-ons documented in Ahrefs' help center."
+    },
+    {
+      "question": "Ahrefs Web Analytics vs Google Analytics 4?",
+      "answer": "Ahrefs emphasizes cookie-free privacy, faster real-time data, a smaller script, and unlimited historical retention in its positioning. GA4 remains stronger for Google Ads, BigQuery, and enterprise marketing platform integrations at no direct cost for standard properties."
+    },
+    {
+      "question": "Ahrefs vs Plausible or Fathom?",
+      "answer": "Plausible and Fathom are standalone privacy analytics tools with simpler vendor relationships. Ahrefs fits when you already use or plan to use Ahrefs for SEO and want analytics beside that workflow — especially AI traffic and Search Console context."
+    },
+    {
+      "question": "Can I migrate from GA4?",
+      "answer": "Ahrefs offers GA4 data import to bring historical context into Web Analytics. You will still want to run both in parallel briefly to validate metric differences before switching reporting."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Ahrefs Web Analytics product page",
+      "url": "https://ahrefs.com/web-analytics",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "About Ahrefs Web Analytics (help center)",
+      "url": "https://help.ahrefs.com/en/articles/10247870-about-ahrefs-web-analytics",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "Ahrefs pricing",
+      "url": "https://ahrefs.com/pricing",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "Ahrefs affiliate program status",
+      "url": "https://ahrefs.com/blog/ahrefs-affiliate-program/",
+      "checkedOn": "2026-09-01"
+    }
+  ]
+}

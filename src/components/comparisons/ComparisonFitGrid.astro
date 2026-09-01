@@ -1,0 +1,59 @@
+---
+import ToolMark from '../ToolMark.astro';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import type { ComparisonToolContext } from '../../lib/comparisons';
+
+interface Props {
+  tools: ComparisonToolContext[];
+}
+
+const { tools } = Astro.props;
+
+function renderFitItem(item: string) {
+  return renderReviewMarkdown(item).replace(/^<p>|<\/p>$/g, '');
+}
+---
+
+<section id="who-should-pick" class="mt-10">
+  <h2 class="article-heading">Who should pick which?</h2>
+  <div class="comparison-fit-grid mt-4">
+    {
+      tools.map(({ tool, review }) => (
+        <div class="comparison-fit-panel card">
+          <div class="comparison-fit-panel__header">
+            <ToolMark tool={tool.data} size="sm" href={false} />
+            <h3 class="font-heading text-lg font-semibold text-fg">
+              <a href={`/tools/${tool.data.slug}/`} class="text-fg no-underline hover:text-indigo">
+                {tool.data.name}
+              </a>
+            </h3>
+          </div>
+          <div class="prose-content review-prose mt-4">
+            <p class="fit-checklist__subheading !mt-0">Pick {tool.data.name} if…</p>
+            <ul class="fit-checklist">
+              {
+                review.bestFor.map((item) => (
+                  <li>
+                    <span class="fit-checklist__marker text-mint" aria-hidden="true">✓</span>
+                    <span set:html={renderFitItem(item)} />
+                  </li>
+                ))
+              }
+            </ul>
+            <p class="fit-checklist__subheading mt-6">Look elsewhere if…</p>
+            <ul class="fit-checklist">
+              {
+                review.notFor.map((item) => (
+                  <li>
+                    <span class="fit-checklist__marker text-muted/70" aria-hidden="true">−</span>
+                    <span set:html={renderFitItem(item)} />
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

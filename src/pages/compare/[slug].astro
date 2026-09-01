@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import { buildComparisonContext } from '../../lib/comparisons';
+import ComparisonReviewPage from '../../components/comparisons/ComparisonReviewPage.astro';
+
+export async function getStaticPaths() {
+  const comparisons = await getCollection('comparisons');
+
+  await Promise.all(comparisons.map((comparison) => buildComparisonContext(comparison)));
+
+  return comparisons.map((comparison) => ({
+    params: { slug: comparison.id },
+  }));
+}
+
+const { slug } = Astro.params;
+const comparisons = await getCollection('comparisons');
+const comparison = comparisons.find((entry) => entry.id === slug);
+
+if (!comparison) {
+  return Astro.redirect('/404');
+}
+
+const context = await buildComparisonContext(comparison);
+---
+
+<ComparisonReviewPage comparison={comparison} context={context} />

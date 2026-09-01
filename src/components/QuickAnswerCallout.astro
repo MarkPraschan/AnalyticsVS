@@ -1,0 +1,28 @@
+---
+import Lightbulb from 'reicon/icons/Lightbulb';
+import { renderSimpleMarkdown } from '../lib/markdown';
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+
+const iconSvg = Lightbulb.toSvg({
+  size: 20,
+  className: 'h-5 w-5',
+  color: 'currentColor',
+  attrs: { 'aria-hidden': 'true' },
+});
+---
+
+<section id="quick-answer" class="quick-answer-callout">
+  <div class="quick-answer-callout__header">
+    <div class="quick-answer-callout__icon" set:html={iconSvg} />
+    <div class="min-w-0 flex-1">
+      <p class="label-mono text-gradient-secondary">Quick answer</p>
+      <h2 class="sr-only">Quick answer</h2>
+      <div class="quick-answer-callout__body" set:html={renderSimpleMarkdown(content)} />
+    </div>
+  </div>
+</section>

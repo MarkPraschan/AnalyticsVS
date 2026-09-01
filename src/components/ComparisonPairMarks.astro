@@ -1,0 +1,29 @@
+---
+import type { ToolEntry } from '../lib/tools';
+import ToolMark from './ToolMark.astro';
+
+interface Props {
+  tools: ToolEntry[];
+  size?: 'card' | 'hero';
+}
+
+const { tools, size = 'card' } = Astro.props;
+const [left, right] = tools;
+const markSize = size === 'hero' ? 'xl' : 'md';
+---
+
+{
+  left && right && (
+    <div
+      class:list={[
+        'comparison-pair',
+        size === 'hero' ? 'comparison-pair--hero' : 'comparison-pair--card',
+      ]}
+      aria-hidden="true"
+    >
+      <ToolMark tool={left.data} href={false} size={markSize} class="tool-mark-overlap" />
+      <span class="comparison-pair__vs">vs</span>
+      <ToolMark tool={right.data} href={false} size={markSize} class="tool-mark-overlap" />
+    </div>
+  )
+}

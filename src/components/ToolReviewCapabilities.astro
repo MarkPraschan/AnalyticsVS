@@ -1,0 +1,19 @@
+---
+import { renderReviewMarkdown } from '../lib/markdown';
+import type { ToolReviewSection } from '../lib/reviews';
+
+interface Props {
+  sections: ToolReviewSection[];
+}
+
+const { sections } = Astro.props;
+---
+
+{
+  sections.map((section) => (
+    <section id={section.id} class="mt-10">
+      <h2 class="article-heading">{section.title}</h2>
+      <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(section.content)} />
+    </section>
+  ))
+}

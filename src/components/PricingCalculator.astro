@@ -1,0 +1,161 @@
+---
+import { getAllTools, getToolInitial } from '../lib/tools';
+import { getToolVisitUrl, isAffiliateTool } from '../lib/affiliate';
+import { getBrandLogoUrl } from '../lib/brand-logos';
+
+const tools = await getAllTools();
+const hasAffiliateTools = tools.some((tool) => isAffiliateTool(tool.data));
+
+const pricingData = tools.map((tool) => ({
+  id: tool.data.id,
+  name: tool.data.name,
+  slug: tool.data.slug,
+  visitUrl: getToolVisitUrl(tool.data),
+  isAffiliate: isAffiliateTool(tool.data),
+  logoUrl: getBrandLogoUrl(tool.data.id),
+  initial: getToolInitial(tool.data.name),
+}));
+---
+
+<div class="pricing-calculator card" id="pricing-calculator" data-pricing={JSON.stringify(pricingData)}>
+  <form id="pricing-form" onsubmit="return false">
+    <fieldset class="border-0 p-0">
+      <legend class="sr-only">Pricing calculator inputs</legend>
+
+      <div class="pricing-calculator__inputs">
+        <div class="pricing-calculator__field">
+          <label for="pageviews" class="pricing-calculator__label">Monthly pageviews</label>
+          <input
+            type="text"
+            id="pageviews"
+            name="pageviews"
+            value="50,000"
+            inputmode="numeric"
+            autocomplete="off"
+            spellcheck="false"
+            class="pricing-calculator__metric-input"
+            aria-describedby="pageviews-hint"
+          />
+          <input
+            type="range"
+            id="pageviews-slider"
+            min="1000"
+            max="5000000"
+            step="1000"
+            value="50000"
+            aria-valuemin="1000"
+            aria-valuemax="5000000"
+            aria-valuenow="50000"
+            aria-labelledby="pageviews"
+            class="pricing-calculator__slider"
+          />
+          <p id="pageviews-hint" class="pricing-calculator__hint">
+            Total page loads across all sites, combined.
+          </p>
+        </div>
+
+        <div class="pricing-calculator__field">
+          <label for="events" class="pricing-calculator__label">Custom events / month</label>
+          <input
+            type="text"
+            id="events"
+            name="events"
+            value="0"
+            inputmode="numeric"
+            autocomplete="off"
+            spellcheck="false"
+            class="pricing-calculator__metric-input"
+            aria-describedby="events-hint"
+          />
+          <input
+            type="range"
+            id="events-slider"
+            min="0"
+            max="1000000"
+            step="1000"
+            value="0"
+            aria-valuemin="0"
+            aria-valuemax="1000000"
+            aria-valuenow="0"
+            aria-labelledby="events"
+            class="pricing-calculator__slider"
+          />
+          <p id="events-hint" class="pricing-calculator__hint">
+            Tracked actions beyond pageviews, such as clicks or signups.
+          </p>
+        </div>
+
+        <div class="pricing-calculator__field">
+          <label for="projects" class="pricing-calculator__label">Sites / projects</label>
+          <input
+            type="text"
+            id="projects"
+            name="projects"
+            value="1"
+            inputmode="numeric"
+            autocomplete="off"
+            spellcheck="false"
+            class="pricing-calculator__metric-input"
+            aria-describedby="projects-hint"
+          />
+          <input
+            type="range"
+            id="projects-slider"
+            min="1"
+            max="30"
+            step="1"
+            value="1"
+            aria-valuemin="1"
+            aria-valuemax="30"
+            aria-valuenow="1"
+            aria-labelledby="projects"
+            class="pricing-calculator__slider"
+          />
+          <p id="projects-hint" class="pricing-calculator__hint">
+            Number of websites, apps, or properties you track.
+          </p>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="mt-8 overflow-x-auto" aria-live="polite" aria-atomic="true">
+    <table class="pricing-table" id="pricing-results">
+      <caption class="caption-top">
+        Estimated monthly cost by tool, sorted lowest to highest
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Tool</th>
+          <th scope="col">Est. monthly cost</th>
+          <th scope="col"><span class="sr-only">Visit</span></th>
+        </tr>
+      </thead>
+      <tbody id="pricing-results-body">
+        <tr>
+          <td colspan="3" class="px-4 py-6 text-center text-sm text-muted">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="mt-3 text-xs leading-relaxed text-muted">
+    Estimates are directional only and use published vendor pricing — verify on vendor sites before
+    purchasing.
+    {
+      hasAffiliateTools && (
+        <>
+          {' '}
+          We may earn a commission.{' '}
+          <a href="/disclosure/" class="text-muted underline-offset-2 hover:text-fg">Details</a>
+        </>
+      )
+    }
+  </p>
+</div>
+
+<script>
+  import { initPricingCalculator } from '../scripts/pricing-calculator.client';
+
+  const root = document.getElementById('pricing-calculator');
+  if (root) initPricingCalculator(root);
+</script>

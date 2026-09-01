@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<p class:list={['text-xs text-muted', className]}>
+  We may earn a commission.{' '}
+  <a href="/disclosure/" class="text-muted underline-offset-2 hover:text-fg">Details</a>
+</p>

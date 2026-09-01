@@ -1,0 +1,77 @@
+---
+import HelpCircle from 'reicon/icons/HelpCircle';
+import type { CollectionEntry } from 'astro:content';
+import {
+  FEATURE_KEYS,
+  FEATURE_LABELS,
+  formatVariantFeatureNote,
+  getVariantFeatureNotes,
+  hasFeature,
+  isVariantOnlyFeature,
+} from '../lib/tools';
+
+interface Props {
+  tool: CollectionEntry<'tools'>;
+  reviewScope?: string;
+  featureKeys?: typeof FEATURE_KEYS;
+}
+
+const { tool, reviewScope, featureKeys = FEATURE_KEYS } = Astro.props;
+const showScope = (tool.data.variants?.length ?? 0) > 0 && Boolean(reviewScope?.trim());
+
+const helpCircleSvg = HelpCircle.toSvg({
+  size: 16,
+  className: 'h-4 w-4',
+  color: 'currentColor',
+  attrs: { 'aria-hidden': 'true' },
+});
+---
+
+<section id="features" class="mt-10">
+  <h2 class="article-heading">Features</h2>
+  <ul class="feature-checklist mt-4">
+    {
+      featureKeys.map((key) => {
+        const enabled = hasFeature(tool.data.features, key);
+        const variantOnly = isVariantOnlyFeature(tool.data, key);
+        const variantNote =
+          variantOnly ? formatVariantFeatureNote(getVariantFeatureNotes(tool.data, key)) : undefined;
+        const labelActive = enabled || variantOnly;
+        const tooltipId = `${tool.data.id}-${key}-tooltip`;
+
+        return (
+          <li class="feature-checklist__item">
+            {
+              enabled ? (
+                <span class="font-mono text-mint" aria-label="Yes">✓</span>
+              ) : variantOnly && variantNote ? (
+                <span class="feature-checklist__partial-wrap">
+                  <button
+                    type="button"
+                    class="feature-checklist__partial-trigger text-indigo"
+                    aria-label={`${FEATURE_LABELS[key]}: ${variantNote}`}
+                    aria-describedby={tooltipId}
+                    set:html={helpCircleSvg}
+                  />
+                  <span id={tooltipId} role="tooltip" class="feature-checklist__tooltip">
+                    {variantNote}
+                  </span>
+                </span>
+              ) : (
+                <span class="font-mono text-muted/30" aria-label="No">—</span>
+              )
+            }
+            <span class={labelActive ? 'text-fg' : 'text-muted/60'}>{FEATURE_LABELS[key]}</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+  {
+    showScope && (
+      <p class="mt-4 font-mono text-xs text-muted">
+        <span class="text-indigo-dark">Scope:</span> {reviewScope}
+      </p>
+    )
+  }
+</section>

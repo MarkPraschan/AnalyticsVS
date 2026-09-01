@@ -1,0 +1,154 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import PricingTable from '../../components/PricingTable.astro';
+import ToolFeatureChecklist from '../../components/ToolFeatureChecklist.astro';
+import BenchmarkCard from '../../components/BenchmarkCard.astro';
+import ToolMark from '../../components/ToolMark.astro';
+import ToolProfileHeader from '../../components/ToolProfileHeader.astro';
+import ComparisonCard from '../../components/ComparisonCard.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import ToolReviewPage from '../../components/tools/ToolReviewPage.astro';
+import { getAllTools, getComparisonsForTool, getBenchmarksForTool, getToolsByIds } from '../../lib/tools';
+import { getToolReview, getToolReviewEntry } from '../../lib/reviews';
+import { getToolPageUpdatedDate } from '../../lib/contentDates';
+import { SITE } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const tools = await getAllTools();
+  return tools.map((tool) => ({
+    params: { slug: tool.data.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const review = await getToolReview(tool.data.id, tool.data.slug);
+const reviewEntry = await getToolReviewEntry(tool.data.id);
+const updatedDate = getToolPageUpdatedDate(tool, reviewEntry ?? undefined);
+
+const comparisons = await getComparisonsForTool(tool.data.id);
+const benchmarks = await getBenchmarksForTool(tool.data.id);
+
+const uniqueToolIds = [...new Set(comparisons.flatMap((c) => c.data.tools))];
+const allTools = await getAllTools();
+const relatedTools = allTools.filter(
+  (t) => uniqueToolIds.includes(t.data.id) && t.data.id !== tool.data.id,
+);
+const relatedComparisons = await Promise.all(
+  comparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+
+const tocHeadings = [
+  { depth: 2, slug: 'features', text: 'Features' },
+  ...(comparisons.length > 0
+    ? [{ depth: 2, slug: 'comparisons', text: `Comparisons featuring ${tool.data.name}` }]
+    : []),
+  { depth: 2, slug: 'pricing', text: 'Pricing' },
+  ...(relatedTools.length > 0
+    ? [{ depth: 2, slug: 'compared-with', text: 'Often compared with' }]
+    : []),
+  ...(benchmarks.length > 0
+    ? [{ depth: 2, slug: 'benchmarks', text: 'Performance benchmarks' }]
+    : []),
+];
+
+const pageUrl = new URL(`/tools/${tool.data.slug}/`, SITE.url).href;
+
+const schema = [
+  buildArticleSchema({
+    title: `${tool.data.name} — Analytics Tool Profile`,
+    description: tool.data.tagline,
+    url: pageUrl,
+    dateModified: updatedDate,
+    breadcrumbs: [],
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Directory', url: new URL('/tools/', SITE.url).href },
+    { name: tool.data.name, url: pageUrl },
+  ]),
+];
+---
+
+{
+  review ? (
+    <ToolReviewPage tool={tool} review={review} />
+  ) : (
+    <ArticleLayout title={tool.data.name} description={tool.data.tagline} schema={schema}>
+      <ToolProfileHeader tool={tool.data} updatedDate={updatedDate} slot="header" />
+
+      <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
+        <div class="min-w-0">
+          <ToolFeatureChecklist tool={tool} />
+
+          {
+            comparisons.length > 0 && (
+              <section id="comparisons" class="mt-10">
+                <h2 class="section-heading">Comparisons featuring {tool.data.name}</h2>
+                <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+                  {relatedComparisons.map(({ comparison, tools: pair }) => (
+                    <li>
+                      <ComparisonCard comparison={comparison} tools={pair} heading="h3" />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          }
+
+          <section id="pricing" class="mt-10">
+            <h2 class="section-heading">Pricing</h2>
+            <div class="mt-4">
+              <PricingTable tool={tool} />
+            </div>
+            <p class="mt-4 text-sm">
+              <a href="/calculators/pricing/">Use the pricing calculator</a> to compare costs at your
+              traffic level.
+            </p>
+          </section>
+
+          {
+            relatedTools.length > 0 && (
+              <section id="compared-with" class="mt-10">
+                <h2 class="section-heading">Often compared with</h2>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  {relatedTools.map((related) => (
+                    <li>
+                      <a
+                        href={`/tools/${related.data.slug}/`}
+                        class="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-raised px-3 py-1.5 text-sm text-muted no-underline transition hover:border-indigo/40 hover:text-indigo"
+                      >
+                        <ToolMark tool={related.data} size="sm" href={false} />
+                        {related.data.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          }
+
+          {
+            benchmarks.length > 0 && (
+              <section id="benchmarks" class="mt-10">
+                <h2 class="section-heading">Performance benchmarks</h2>
+                <div class="mt-4 space-y-4">
+                  {benchmarks.map((benchmark) => (
+                    <BenchmarkCard benchmark={benchmark} />
+                  ))}
+                </div>
+              </section>
+            )
+          }
+        </div>
+        <aside class="hidden lg:block">
+          <TableOfContents headings={tocHeadings} />
+        </aside>
+      </div>
+    </ArticleLayout>
+  )
+}

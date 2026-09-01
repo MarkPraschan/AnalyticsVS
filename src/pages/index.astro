@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ComparisonCard from '../components/ComparisonCard.astro';
+import ToolMark from '../components/ToolMark.astro';
+import { getCollection } from 'astro:content';
+import { getAllTools, getToolsByIds } from '../lib/tools';
+
+const FEATURED_COMPARISON_IDS = ['google-analytics-vs-plausible', 'datafast-vs-posthog'];
+
+const allComparisons = await getCollection('comparisons');
+const comparisons = FEATURED_COMPARISON_IDS.map((id) => {
+  const comparison = allComparisons.find((entry) => entry.id === id);
+  if (!comparison) {
+    throw new Error(`Featured comparison not found: ${id}`);
+  }
+  return comparison;
+});
+const tools = await getAllTools();
+const comparisonTools = await Promise.all(
+  comparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+---
+
+<BaseLayout>
+  <div class="page-shell">
+    <section class="prose-width" aria-labelledby="hero-heading">
+      <p class="tag">Independent analytics comparisons</p>
+      <h1 id="hero-heading" class="heading-xl mt-5 text-balance">
+        <span class="text-gradient-primary">Compare analytics tools</span>
+        <span class="text-fg"> with data, not marketing copy</span>
+      </h1>
+      <p class="page-intro mt-6">
+        AnalyticsVS is an independent benchmark directory for web, product, and revenue analytics
+        tools. We publish reference-grade comparisons, pricing calculators, and recorded script
+        performance benchmarks.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href="/compare/" class="btn-primary w-full no-underline sm:w-auto">Browse comparisons</a>
+        <a href="/calculators/pricing/" class="btn-secondary w-full no-underline sm:w-auto"
+          >Pricing calculator</a
+        >
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="section-heading">
+        <span class="text-gradient-secondary">Featured</span> comparisons
+      </h2>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          comparisonTools.map(({ comparison, tools: pair }) => (
+            <li>
+              <ComparisonCard comparison={comparison} tools={pair} heading="h3" />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="page-section" aria-labelledby="tools-heading">
+      <h2 id="tools-heading" class="section-heading">Directory</h2>
+      <p class="mt-2 text-muted">
+        {tools.length} analytics tools tracked with pricing data, feature matrices, and benchmark
+        slots.
+      </p>
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          tools.map((tool) => (
+            <li>
+              <a
+                href={`/tools/${tool.data.slug}/`}
+                class="card-interactive flex min-h-11 items-center justify-between gap-3 px-4 py-3"
+              >
+                <span class="flex min-w-0 items-center gap-2.5">
+                  <ToolMark tool={tool.data} size="sm" href={false} />
+                  <span class="truncate font-heading font-semibold">{tool.data.name}</span>
+                </span>
+                <span class="shrink-0 text-gradient-primary" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

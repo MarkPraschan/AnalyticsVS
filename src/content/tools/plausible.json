@@ -1,0 +1,44 @@
+{
+  "id": "plausible",
+  "name": "Plausible Analytics",
+  "slug": "plausible",
+  "category": "privacy-analytics",
+  "tagline": "Lightweight, privacy-friendly web analytics",
+  "website": "https://plausible.io",
+  "brandColor": "#5850EC",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "monthly_pageviews",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 10000, "price": 9 },
+      { "limit": 100000, "price": 19 },
+      { "limit": 200000, "price": 29 },
+      { "limit": 500000, "price": 49 },
+      { "limit": 1000000, "price": 69 },
+      { "limit": 2000000, "price": 89 },
+      { "limit": 5000000, "price": 109 },
+      { "limit": 10000000, "price": 149 }
+    ],
+    "notes": "Pricing as of Aug 2026 — verify on vendor site.",
+    "projectLimits": {
+      "included": 1,
+      "plans": [{ "name": "Growth", "maxProjects": 3, "notes": "Team plan for up to 3 sites on one subscription." }]
+    }
+  },
+  "features": {
+    "cookieless": true,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": false,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": false,
+    "self_hosted": true,
+    "open_source": true
+  }
+}

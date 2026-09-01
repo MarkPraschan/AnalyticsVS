@@ -1,0 +1,34 @@
+{
+  "id": "google-analytics-4",
+  "name": "Google Analytics 4",
+  "slug": "google-analytics-4",
+  "category": "web-analytics",
+  "tagline": "Enterprise-grade web and app analytics from Google",
+  "website": "https://analytics.google.com",
+  "brandColor": "#E37400",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "free",
+    "currency": "USD",
+    "freeLimit": 10000000,
+    "notes": "Free for most sites. GA4 360 starts around $50,000/year for enterprise contracts.",
+    "projectLimits": {
+      "unlimited": true,
+      "notes": "Standard GA4 remains free regardless of how many properties you track."
+    }
+  },
+  "features": {
+    "cookieless": false,
+    "gdpr_compliant": false,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": true,
+    "self_hosted": false
+  }
+}

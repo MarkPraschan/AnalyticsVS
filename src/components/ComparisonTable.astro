@@ -1,0 +1,129 @@
+---
+import HelpCircle from 'reicon/icons/HelpCircle';
+import type { CollectionEntry } from 'astro:content';
+import ToolMark from './ToolMark.astro';
+import {
+  FEATURE_KEYS,
+  FEATURE_LABELS,
+  formatVariantFeatureNote,
+  getVariantFeatureNotes,
+  hasFeature,
+  isVariantOnlyFeature,
+} from '../lib/tools';
+
+interface Props {
+  tools: CollectionEntry<'tools'>[];
+  descriptionId?: string;
+}
+
+const { tools, descriptionId = 'comparison-table-desc' } = Astro.props;
+
+function formatToolList(names: string[]): string {
+  if (names.length === 0) return 'these tools';
+  if (names.length === 1) return names[0]!;
+  if (names.length === 2) return `${names[0]} and ${names[1]}`;
+  return `${names.slice(0, -1).join(', ')}, and ${names.at(-1)}`;
+}
+
+const toolNames = tools.map((tool) => tool.data.name);
+const tableDescription = `Side-by-side feature checklist for ${formatToolList(toolNames)}.`;
+
+const toolsWithVariants = tools.filter((tool) => (tool.data.variants?.length ?? 0) > 0);
+
+const helpCircleSvg = HelpCircle.toSvg({
+  size: 16,
+  className: 'h-4 w-4',
+  color: 'currentColor',
+  attrs: { 'aria-hidden': 'true' },
+});
+---
+
+<p id={descriptionId} class="mb-3 font-mono text-xs text-muted">
+  {tableDescription}
+</p>
+<div class="comparison-table-wrap overflow-x-auto rounded-xl border border-border">
+  <table class="data-table comparison-table" aria-describedby={descriptionId}>
+    <colgroup>
+      <col class="comparison-table__feature-col" />
+      {tools.map(() => <col class="comparison-table__tool-col" />)}
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col" class="comparison-table__corner">Feature</th>
+        {
+          tools.map((tool) => (
+            <th scope="col" class="comparison-table__tool-head">
+              <a
+                href={`/tools/${tool.data.slug}/`}
+                class="comparison-table__tool-link"
+              >
+                <ToolMark tool={tool.data} size="sm" href={false} />
+                <span class="comparison-table__tool-name">{tool.data.name}</span>
+              </a>
+            </th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody>
+      {
+        FEATURE_KEYS.map((key) => (
+          <tr>
+            <th scope="row" class="comparison-table__feature-name">
+              {FEATURE_LABELS[key]}
+            </th>
+            {tools.map((tool) => {
+              const enabled = hasFeature(tool.data.features, key);
+              const variantOnly = isVariantOnlyFeature(tool.data, key);
+              const variantNote =
+                variantOnly ? formatVariantFeatureNote(getVariantFeatureNotes(tool.data, key)) : undefined;
+              const tooltipId = `${tool.data.id}-compare-${key}-tooltip`;
+
+              return (
+                <td class="comparison-table__value">
+                  {
+                    enabled ? (
+                      <span class="comparison-table__mark comparison-table__mark--yes" aria-label="Yes">✓</span>
+                    ) : variantOnly && variantNote ? (
+                      <span class="feature-checklist__partial-wrap">
+                        <button
+                          type="button"
+                          class="feature-checklist__partial-trigger comparison-table__partial-trigger text-indigo"
+                          aria-label={`${tool.data.name} — ${FEATURE_LABELS[key]}: ${variantNote}`}
+                          aria-describedby={tooltipId}
+                          set:html={helpCircleSvg}
+                        />
+                        <span id={tooltipId} role="tooltip" class="feature-checklist__tooltip">
+                          {variantNote}
+                        </span>
+                      </span>
+                    ) : (
+                      <span class="comparison-table__mark comparison-table__mark--no" aria-label="No">—</span>
+                    )
+                  }
+                </td>
+              );
+            })}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+{
+  toolsWithVariants.length > 0 && (
+    <p class="mt-3 text-xs leading-relaxed text-muted">
+      {
+        toolsWithVariants.map((tool) => (
+          <span class="block sm:inline sm:not-last:after:content-['·'] sm:not-last:after:mx-2">
+            <strong class="font-normal text-fg">{tool.data.name}:</strong>{' '}
+            also offers{' '}
+            {(tool.data.variants ?? []).map((variant) => variant.name).join(', ')}.
+            {' '}
+            <a href={`/tools/${tool.data.slug}/#variants`}>See variants</a>
+          </span>
+        ))
+      }
+    </p>
+  )
+}

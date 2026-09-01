@@ -1,0 +1,45 @@
+---
+import { renderReviewMarkdown } from '../lib/markdown';
+import type { ToolReview } from '../lib/reviews';
+
+interface Props {
+  review: ToolReview;
+}
+
+const { review } = Astro.props;
+
+function renderFitItem(item: string) {
+  return renderReviewMarkdown(item).replace(/^<p>|<\/p>$/g, '');
+}
+---
+
+<section id="best-for" class="mt-10">
+  <h2 class="article-heading">Who is it for?</h2>
+  <div class="prose-content review-prose mt-4">
+    <h3 class="!mt-0">Good fit if…</h3>
+    <ul class="fit-checklist">
+      {
+        review.bestFor.map((item) => (
+          <li>
+            <span class="fit-checklist__marker text-mint" aria-hidden="true">✓</span>
+            <span set:html={renderFitItem(item)} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3>
+      Consider other <a href="/tools/">analytics tools</a> if…
+    </h3>
+    <ul class="fit-checklist">
+      {
+        review.notFor.map((item) => (
+          <li>
+            <span class="fit-checklist__marker text-muted/70" aria-hidden="true">−</span>
+            <span set:html={renderFitItem(item)} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

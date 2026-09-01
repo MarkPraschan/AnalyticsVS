@@ -1,0 +1,78 @@
+{
+  "tool": "fathom",
+  "reviewScope": "Covers Fathom Analytics, the hosted SaaS product. Fathom Lite (self-hosted) is documented as a separate variant.",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Fathom Analytics** (hosted) is the best fit if you want **polished, privacy-first web analytics** with minimal setup and vendor-managed infrastructure. Skip the hosted product if you need free self-hosting — **Fathom Lite** exists for that — or open source; **Plausible** and **Umami** are stronger on those axes.",
+  "bestFor": [
+    "Founders and marketers who want a **clean dashboard** without GA4 learning curve",
+    "Growing content and SaaS marketing sites in the **100K–1M pageview** range",
+    "Teams that prefer **managed cloud** over operating analytics infrastructure",
+    "EU and US sites prioritizing **GDPR-friendly, cookie-light** analytics on the hosted product"
+  ],
+  "notFor": [
+    "Teams that need **vendor-supported self-hosting** — hosted Fathom Analytics is cloud-only; see **Fathom Lite** if you will ops it yourself",
+    "Very small blogs on tight budgets — Plausible's $9/10K tier can be cheaper, or Fathom Lite is free (self-hosted)",
+    "Product analytics, session replay, or experimentation — use PostHog or Hotjar",
+    "Deep Google Ads / BigQuery workflows"
+  ],
+  "sections": [
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "Fathom positions itself as **privacy-first**: no cross-site tracking, no sale of visitor data, and analytics designed to reduce cookie-banner friction. Like Plausible, it targets teams that want compliance simplicity without sacrificing usable traffic reports.\n\n**Fathom Analytics** (hosted) runs on Fathom's serverless cloud infrastructure. **Fathom Lite** is a separate self-hosted download you operate yourself — same privacy positioning, but you own uptime, updates, and backups.\n\nVerify consent requirements with legal counsel; \"privacy-friendly\" does not automatically mean zero compliance obligations in every jurisdiction."
+    },
+    {
+      "id": "web-analytics",
+      "title": "Web analytics scope",
+      "dimension": "analytics-scope",
+      "content": "Hosted **Fathom Analytics** delivers core marketing analytics: **realtime visitors, top pages, referrers, UTMs, goals, custom events**, plus device types, browsers, countries, and email reports per vendor docs.\n\n**Fathom Lite** covers a narrower metric set with fewer ongoing features — Fathom's own comparison notes Lite lacks many hosted-product capabilities and receives no new feature development at the same pace.\n\nNeither product is a full product analytics suite. Fathom answers traffic and conversion questions for **websites**, not in-app telemetry."
+    },
+    {
+      "id": "deployment",
+      "title": "Hosted vs Fathom Lite",
+      "dimension": "deployment",
+      "content": "Fathom sells two related products under one brand:\n\n1. **Fathom Analytics** — hosted SaaS from **$15/month**; Fathom handles infrastructure, support, and compliance posture for the managed product.\n2. **Fathom Lite** — **free, self-hosted** software you install on your own servers; no vendor support, fewer metrics, and you maintain updates yourself.\n\nChoose hosted Fathom Analytics when you want polish and support. Choose Fathom Lite when you are technical, budget-constrained, and accept self-hosting ops. For open-source self-hosting with an active community edition, Plausible or Umami may still fit better."
+    },
+    {
+      "id": "ux-reliability",
+      "title": "UX & reliability",
+      "dimension": "ux-reliability",
+      "content": "Hosted Fathom is frequently praised for **dashboard clarity** and uptime compared with heavier platforms. For teams that abandoned GA4 because nobody looked at reports, Fathom's constraint is a feature.\n\nTradeoff: less extensibility. Power users who want SQL export, custom dimensions, or warehouse pipelines will outgrow Fathom faster than they outgrow GA4 or Matomo.\n\nFathom Lite's reliability depends entirely on your hosting — not Fathom's cloud SLA."
+    }
+  ],
+  "setupNotes": "**Typical setup (hosted Fathom Analytics):**\n\n1. Add your site in the Fathom dashboard.\n2. Paste the tracking script into your site header (or use a CMS integration).\n3. Configure **goals** for conversions you care about.\n4. Share the dashboard with teammates as needed.\n\nExpect **15–30 minutes** for hosted setup. **Fathom Lite** requires server provisioning, install, and ongoing maintenance — budget longer if you are new to self-hosting.\n\n**Common pitfalls:** staging domains inflating counts, not tagging campaigns with UTMs, and comparing hosted Fathom numbers directly to GA4 without aligning definitions.",
+  "pricingNotes": "**Fathom Analytics** bills on **monthly pageviews** with entry at **$15/month for 100K pageviews** in our directory — higher floor than Plausible's $9/10K tier but more headroom per dollar at moderate traffic. Top published tier is **$169/month at 10M pageviews**.\n\n**Fathom Lite** is **free** (self-hosted); your cost is infrastructure and engineer time. A 7-day trial exists for hosted Fathom Analytics per vendor site.\n\nOur [pricing calculator](/calculators/pricing/) reflects **hosted Fathom Analytics** tiers only, not Lite hosting costs.",
+  "limitations": [
+    "Hosted Fathom Analytics is cloud-only — self-hosting requires the separate Fathom Lite product.",
+    "Fathom Lite has fewer metrics, no vendor support, and less feature velocity than hosted Fathom Analytics.",
+    "Higher entry price than Plausible Cloud for very small sites on the hosted product.",
+    "No session replay, heatmaps, or product analytics on either edition.",
+    "Fathom Lite is not open source (vendor distributes binaries; community maintains install docs).",
+    "Script performance benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Fathom vs Plausible — which is cheaper?",
+      "answer": "At very low traffic, Plausible's $9/10K tier is usually cheaper than hosted Fathom Analytics. Fathom Lite is free if you self-host. Compare hosted tiers on our pricing calculator."
+    },
+    {
+      "question": "Does Fathom work without cookies?",
+      "answer": "Hosted Fathom Analytics is designed for privacy-friendly tracking without invasive cross-site cookies. Confirm your implementation and legal obligations with counsel."
+    },
+    {
+      "question": "Can I self-host Fathom?",
+      "answer": "Yes — via **Fathom Lite**, a separate free self-hosted product. It is not the same as hosted Fathom Analytics: fewer features, no email support, and you manage the server."
+    },
+    {
+      "question": "Fathom Lite vs Fathom Analytics — what's the difference?",
+      "answer": "Fathom Analytics is hosted SaaS with full metrics, support, and ongoing features. Fathom Lite is a free self-hosted download with a narrower feature set that you install and maintain yourself."
+    }
+  ],
+  "sources": [
+    { "label": "Fathom Analytics pricing", "url": "https://usefathom.com/pricing", "checkedOn": "2026-09-01" },
+    { "label": "Fathom Lite (self-hosted)", "url": "https://usefathom.com/pricing/lite", "checkedOn": "2026-09-01" },
+    { "label": "Fathom privacy policy", "url": "https://usefathom.com/privacy", "checkedOn": "2026-09-01" },
+    { "label": "Fathom help docs", "url": "https://usefathom.com/docs", "checkedOn": "2026-09-01" }
+  ]
+}

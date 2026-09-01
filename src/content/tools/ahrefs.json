@@ -1,0 +1,43 @@
+{
+  "id": "ahrefs",
+  "name": "Ahrefs Web Analytics",
+  "slug": "ahrefs",
+  "category": "web-analytics",
+  "tagline": "Cookie-free web analytics with SEO and AI traffic insights",
+  "website": "https://ahrefs.com/web-analytics",
+  "brandColor": "#FF8800",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "monthly_events",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 1000000, "price": 0, "label": "Free" },
+      { "limit": 5000000, "price": 99 },
+      { "limit": 20000000, "price": 299 },
+      { "limit": 100000000, "price": 999 }
+    ],
+    "freeLimit": 1000000,
+    "notes": "Included with Ahrefs Free up to 1M events per verified project per month. Higher limits via per-project Web Analytics add-ons — verify on vendor site.",
+    "projectLimits": {
+      "included": 1,
+      "billingModel": "per_site",
+      "notes": "Event limits and add-ons apply per verified project."
+    }
+  },
+  "features": {
+    "cookieless": true,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": false,
+    "self_hosted": false,
+    "open_source": false,
+    "revenue_tracking": false
+  }
+}

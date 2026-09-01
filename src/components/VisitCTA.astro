@@ -1,0 +1,42 @@
+---
+import AffiliateDisclosure from './AffiliateDisclosure.astro';
+
+interface Props {
+  url: string;
+  affiliate?: boolean;
+  label?: string;
+  variant?: 'inline' | 'card';
+  class?: string;
+}
+
+const { url, affiliate = false, label = 'Visit website', variant = 'inline', class: className } =
+  Astro.props;
+const isCard = variant === 'card';
+---
+
+<div class:list={[isCard ? 'flex flex-col gap-2' : 'shrink-0 lg:text-right', className]}>
+  <a
+    href={url}
+    target="_blank"
+    rel={affiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer'}
+    class:list={['btn-primary', isCard && 'w-full justify-center']}
+    data-posthog-vendor-website
+    data-posthog-cta-label={label}
+    data-posthog-affiliate={String(affiliate)}
+  >
+    {label}
+  </a>
+  {affiliate && !isCard && <AffiliateDisclosure class="mt-2" />}
+</div>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-posthog-vendor-website]');
+    if (!link) return;
+
+    window.posthog?.capture('vendor_website_visited', {
+      cta_label: link.dataset.posthogCtaLabel,
+      is_affiliate: link.dataset.posthogAffiliate === 'true',
+    });
+  });
+</script>

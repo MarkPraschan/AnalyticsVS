@@ -1,0 +1,73 @@
+---
+import type { ToolReview } from '../lib/reviews';
+import { renderReviewMarkdown } from '../lib/markdown';
+import { formatDate } from '../lib/site';
+
+interface Props {
+  review: ToolReview;
+}
+
+const { review } = Astro.props;
+
+function renderListItem(item: string) {
+  return renderReviewMarkdown(item).replace(/^<p>|<\/p>$/g, '');
+}
+---
+
+<section id="limitations" class="mt-10">
+  <h2 class="article-heading">Limitations</h2>
+  <div class="prose-content review-prose mt-4">
+    <ul class="fit-checklist !mb-0">
+      {
+        review.limitations.map((item) => (
+          <li>
+            <span class="fit-checklist__marker text-muted/70" aria-hidden="true">−</span>
+            <span set:html={renderListItem(item)} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+{
+  review.faq.length > 0 && (
+    <section id="faq" class="mt-10">
+      <h2 class="article-heading">Frequently asked questions</h2>
+      <dl class="mt-6 space-y-4">
+        {review.faq.map((item) => (
+          <div class="card">
+            <dt class="font-heading font-semibold text-fg">{item.question}</dt>
+            <dd class="mt-2 leading-relaxed text-muted">{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+
+<section id="sources" class="mt-10">
+  <h2 class="article-heading">Sources & review status</h2>
+  <div class="review-meta card mt-4">
+    <p class="text-sm text-muted">
+      <span class="review-status">{review.reviewStatus === 'verified' ? 'Verified' : review.reviewStatus === 'reviewed' ? 'Reviewed' : 'Draft review'}</span>
+      · Last reviewed {formatDate(review.reviewedOn)}
+      · <a href="/methodology/">How we review tools</a>
+    </p>
+    <ul class="mt-4 space-y-2 text-sm">
+      {
+        review.sources.map((source) => (
+          <li>
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              {source.label}
+            </a>
+            <span class="text-muted">
+              {' '}
+              — checked {formatDate(source.checkedOn)}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

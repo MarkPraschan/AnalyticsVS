@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.analyticsvs.com/$1",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "analyticsvs.com"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+---
+import ComparisonPairMarks from './ComparisonPairMarks.astro';
+import LastUpdated from './LastUpdated.astro';
+import type { ToolEntry } from '../lib/tools';
+
+interface Props {
+  title: string;
+  description: string;
+  updatedDate: Date | string;
+  tools: ToolEntry[];
+}
+
+const { title, description, updatedDate, tools } = Astro.props;
+const [leftTool, rightTool] = tools;
+---
+
+<header class="profile-header">
+  <div class="flex min-w-0 gap-4 sm:gap-5">
+    <div class="shrink-0 pt-0.5">
+      <ComparisonPairMarks tools={tools} size="hero" />
+    </div>
+    <div class="min-w-0">
+      <h1 class="heading-lg">
+        {
+          leftTool && rightTool ? (
+            <>
+              <a href={`/tools/${leftTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
+                {leftTool.data.name}
+              </a>
+              <span class="comparison-title__vs">vs</span>
+              <a href={`/tools/${rightTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
+                {rightTool.data.name}
+              </a>
+            </>
+          ) : (
+            <span class="text-gradient-primary">{title}</span>
+          )
+        }
+      </h1>
+      <p class="page-intro mt-2">{description}</p>
+      <div class="mt-3">
+        <LastUpdated date={updatedDate} />
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,69 @@
+{
+  "tool": "google-analytics-4",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Google Analytics 4** is the default choice when you need **free, deep web and app analytics** with Google Ads and Search Console integration — especially at scale. Skip it if you want privacy-first simplicity, self-hosting, or to avoid cookie consent complexity — **Plausible**, **Fathom**, or **Matomo** are cleaner fits.",
+  "bestFor": [
+    "Marketing teams running **Google Ads** or relying on Google marketing ecosystem",
+    "Sites and apps that need **event-based measurement** at high volume without per-hit SaaS fees",
+    "Organizations comfortable with **BigQuery export** for custom analysis",
+    "Teams that already have GA4 expertise and reporting workflows"
+  ],
+  "notFor": [
+    "Small sites that only need simple traffic stats and want minimal compliance overhead",
+    "Teams avoiding Google data processing or US cloud jurisdiction concerns",
+    "Privacy-first positioning without cookie banners — lightweight tools win here",
+    "Revenue attribution for indie Stripe SaaS without significant GA4 ecommerce setup — **DataFast** is simpler"
+  ],
+  "sections": [
+    {
+      "id": "measurement-model",
+      "title": "Measurement model",
+      "dimension": "analytics-scope",
+      "content": "GA4 uses an **event-based data model** — every interaction is an event with parameters. Pageviews, scrolls, purchases, and custom actions all flow through the same pipeline. This replaces Universal Analytics' session/pageview-centric model and requires relearning reports and explorations.\n\nStrength: flexible schema for web + app in one property. Weakness: easy to over-instrument and inflate event counts, making reports noisy without governance.\n\nFor marketing sites, start with **enhanced measurement** defaults and add custom events only where decisions depend on them."
+    },
+    {
+      "id": "integrations",
+      "title": "Google ecosystem & integrations",
+      "dimension": "integrations",
+      "content": "GA4's biggest advantage is **integration depth**: Google Ads linking, Search Console, Looker Studio, and optional **BigQuery export** (standard properties get limited free export; 360 unlocks more). If your growth stack is Google-centric, GA4 is the hub.\n\nNon-Google integrations exist via GTM and APIs but are rarely as seamless as native Google links. Teams on Meta Ads or other channels often still run GA4 alongside platform pixels.\n\nConsent Mode v2 and regional settings matter for EU traffic — misconfiguration can skew attribution and create compliance risk."
+    },
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "GA4 is **not** a privacy-first tool in the Plausible sense. It uses cookies and identifiers, processes data on Google infrastructure, and typically requires **consent banners** in GDPR jurisdictions.\n\nGoogle offers **data retention controls**, IP anonymization options (context-dependent), and user deletion tools — but operational burden falls on you. Several EU regulators have scrutinized Google Analytics transfers; some organizations choose Matomo or EU-hosted alternatives for that reason.\n\nFree does not mean zero compliance cost — legal review and consent UX are part of the total price."
+    }
+  ],
+  "setupNotes": "**Typical setup:**\n\n1. Create a GA4 property and web data stream.\n2. Install **gtag.js** or deploy via **Google Tag Manager**.\n3. Configure **key events** (conversions) and link Google Ads if applicable.\n4. Set data retention, internal traffic filters, and consent defaults.\n5. Validate with DebugView before trusting reports.\n\nExpect **2–8 hours** for a basic marketing site; **days to weeks** for mature ecommerce or multi-app setups with GTM governance.\n\n**Common pitfalls:** duplicate tags inflating counts, missing consent mode in EU, treating GA4 like UA reports, and unbounded custom events without naming conventions.",
+  "pricingNotes": "GA4 standard is **free** for most sites within Google's collection limits. **Google Analytics 360** is enterprise-priced (six figures annually) for very large organizations needing SLAs, higher limits, and advanced BigQuery.\n\nHidden costs: GTM/consulting time, BigQuery storage/query bills, and compliance tooling. At low traffic, GA4 wins on price vs any paid privacy tool; at high traffic, \"free\" still holds for standard tier but ops complexity grows.\n\nUse our [pricing calculator](/calculators/pricing/) to compare GA4 ($0) against paid alternatives at your pageview level.",
+  "limitations": [
+    "Steep learning curve vs Plausible/Fathom — reports are powerful but not simple.",
+    "Privacy and EU transfer concerns push some teams to Matomo or EU-hosted tools.",
+    "No session replay or heatmaps natively — pair with Hotjar or PostHog.",
+    "Revenue attribution for custom Stripe flows requires deliberate ecommerce/event setup.",
+    "Script weight and performance vary by implementation — benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Is GA4 still free?",
+      "answer": "Yes, the standard GA4 property is free for typical site and app volumes. Enterprise 360 is a separate paid product."
+    },
+    {
+      "question": "GA4 vs Universal Analytics — what changed?",
+      "answer": "GA4 is event-based, uses different reports, and UA stopped processing in 2023. You cannot expect one-to-one metric parity with old UA dashboards."
+    },
+    {
+      "question": "Do I need Google Tag Manager?",
+      "answer": "Not required, but GTM is the standard way to manage tags without code deploys. Simple sites can use gtag.js directly."
+    },
+    {
+      "question": "When should I pick Plausible instead?",
+      "answer": "When you want simple traffic analytics, fewer compliance headaches, and do not depend on Google Ads native reporting."
+    }
+  ],
+  "sources": [
+    { "label": "GA4 documentation", "url": "https://support.google.com/analytics/answer/9304153", "checkedOn": "2026-08-27" },
+    { "label": "Consent Mode", "url": "https://developers.google.com/tag-platform/security/guides/consent", "checkedOn": "2026-08-27" },
+    { "label": "BigQuery export", "url": "https://support.google.com/analytics/answer/9358801", "checkedOn": "2026-08-27" }
+  ]
+}

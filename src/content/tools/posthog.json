@@ -1,0 +1,40 @@
+{
+  "id": "posthog",
+  "name": "PostHog",
+  "slug": "posthog",
+  "category": "product-analytics",
+  "tagline": "Open-source product analytics, feature flags, and session replay",
+  "website": "https://posthog.com",
+  "brandColor": "#1D4AFF",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "monthly_events",
+    "currency": "USD",
+    "freeLimit": 1000000,
+    "tiers": [
+      { "limit": 1000000, "price": 0, "label": "Free tier" },
+      { "limit": 2000000, "price": 0, "label": "Usage-based above free" }
+    ],
+    "notes": "1M events/month free on cloud. Above that, usage-based pricing applies. Self-hosting available.",
+    "projectLimits": {
+      "included": 1,
+      "billingModel": "tiered",
+      "notes": "One project is free without billing. Additional projects require a payment method on file."
+    }
+  },
+  "features": {
+    "cookieless": false,
+    "gdpr_compliant": false,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": false,
+    "session_recordings": true,
+    "ab_testing": true,
+    "product_analytics": true,
+    "self_hosted": true,
+    "open_source": true
+  }
+}

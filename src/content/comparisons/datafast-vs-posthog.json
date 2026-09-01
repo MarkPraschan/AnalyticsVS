@@ -1,0 +1,42 @@
+{
+  "title": "DataFast vs PostHog",
+  "description": "DataFast vs PostHog — compare revenue attribution for Stripe SaaS vs full product analytics, session replay, and feature flags.",
+  "tools": ["datafast", "posthog"],
+  "category": "product-analytics",
+  "winner": null,
+  "verdict": "DataFast is built to answer which marketing channels drive revenue for indie SaaS and Stripe-backed products. PostHog is built to answer how users behave inside your product — funnels, retention, replay, flags, and experiments. They overlap on events and funnels but optimize for different primary questions.",
+  "quickAnswer": "**DataFast** is the better fit if you need **revenue per channel** for a small SaaS on Stripe (or similar) with minimal analytics overhead. **PostHog** is the better fit if you need **in-product behavior**, session replay, feature flags, and experimentation — and you are willing to invest in event instrumentation.",
+  "bottomLine": "Choose **DataFast** when your north star is \"which landing page or campaign led to paid customers this week?\" Choose **PostHog** when your north star is \"which features drive activation and retention?\" Many growing SaaS teams eventually use both — DataFast for acquisition ROI and PostHog for product iteration — but neither is a drop-in substitute for the other.",
+  "faq": [
+    {
+      "question": "Can DataFast replace PostHog?",
+      "answer": "No for product teams. DataFast does not offer session replay, feature flags, or deep in-app path analysis. It replaces the revenue-attribution slice of what you might otherwise hack together in GA4 or spreadsheets — not PostHog's product analytics core."
+    },
+    {
+      "question": "Can PostHog replace DataFast?",
+      "answer": "PostHog can track revenue events if you instrument purchases carefully, but it does not offer DataFast's out-of-the-box Stripe (and similar processor) revenue attribution with channel reports tuned for indie SaaS. PostHog is stronger for product behavior than plug-and-play payment attribution."
+    },
+    {
+      "question": "Which is better for a Stripe SaaS?",
+      "answer": "DataFast if you mainly need marketing-to-revenue attribution with lightweight setup tied to payment processors. PostHog if you need product funnels, user profiles, replay, and flags alongside (or instead of) channel-level revenue reporting."
+    },
+    {
+      "question": "Which is cheaper at low volume?",
+      "answer": "Both start around similar entry pricing for small event volumes — DataFast Starter from $9/month and PostHog's 1M events/month free tier on cloud. Compare your pageviews plus custom events in our pricing calculator; heavy instrumentation favors checking PostHog usage-based costs."
+    },
+    {
+      "question": "Can PostHog be self-hosted?",
+      "answer": "Yes. PostHog offers open-source self-hosting for teams that want full data control. DataFast is cloud-only SaaS with no self-hosted edition."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Different instrumentation tax",
+      "content": "DataFast's setup tax is mostly **payment metadata wiring** (passing visitor/session IDs into Stripe Checkout or your processor). PostHog's setup tax is **event taxonomy** — naming signup, activation, and feature events consistently. Budget engineering time for whichever tool you pick; neither is zero-config for serious SaaS metrics."
+    },
+    {
+      "title": "Affiliate disclosure",
+      "content": "AnalyticsVS may earn a commission from DataFast visit links. PostHog links are direct with no affiliate program on our directory. This does not affect comparison verdicts — see our [disclosure](/disclosure/)."
+    }
+  ]
+}

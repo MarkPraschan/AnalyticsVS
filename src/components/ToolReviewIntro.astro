@@ -1,0 +1,12 @@
+---
+import QuickAnswerCallout from './QuickAnswerCallout.astro';
+import type { ToolReview } from '../lib/reviews';
+
+interface Props {
+  review: ToolReview;
+}
+
+const { review } = Astro.props;
+---
+
+<QuickAnswerCallout content={review.quickAnswer} />

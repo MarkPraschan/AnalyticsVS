@@ -1,0 +1,42 @@
+{
+  "id": "hotjar",
+  "name": "Hotjar",
+  "slug": "hotjar",
+  "category": "behavior-analytics",
+  "tagline": "Heatmaps, session recordings, and on-site feedback",
+  "website": "https://www.hotjar.com",
+  "brandColor": "#FF3C00",
+  "affiliate": {
+    "enabled": true,
+    "url": "https://www.hotjar.com",
+    "commission": "15–25%"
+  },
+  "pricing": {
+    "model": "tiered_sessions",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 35, "price": 0, "label": "Free (35 daily sessions)" },
+      { "limit": 100, "price": 39, "label": "Plus" },
+      { "limit": 500, "price": 99, "label": "Business" },
+      { "limit": 2000, "price": 213, "label": "Business scale" }
+    ],
+    "notes": "Based on daily session recordings. Pricing as of Aug 2026 — verify on vendor site.",
+    "projectLimits": {
+      "included": 1,
+      "billingModel": "per_site",
+      "notes": "Hotjar plans are generally scoped per site or domain."
+    }
+  },
+  "features": {
+    "cookieless": false,
+    "gdpr_compliant": false,
+    "real_time": true,
+    "custom_events": false,
+    "funnels": true,
+    "heatmaps": true,
+    "session_recordings": true,
+    "ab_testing": false,
+    "product_analytics": false,
+    "self_hosted": false
+  }
+}

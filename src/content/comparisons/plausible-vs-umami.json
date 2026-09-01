@@ -1,0 +1,37 @@
+{
+  "title": "Plausible vs Umami",
+  "description": "Plausible Analytics vs Umami — compare privacy-first web analytics on pricing, self-hosting, open source, and ease of use.",
+  "tools": ["plausible", "umami"],
+  "category": "privacy-analytics",
+  "verdict": "Both are strong privacy-first alternatives to GA4 with lightweight scripts. Plausible offers a polished managed cloud product plus an open-source self-hosted edition. Umami is MIT-licensed, developer-led, and often cheapest if you self-host — with Umami Cloud as a managed option.",
+  "quickAnswer": "**Plausible** is the better fit if you want a **vendor-managed dashboard**, predictable pageview pricing, and optional self-hosting without building your own ops muscle. **Umami** is the better fit if you are **developer-comfortable**, want **open-source MIT code**, and prefer self-hosting (or Umami Cloud) to minimize SaaS spend at scale.",
+  "bottomLine": "Choose **Plausible** when you want the fastest path to a supported, privacy-first analytics product with a clear cloud bill. Choose **Umami** when you want maximum control, open source, and the lowest marginal cost via self-hosting — and you can maintain the stack yourself.",
+  "faq": [
+    {
+      "question": "Are Plausible and Umami both privacy-friendly?",
+      "answer": "Yes. Both are designed for privacy-respecting web analytics with cookieless options and without invasive cross-site tracking. Confirm consent requirements with legal counsel for your jurisdiction."
+    },
+    {
+      "question": "Which is cheaper for a side project?",
+      "answer": "Self-hosted Umami is free software plus your hosting cost — often the cheapest option if you already run a VPS or PaaS. Plausible Cloud starts at $9/month for 10K pageviews. Umami Cloud has a free hobby tier up to 100K events in our directory data."
+    },
+    {
+      "question": "Can I self-host both?",
+      "answer": "Yes. Plausible offers an open-source self-hosted edition and Umami is open source by default. Plausible Cloud and Umami Cloud are the managed alternatives if you do not want to operate infrastructure."
+    },
+    {
+      "question": "Which has better support?",
+      "answer": "Plausible Cloud includes vendor support as part of the paid SaaS product. Umami relies primarily on community support for self-hosted deployments; Umami Cloud adds managed hosting but is not an enterprise support desk."
+    },
+    {
+      "question": "Plausible vs Umami for a non-technical team?",
+      "answer": "Plausible Cloud is usually the better choice — sign up, add a script, and use the dashboard. Umami self-hosted expects someone comfortable deploying Docker or similar."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Pricing models differ",
+      "content": "Plausible Cloud bills on **monthly pageviews**. Umami Cloud bills on **monthly events** (pageviews plus custom events count toward the same pool in our directory data). Self-hosted Umami has no per-hit SaaS fee — compare total cost including engineer time, not just subscription lines."
+    }
+  ]
+}

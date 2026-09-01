@@ -1,0 +1,69 @@
+{
+  "tool": "umami",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Umami** is the best fit if you want **open-source, self-hostable web analytics** with a clean UI and minimal script weight — often cheaper than SaaS at scale if you can host it. Skip it if you need managed support, advanced ecommerce, or product analytics — **Plausible Cloud** or **PostHog** are stronger there.",
+  "bestFor": [
+    "Developers comfortable **self-hosting** on Vercel, Railway, Docker, or VPS",
+    "Teams wanting **simple dashboards** without GA4 complexity",
+    "Side projects and startups optimizing for **low cost at moderate traffic**",
+    "Privacy-conscious sites needing **cookieless** tracking options"
+  ],
+  "notFor": [
+    "Non-technical teams without anyone to deploy and maintain infrastructure",
+    "Enterprise requirements for SLAs, SSO, and dedicated support",
+    "Deep marketing integrations (Google Ads, BigQuery pipelines)",
+    "Session replay, heatmaps, feature flags — use Hotjar or PostHog"
+  ],
+  "sections": [
+    {
+      "id": "simplicity",
+      "title": "Simplicity & scope",
+      "dimension": "analytics-scope",
+      "content": "Umami focuses on **essential web metrics**: pageviews, referrers, browsers, countries, and custom events via a small API. The dashboard is fast and readable — closer to Plausible than Matomo or GA4 in scope.\n\nThat focus keeps the codebase and script lean. You will not get ecommerce funnels, tag manager complexity, or warehouse export — by design.\n\nFor personal sites, docs, and SaaS marketing pages, Umami often answers the only questions you actually check weekly."
+    },
+    {
+      "id": "open-source",
+      "title": "Open source & self-hosting",
+      "dimension": "deployment",
+      "content": "Umami is **MIT-licensed** and widely deployed via Docker, cloud templates, and Umami Cloud (managed offering). Self-hosting means your analytics DB lives where you put it — useful for side projects avoiding recurring SaaS fees.\n\nCommunity support is strong; enterprise support is not the model. Plan for upgrades, database backups, and monitoring yourself on self-hosted.\n\nUmami Cloud provides a middle path if you like the product but not the ops."
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy posture",
+      "dimension": "privacy-compliance",
+      "content": "Umami supports **cookieless tracking** and avoids invasive fingerprinting in default configurations — aligning with privacy-first marketing. Because you can self-host, data never needs to leave your VPC.\n\nCompliance still requires correct configuration, privacy policy updates, and regional rules — especially if you log authenticated user IDs in custom events.\n\nPair with legal review if you track logged-in user behavior."
+    }
+  ],
+  "setupNotes": "**Typical setup (self-hosted Docker):**\n\n1. Deploy Umami with Docker Compose or a one-click template (Railway, etc.).\n2. Create an admin account and add your **website ID**.\n3. Insert the Umami tracking script on your site.\n4. Optionally configure **custom events** via `umami.track()`.\n5. Lock down admin URL and enable backups on your database.\n\nExpect **30–90 minutes** for Docker on a VPS; faster on managed PaaS templates.\n\n**Common pitfalls:** exposing admin without auth hardening, losing data without DB backups, and forgetting to exclude your own visits.",
+  "pricingNotes": "Self-hosted Umami is **free software** — cost is hosting (often **$5–20/month** on small VPS or free tiers on hobby PaaS). **Umami Cloud** offers managed hosting with tiered pricing on umami.is — compare against Plausible if you prefer not to ops.\n\nAt high pageview volume, self-hosted Umami can undercut per-pageview SaaS bills if your time is cheap. At low volume, Plausible Cloud's $9 tier may be less hassle.\n\nUse our [pricing calculator](/calculators/pricing/) to compare Umami (hosting-only estimate) vs paid SaaS tools.",
+  "limitations": [
+    "Self-hosting is the default power path — not ideal for non-technical teams.",
+    "Feature set is intentionally narrow — no replay, flags, or deep funnels.",
+    "No official Google Ads integration or BigQuery export.",
+    "Enterprise support and compliance documentation lighter than Matomo Cloud.",
+    "Script performance benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Umami vs Plausible?",
+      "answer": "Plausible for managed privacy analytics with vendor support. Umami when you want open source and self-hosting control, often at lower marginal cost."
+    },
+    {
+      "question": "Is Umami hard to self-host?",
+      "answer": "Docker deployments are straightforward for developers. Non-developers should use Umami Cloud or pick Plausible/Fathom instead."
+    },
+    {
+      "question": "Can Umami replace GA4?",
+      "answer": "For simple traffic reporting on marketing sites, often yes. For ads integration, app analytics, and enterprise reporting, no."
+    },
+    {
+      "question": "Does Umami use cookies?",
+      "answer": "Umami supports cookieless modes. Verify your specific configuration and legal requirements."
+    }
+  ],
+  "sources": [
+    { "label": "Umami website", "url": "https://umami.is/", "checkedOn": "2026-08-27" },
+    { "label": "Umami GitHub", "url": "https://github.com/umami-software/umami", "checkedOn": "2026-08-27" },
+    { "label": "Umami docs", "url": "https://umami.is/docs", "checkedOn": "2026-08-27" }
+  ]
+}

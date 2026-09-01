@@ -1,0 +1,69 @@
+{
+  "tool": "plausible",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Plausible** is the best fit if you want **simple, privacy-respecting web analytics** without GA4 complexity — especially for blogs, marketing sites, and EU-facing properties. Skip it if you need deep ad-platform integration, product funnels, or revenue attribution — **GA4** or **DataFast** cover those better.",
+  "bestFor": [
+    "Marketing sites, blogs, and landing pages that need clean traffic reports without cookie banners in many cases",
+    "Teams migrating off Universal Analytics or GA4 for **privacy and simplicity**",
+    "Developers who want a **lightweight script** and optional **self-hosting** (open source)",
+    "Small businesses comparing privacy-first tools at lower traffic tiers"
+  ],
+  "notFor": [
+    "Teams deeply invested in Google Ads, BigQuery export, or GA4-native audiences",
+    "Product-led SaaS teams needing cohort analysis, session replay, or feature flags",
+    "Revenue attribution from Stripe — use **DataFast** or build custom GA4 ecommerce instead",
+    "Enterprise analytics with complex governance requirements"
+  ],
+  "sections": [
+    {
+      "id": "privacy-compliance",
+      "title": "Privacy & compliance",
+      "dimension": "privacy-compliance",
+      "content": "Plausible is built as a **privacy-first** analytics tool: no cross-site tracking, no personal data sold, and no third-party ad network cookies. It is designed to work **without cookie consent banners** in many EU contexts because it avoids invasive tracking — still verify with legal counsel for your site.\n\nPlausible publishes a **GDPR-compliant DPA** and does not fingerprint users across sites. This is the main reason teams choose it over GA4 for public marketing properties.\n\nSelf-hosting gives you full data control on your infrastructure; the managed cloud version keeps ops minimal."
+    },
+    {
+      "id": "web-analytics",
+      "title": "Web analytics scope",
+      "dimension": "analytics-scope",
+      "content": "Plausible covers the essentials well: **pageviews, referrers, UTM campaigns, goals, custom events**, and a realtime dashboard. You get enough to answer \"where did traffic come from?\" and \"which pages convert to signup?\" without learning a complex reporting UI.\n\nWhat you do not get: advanced funnels, user-level product analytics, predictive metrics, or native Google Marketing Platform integrations. For most content and marketing sites, that tradeoff is intentional.\n\nCustom events are supported but keep naming disciplined — each tracked interaction can matter for billing on event-based competitors, though Plausible bills on **pageviews**."
+    },
+    {
+      "id": "deployment",
+      "title": "Cloud vs self-hosted",
+      "dimension": "deployment",
+      "content": "Most teams use **Plausible Cloud** for speed — add a script tag and go. The **open-source self-hosted** edition suits teams with strict data residency, air-gapped requirements, or a preference to avoid SaaS subscriptions.\n\nSelf-hosting adds DevOps cost: updates, backups, and uptime are on you. Cloud pricing starts at **$9/month for 10K pageviews** in our directory data; self-hosted is free software plus your hosting bill."
+    }
+  ],
+  "setupNotes": "**Typical setup:**\n\n1. Create a site in the Plausible dashboard (or configure self-hosted instance).\n2. Add the Plausible script snippet to your site's `<head>` or via your CMS/plugin.\n3. Define **goals** for key conversions (signup, download, outbound link clicks).\n4. Optionally enable **custom events** for button clicks or JS-tracked actions.\n\nExpect **15–30 minutes** for a standard marketing site. Official plugins exist for WordPress, Ghost, Next.js, and others.\n\n**Common pitfalls:** counting admin/preview traffic (exclude IPs or use filters), forgetting UTM tags on campaigns, and comparing pageview counts 1:1 with GA4 (methodology differs).",
+  "pricingNotes": "Plausible uses **monthly pageview tiers** starting at **$9/month for 10K pageviews**, scaling to **$149/month at 10M pageviews** per our directory. Annual billing discounts are available on the vendor site.\n\nUnlike GA4, you pay from day one after any trial — but total cost is often lower than enterprise alternatives at small-to-medium scale. Self-hosted removes subscription cost but not hosting labor.\n\nUse our [pricing calculator](/calculators/pricing/) to compare Plausible against Fathom and GA4 at your traffic level.",
+  "limitations": [
+    "No native Google Ads or Search Console deep integration like GA4.",
+    "No session replay, heatmaps, or product analytics — pair with Hotjar or PostHog if needed.",
+    "Funnels and advanced segmentation are limited compared with product analytics suites.",
+    "Revenue attribution requires custom event work — not built-in like DataFast.",
+    "Script performance benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "Can Plausible replace Google Analytics 4?",
+      "answer": "For many marketing and content sites, yes — especially when privacy and simplicity matter more than ad-platform integration. GA4 remains stronger for Google Ads attribution and enterprise-scale reporting at no direct cost."
+    },
+    {
+      "question": "Do I need a cookie banner with Plausible?",
+      "answer": "Plausible is designed to avoid cookies and personal data collection, which often eliminates consent banners in EU contexts. Legal requirements vary — confirm with your counsel."
+    },
+    {
+      "question": "Plausible vs Fathom — how do I choose?",
+      "answer": "Both are excellent privacy-first options. Plausible tends to be cheaper at very low traffic and offers self-hosting. Fathom emphasizes polished UX and higher entry pageview limits per dollar at some tiers."
+    },
+    {
+      "question": "Is self-hosting worth it?",
+      "answer": "Only if you have DevOps capacity and a clear data-residency requirement. Most teams should start on cloud and revisit self-hosting if compliance or cost at scale demands it."
+    }
+  ],
+  "sources": [
+    { "label": "Plausible pricing", "url": "https://plausible.io/pricing", "checkedOn": "2026-08-27" },
+    { "label": "Plausible data policy", "url": "https://plausible.io/data-policy", "checkedOn": "2026-08-27" },
+    { "label": "Self-hosted docs", "url": "https://plausible.io/docs/self-hosting", "checkedOn": "2026-08-27" }
+  ]
+}

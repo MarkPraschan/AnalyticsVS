@@ -1,0 +1,23 @@
+---
+interface Props {
+  label: string;
+  dotClassName: string;
+  bgClassName: string;
+  borderBClassName: string;
+}
+
+const { label, dotClassName, bgClassName, borderBClassName } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-x-1.5 rounded-md border border-b-2 border-gray-100 px-2 py-1 text-xs font-medium text-neutral-900',
+    bgClassName,
+    borderBClassName,
+  ]}
+>
+  <svg viewBox="0 0 6 6" aria-hidden="true" class:list={['size-1.5', dotClassName]}>
+    <circle r="3" cx="3" cy="3" />
+  </svg>
+  {label}
+</span>

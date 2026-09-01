@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BenchmarkCard from '../../components/BenchmarkCard.astro';
+import { getCollection } from 'astro:content';
+
+const benchmarks = await getCollection('benchmarks');
+---
+
+<BaseLayout
+  title="Script Performance Benchmarks"
+  description="Recorded analytics script performance benchmarks. We never publish estimated or AI-generated numbers."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-10">
+      <h1 class="section-heading text-gradient-primary">Benchmarks</h1>
+      <p class="page-intro mt-4">
+        Real script performance measurements recorded by AnalyticsVS under controlled conditions.
+        We never publish estimated, scraped, or AI-generated benchmark data.
+      </p>
+      <p class="mt-4 text-sm">
+        <a href="/methodology/">Read our benchmark methodology →</a>
+      </p>
+    </header>
+
+    {
+      benchmarks.length > 0 ? (
+        <ul class="space-y-6">
+          {benchmarks.map((benchmark) => (
+            <li>
+              <a href={`/benchmarks/${benchmark.data.slug}/`} class="block no-underline">
+                <BenchmarkCard benchmark={benchmark} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="card text-muted">No benchmarks published yet. Check back soon.</p>
+      )
+    }
+  </div>
+</BaseLayout>

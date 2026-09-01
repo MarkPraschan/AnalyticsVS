@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: 'book' | 'square-top-down';
+  class?: string;
+}
+
+import Book from 'reicon/icons/Book';
+import SquareTopDown from 'reicon/icons/SquareTopDown';
+
+const icons = {
+  book: Book,
+  'square-top-down': SquareTopDown,
+} as const;
+
+const { name, class: className = 'h-4 w-4 shrink-0' } = Astro.props;
+
+const svg = icons[name].toSvg({
+  size: 16,
+  className,
+  color: 'currentColor',
+  attrs: { 'aria-hidden': 'true' },
+});
+---
+
+<span class="inline-flex" set:html={svg} />

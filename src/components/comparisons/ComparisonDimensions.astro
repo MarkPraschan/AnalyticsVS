@@ -1,0 +1,58 @@
+---
+import ToolMark from '../ToolMark.astro';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import type { AlignedDimension } from '../../lib/comparisons/alignSections';
+
+interface Props {
+  dimensions: AlignedDimension[];
+}
+
+const { dimensions } = Astro.props;
+---
+
+{
+  dimensions.length > 0 && (
+    <section id="head-to-head" class="mt-10">
+      <h2 class="article-heading">Head-to-head by topic</h2>
+      <p class="mt-2 text-sm text-muted">
+        Sourced from our individual tool reviews.{' '}
+        <a href="/methodology/">How we review tools</a>
+      </p>
+      <div class="mt-6 space-y-10">
+        {
+          dimensions.map((dimension) => (
+            <section id={dimension.slug} class="comparison-dimension">
+              <div class="comparison-dimension__header">
+                <h3 class="article-heading !text-xl">{dimension.title}</h3>
+                {
+                  dimension.uniqueToOneTool && (
+                    <span class="comparison-dimension__badge">
+                      Unique to {dimension.entries[0]!.tool.data.name}
+                    </span>
+                  )
+                }
+              </div>
+              <div class:list={['comparison-dimension__grid mt-4', dimension.uniqueToOneTool && 'comparison-dimension__grid--single']}>
+                {
+                  dimension.entries.map(({ tool, section }) => (
+                    <div class="comparison-dimension__panel card">
+                      <div class="comparison-dimension__panel-header">
+                        <ToolMark tool={tool.data} size="sm" href={false} />
+                        <h4 class="font-heading font-semibold text-fg">
+                          <a href={`/tools/${tool.data.slug}/#${section.id}`} class="text-fg no-underline hover:text-indigo">
+                            {tool.data.name}
+                          </a>
+                        </h4>
+                      </div>
+                      <div class="prose-content review-prose mt-3" set:html={renderReviewMarkdown(section.content)} />
+                    </div>
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { fade } from 'astro:transitions';
+import MetaTags from '../components/MetaTags.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageLoader from '../components/PageLoader.astro';
+import StructuredData from '../components/StructuredData.astro';
+import PostHog from '../components/posthog.astro';
+import { buildWebSiteSchema } from '../lib/schema';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogType?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[] | null;
+}
+
+const { title, description, canonical, ogType, schema } = Astro.props;
+const websiteSchema = buildWebSiteSchema();
+const allSchema = schema
+  ? Array.isArray(schema)
+    ? [websiteSchema, ...schema]
+    : [websiteSchema, schema]
+  : websiteSchema;
+
+const mainTransition = fade({ duration: '150ms' });
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <MetaTags title={title} description={description} canonical={canonical} ogType={ogType} />
+    <ClientRouter />
+    <StructuredData data={allSchema} />
+    <PostHog />
+  </head>
+  <body class="relative flex min-h-screen flex-col">
+    <PageLoader />
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        class="glow-orb-primary absolute -top-[25%] -left-[15%] h-[50vh] w-[50vw] rounded-full opacity-[0.07] blur-[100px]"
+      >
+      </div>
+      <div
+        class="glow-orb-secondary absolute -right-[10%] -bottom-[15%] h-[45vh] w-[45vw] rounded-full opacity-[0.08] blur-[100px]"
+      >
+      </div>
+    </div>
+    <SiteHeader transition:persist />
+    <main
+      id="main-content"
+      class="relative z-10 flex-1"
+      tabindex="-1"
+      transition:animate={mainTransition}
+    >
+      <slot />
+    </main>
+    <SiteFooter transition:persist />
+  </body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "tool": "posthog",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**PostHog** is the best fit if you need **product analytics, feature flags, session replay, and experimentation** in one developer-friendly platform — with a generous free tier and optional self-hosting. Skip it if you only need lightweight marketing pageview stats — **Plausible** or **Fathom** are simpler and cheaper for that job alone.",
+  "bestFor": [
+    "Product and engineering teams shipping features and measuring **in-app behavior**",
+    "Startups wanting **session replay, funnels, and A/B tests** without stitching five vendors",
+    "Teams comfortable with **event instrumentation** (SDK or autocapture)",
+    "Organizations evaluating **self-hosted** analytics for data control"
+  ],
+  "notFor": [
+    "Blog-only sites that only need referrer and pageview reports",
+    "Teams with zero engineering bandwidth for event taxonomy and SDK maintenance",
+    "Marketing teams that only care about Google Ads attribution — GA4 integrates deeper there",
+    "Simple revenue-per-channel attribution for Stripe SaaS — **DataFast** is more direct"
+  ],
+  "sections": [
+    {
+      "id": "product-analytics",
+      "title": "Product analytics",
+      "dimension": "product-capabilities",
+      "content": "PostHog's core is **product analytics**: funnels, retention, paths, trends, and user-level profiles (when identified). **Autocapture** can track clicks and pageviews on web with minimal code; serious teams still define **named events** for trustworthy metrics.\n\nUnlike GA4, PostHog is built for **SaaS product questions** — activation, feature adoption, churn signals — not just marketing landing pages. SQL insights and HogQL extend power users.\n\nEvent volume drives cost on cloud; disciplined instrumentation keeps bills predictable."
+    },
+    {
+      "id": "flags-replay-experiments",
+      "title": "Flags, replay & experiments",
+      "dimension": "product-capabilities",
+      "content": "PostHog bundles **feature flags**, **session replay**, and **experiments** — tools that often require Hotjar + LaunchDarkly + Optimizely separately. For early-stage teams, consolidation reduces integration tax.\n\nSession replay helps debug UX friction; flags enable gradual rollouts; experiments tie metrics to variants. Each capability adds script weight and privacy review surface — disclose replay to users where required.\n\nNot every team needs all modules on day one. PostHog lets you enable capabilities incrementally."
+    },
+    {
+      "id": "deployment",
+      "title": "Cloud vs self-hosted",
+      "dimension": "deployment",
+      "content": "PostHog Cloud is the fastest path — sign up, install snippet or SDK, start capturing. **Self-hosted** (open source) suits teams with infra teams and strict data residency.\n\nSelf-hosting PostHog is a real platform operation: ClickHouse, Kafka, upgrades, and backups. Budget engineering time, not just license savings.\n\nEU and US cloud regions exist on paid plans; confirm current region options on vendor docs before committing."
+    }
+  ],
+  "setupNotes": "**Typical setup (web SaaS):**\n\n1. Create a PostHog project and install the **JavaScript snippet** or framework SDK.\n2. Enable or disable **autocapture** based on noise tolerance.\n3. Define **key events** (signup, upgrade, core feature use) with stable names.\n4. Optionally enable **session replay** and **feature flags** for targeted users.\n5. Build funnels and dashboards; set up **experiments** when traffic allows.\n\nExpect **half a day to several days** depending on event taxonomy maturity.\n\n**Common pitfalls:** anonymous vs identified user merge issues, autocapture noise, enabling replay without performance testing, and unbounded custom properties.",
+  "pricingNotes": "PostHog Cloud includes a **free tier** (1M events/month and limited replay in our directory snapshot — verify current limits on posthog.com/pricing). Paid usage scales with **events, replay recordings, and feature flag requests**.\n\nSelf-hosted open source removes cloud event billing but adds hosting cost. For marketing-only sites, PostHog is usually **overkill and overpriced** vs Plausible.\n\nUse our [pricing calculator](/calculators/pricing/) with **events** (not just pageviews) for realistic estimates.",
+  "limitations": [
+    "Overkill for simple marketing analytics — complexity and cost vs Plausible/Fathom.",
+    "Requires engineering ownership for clean event schemas and identity rules.",
+    "Session replay raises privacy and performance considerations.",
+    "Google Ads native integration is not GA4-class.",
+    "Script bundle heavier than lightweight analytics — benchmark pending on AnalyticsVS."
+  ],
+  "faq": [
+    {
+      "question": "PostHog vs GA4 for a SaaS app?",
+      "answer": "PostHog is stronger for product funnels, flags, replay, and experiments with developer-first UX. GA4 is stronger for free scale and Google marketing integrations. Many teams run both during transition."
+    },
+    {
+      "question": "Is the free tier enough to start?",
+      "answer": "Often yes for early startups under event limits. Monitor usage as autocapture and replay can consume quota quickly."
+    },
+    {
+      "question": "Should I self-host PostHog?",
+      "answer": "Only if you have platform engineering capacity. Most startups should start on cloud and revisit self-hosting for compliance or cost at scale."
+    },
+    {
+      "question": "PostHog vs Hotjar?",
+      "answer": "Hotjar leads on heatmaps and qualitative UX for marketers. PostHog leads on product analytics, flags, and engineering-centric experimentation in one stack."
+    }
+  ],
+  "sources": [
+    { "label": "PostHog pricing", "url": "https://posthog.com/pricing", "checkedOn": "2026-08-27" },
+    { "label": "PostHog docs", "url": "https://posthog.com/docs", "checkedOn": "2026-08-27" },
+    { "label": "Self-host docs", "url": "https://posthog.com/docs/self-host", "checkedOn": "2026-08-27" }
+  ]
+}

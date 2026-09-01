@@ -1,0 +1,44 @@
+{
+  "id": "umami",
+  "name": "Umami",
+  "slug": "umami",
+  "category": "privacy-analytics",
+  "tagline": "Simple, fast, privacy-focused website analytics",
+  "website": "https://umami.is",
+  "brandColor": "#111827",
+  "affiliate": {
+    "enabled": false,
+    "url": "https://umami.is"
+  },
+  "pricing": {
+    "model": "monthly_events",
+    "currency": "USD",
+    "tiers": [
+      { "limit": 100000, "price": 0, "label": "Hobby (up to 100K events)" },
+      { "limit": 1000000, "price": 20, "label": "Pro (up to 1M events)" },
+      { "limit": 10000000, "price": 200, "label": "Business (up to 10M events)" }
+    ],
+    "notes": "Cloud pricing as of Aug 2026. Self-hosted is free. Events include pageviews and custom events.",
+    "projectLimits": {
+      "included": 1,
+      "plans": [
+        { "name": "Pro", "maxProjects": 10 },
+        { "name": "Business", "maxProjects": 100 }
+      ],
+      "notes": "Hobby is limited to one website; Pro and Business support multiple sites."
+    }
+  },
+  "features": {
+    "cookieless": true,
+    "gdpr_compliant": true,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": false,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": false,
+    "self_hosted": true,
+    "open_source": true
+  }
+}

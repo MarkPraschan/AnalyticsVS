@@ -1,0 +1,83 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const filtered = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+  filtered.length > 0 && (
+    <nav class="card sticky top-28" aria-label="Table of contents" data-toc>
+      <p class="label-mono mb-3">On this page</p>
+      <ul class="space-y-2 text-sm">
+        {filtered.map((heading) => (
+          <li class:list={[heading.depth === 3 && 'ml-3']}>
+            <a href={`#${heading.slug}`} class="toc-link" data-toc-link>
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<script>
+  let tocObserver: IntersectionObserver | undefined;
+
+  function initTableOfContents() {
+    tocObserver?.disconnect();
+
+    const nav = document.querySelector('[data-toc]');
+    if (!nav) return;
+
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+    const headings = links
+      .map((link) => {
+        const id = link.getAttribute('href')?.slice(1);
+        return id ? document.getElementById(id) : null;
+      })
+      .filter((heading): heading is HTMLElement => heading != null);
+
+    if (!headings.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((link) => {
+        const isActive = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('toc-link-active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    tocObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-100px 0px -66% 0px', threshold: 0 },
+    );
+
+    headings.forEach((heading) => tocObserver?.observe(heading));
+    setActive(headings[0].id);
+  }
+
+  initTableOfContents();
+  document.addEventListener('astro:page-load', initTableOfContents);
+</script>

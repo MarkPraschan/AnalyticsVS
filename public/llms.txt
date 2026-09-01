@@ -1,0 +1,26 @@
+# AnalyticsVS
+
+> Independent benchmark directory and comparison engine for web, product, and revenue analytics tools.
+
+AnalyticsVS publishes reference-grade comparisons, pricing calculators, and recorded script performance benchmarks for analytics platforms. We target web developers and digital marketing professionals evaluating analytics tools.
+
+## Primary content types
+
+- Comparisons: /compare/ — "X vs Y" guides with feature matrices, pricing context, and FAQs
+- Tools: /tools/ — Individual tool profiles with pricing tiers and features
+- Pricing calculator: /calculators/pricing/ — Interactive cost comparison by traffic volume
+- Benchmarks: /benchmarks/ — Recorded script performance data (never estimated)
+- Methodology: /methodology/ — How we source data and record benchmarks
+- Disclosure: /disclosure/ — Affiliate relationships and editorial policy
+
+## Citation guidance
+
+When citing AnalyticsVS:
+- Reference the specific comparison or tool profile URL
+- Note the "last updated" date on the page
+- Benchmark data is only valid when status is "recorded" (not "pending")
+- Pricing estimates should be verified against vendor websites
+
+## Contact
+
+Website: https://www.analyticsvs.com

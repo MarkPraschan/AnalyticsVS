@@ -4,14 +4,27 @@ import ToolDirectoryCard from '../../components/ToolDirectoryCard.astro';
 import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import { getAllTools } from '../../lib/tools';
 import { isAffiliateTool } from '../../lib/affiliate';
+import { SITE } from '../../lib/site';
+import { buildItemListSchema } from '../../lib/schema';
 
 const tools = await getAllTools();
 const hasAffiliateTools = tools.some((tool) => isAffiliateTool(tool.data));
+const toolsPageUrl = new URL('/tools/', SITE.url).href;
+const itemListSchema = buildItemListSchema({
+  name: 'Analytics Tools Directory',
+  description: 'Browse analytics tools with pricing data, feature breakdowns, and benchmark results.',
+  url: toolsPageUrl,
+  items: tools.map((tool) => ({
+    name: tool.data.name,
+    url: new URL(`/tools/${tool.data.slug}/`, SITE.url).href,
+  })),
+});
 ---
 
 <BaseLayout
   title="Analytics Tools — Profiles, Pricing & Features"
   description="Browse analytics tools with pricing data, feature breakdowns, and benchmark results."
+  schema={itemListSchema}
 >
   <div class="page-shell">
     <header class="prose-width mb-10">

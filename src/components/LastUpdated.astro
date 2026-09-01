@@ -6,8 +6,10 @@ interface Props {
 }
 
 const { date } = Astro.props;
+const isoDate = typeof date === 'string' ? date : date.toISOString();
 ---
 
-<p class="font-mono text-xs text-muted">
-  Last updated: <time datetime={typeof date === 'string' ? date : date.toISOString()} class="text-indigo-dark">{formatDate(date)}</time>
+<p class="freshness-badge" role="note">
+  <span class="freshness-badge__label">Last updated</span>
+  <time datetime={isoDate} class="freshness-badge__date">{formatDate(date)}</time>
 </p>

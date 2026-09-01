@@ -568,6 +568,18 @@
     }
   }
 
+  .freshness-badge {
+    @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-indigo/20 bg-indigo/5 px-3 py-1.5 font-mono text-xs;
+  }
+
+  .freshness-badge__label {
+    @apply font-medium uppercase tracking-wide text-muted;
+  }
+
+  .freshness-badge__date {
+    @apply font-semibold text-indigo-dark;
+  }
+
   .prose-content .fit-checklist {
     @apply mb-4 ml-6 list-none space-y-2;
 

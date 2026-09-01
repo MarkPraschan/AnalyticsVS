@@ -73,13 +73,17 @@ const schema = [
     url: pageUrl,
     dateModified: updatedDate,
     breadcrumbs: [],
+    speakableCssSelector: '#quick-answer',
   }),
   buildBreadcrumbSchema([
     { name: 'Home', url: SITE.url },
     { name: 'Comparisons', url: new URL('/compare/', SITE.url).href },
     { name: comparison.data.title, url: pageUrl },
   ]),
-  buildFaqSchema(context.mergedFaq),
+  buildFaqSchema(context.mergedFaq, {
+    pageUrl,
+    sectionLabel: 'full comparison',
+  }),
 ].filter((item): item is Record<string, unknown> => item != null);
 ---
 
@@ -94,7 +98,7 @@ const schema = [
 
   <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
     <div class="min-w-0">
-      <QuickAnswerCallout content={comparison.data.quickAnswer} />
+      <QuickAnswerCallout content={comparison.data.quickAnswer} pageUrl={pageUrl} />
 
       <ComparisonFitGrid tools={context.tools} />
 

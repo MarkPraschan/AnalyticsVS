@@ -1,3 +1,4 @@
+import { summarizeFaqAnswerForSchema } from './aeo';
 import { SITE } from './site';
 
 interface BreadcrumbItem {
@@ -11,11 +12,17 @@ interface ArticleSchemaInput {
   url: string;
   dateModified: string;
   breadcrumbs: BreadcrumbItem[];
+  speakableCssSelector?: string;
 }
 
 interface FaqItem {
   question: string;
   answer: string;
+}
+
+interface FaqSchemaOptions {
+  pageUrl: string;
+  sectionLabel?: string;
 }
 
 export function buildBreadcrumbSchema(items: BreadcrumbItem[]): Record<string, unknown> {
@@ -32,7 +39,7 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]): Record<string, u
 }
 
 export function buildArticleSchema(input: ArticleSchemaInput): Record<string, unknown> {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: input.title,
@@ -50,10 +57,24 @@ export function buildArticleSchema(input: ArticleSchemaInput): Record<string, un
       url: SITE.url,
     },
   };
+
+  if (input.speakableCssSelector) {
+    schema.speakable = {
+      '@type': 'SpeakableSpecification',
+      cssSelector: [input.speakableCssSelector],
+    };
+  }
+
+  return schema;
 }
 
-export function buildFaqSchema(faq: FaqItem[]): Record<string, unknown> | null {
+export function buildFaqSchema(
+  faq: FaqItem[],
+  options?: FaqSchemaOptions,
+): Record<string, unknown> | null {
   if (faq.length === 0) return null;
+
+  const sectionLabel = options?.sectionLabel ?? 'full answer';
 
   return {
     '@context': 'https://schema.org',
@@ -63,7 +84,9 @@ export function buildFaqSchema(faq: FaqItem[]): Record<string, unknown> | null {
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: options
+          ? summarizeFaqAnswerForSchema(item.answer, options.pageUrl, sectionLabel)
+          : item.answer,
       },
     })),
   };
@@ -76,5 +99,34 @@ export function buildWebSiteSchema(): Record<string, unknown> {
     name: SITE.name,
     url: SITE.url,
     description: SITE.description,
+  };
+}
+
+interface ItemListEntry {
+  name: string;
+  url: string;
+}
+
+interface ItemListSchemaInput {
+  name: string;
+  description: string;
+  url: string;
+  items: ItemListEntry[];
+}
+
+export function buildItemListSchema(input: ItemListSchemaInput): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    numberOfItems: input.items.length,
+    itemListElement: input.items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
   };
 }

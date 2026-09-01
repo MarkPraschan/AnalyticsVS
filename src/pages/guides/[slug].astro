@@ -1,0 +1,132 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonCard from '../../components/ComparisonCard.astro';
+import ToolMark from '../../components/ToolMark.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import { getCollection } from 'astro:content';
+import { getEntryUpdatedDate } from '../../lib/contentDates';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import { getToolsByIds } from '../../lib/tools';
+import { SITE, formatDate } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((guide) => ({
+    params: { slug: guide.data.slug },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props;
+const updatedDate = getEntryUpdatedDate(guide);
+const pageUrl = new URL(`/guides/${guide.data.slug}/`, SITE.url).href;
+
+const comparisons = await getCollection('comparisons');
+const relatedComparisons = guide.data.relatedComparisons.flatMap((id) => {
+  const comparison = comparisons.find((entry) => entry.id === id);
+  return comparison ? [comparison] : [];
+});
+const relatedTools = await getToolsByIds(guide.data.relatedTools);
+const relatedComparisonCards = await Promise.all(
+  relatedComparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+
+const tocHeadings = [
+  ...guide.data.sections.map((section) => ({
+    depth: 2 as const,
+    slug: section.id,
+    text: section.title,
+  })),
+  ...(relatedComparisons.length > 0
+    ? [{ depth: 2 as const, slug: 'related-comparisons', text: 'Related comparisons' }]
+    : []),
+  { depth: 2, slug: 'sources', text: 'Sources & review status' },
+];
+
+const schema = [
+  buildArticleSchema({
+    title: guide.data.title,
+    description: guide.data.description,
+    url: pageUrl,
+    dateModified: updatedDate,
+    breadcrumbs: [],
+    speakableCssSelector: `#${guide.data.sections[0]?.id ?? 'sources'}`,
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Guides', url: new URL('/guides/', SITE.url).href },
+    { name: guide.data.title, url: pageUrl },
+  ]),
+];
+---
+
+<ArticleLayout title={guide.data.title} description={guide.data.description} lastUpdated={updatedDate} schema={schema}>
+  <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
+    <div class="min-w-0">
+      {
+        guide.data.sections.map((section) => (
+          <section id={section.id} class="mt-10 first:mt-0">
+            <h2 class="article-heading">{section.title}</h2>
+            <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(section.content)} />
+          </section>
+        ))
+      }
+
+      {
+        relatedComparisonCards.length > 0 && (
+          <section id="related-comparisons" class="mt-10">
+            <h2 class="article-heading">Related comparisons</h2>
+            <p class="mt-2 text-sm text-muted">
+              These head-to-head pages include feature matrices, pricing context, and verdicts.
+            </p>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedComparisonCards.map(({ comparison, tools }) => (
+                <li>
+                  <ComparisonCard comparison={comparison} tools={tools} heading="h3" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        relatedTools.length > 0 && (
+          <section class="mt-10">
+            <h2 class="article-heading">Tools covered in this guide</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {relatedTools.map((tool) => (
+                <li>
+                  <a
+                    href={`/tools/${tool.data.slug}/`}
+                    class="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-raised px-3 py-1.5 text-sm text-muted no-underline transition hover:border-indigo/40 hover:text-indigo"
+                  >
+                    <ToolMark tool={tool.data} size="sm" href={false} />
+                    {tool.data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <section id="sources" class="mt-10">
+        <h2 class="article-heading">Sources & review status</h2>
+        <div class="review-meta card mt-4">
+          <p class="text-sm text-muted">
+            Guide updated {formatDate(updatedDate)} · <a href="/methodology/">How we write comparisons</a> ·{' '}
+            <a href="/compare/">Browse all comparisons</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <aside class="hidden lg:block">
+      <TableOfContents headings={tocHeadings} />
+    </aside>
+  </div>
+</ArticleLayout>

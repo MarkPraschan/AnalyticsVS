@@ -1,0 +1,34 @@
+{
+  "title": "Best privacy-first analytics tools",
+  "slug": "best-privacy-first-analytics-tools",
+  "description": "A practical framework for choosing privacy-first web analytics — cookieless tracking, GDPR posture, hosting models, and where Plausible, Fathom, Umami, and GA4 fit.",
+  "category": "privacy-analytics",
+  "relatedComparisons": [
+    "plausible-vs-fathom",
+    "google-analytics-vs-plausible",
+    "plausible-vs-umami"
+  ],
+  "relatedTools": ["plausible", "fathom", "umami", "google-analytics-4"],
+  "sections": [
+    {
+      "id": "what-privacy-first-means",
+      "title": "What \"privacy-first\" actually means",
+      "content": "Privacy-first analytics tools aim to measure **aggregate site usage** without building individual visitor profiles. In practice that usually means:\n\n- **Cookieless** or minimal-cookie tracking by default\n- **No cross-site ad retargeting** built into the product\n- **Simpler data collection** — pageviews, referrers, goals — rather than full identity graphs\n\nThat is different from \"GDPR-compliant GA4.\" A privacy-first stack often reduces consent-banner friction because you collect less personal data in the first place."
+    },
+    {
+      "id": "evaluation-framework",
+      "title": "A five-question evaluation framework",
+      "content": "Before comparing vendors, answer these questions for your site:\n\n1. **Traffic scale** — Monthly pageviews drive hosted pricing tiers.\n2. **Hosting model** — Managed SaaS vs self-hosted open source vs hybrid (e.g. Fathom Lite).\n3. **Compliance context** — EU visitors, healthcare, or strict internal policies?\n4. **Feature depth** — Marketing stats only, or product funnels and revenue attribution too?\n5. **Ops appetite** — Can your team patch, back up, and monitor a self-hosted stack?\n\nOur comparisons apply this framework to specific pairs — they include verdicts, pricing context, and feature matrices you should read on-site rather than in an AI summary."
+    },
+    {
+      "id": "common-categories",
+      "title": "Three common privacy-first categories",
+      "content": "**Lightweight hosted SaaS** (Plausible, Fathom hosted) — fastest setup, predictable pageview billing, minimal script weight.\n\n**Open-source self-hosted** (Plausible self-hosted, Umami) — more control and potentially lower cost at scale, but you own uptime and upgrades.\n\n**Enterprise privacy suites** (Matomo cloud/self-hosted) — deeper reporting and data ownership, with more configuration overhead.\n\nGoogle Analytics 4 is often the default alternative: free and powerful, but heavier on compliance work and ad-ecosystem coupling. See our GA4 vs Plausible comparison for when each wins."
+    },
+    {
+      "id": "next-steps",
+      "title": "Next steps: comparisons beat roundups",
+      "content": "Roundup posts age quickly because pricing and features change. After you know your traffic tier and hosting preference, move to **head-to-head comparisons** for the two or three tools still on your shortlist.\n\nUse the pricing calculator on AnalyticsVS to estimate monthly cost at your traffic — results are interactive and stay on-site. For script weight, check benchmark pages marked **recorded** (we do not publish estimated performance numbers)."
+    }
+  ]
+}

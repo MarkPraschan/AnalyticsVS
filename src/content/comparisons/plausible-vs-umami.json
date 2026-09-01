@@ -4,7 +4,7 @@
   "tools": ["plausible", "umami"],
   "category": "privacy-analytics",
   "verdict": "Both are strong privacy-first alternatives to GA4 with lightweight scripts. Plausible offers a polished managed cloud product plus an open-source self-hosted edition. Umami is MIT-licensed, developer-led, and often cheapest if you self-host — with Umami Cloud as a managed option.",
-  "quickAnswer": "**Plausible** is the better fit if you want a **vendor-managed dashboard**, predictable pageview pricing, and optional self-hosting without building your own ops muscle. **Umami** is the better fit if you are **developer-comfortable**, want **open-source MIT code**, and prefer self-hosting (or Umami Cloud) to minimize SaaS spend at scale.",
+  "quickAnswer": "**Plausible** is the better fit if you want a **vendor-managed dashboard** and predictable pageview pricing. **Umami** is the better fit if you prefer **open-source, self-hosted** analytics and can handle your own ops.",
   "bottomLine": "Choose **Plausible** when you want the fastest path to a supported, privacy-first analytics product with a clear cloud bill. Choose **Umami** when you want maximum control, open source, and the lowest marginal cost via self-hosting — and you can maintain the stack yourself.",
   "faq": [
     {

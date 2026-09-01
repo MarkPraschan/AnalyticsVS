@@ -4,9 +4,10 @@ import type { ToolReview } from '../lib/reviews';
 
 interface Props {
   review: ToolReview;
+  pageUrl: string;
 }
 
-const { review } = Astro.props;
+const { review, pageUrl } = Astro.props;
 ---
 
-<QuickAnswerCallout content={review.quickAnswer} />
+<QuickAnswerCallout content={review.quickAnswer} pageUrl={pageUrl} />

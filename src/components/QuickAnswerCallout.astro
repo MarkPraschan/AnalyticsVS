@@ -1,12 +1,15 @@
 ---
 import Lightbulb from 'reicon/icons/Lightbulb';
+import { trimToSentenceTeaser } from '../lib/aeo';
 import { renderSimpleMarkdown } from '../lib/markdown';
 
 interface Props {
   content: string;
+  pageUrl?: string;
 }
 
-const { content } = Astro.props;
+const { content, pageUrl } = Astro.props;
+const teaser = trimToSentenceTeaser(content, 3);
 
 const iconSvg = Lightbulb.toSvg({
   size: 20,
@@ -22,7 +25,14 @@ const iconSvg = Lightbulb.toSvg({
     <div class="min-w-0 flex-1">
       <p class="label-mono text-gradient-secondary">Quick answer</p>
       <h2 class="sr-only">Quick answer</h2>
-      <div class="quick-answer-callout__body" set:html={renderSimpleMarkdown(content)} />
+      <div class="quick-answer-callout__body" set:html={renderSimpleMarkdown(teaser)} />
+      {
+        pageUrl && (
+          <p class="mt-3 text-sm text-muted">
+            <a href={pageUrl}>Read the full analysis on AnalyticsVS →</a>
+          </p>
+        )
+      }
     </div>
   </div>
 </section>

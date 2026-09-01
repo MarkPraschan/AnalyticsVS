@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatCategory } from '../../lib/site';
+
+const guides = (await getCollection('guides')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+---
+
+<BaseLayout
+  title="Analytics Evaluation Guides"
+  description="Framework-first guides for choosing web, product, and privacy analytics tools — with links to detailed comparisons."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-10">
+      <h1 class="section-heading text-gradient-primary">Guides</h1>
+      <p class="page-intro mt-4">
+        Pillar guides explain how to think about analytics categories and trade-offs. For verdicts,
+        pricing tables, and head-to-head breakdowns, follow through to our comparisons and tool
+        profiles.
+      </p>
+    </header>
+
+    {
+      guides.length === 0 ? (
+        <p class="text-sm text-muted" role="status">
+          No guides published yet.
+        </p>
+      ) : (
+        <ul role="list" class="grid gap-4">
+          {guides.map((guide) => (
+            <li>
+              <a href={`/guides/${guide.data.slug}/`} class="card block no-underline transition hover:border-indigo/40">
+                <p class="label-mono text-gradient-secondary">{formatCategory(guide.data.category)}</p>
+                <h2 class="mt-2 font-heading text-xl font-semibold text-fg">{guide.data.title}</h2>
+                <p class="mt-2 text-sm leading-relaxed text-muted">{guide.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</BaseLayout>

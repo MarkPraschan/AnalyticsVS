@@ -86,13 +86,17 @@ const schema = [
     url: pageUrl,
     dateModified: updatedDate,
     breadcrumbs: [],
+    speakableCssSelector: '#quick-answer',
   }),
   buildBreadcrumbSchema([
     { name: 'Home', url: SITE.url },
     { name: 'Tools', url: new URL('/tools/', SITE.url).href },
     { name: tool.data.name, url: pageUrl },
   ]),
-  buildFaqSchema(review.faq),
+  buildFaqSchema(review.faq, {
+    pageUrl,
+    sectionLabel: 'full review',
+  }),
 ].filter((item): item is Record<string, unknown> => item != null);
 ---
 
@@ -101,7 +105,7 @@ const schema = [
 
   <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
     <div class="min-w-0">
-      <ToolReviewIntro review={review} />
+      <ToolReviewIntro review={review} pageUrl={pageUrl} />
 
       <ToolFeatureChecklist tool={tool} reviewScope={review.reviewScope} />
 

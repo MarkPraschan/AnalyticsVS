@@ -182,4 +182,23 @@ const toolReviews = defineCollection({
   }),
 });
 
-export const collections = { tools, comparisons, benchmarks, toolReviews };
+const guideSectionSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  content: z.string(),
+});
+
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/guides' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    category: z.string(),
+    relatedComparisons: z.array(z.string()).default([]),
+    relatedTools: z.array(z.string()).default([]),
+    sections: z.array(guideSectionSchema).min(1),
+  }),
+});
+
+export const collections = { tools, comparisons, benchmarks, toolReviews, guides };

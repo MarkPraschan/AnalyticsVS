@@ -1,0 +1,33 @@
+---
+import { formatDate } from '../lib/site';
+
+interface Props {
+  updatedDate: string;
+  websiteUrl?: string;
+  websiteLabel?: string;
+}
+
+const { updatedDate, websiteUrl, websiteLabel } = Astro.props;
+---
+
+<section id="sources" class="mt-10">
+  <h2 class="article-heading">Sources & review status</h2>
+  <div class="review-meta card mt-4">
+    <p class="text-sm text-muted">
+      Profile updated {formatDate(updatedDate)}
+      {
+        websiteUrl && websiteLabel && (
+          <>
+            {' '}
+            · Pricing sourced from{' '}
+            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+              {websiteLabel}
+            </a>
+          </>
+        )
+      }
+      {' '}
+      · <a href="/methodology/">How we review tools</a>
+    </p>
+  </div>
+</section>

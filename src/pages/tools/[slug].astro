@@ -8,6 +8,7 @@ import ToolProfileHeader from '../../components/ToolProfileHeader.astro';
 import ComparisonCard from '../../components/ComparisonCard.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ToolReviewPage from '../../components/tools/ToolReviewPage.astro';
+import ProfileSources from '../../components/ProfileSources.astro';
 import { getAllTools, getComparisonsForTool, getBenchmarksForTool, getToolsByIds } from '../../lib/tools';
 import { getToolReview, getToolReviewEntry } from '../../lib/reviews';
 import { getToolPageUpdatedDate } from '../../lib/contentDates';
@@ -144,6 +145,12 @@ const schema = [
               </section>
             )
           }
+
+          <ProfileSources
+            updatedDate={updatedDate}
+            websiteUrl={tool.data.website}
+            websiteLabel={tool.data.name}
+          />
         </div>
         <aside class="hidden lg:block">
           <TableOfContents headings={tocHeadings} />

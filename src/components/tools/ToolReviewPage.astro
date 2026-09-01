@@ -89,7 +89,7 @@ const schema = [
   }),
   buildBreadcrumbSchema([
     { name: 'Home', url: SITE.url },
-    { name: 'Directory', url: new URL('/tools/', SITE.url).href },
+    { name: 'Tools', url: new URL('/tools/', SITE.url).href },
     { name: tool.data.name, url: pageUrl },
   ]),
   buildFaqSchema(review.faq),

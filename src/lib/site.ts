@@ -70,6 +70,24 @@ export function formatCategory(category: string): string {
   return CATEGORY_LABELS[category] ?? category;
 }
 
+export function formatCountWord(n: number, capitalize = false): string {
+  const words = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ] as const;
+  const word = n >= 0 && n <= 9 ? words[n]! : String(n);
+  if (!capitalize) return word;
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 export function formatDate(date: Date | string): string {
   const d =
     typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)

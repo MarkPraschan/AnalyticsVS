@@ -1,0 +1,37 @@
+---
+const [chartSvg, sparklineSvg] = await Promise.all([
+  fetch('https://cdn.reicon.dev/chart.svg').then((response) => response.text()),
+  fetch('https://cdn.reicon.dev/sparkline.svg').then((response) => response.text()),
+]);
+
+function prepareIllustrationSvg(svg: string, gradientId: string) {
+  return svg
+    .replace(/\saria-label="[^"]*"/, '')
+    .replace(/fill="currentColor"/g, `fill="url(#${gradientId})"`)
+    .replace('<svg ', '<svg focusable="false" ');
+}
+
+const gradientId = 'hero-illustration-gradient';
+---
+
+<div class="hero-illustration">
+  <svg class="hero-illustration__defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="var(--color-mint)"></stop>
+        <stop offset="100%" stop-color="var(--color-chartreuse)"></stop>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div class="hero-illustration__glow" aria-hidden="true"></div>
+  <div class="hero-illustration__frame">
+    <div
+      class="hero-illustration__slide hero-illustration__slide--chart"
+      set:html={prepareIllustrationSvg(chartSvg, gradientId)}
+    />
+    <div
+      class="hero-illustration__slide hero-illustration__slide--sparkline"
+      set:html={prepareIllustrationSvg(sparklineSvg, gradientId)}
+    />
+  </div>
+</div>

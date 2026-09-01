@@ -195,7 +195,7 @@
   }
 
   .heading-xl {
-    @apply font-heading text-4xl font-extrabold tracking-tight leading-[1.05] sm:text-5xl lg:text-6xl;
+    @apply font-heading text-3xl font-extrabold tracking-tight leading-[1.05] sm:text-4xl lg:text-5xl;
   }
 
   .heading-lg {
@@ -361,10 +361,6 @@
 
   .pricing-table {
     @apply w-full text-sm;
-
-    & caption {
-      @apply mb-3 text-right text-sm text-muted;
-    }
 
     & thead th {
       @apply border-0 border-b border-border bg-surface-raised/60 px-4 py-2.5 text-left text-sm font-medium text-muted;
@@ -665,6 +661,145 @@
 
   .comparison-pricing-panel {
     @apply min-w-0;
+  }
+
+  .hero {
+    @apply grid gap-10 lg:grid-cols-[minmax(0,1fr)_min(13rem,32%)] lg:items-center lg:gap-14;
+  }
+
+  .hero__visual {
+    @apply flex justify-center lg:justify-end;
+  }
+
+  .hero-illustration {
+    @apply relative aspect-square w-full max-w-[11rem] sm:max-w-[13rem] lg:max-w-none lg:w-full;
+  }
+
+  .hero-illustration__defs {
+    @apply absolute h-0 w-0 overflow-hidden;
+  }
+
+  .hero-illustration__glow {
+    @apply pointer-events-none absolute inset-[12%] rounded-full opacity-35 blur-3xl;
+    background: linear-gradient(
+      to bottom right in oklab,
+      color-mix(in oklab, var(--color-mint) 45%, transparent),
+      color-mix(in oklab, var(--color-chartreuse) 35%, transparent)
+    );
+  }
+
+  .hero-illustration__frame {
+    @apply relative h-full w-full;
+  }
+
+  .hero-illustration__slide {
+    @apply absolute inset-0 flex items-center justify-center;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-illustration__slide--chart {
+      animation: hero-illustration-chart 10s ease-in-out infinite;
+    }
+
+    .hero-illustration__slide--sparkline {
+      animation: hero-illustration-sparkline 10s ease-in-out infinite;
+    }
+  }
+
+  .hero-illustration__slide :where(svg) {
+    @apply h-auto w-full max-w-full;
+  }
+
+  .hero-illustration__slide--sparkline :where(svg) {
+    @apply max-h-[58%];
+  }
+
+  @keyframes hero-illustration-chart {
+    0% {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    8% {
+      opacity: 1;
+      transform: translateY(0.35rem);
+    }
+
+    32% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    42% {
+      opacity: 1;
+      transform: translateY(-0.3rem);
+    }
+
+    50% {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+
+    82% {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    90% {
+      opacity: 1;
+      transform: translateY(0.35rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-illustration-sparkline {
+    0%,
+    42% {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    50% {
+      opacity: 1;
+      transform: translateY(0.35rem);
+    }
+
+    68% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    82% {
+      opacity: 1;
+      transform: translateY(-0.3rem);
+    }
+
+    90% {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-illustration__slide {
+      animation: none !important;
+      opacity: 0;
+      transform: none;
+    }
+
+    .hero-illustration__slide--chart {
+      opacity: 1;
+    }
   }
 
   .page-section {

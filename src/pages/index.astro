@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ComparisonCard from '../components/ComparisonCard.astro';
+import HeroIllustration from '../components/HeroIllustration.astro';
 import ToolMark from '../components/ToolMark.astro';
 import { getCollection } from 'astro:content';
 import { getAllTools, getToolsByIds } from '../lib/tools';
+import { formatCountWord } from '../lib/site';
 
 const FEATURED_COMPARISON_IDS = ['google-analytics-vs-plausible', 'datafast-vs-posthog'];
 
@@ -26,29 +28,32 @@ const comparisonTools = await Promise.all(
 
 <BaseLayout>
   <div class="page-shell">
-    <section class="prose-width" aria-labelledby="hero-heading">
-      <p class="tag">Independent analytics comparisons</p>
-      <h1 id="hero-heading" class="heading-xl mt-5 text-balance">
-        <span class="text-gradient-primary">Compare analytics tools</span>
-        <span class="text-fg"> with data, not marketing copy</span>
-      </h1>
-      <p class="page-intro mt-6">
-        AnalyticsVS is an independent benchmark directory for web, product, and revenue analytics
-        tools. We publish reference-grade comparisons, pricing calculators, and recorded script
-        performance benchmarks.
-      </p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <a href="/compare/" class="btn-primary w-full no-underline sm:w-auto">Browse comparisons</a>
-        <a href="/calculators/pricing/" class="btn-secondary w-full no-underline sm:w-auto"
-          >Pricing calculator</a
-        >
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__content prose-width">
+        <p class="tag">Web, product &amp; revenue analytics</p>
+        <h1 id="hero-heading" class="heading-xl mt-5 text-balance">
+          <span class="text-gradient-primary">Compare analytics tools</span>
+          <span class="text-fg"> by features and cost</span>
+        </h1>
+        <p class="page-intro mt-6">
+          AnalyticsVS is an independent benchmark directory for web, product, and revenue analytics
+          tools. We publish reference-grade comparisons, pricing calculators, and recorded script
+          performance benchmarks.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a href="/compare/" class="btn-primary w-full no-underline sm:w-auto">Browse comparisons</a>
+          <a href="/calculators/pricing/" class="btn-secondary w-full no-underline sm:w-auto"
+            >Pricing calculator</a
+          >
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <HeroIllustration />
       </div>
     </section>
 
     <section class="page-section" aria-labelledby="featured-heading">
-      <h2 id="featured-heading" class="section-heading">
-        <span class="text-gradient-secondary">Featured</span> comparisons
-      </h2>
+      <h2 id="featured-heading" class="section-heading">Featured comparisons</h2>
       <ul class="mt-6 grid gap-4 sm:grid-cols-2">
         {
           comparisonTools.map(({ comparison, tools: pair }) => (
@@ -61,9 +66,9 @@ const comparisonTools = await Promise.all(
     </section>
 
     <section class="page-section" aria-labelledby="tools-heading">
-      <h2 id="tools-heading" class="section-heading">Directory</h2>
+      <h2 id="tools-heading" class="section-heading">Analytics tools</h2>
       <p class="mt-2 text-muted">
-        {tools.length} analytics tools tracked with pricing data, feature matrices, and benchmark
+        {formatCountWord(tools.length, true)} analytics tools tracked with pricing data, feature matrices, and benchmark
         slots.
       </p>
       <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

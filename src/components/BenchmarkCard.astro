@@ -27,15 +27,16 @@ const isPending = data.status === 'pending';
           : 'border-gradient-secondary text-gradient-secondary',
       ]}
     >
-      {isPending ? 'Benchmark pending' : 'Recorded by AnalyticsVS'}
+      {isPending ? 'Coming soon' : 'Recorded by AnalyticsVS'}
     </span>
   </div>
 
   {
     isPending ? (
       <p class="mt-6 text-sm leading-relaxed text-muted">
-        Benchmark data has not been recorded yet. We never publish estimated or AI-generated
-        performance numbers. Check back after we publish results from controlled testing.
+        This benchmark is queued for controlled testing. We publish results only after recording
+        transfer size, decoded weight, and main-thread blocking on a live test page — never
+        estimated or vendor-claimed numbers.
       </p>
     ) : (
       <dl class="mt-6 grid gap-4 sm:grid-cols-2">

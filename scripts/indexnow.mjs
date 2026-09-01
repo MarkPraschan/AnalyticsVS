@@ -76,6 +76,5 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error('[indexnow] Error:', error.message);
-  process.exitCode = 1;
+  console.warn('[indexnow] Warning:', error.message);
 });

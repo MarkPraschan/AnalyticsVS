@@ -7,10 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev --force",
-    "build": "astro build",
+    "build": "npm run benchmark:fixtures && astro build",
     "postbuild": "node scripts/indexnow.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "benchmark:install": "playwright install chromium",
+    "benchmark:fixtures": "node scripts/benchmarks/build-fixtures.mjs",
+    "benchmark:run": "node scripts/benchmarks/run.mjs",
+    "benchmark:import": "node scripts/benchmarks/import.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.8",
@@ -30,6 +34,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "playwright": "^1.62.1",
     "typescript": "^6.0.3"
   }
 }

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /bench/
 
 Sitemap: https://www.analyticsvs.com/sitemap-index.xml

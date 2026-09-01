@@ -1,0 +1,42 @@
+{
+  "_comment": "Copy this file to snippets.json and paste each vendor's default <script> snippet in headHtml. Keys are tool ids from manifest.json. Snippets are public in the browser but gitignored here to avoid accidental commits before you are ready.",
+  "fixtureHost": "bench.analyticsvs.com",
+  "tools": {
+    "plausible": {
+      "headHtml": "<!-- Paste Plausible script from dashboard (data-domain=bench.analyticsvs.com) -->",
+      "setupNotes": "Plausible Cloud → Add site bench.analyticsvs.com → copy <head> snippet"
+    },
+    "fathom": {
+      "headHtml": "<!-- Paste hosted Fathom script from dashboard -->",
+      "setupNotes": "Fathom Analytics → Add site → copy tracking code"
+    },
+    "google-analytics-4": {
+      "headHtml": "<!-- Paste gtag.js snippet with your G-XXXXXXXX ID -->",
+      "setupNotes": "GA4 Admin → Data streams → Web → copy gtag install"
+    },
+    "posthog": {
+      "headHtml": "<!-- Paste PostHog web snippet with project API key -->",
+      "setupNotes": "PostHog Project Settings → Snippet"
+    },
+    "hotjar": {
+      "headHtml": "<!-- Paste Hotjar tracking code -->",
+      "setupNotes": "Hotjar Sites → Tracking code"
+    },
+    "matomo": {
+      "headHtml": "<!-- Paste Matomo Cloud tracking code -->",
+      "setupNotes": "Use Matomo Cloud (not self-hosted) for comparable CDN delivery"
+    },
+    "umami": {
+      "headHtml": "<!-- Paste Umami Cloud script with website ID -->",
+      "setupNotes": "Umami Cloud → Add website → tracking code"
+    },
+    "datafast": {
+      "headHtml": "<!-- Paste DataFast script from dashboard -->",
+      "setupNotes": "DataFast → Add site → install script"
+    },
+    "ahrefs": {
+      "headHtml": "<!-- Paste Ahrefs Web Analytics snippet after domain verification -->",
+      "setupNotes": "Ahrefs Free → Web Analytics project → verify bench.analyticsvs.com"
+    }
+  }
+}

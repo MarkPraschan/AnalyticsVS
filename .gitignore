@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 .vercel
 .env*
+
+# benchmark snippets (paste your vendor scripts here)
+benchmarks/config/snippets.json
+benchmarks/results/*.json
+!benchmarks/results/.gitkeep

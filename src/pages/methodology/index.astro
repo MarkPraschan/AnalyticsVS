@@ -59,15 +59,23 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
     <h2>Benchmark methodology</h2>
     <p>
-      Script performance benchmarks are recorded by AnalyticsVS on controlled test pages. We
-      measure transfer size, decoded body size, and main-thread blocking time under defined network
-      and device conditions.
+      Script performance benchmarks are recorded by AnalyticsVS on controlled test pages hosted at
+      <code>bench.analyticsvs.com</code>. We measure transfer size, decoded body size, and
+      main-thread blocking time under defined network and device conditions.
     </p>
+    <h3>Fixture: minimal-v1</h3>
+    <ul>
+      <li><strong>Page:</strong> static HTML only — no fonts, images, frameworks, GTM, or consent managers.</li>
+      <li><strong>Install:</strong> vendor default eager <code>&lt;script&gt;</code> snippet in <code>&lt;head&gt;</code>.</li>
+      <li><strong>Network:</strong> Fast 4G (150ms RTT, 1.6 Mbps down) via Chromium CDP.</li>
+      <li><strong>Runs:</strong> 7 cold navigations per tool; published values are arithmetic means.</li>
+      <li><strong>Scope:</strong> initial page load only (first 5 seconds after <code>load</code>), not SPA navigation or session replay over time.</li>
+    </ul>
     <ul>
       <li>We never publish estimated, scraped, or AI-generated performance numbers.</li>
       <li>Benchmarks marked "pending" have not yet been recorded.</li>
       <li>Each published benchmark includes the test date and environment details.</li>
-      <li>Raw results will be linked when available.</li>
+      <li>Raw JSON run files are stored in the repository under <code>benchmarks/results/</code> when published.</li>
     </ul>
 
     <h2>Updates and corrections</h2>

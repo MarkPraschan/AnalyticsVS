@@ -1,0 +1,61 @@
+{
+  "fixtureVersion": "minimal-v1",
+  "recommendedHost": "bench.analyticsvs.com",
+  "fixturePathPrefix": "/bench/minimal-v1",
+  "tools": [
+    {
+      "id": "plausible",
+      "slug": "plausible",
+      "name": "Plausible Analytics",
+      "scriptHostPatterns": ["plausible.io"]
+    },
+    {
+      "id": "fathom",
+      "slug": "fathom",
+      "name": "Fathom Analytics",
+      "scriptHostPatterns": ["usefathom.com", "cdn.usefathom.com"]
+    },
+    {
+      "id": "google-analytics-4",
+      "slug": "google-analytics-4",
+      "name": "Google Analytics 4",
+      "scriptHostPatterns": ["googletagmanager.com", "google-analytics.com", "analytics.google.com"]
+    },
+    {
+      "id": "posthog",
+      "slug": "posthog",
+      "name": "PostHog",
+      "scriptHostPatterns": ["posthog.com"]
+    },
+    {
+      "id": "hotjar",
+      "slug": "hotjar",
+      "name": "Hotjar",
+      "scriptHostPatterns": ["hotjar.com", "static.hotjar.com"]
+    },
+    {
+      "id": "matomo",
+      "slug": "matomo",
+      "name": "Matomo",
+      "scriptHostPatterns": ["matomo.cloud", "matomo.php", "piwik.php"]
+    },
+    {
+      "id": "umami",
+      "slug": "umami",
+      "name": "Umami",
+      "scriptHostPatterns": ["umami.is", "umami.dev"]
+    },
+    {
+      "id": "datafast",
+      "slug": "datafast",
+      "name": "DataFast",
+      "scriptHostPatterns": ["datafa.st"]
+    },
+    {
+      "id": "ahrefs",
+      "slug": "ahrefs",
+      "name": "Ahrefs Web Analytics",
+      "scriptHostPatterns": ["ahrefs.com"]
+    }
+  ]
+}

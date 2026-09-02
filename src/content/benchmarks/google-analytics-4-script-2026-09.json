@@ -13,39 +13,73 @@
     "loading": "async",
     "renderBlocking": false
   },
+  "baseline": {
+    "pageLoadMs": 250,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 250,
+        "min": 245,
+        "max": 259
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 1159,
+    "mainThreadBlockingMs": 1,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 1159,
+        "min": 1117,
+        "max": 1200
+      },
+      "mainThreadBlockingMs": {
+        "mean": 1,
+        "min": 0,
+        "max": 7
+      }
+    }
+  },
   "metrics": {
-    "transferSizeBytes": 174632,
-    "decodedBodySizeBytes": 519856,
-    "mainThreadBlockingMs": 3,
-    "pageLoadMs": 1413,
-    "scriptLoadMs": 1343
+    "transferSizeBytes": 174602,
+    "decodedBodySizeBytes": 519782,
+    "mainThreadBlockingMs": 1,
+    "pageLoadMs": 1409,
+    "scriptLoadMs": 1346
   },
   "runStats": {
     "runs": 7,
     "transferSizeBytes": {
-      "mean": 174632,
-      "min": 174624,
-      "max": 174641
+      "mean": 174602,
+      "min": 174594,
+      "max": 174618
     },
     "decodedBodySizeBytes": {
-      "mean": 519856,
-      "min": 519853,
-      "max": 519873
+      "mean": 519782,
+      "min": 519756,
+      "max": 519786
     },
     "pageLoadMs": {
-      "mean": 1413,
-      "min": 1374,
-      "max": 1438
+      "mean": 1409,
+      "min": 1370,
+      "max": 1444
     },
     "scriptLoadMs": {
-      "mean": 1343,
-      "min": 1314,
-      "max": 1379
+      "mean": 1346,
+      "min": 1315,
+      "max": 1386
     },
     "mainThreadBlockingMs": {
-      "mean": 3,
+      "mean": 1,
       "min": 0,
-      "max": 18
+      "max": 7
     }
   },
   "rawResultsUrl": null

@@ -15,15 +15,15 @@
   "baseline": {
     "fixtureUrl": "https://bench.analyticsvs.com/bench/minimal-v1/_control/",
     "metrics": {
-      "pageLoadMs": 661,
+      "pageLoadMs": 250,
       "mainThreadBlockingMs": 0
     },
     "runStats": {
       "runs": 7,
       "pageLoadMs": {
-        "mean": 661,
-        "min": 243,
-        "max": 3030
+        "mean": 250,
+        "min": 245,
+        "max": 259
       },
       "mainThreadBlockingMs": {
         "mean": 0,
@@ -35,11 +35,11 @@
   "runs": [
     {
       "run": 1,
-      "transferSizeBytes": 174632,
-      "decodedBodySizeBytes": 519853,
-      "mainThreadBlockingMs": 18,
-      "pageLoadMs": 1433.1,
-      "scriptLoadMs": 1314,
+      "transferSizeBytes": 174594,
+      "decodedBodySizeBytes": 519786,
+      "mainThreadBlockingMs": 7,
+      "pageLoadMs": 1441.8,
+      "scriptLoadMs": 1332.2,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -47,11 +47,11 @@
     },
     {
       "run": 2,
-      "transferSizeBytes": 174632,
-      "decodedBodySizeBytes": 519853,
+      "transferSizeBytes": 174618,
+      "decodedBodySizeBytes": 519756,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1395.2,
-      "scriptLoadMs": 1322.6,
+      "pageLoadMs": 1384.9,
+      "scriptLoadMs": 1329.6,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -59,11 +59,11 @@
     },
     {
       "run": 3,
-      "transferSizeBytes": 174624,
-      "decodedBodySizeBytes": 519853,
+      "transferSizeBytes": 174600,
+      "decodedBodySizeBytes": 519786,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1437.8,
-      "scriptLoadMs": 1379.1,
+      "pageLoadMs": 1370.2,
+      "scriptLoadMs": 1315.4,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -71,11 +71,11 @@
     },
     {
       "run": 4,
-      "transferSizeBytes": 174632,
-      "decodedBodySizeBytes": 519853,
+      "transferSizeBytes": 174600,
+      "decodedBodySizeBytes": 519786,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1380.4,
-      "scriptLoadMs": 1320.4,
+      "pageLoadMs": 1417.4,
+      "scriptLoadMs": 1361.8,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -83,11 +83,11 @@
     },
     {
       "run": 5,
-      "transferSizeBytes": 174641,
-      "decodedBodySizeBytes": 519873,
+      "transferSizeBytes": 174600,
+      "decodedBodySizeBytes": 519786,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1435.8,
-      "scriptLoadMs": 1373.6,
+      "pageLoadMs": 1419.4,
+      "scriptLoadMs": 1360.6,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -95,11 +95,11 @@
     },
     {
       "run": 6,
-      "transferSizeBytes": 174632,
-      "decodedBodySizeBytes": 519853,
+      "transferSizeBytes": 174600,
+      "decodedBodySizeBytes": 519786,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1374.3,
-      "scriptLoadMs": 1318.3,
+      "pageLoadMs": 1387.4,
+      "scriptLoadMs": 1333.3,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -107,11 +107,11 @@
     },
     {
       "run": 7,
-      "transferSizeBytes": 174632,
-      "decodedBodySizeBytes": 519853,
+      "transferSizeBytes": 174600,
+      "decodedBodySizeBytes": 519786,
       "mainThreadBlockingMs": 0,
-      "pageLoadMs": 1436.6,
-      "scriptLoadMs": 1371.4,
+      "pageLoadMs": 1444.3,
+      "scriptLoadMs": 1385.7,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -119,56 +119,56 @@
     }
   ],
   "metrics": {
-    "transferSizeBytes": 174632,
-    "decodedBodySizeBytes": 519856,
-    "pageLoadMs": 1413,
-    "scriptLoadMs": 1343,
-    "mainThreadBlockingMs": 3
+    "transferSizeBytes": 174602,
+    "decodedBodySizeBytes": 519782,
+    "pageLoadMs": 1409,
+    "scriptLoadMs": 1346,
+    "mainThreadBlockingMs": 1
   },
   "runStats": {
     "runs": 7,
     "transferSizeBytes": {
-      "mean": 174632,
-      "min": 174624,
-      "max": 174641
+      "mean": 174602,
+      "min": 174594,
+      "max": 174618
     },
     "decodedBodySizeBytes": {
-      "mean": 519856,
-      "min": 519853,
-      "max": 519873
+      "mean": 519782,
+      "min": 519756,
+      "max": 519786
     },
     "pageLoadMs": {
-      "mean": 1413,
-      "min": 1374,
-      "max": 1438
+      "mean": 1409,
+      "min": 1370,
+      "max": 1444
     },
     "scriptLoadMs": {
-      "mean": 1343,
-      "min": 1314,
-      "max": 1379
+      "mean": 1346,
+      "min": 1315,
+      "max": 1386
     },
     "mainThreadBlockingMs": {
-      "mean": 3,
+      "mean": 1,
       "min": 0,
-      "max": 18
+      "max": 7
     }
   },
   "overhead": {
     "metrics": {
-      "pageLoadMs": 753,
-      "mainThreadBlockingMs": 3
+      "pageLoadMs": 1159,
+      "mainThreadBlockingMs": 1
     },
     "runStats": {
       "runs": 7,
       "pageLoadMs": {
-        "mean": 753,
-        "min": -1597,
-        "max": 1194
+        "mean": 1159,
+        "min": 1117,
+        "max": 1200
       },
       "mainThreadBlockingMs": {
-        "mean": 3,
+        "mean": 1,
         "min": 0,
-        "max": 18
+        "max": 7
       }
     }
   }

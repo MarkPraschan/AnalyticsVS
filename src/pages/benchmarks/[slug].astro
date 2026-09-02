@@ -8,10 +8,12 @@ import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const benchmarks = await getCollection('benchmarks');
-  return benchmarks.map((benchmark) => ({
-    params: { slug: benchmark.data.slug },
-    props: { benchmark },
-  }));
+  return benchmarks
+    .filter((benchmark) => benchmark.data.status === 'recorded')
+    .map((benchmark) => ({
+      params: { slug: benchmark.data.slug },
+      props: { benchmark },
+    }));
 }
 
 const { benchmark } = Astro.props;

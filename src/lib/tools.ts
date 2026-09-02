@@ -35,7 +35,7 @@ export async function getComparisonsForTool(toolId: string) {
 
 export async function getBenchmarksForTool(toolId: string) {
   const benchmarks = await getCollection('benchmarks');
-  return benchmarks.filter((b) => b.data.tool === toolId);
+  return benchmarks.filter((b) => b.data.tool === toolId && b.data.status === 'recorded');
 }
 
 export {

@@ -5,9 +5,11 @@ import HeroIllustration from '../components/HeroIllustration.astro';
 import ToolMark from '../components/ToolMark.astro';
 import { getCollection } from 'astro:content';
 import { getAllTools, getToolsByIds } from '../lib/tools';
+import { getPublishedBenchmarks } from '../lib/benchmarks';
 import { formatCountWord } from '../lib/site';
 
 const FEATURED_COMPARISON_IDS = ['google-analytics-vs-plausible', 'datafast-vs-posthog'];
+const RECENT_BENCHMARK_LIMIT = 3;
 
 const allComparisons = await getCollection('comparisons');
 const comparisons = FEATURED_COMPARISON_IDS.map((id) => {
@@ -24,6 +26,10 @@ const comparisonTools = await Promise.all(
     tools: await getToolsByIds(comparison.data.tools),
   })),
 );
+
+const allBenchmarks = await getPublishedBenchmarks();
+const recentBenchmarks = allBenchmarks.slice(0, RECENT_BENCHMARK_LIMIT);
+const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
 ---
 
 <BaseLayout>
@@ -68,8 +74,8 @@ const comparisonTools = await Promise.all(
     <section class="page-section" aria-labelledby="tools-heading">
       <h2 id="tools-heading" class="section-heading">Analytics tools</h2>
       <p class="mt-2 text-muted">
-        {formatCountWord(tools.length, true)} analytics tools tracked with pricing data, feature matrices, and benchmark
-        slots.
+        {formatCountWord(tools.length, true)} analytics tools tracked with pricing data, feature matrices, and performance
+        benchmarks.
       </p>
       <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {
@@ -90,5 +96,45 @@ const comparisonTools = await Promise.all(
         }
       </ul>
     </section>
+
+    {
+      recentBenchmarks.length > 0 && (
+        <section class="page-section" aria-labelledby="benchmarks-heading">
+          <div class="flex flex-wrap items-end justify-between gap-3">
+            <h2 id="benchmarks-heading" class="section-heading">
+              Recent benchmarks
+            </h2>
+            {hasMoreBenchmarks && (
+              <a href="/benchmarks/" class="text-sm font-medium no-underline hover:underline">
+                View all →
+              </a>
+            )}
+          </div>
+          <ul class="mt-6 grid gap-3">
+            {recentBenchmarks.map((benchmark) => (
+              <li>
+                <a
+                  href={`/benchmarks/${benchmark.data.slug}/`}
+                  class="card-interactive flex min-h-11 items-center justify-between gap-3 px-4 py-3"
+                >
+                  <span class="min-w-0">
+                    <span class="block truncate font-heading font-semibold text-fg">
+                      {benchmark.data.title}
+                    </span>
+                    <span class="mt-0.5 block text-sm text-muted">
+                      {benchmark.data.testDate}
+                      {` · ${benchmark.data.environment.device}`}
+                    </span>
+                  </span>
+                  <span class="shrink-0 text-gradient-primary" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>

@@ -76,7 +76,9 @@ export async function getOgEntries(): Promise<OgImageEntry[]> {
     });
   }
 
-  const benchmarks = await getCollection('benchmarks');
+  const benchmarks = (await getCollection('benchmarks')).filter(
+    (benchmark) => benchmark.data.status === 'recorded',
+  );
   for (const benchmark of benchmarks) {
     const tool = tools.find((entry) => entry.data.id === benchmark.data.tool);
     entries.push({

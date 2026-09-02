@@ -1,7 +1,20 @@
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export type BenchmarkEntry = CollectionEntry<'benchmarks'>;
 export type RunStat = { mean: number; min: number; max: number };
+
+/** Only recorded benchmarks are published on the site. */
+export function isPublishedBenchmark(benchmark: BenchmarkEntry): boolean {
+  return benchmark.data.status === 'recorded';
+}
+
+export async function getPublishedBenchmarks(): Promise<BenchmarkEntry[]> {
+  const benchmarks = await getCollection('benchmarks');
+  return benchmarks
+    .filter(isPublishedBenchmark)
+    .sort((a, b) => b.data.testDate.localeCompare(a.data.testDate));
+}
 
 export function getRunStat(
   benchmark: BenchmarkEntry['data'],

@@ -5,28 +5,53 @@
   "testDate": "2026-09-02",
   "fixtureUrl": "https://bench.analyticsvs.com/bench/minimal-v1/google-analytics-4/",
   "environment": {
-    "connection": "Fast 4G",
-    "device": "Desktop",
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
     "browser": "Chromium 151.0.7922.34",
     "runs": 7,
-    "aggregation": "mean"
+    "aggregation": "mean",
+    "networkNote": "Chrome DevTools Slow 4G preset (150 ms RTT, 1.6 Mbps down, 750 Kbps up). Simulated — not a physical cell network."
+  },
+  "baseline": {
+    "fixtureUrl": "https://bench.analyticsvs.com/bench/minimal-v1/_control/",
+    "metrics": {
+      "pageLoadMs": 661,
+      "mainThreadBlockingMs": 0
+    },
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 661,
+        "min": 243,
+        "max": 3030
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
   },
   "runs": [
     {
       "run": 1,
-      "transferSizeBytes": 174647,
-      "decodedBodySizeBytes": 519843,
-      "mainThreadBlockingMs": 0,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 18,
+      "pageLoadMs": 1433.1,
+      "scriptLoadMs": 1314,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
-      "longTaskCount": 0
+      "longTaskCount": 1
     },
     {
       "run": 2,
       "transferSizeBytes": 174632,
       "decodedBodySizeBytes": 519853,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1395.2,
+      "scriptLoadMs": 1322.6,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -34,9 +59,11 @@
     },
     {
       "run": 3,
-      "transferSizeBytes": 174632,
+      "transferSizeBytes": 174624,
       "decodedBodySizeBytes": 519853,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1437.8,
+      "scriptLoadMs": 1379.1,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -47,6 +74,8 @@
       "transferSizeBytes": 174632,
       "decodedBodySizeBytes": 519853,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1380.4,
+      "scriptLoadMs": 1320.4,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -57,6 +86,8 @@
       "transferSizeBytes": 174641,
       "decodedBodySizeBytes": 519873,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1435.8,
+      "scriptLoadMs": 1373.6,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -67,6 +98,8 @@
       "transferSizeBytes": 174632,
       "decodedBodySizeBytes": 519853,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1374.3,
+      "scriptLoadMs": 1318.3,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -77,6 +110,8 @@
       "transferSizeBytes": 174632,
       "decodedBodySizeBytes": 519853,
       "mainThreadBlockingMs": 0,
+      "pageLoadMs": 1436.6,
+      "scriptLoadMs": 1371.4,
       "scriptUrls": [
         "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
       ],
@@ -84,47 +119,57 @@
     }
   ],
   "metrics": {
-    "transferSizeBytes": 174635,
-    "decodedBodySizeBytes": 519854,
-    "mainThreadBlockingMs": 0,
-    "lighthouseScoreImpact": null
+    "transferSizeBytes": 174632,
+    "decodedBodySizeBytes": 519856,
+    "pageLoadMs": 1413,
+    "scriptLoadMs": 1343,
+    "mainThreadBlockingMs": 3
   },
-  "aggregates": {
+  "runStats": {
+    "runs": 7,
     "transferSizeBytes": {
-      "mean": 174635.42857142858,
-      "values": [
-        174647,
-        174632,
-        174632,
-        174632,
-        174641,
-        174632,
-        174632
-      ]
+      "mean": 174632,
+      "min": 174624,
+      "max": 174641
     },
     "decodedBodySizeBytes": {
-      "mean": 519854.4285714286,
-      "values": [
-        519843,
-        519853,
-        519853,
-        519853,
-        519873,
-        519853,
-        519853
-      ]
+      "mean": 519856,
+      "min": 519853,
+      "max": 519873
+    },
+    "pageLoadMs": {
+      "mean": 1413,
+      "min": 1374,
+      "max": 1438
+    },
+    "scriptLoadMs": {
+      "mean": 1343,
+      "min": 1314,
+      "max": 1379
     },
     "mainThreadBlockingMs": {
-      "mean": 0,
-      "values": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
+      "mean": 3,
+      "min": 0,
+      "max": 18
+    }
+  },
+  "overhead": {
+    "metrics": {
+      "pageLoadMs": 753,
+      "mainThreadBlockingMs": 3
+    },
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 753,
+        "min": -1597,
+        "max": 1194
+      },
+      "mainThreadBlockingMs": {
+        "mean": 3,
+        "min": 0,
+        "max": 18
+      }
     }
   }
 }

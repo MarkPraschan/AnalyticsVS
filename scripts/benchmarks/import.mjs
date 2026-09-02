@@ -16,10 +16,34 @@ function slugForResult(result) {
   return `${result.tool}-script-${month}`;
 }
 
+function detectInstall(headHtml) {
+  const html = headHtml ?? '';
+  const hasAsync = /\basync\b/i.test(html);
+  const hasDefer = /\bdefer\b/i.test(html);
+  const hasModule = /type\s*=\s*["']module["']/i.test(html);
+  const loading = hasModule ? 'module' : hasDefer ? 'defer' : hasAsync ? 'async' : 'blocking';
+  const renderBlocking = loading === 'blocking';
+  return { loading, renderBlocking };
+}
+
 function buildContentEntry(result, inputPath) {
   const tool = getToolFromManifest(result.tool);
   const slug = slugForResult(result);
   const rawResultsPath = path.relative(projectRoot, inputPath).replace(/\\/g, '/');
+
+  let install = null;
+  try {
+    const snippetsPath = path.join(projectRoot, 'benchmarks', 'config', 'snippets.json');
+    if (fs.existsSync(snippetsPath)) {
+      const snippets = JSON.parse(fs.readFileSync(snippetsPath, 'utf8'));
+      const headHtml = snippets.tools?.[result.tool]?.headHtml;
+      if (headHtml && !headHtml.includes('<!-- Paste')) {
+        install = detectInstall(headHtml);
+      }
+    }
+  } catch {
+    // Optional: install metadata is best-effort from local snippets.
+  }
 
   return {
     tool: result.tool,
@@ -30,14 +54,31 @@ function buildContentEntry(result, inputPath) {
     environment: {
       connection: result.environment.connection,
       device: result.environment.device,
+      runs: result.environment.runs ?? result.runStats?.runs ?? 7,
     },
+    ...(install ? { install } : {}),
+    baseline: result.baseline
+      ? {
+          pageLoadMs: result.baseline.metrics.pageLoadMs ?? null,
+          mainThreadBlockingMs: result.baseline.metrics.mainThreadBlockingMs ?? null,
+          runStats: result.baseline.runStats ?? null,
+        }
+      : null,
+    overhead: result.overhead
+      ? {
+          pageLoadMs: result.overhead.metrics.pageLoadMs ?? null,
+          mainThreadBlockingMs: result.overhead.metrics.mainThreadBlockingMs ?? null,
+          runStats: result.overhead.runStats ?? null,
+        }
+      : null,
     metrics: {
       transferSizeBytes: result.metrics.transferSizeBytes,
       decodedBodySizeBytes: result.metrics.decodedBodySizeBytes,
       mainThreadBlockingMs: result.metrics.mainThreadBlockingMs,
-      lighthouseScoreImpact: null,
+      pageLoadMs: result.metrics.pageLoadMs ?? null,
+      scriptLoadMs: result.metrics.scriptLoadMs ?? null,
     },
-    methodology: `Recorded on AnalyticsVS fixture ${result.fixtureVersion} (${result.fixtureUrl}). Eager <head> snippet, Fast 4G, ${result.environment.runs} runs, mean reported. See /methodology/ and benchmarks/README.md.`,
+    runStats: result.runStats ?? null,
     rawResultsUrl: null,
     _rawResultsFile: rawResultsPath,
   };
@@ -64,7 +105,7 @@ function main() {
     console.log(`[import] Wrote ${path.relative(projectRoot, outputPath)}`);
     console.log(`[import] Raw results: ${_rawResultsFile}`);
     console.log(
-      `[import] Metrics: transfer=${published.metrics.transferSizeBytes}B, decoded=${published.metrics.decodedBodySizeBytes}B, blocking=${published.metrics.mainThreadBlockingMs}ms`,
+      `[import] Overhead load=${published.overhead?.pageLoadMs ?? '—'}ms, transfer=${published.metrics.transferSizeBytes}B`,
     );
   }
 }

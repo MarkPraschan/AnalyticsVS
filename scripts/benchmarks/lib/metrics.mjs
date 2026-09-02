@@ -1,4 +1,4 @@
-import { NETWORK_FAST_4G, POST_LOAD_WAIT_MS } from './constants.mjs';
+import { NETWORK_SLOW_4G, POST_LOAD_WAIT_MS } from './constants.mjs';
 
 function matchesHostPattern(url, patterns) {
   return patterns.some((pattern) => url.includes(pattern));
@@ -31,7 +31,7 @@ export async function collectRunMetrics(page, scriptHostPatterns) {
 
   const cdp = await page.context().newCDPSession(page);
   await cdp.send('Network.enable');
-  await cdp.send('Network.emulateNetworkConditions', NETWORK_FAST_4G);
+  await cdp.send('Network.emulateNetworkConditions', NETWORK_SLOW_4G);
   await cdp.send('Network.clearBrowserCache');
 
   cdp.on('Network.responseReceived', (event) => {
@@ -104,10 +104,37 @@ export async function collectRunMetrics(page, scriptHostPatterns) {
         .filter((task) => task.duration > 50)
         .reduce((sum, task) => sum + (task.duration - 50), 0);
 
+      const timing = await page.evaluate((patterns) => {
+        const navigation = performance.getEntriesByType('navigation')[0];
+        const pageLoadMs =
+          navigation && navigation.loadEventEnd > 0
+            ? navigation.loadEventEnd - navigation.startTime
+            : null;
+
+        const vendorScripts = performance
+          .getEntriesByType('resource')
+          .filter((entry) => patterns.some((pattern) => entry.name.includes(pattern)))
+          .filter((entry) => {
+            if (/\/g\/collect/.test(entry.name)) return false;
+            return /\.js(\?|$)/.test(entry.name) || /\/gtag\/js(\?|$)/.test(entry.name);
+          });
+
+        const scriptLoadMs =
+          vendorScripts.length > 0
+            ? Math.max(...vendorScripts.map((entry) => entry.responseEnd))
+            : null;
+
+        return { pageLoadMs, scriptLoadMs };
+      }, scriptHostPatterns);
+
       return {
         transferSizeBytes,
         decodedBodySizeBytes,
         mainThreadBlockingMs: Math.round(mainThreadBlockingMs * 10) / 10,
+        pageLoadMs:
+          timing.pageLoadMs != null ? Math.round(timing.pageLoadMs * 10) / 10 : null,
+        scriptLoadMs:
+          timing.scriptLoadMs != null ? Math.round(timing.scriptLoadMs * 10) / 10 : null,
         scriptUrls: scripts.map((entry) => entry.url),
         longTaskCount: longTasks.length,
       };

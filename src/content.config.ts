@@ -115,11 +115,45 @@ const comparisons = defineCollection({
   }),
 });
 
+const benchmarkRunStatSchema = z.object({
+  mean: z.number(),
+  min: z.number(),
+  max: z.number(),
+});
+
 const benchmarkMetricsSchema = z.object({
   transferSizeBytes: z.number().nullable().optional(),
   decodedBodySizeBytes: z.number().nullable().optional(),
   mainThreadBlockingMs: z.number().nullable().optional(),
+  pageLoadMs: z.number().nullable().optional(),
+  scriptLoadMs: z.number().nullable().optional(),
   lighthouseScoreImpact: z.number().nullable().optional(),
+});
+
+const benchmarkRunStatsSchema = z.object({
+  runs: z.number(),
+  transferSizeBytes: benchmarkRunStatSchema.optional(),
+  decodedBodySizeBytes: benchmarkRunStatSchema.optional(),
+  mainThreadBlockingMs: benchmarkRunStatSchema.optional(),
+  pageLoadMs: benchmarkRunStatSchema.optional(),
+  scriptLoadMs: benchmarkRunStatSchema.optional(),
+});
+
+const benchmarkBaselineSchema = z.object({
+  pageLoadMs: z.number().nullable().optional(),
+  mainThreadBlockingMs: z.number().nullable().optional(),
+  runStats: benchmarkRunStatsSchema.nullable().optional(),
+});
+
+const benchmarkOverheadSchema = z.object({
+  pageLoadMs: z.number().nullable().optional(),
+  mainThreadBlockingMs: z.number().nullable().optional(),
+  runStats: benchmarkRunStatsSchema.nullable().optional(),
+});
+
+const benchmarkInstallSchema = z.object({
+  loading: z.enum(['async', 'defer', 'blocking', 'module']),
+  renderBlocking: z.boolean(),
 });
 
 const benchmarks = defineCollection({
@@ -133,9 +167,14 @@ const benchmarks = defineCollection({
     environment: z.object({
       connection: z.string(),
       device: z.string(),
+      runs: z.number().optional(),
     }),
+    baseline: benchmarkBaselineSchema.nullable().optional(),
+    overhead: benchmarkOverheadSchema.nullable().optional(),
+    install: benchmarkInstallSchema.nullable().optional(),
     metrics: benchmarkMetricsSchema,
-    methodology: z.string(),
+    runStats: benchmarkRunStatsSchema.nullable().optional(),
+    methodology: z.string().optional(),
     rawResultsUrl: z.string().url().nullable().optional(),
   }),
 });

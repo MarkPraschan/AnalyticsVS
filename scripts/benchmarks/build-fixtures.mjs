@@ -1,16 +1,33 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  FIXTURE_PATH_PREFIX,
-  FIXTURE_VERSION,
-} from './lib/constants.mjs';
+import { FIXTURE_PATH_PREFIX, FIXTURE_VERSION, CONTROL_SLUG } from './lib/constants.mjs';
 import { loadManifest, loadSnippets, isConfiguredSnippet } from './lib/fixtures.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const outputRoot = path.join(projectRoot, 'public', 'bench', FIXTURE_VERSION);
 
-function buildHtml({ tool, headHtml, fixtureHost }) {
+function buildControlHtml(fixtureHost) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AnalyticsVS benchmark fixture — control (no analytics)</title>
+</head>
+<body>
+  <main>
+    <h1>AnalyticsVS script lab</h1>
+    <p>Fixture <code>${FIXTURE_VERSION}</code> control page — no analytics snippet.</p>
+    <p>Host: <code>${fixtureHost}</code>. Not indexed. Used only for controlled script benchmarks.</p>
+  </main>
+</body>
+</html>
+`;
+}
+
+function buildToolHtml({ tool, headHtml, fixtureHost }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +68,8 @@ function buildPlaceholderHtml(tool, fixtureHost) {
 `;
 }
 
-function writeFixture(tool, html) {
-  const dir = path.join(outputRoot, tool.slug);
+function writeFixture(slug, html) {
+  const dir = path.join(outputRoot, slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
 }
@@ -71,6 +88,9 @@ function main() {
 
   fs.mkdirSync(outputRoot, { recursive: true });
 
+  writeFixture(CONTROL_SLUG, buildControlHtml(fixtureHost));
+  console.log(`[fixtures] control → ${FIXTURE_PATH_PREFIX}/${CONTROL_SLUG}/`);
+
   let configured = 0;
 
   for (const tool of manifest.tools) {
@@ -78,11 +98,11 @@ function main() {
     const headHtml = entry?.headHtml?.trim();
 
     if (isConfiguredSnippet(headHtml)) {
-      writeFixture(tool, buildHtml({ tool, headHtml, fixtureHost }));
+      writeFixture(tool.slug, buildToolHtml({ tool, headHtml, fixtureHost }));
       configured += 1;
       console.log(`[fixtures] ${tool.id} → ${FIXTURE_PATH_PREFIX}/${tool.slug}/`);
     } else {
-      writeFixture(tool, buildPlaceholderHtml(tool, fixtureHost));
+      writeFixture(tool.slug, buildPlaceholderHtml(tool, fixtureHost));
       console.log(`[fixtures] ${tool.id} → placeholder (no snippet)`);
     }
   }
@@ -98,6 +118,7 @@ function main() {
   <h1>AnalyticsVS benchmark fixtures (${FIXTURE_VERSION})</h1>
   <p>Configured tools: ${configured} / ${manifest.tools.length}</p>
   <ul>
+    <li><a href="${FIXTURE_PATH_PREFIX}/${CONTROL_SLUG}/">Control (no analytics)</a></li>
     ${manifest.tools
       .map(
         (tool) =>

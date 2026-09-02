@@ -84,19 +84,23 @@ Updates `src/content/benchmarks/*.json` and sets `status: "recorded"`.
 |---------|--------|
 | Fixture | Static HTML, no fonts, images, frameworks, GTM, or CMP |
 | Install | Vendor default snippet in `<head>`, eager load |
-| Network | Fast 4G (150ms RTT, 1.6 Mbps down) via CDP |
+| Network | Slow 4G simulated (150 ms RTT, 1.6 Mbps down, 750 Kbps up) via CDP |
 | Browser | Chromium (Playwright) |
-| Runs | 7 cold navigations per tool |
-| Published value | **Arithmetic mean** per metric |
+| Runs | 7 cold navigations per tool **plus 7 baseline runs** (same page, no analytics) |
+| Published value | **Arithmetic mean** per metric; load overhead = with-tag minus baseline (paired by run index) |
+| Baseline fixture | `/bench/minimal-v1/_control/` — must be deployed before running |
 | Scope | Initial page load only (first 5s after `load`) |
 
 ### Metrics
 
 | Metric | Definition |
 |--------|------------|
+| **Page load overhead** | Page load time with the tag minus the same page without it (primary headline on each card) |
+| **Page load (absolute)** | Navigation start → `load` event, shown in comparison chart |
+| **Analytics script download** | When the last vendor `.js` file finished downloading |
 | **Transfer size** | Sum of `encodedDataLength` for `.js` responses matching vendor host patterns |
 | **Decoded body size** | Sum of `decodedBodyLength` for those scripts |
-| **Main-thread blocking** | Sum of `(duration − 50ms)` for long tasks >50ms in the first 5s after load |
+| **Main-thread blocking** | Sum of `(duration − 50ms)` for long tasks >50ms in the first 5s after load; overhead vs baseline when non-zero |
 
 `lighthouseScoreImpact` is left null in v1.
 

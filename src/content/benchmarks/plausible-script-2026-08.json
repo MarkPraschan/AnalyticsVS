@@ -5,8 +5,8 @@
   "title": "Plausible Analytics Script Performance",
   "status": "pending",
   "environment": {
-    "connection": "Fast 4G",
-    "device": "Desktop"
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)"
   },
   "metrics": {
     "transferSizeBytes": null,

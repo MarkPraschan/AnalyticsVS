@@ -1,0 +1,44 @@
+---
+import { barWidthPercent, formatAddedMs, formatMs } from '../lib/benchmarks';
+
+interface Props {
+  baselinePageLoadMs: number;
+  withPageLoadMs: number;
+  overheadPageLoadMs: number;
+}
+
+const {
+  baselinePageLoadMs,
+  withPageLoadMs,
+  overheadPageLoadMs,
+} = Astro.props;
+
+const pageLoadMax = Math.max(baselinePageLoadMs, withPageLoadMs, 1);
+const baselineWidth = barWidthPercent(baselinePageLoadMs, pageLoadMax);
+const withWidth = barWidthPercent(withPageLoadMs, pageLoadMax);
+---
+
+<section class="benchmark-load-chart" aria-label="Page load comparison">
+  <h4 class="benchmark-load-chart__label">Load time</h4>
+
+  <div class="benchmark-load-chart__rows">
+    <div class="benchmark-load-chart__row">
+      <span class="benchmark-load-chart__row-label">Without analytics</span>
+      <div class="benchmark-load-chart__track" aria-hidden="true">
+        <div class="benchmark-load-chart__bar benchmark-load-chart__bar--baseline" style={`width: ${baselineWidth}%`} />
+      </div>
+      <span class="benchmark-load-chart__value">{formatMs(baselinePageLoadMs)}</span>
+    </div>
+    <div class="benchmark-load-chart__row">
+      <span class="benchmark-load-chart__row-label">With analytics</span>
+      <div class="benchmark-load-chart__track" aria-hidden="true">
+        <div class="benchmark-load-chart__bar benchmark-load-chart__bar--with" style={`width: ${withWidth}%`} />
+      </div>
+      <span class="benchmark-load-chart__value">{formatMs(withPageLoadMs)}</span>
+    </div>
+  </div>
+
+  <p class="benchmark-load-chart__headline">
+    <strong>{formatAddedMs(overheadPageLoadMs)}</strong>
+  </p>
+</section>

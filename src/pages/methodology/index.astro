@@ -59,17 +59,19 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
     <h2>Benchmark methodology</h2>
     <p>
-      Script performance benchmarks are recorded by AnalyticsVS on controlled test pages hosted at
-      <code>bench.analyticsvs.com</code>. We measure transfer size, decoded body size, and
-      main-thread blocking time under defined network and device conditions.
+      Script performance benchmarks are recorded by AnalyticsVS on controlled test pages. We
+      measure page load time, analytics script download time, transfer size, decoded script size,
+      and main-thread blocking under defined network and device conditions.
     </p>
     <h3>Fixture: minimal-v1</h3>
     <ul>
       <li><strong>Page:</strong> static HTML only — no fonts, images, frameworks, GTM, or consent managers.</li>
       <li><strong>Install:</strong> vendor default eager <code>&lt;script&gt;</code> snippet in <code>&lt;head&gt;</code>.</li>
-      <li><strong>Network:</strong> Fast 4G (150ms RTT, 1.6 Mbps down) via Chromium CDP.</li>
-      <li><strong>Runs:</strong> 7 cold navigations per tool; published values are arithmetic means.</li>
+      <li><strong>Baseline:</strong> identical page with no analytics snippet; published load times show the <em>added</em> cost of the tag.</li>
+      <li><strong>Network:</strong> <strong>simulated</strong> Slow 4G (150&nbsp;ms RTT, 1.6&nbsp;Mbps down, 750&nbsp;Kbps up) via Chromium DevTools — not a real phone on a cell network.</li>
+      <li><strong>Runs:</strong> 7 cold navigations per tool plus 7 baseline runs; overhead ranges show min/max across paired runs.</li>
       <li><strong>Scope:</strong> initial page load only (first 5 seconds after <code>load</code>), not SPA navigation or session replay over time.</li>
+      <li><strong>Not measured in v1:</strong> Lighthouse performance score impact (we may add this in a future version).</li>
     </ul>
     <ul>
       <li>We never publish estimated, scraped, or AI-generated performance numbers.</li>

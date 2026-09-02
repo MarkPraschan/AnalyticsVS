@@ -1,0 +1,139 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BenchmarkLoadChart from './BenchmarkLoadChart.astro';
+import {
+  formatAddedMs,
+  formatKib,
+  formatSnippetLoadingExplainer,
+  formatSnippetLoadingSummary,
+  getOverheadStat,
+  getRunStat,
+} from '../lib/benchmarks';
+
+interface Props {
+  benchmark: CollectionEntry<'benchmarks'>;
+}
+
+const { benchmark } = Astro.props;
+const { data } = benchmark;
+
+const hasBaseline =
+  data.baseline?.pageLoadMs != null && data.overhead?.pageLoadMs != null;
+
+const overheadPageLoadStat = getOverheadStat(data, 'pageLoadMs');
+const transferStat = getRunStat(data, 'transferSizeBytes');
+const decodedStat = getRunStat(data, 'decodedBodySizeBytes');
+
+const renderBlocking = data.install?.renderBlocking ?? false;
+const loadingMode = data.install?.loading ?? 'async';
+const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? null;
+---
+
+<div class="benchmark-report space-y-6">
+  <section>
+    <div class="benchmark-report__grid">
+      {
+        hasBaseline && data.baseline?.pageLoadMs != null && data.metrics.pageLoadMs != null && (
+          <BenchmarkLoadChart
+            baselinePageLoadMs={data.baseline.pageLoadMs}
+            withPageLoadMs={data.metrics.pageLoadMs}
+            overheadPageLoadMs={data.overhead!.pageLoadMs!}
+          />
+        )
+      }
+
+      <dl class="benchmark-facts__item">
+        <dt>Loading method</dt>
+        <dd>{formatSnippetLoadingSummary(loadingMode, renderBlocking)}</dd>
+        <p class="benchmark-facts__explainer">{formatSnippetLoadingExplainer(loadingMode, renderBlocking)}</p>
+      </dl>
+
+      {
+        (transferStat || decodedStat) && (
+          <dl class="benchmark-facts__item benchmark-facts__item--wide">
+            <dt>Script filesize</dt>
+            <dd class="benchmark-facts__pair">
+              {
+                transferStat && (
+                  <span>
+                    {formatKib(transferStat.mean)} transfer
+                    {
+                      transferStat.min !== transferStat.max && (
+                        <span class="benchmark-facts__detail">
+                          ({formatKib(transferStat.min)} – {formatKib(transferStat.max)})
+                        </span>
+                      )
+                    }
+                  </span>
+                )
+              }
+              {transferStat && decodedStat && <span class="benchmark-facts__sep" aria-hidden="true">·</span>}
+              {
+                decodedStat && (
+                  <span>
+                    {formatKib(decodedStat.mean)} decoded
+                    {
+                      decodedStat.min !== decodedStat.max && (
+                        <span class="benchmark-facts__detail">
+                          ({formatKib(decodedStat.min)} – {formatKib(decodedStat.max)})
+                        </span>
+                      )
+                    }
+                  </span>
+                )
+              }
+            </dd>
+            <p class="benchmark-facts__explainer">
+              Transfer is the compressed download size, and decoded is what the browser parses afterward.
+            </p>
+          </dl>
+        )
+      }
+    </div>
+
+    <div class="benchmark-report__impact mt-5" aria-labelledby="benchmark-impact-heading">
+      <h5 id="benchmark-impact-heading" class="benchmark-report__impact-title">What this means for your site</h5>
+      {
+        renderBlocking ? (
+          <p class="benchmark-report__lead">
+            {
+              overheadMs != null ? (
+                <>
+                  On our empty test page, the load event finished{' '}
+                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> later with
+                  the tag installed. Expect a similar cost on a real site, because a blocking script has to
+                  finish before the page can keep drawing.
+                </>
+              ) : (
+                <>
+                  Because this script blocks rendering, a real site may wait on it before drawing the first
+                  visible content.
+                </>
+              )
+            }
+          </p>
+        ) : (
+          <p class="benchmark-report__lead">
+            {
+              overheadMs != null ? (
+                <>
+                  On our empty test page, the load event finished{' '}
+                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> later with
+                  the tag installed. On a real site, page load is likely to take at least that long — but
+                  usually not the full{' '}
+                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> stacked on top
+                  of your other assets, because much of the work overlaps parallel downloads.
+                </>
+              ) : (
+                <>
+                  On a real site, the page still has to wait for this script to finish, but that work usually
+                  overlaps other downloads rather than stacking fully on top of page load.
+                </>
+              )
+            }
+          </p>
+        )
+      }
+    </div>
+  </section>
+</div>

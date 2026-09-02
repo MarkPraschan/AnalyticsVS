@@ -5,15 +5,48 @@
   "title": "Google Analytics 4 Script Performance",
   "status": "recorded",
   "environment": {
-    "connection": "Fast 4G",
-    "device": "Desktop"
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "async",
+    "renderBlocking": false
   },
   "metrics": {
-    "transferSizeBytes": 174635,
-    "decodedBodySizeBytes": 519854,
-    "mainThreadBlockingMs": 0,
-    "lighthouseScoreImpact": null
+    "transferSizeBytes": 174632,
+    "decodedBodySizeBytes": 519856,
+    "mainThreadBlockingMs": 3,
+    "pageLoadMs": 1413,
+    "scriptLoadMs": 1343
   },
-  "methodology": "Recorded on AnalyticsVS fixture minimal-v1 (https://bench.analyticsvs.com/bench/minimal-v1/google-analytics-4/). Eager <head> snippet, Fast 4G, 7 runs, mean reported. See /methodology/ and benchmarks/README.md.",
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 174632,
+      "min": 174624,
+      "max": 174641
+    },
+    "decodedBodySizeBytes": {
+      "mean": 519856,
+      "min": 519853,
+      "max": 519873
+    },
+    "pageLoadMs": {
+      "mean": 1413,
+      "min": 1374,
+      "max": 1438
+    },
+    "scriptLoadMs": {
+      "mean": 1343,
+      "min": 1314,
+      "max": 1379
+    },
+    "mainThreadBlockingMs": {
+      "mean": 3,
+      "min": 0,
+      "max": 18
+    }
+  },
   "rawResultsUrl": null
 }

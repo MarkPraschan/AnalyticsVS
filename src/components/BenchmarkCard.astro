@@ -1,86 +1,86 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { formatBytes } from '../lib/site';
+import BenchmarkReport from './BenchmarkReport.astro';
 
 interface Props {
   benchmark: CollectionEntry<'benchmarks'>;
+  /** When set, wraps the main body (not the footer) in a link to the detail page. */
+  href?: string;
 }
 
-const { benchmark } = Astro.props;
+const { benchmark, href } = Astro.props;
 const { data } = benchmark;
 const isPending = data.status === 'pending';
 ---
 
-<article class="card">
-  <div class="flex flex-wrap items-start justify-between gap-3">
-    <div>
-      <h3 class="font-heading text-xl font-semibold">{data.title}</h3>
-      <p class="mt-1 font-mono text-xs text-muted">
-        {data.testDate} · {data.environment.device} · {data.environment.connection}
-      </p>
-    </div>
-    <span
-      class:list={[
-        'rounded-md px-2.5 py-0.5 font-mono text-xs font-medium uppercase tracking-wider',
-        isPending
-          ? 'border border-border text-muted'
-          : 'border-gradient-secondary text-gradient-secondary',
-      ]}
-    >
-      {isPending ? 'Coming soon' : 'Recorded by AnalyticsVS'}
-    </span>
-  </div>
-
+<article class="card benchmark-card">
   {
-    isPending ? (
-      <p class="mt-6 text-sm leading-relaxed text-muted">
-        This benchmark is queued for controlled testing. We publish results only after recording
-        transfer size, decoded weight, and main-thread blocking on a live test page — never
-        estimated or vendor-claimed numbers.
-      </p>
+    href ? (
+      <a href={href} class="benchmark-card__link block no-underline">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 class="font-heading text-xl font-semibold text-fg">{data.title}</h3>
+            <p class="benchmark-card__meta mt-1 text-sm text-muted">
+              {data.testDate} · {data.environment.device} · {data.environment.connection}
+              {data.runStats?.runs ? ` · Avg of ${data.runStats.runs} runs` : ''}
+            </p>
+          </div>
+          {
+            !isPending && (
+              <span class="benchmark-badge">Recorded by AnalyticsVS</span>
+            )
+          }
+        </div>
+        {
+          isPending ? (
+            <p class="mt-6 text-sm leading-relaxed text-muted">
+              This benchmark is queued for controlled testing. We publish results only after recording
+              real measurements on a live test page — never estimated or vendor-claimed numbers.
+            </p>
+          ) : (
+            <div class="mt-6">
+              <BenchmarkReport benchmark={benchmark} />
+            </div>
+          )
+        }
+      </a>
     ) : (
-      <dl class="mt-6 grid gap-4 sm:grid-cols-2">
-        <div class="rounded-lg border border-border bg-surface-raised p-4">
-          <dt class="label-mono">Transfer size</dt>
-          <dd class="mt-2 font-mono text-2xl font-medium text-indigo">
-            {formatBytes(data.metrics.transferSizeBytes)}
-          </dd>
+      <>
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 class="font-heading text-xl font-semibold">{data.title}</h3>
+            <p class="benchmark-card__meta mt-1 text-sm text-muted">
+              {data.testDate} · {data.environment.device} · {data.environment.connection}
+              {data.runStats?.runs ? ` · Avg of ${data.runStats.runs} runs` : ''}
+            </p>
+          </div>
+          {
+            !isPending && (
+              <span class="benchmark-badge">Recorded by AnalyticsVS</span>
+            )
+          }
         </div>
-        <div class="rounded-lg border border-border bg-surface-raised p-4">
-          <dt class="label-mono">Decoded body size</dt>
-          <dd class="mt-2 font-mono text-2xl font-medium text-indigo">
-            {formatBytes(data.metrics.decodedBodySizeBytes)}
-          </dd>
-        </div>
-        <div class="rounded-lg border border-border bg-surface-raised p-4">
-          <dt class="label-mono">Main-thread blocking</dt>
-          <dd class="mt-2 font-mono text-2xl font-medium text-indigo">
-            {data.metrics.mainThreadBlockingMs != null
-              ? `${data.metrics.mainThreadBlockingMs} ms`
-              : '—'}
-          </dd>
-        </div>
-        <div class="rounded-lg border border-border bg-surface-raised p-4">
-          <dt class="label-mono">Lighthouse impact</dt>
-          <dd class="mt-2 font-mono text-2xl font-medium text-indigo">
-            {data.metrics.lighthouseScoreImpact ?? '—'}
-          </dd>
-        </div>
-      </dl>
+        {
+          isPending ? (
+            <p class="mt-6 text-sm leading-relaxed text-muted">
+              This benchmark is queued for controlled testing. We publish results only after recording
+              real measurements on a live test page — never estimated or vendor-claimed numbers.
+            </p>
+          ) : (
+            <div class="mt-6">
+              <BenchmarkReport benchmark={benchmark} />
+            </div>
+          )
+        }
+      </>
     )
   }
 
-  <p class="mt-6 font-mono text-xs text-muted">
-    {data.methodology}
-    {
-      data.rawResultsUrl && (
-        <>
-          {' '}
-          <a href={data.rawResultsUrl} target="_blank" rel="noopener noreferrer">
-            View raw results
-          </a>
-        </>
-      )
-    }
-  </p>
+  {
+    !isPending && (
+      <footer class="benchmark-card__footer">
+        <a href="/methodology/">How we benchmark</a>
+      </footer>
+    )
+  }
 </article>

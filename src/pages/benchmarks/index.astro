@@ -63,9 +63,10 @@ const hasRecorded = recorded.length > 0;
           <ul class="space-y-6">
             {recorded.map((benchmark) => (
               <li>
-                <a href={`/benchmarks/${benchmark.data.slug}/`} class="block no-underline">
-                  <BenchmarkCard benchmark={benchmark} />
-                </a>
+                <BenchmarkCard
+                  benchmark={benchmark}
+                  href={`/benchmarks/${benchmark.data.slug}/`}
+                />
               </li>
             ))}
           </ul>

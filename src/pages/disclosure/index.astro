@@ -31,6 +31,16 @@ const partners = getAffiliatePartners(tools);
               <li>
                 <strong>{partner.name}</strong>
                 {partner.commission && ` — up to ${partner.commission} commission`}
+                {partner.id === 'hotjar' && (
+                  <span>
+                    {' '}
+                    (Hotjar is part of{' '}
+                    <a href="https://www.contentsquare.com/" target="_blank" rel="noopener noreferrer">
+                      Contentsquare
+                    </a>
+                    ; commissions are paid through their partner program)
+                  </span>
+                )}
               </li>
             ))}
           </ul>

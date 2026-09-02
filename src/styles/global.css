@@ -186,6 +186,137 @@
       linear-gradient(to bottom right in oklab, var(--color-mint), var(--color-chartreuse)) border-box;
   }
 
+  .benchmark-badge {
+    @apply shrink-0 rounded-md border border-mint/35 bg-mint/12 px-2.5 py-1 text-xs font-medium text-mint;
+  }
+
+  .benchmark-card__meta {
+    @apply font-body text-sm text-muted;
+    text-shadow: none;
+    -webkit-font-smoothing: auto;
+  }
+
+  .benchmark-card__footer {
+    @apply mt-4 flex justify-end border-t border-border pt-3;
+  }
+
+  .benchmark-card__footer a {
+    @apply text-xs text-muted no-underline decoration-border underline-offset-2 hover:text-fg hover:underline hover:decoration-border;
+  }
+
+  .benchmark-card__link {
+    @apply text-fg;
+  }
+
+  .benchmark-card__link:hover .font-heading {
+    @apply text-indigo-dark;
+  }
+
+  .benchmark-section__title {
+    @apply mb-4 font-heading text-base font-semibold text-fg;
+  }
+
+  .benchmark-report__lead {
+    @apply text-sm leading-relaxed text-muted;
+  }
+
+  .benchmark-report__leads {
+    @apply space-y-3;
+  }
+
+  .benchmark-report__metric {
+    @apply font-semibold text-indigo;
+  }
+
+  .benchmark-report__impact-title {
+    @apply mb-2 text-sm font-semibold text-fg;
+  }
+
+  .benchmark-report__grid {
+    @apply grid gap-3 sm:grid-cols-2;
+  }
+
+  .benchmark-facts__item {
+    @apply rounded-lg border border-border bg-surface-raised px-3 py-3;
+  }
+
+  .benchmark-facts__item--wide {
+    @apply sm:col-span-2;
+  }
+
+  .benchmark-facts__item dt {
+    @apply text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .benchmark-facts__item dd {
+    @apply mt-1 text-sm font-medium text-fg;
+  }
+
+  .benchmark-facts__pair {
+    @apply flex flex-wrap items-baseline gap-x-2 gap-y-1;
+  }
+
+  .benchmark-facts__sep {
+    @apply text-muted;
+  }
+
+  .benchmark-facts__detail {
+    @apply ml-1 font-normal text-muted;
+  }
+
+  .benchmark-facts__explainer {
+    @apply mt-2 text-xs leading-relaxed text-muted;
+  }
+
+  .benchmark-load-chart {
+    @apply rounded-lg border border-border bg-surface-raised p-3;
+  }
+
+  .benchmark-load-chart__label {
+    @apply text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .benchmark-load-chart__rows {
+    @apply mt-3 space-y-2.5;
+  }
+
+  .benchmark-load-chart__row {
+    @apply grid items-center gap-2;
+    grid-template-columns: minmax(5.5rem, 6.5rem) 1fr auto;
+  }
+
+  .benchmark-load-chart__row-label {
+    @apply text-xs text-muted;
+  }
+
+  .benchmark-load-chart__track {
+    @apply h-2.5 overflow-hidden rounded-full bg-border;
+  }
+
+  .benchmark-load-chart__bar {
+    @apply h-full rounded-full;
+  }
+
+  .benchmark-load-chart__bar--baseline {
+    @apply bg-muted/35;
+  }
+
+  .benchmark-load-chart__bar--with {
+    background: linear-gradient(to right in oklab, var(--color-indigo), var(--color-cyan));
+  }
+
+  .benchmark-load-chart__value {
+    @apply min-w-[3.75rem] text-right font-mono text-xs font-medium tabular-nums text-fg;
+  }
+
+  .benchmark-load-chart__headline {
+    @apply mt-3 text-right font-mono text-base font-semibold tabular-nums text-fg;
+  }
+
+  .benchmark-load-chart__headline strong {
+    @apply text-indigo;
+  }
+
   .glow-orb-primary {
     background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
   }
@@ -569,7 +700,7 @@
   }
 
   .freshness-badge {
-    @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-indigo/20 bg-indigo/5 px-3 py-1.5 font-mono text-xs;
+    @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-surface-raised px-3 py-1.5 text-xs;
   }
 
   .freshness-badge__label {
@@ -577,7 +708,9 @@
   }
 
   .freshness-badge__date {
-    @apply font-semibold text-indigo-dark;
+    @apply font-semibold text-fg;
+    text-shadow: none;
+    -webkit-font-smoothing: auto;
   }
 
   .prose-content .fit-checklist {

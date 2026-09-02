@@ -12,7 +12,6 @@ export const NETWORK_FAST_4G = {
   latency: 150,
   downloadThroughput: (1.6 * 1024 * 1024) / 8,
   uploadThroughput: (750 * 1024) / 8,
-  connectionType: '4g',
 };
 
 export const ENVIRONMENT_LABEL = {

@@ -1,0 +1,19 @@
+{
+  "tool": "google-analytics-4",
+  "testDate": "2026-09-02",
+  "slug": "google-analytics-4-script-2026-09",
+  "title": "Google Analytics 4 Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Fast 4G",
+    "device": "Desktop"
+  },
+  "metrics": {
+    "transferSizeBytes": 174635,
+    "decodedBodySizeBytes": 519854,
+    "mainThreadBlockingMs": 0,
+    "lighthouseScoreImpact": null
+  },
+  "methodology": "Recorded on AnalyticsVS fixture minimal-v1 (https://bench.analyticsvs.com/bench/minimal-v1/google-analytics-4/). Eager <head> snippet, Fast 4G, 7 runs, mean reported. See /methodology/ and benchmarks/README.md.",
+  "rawResultsUrl": null
+}

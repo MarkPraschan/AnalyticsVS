@@ -20,6 +20,11 @@ export async function setupLongTaskObserver(page) {
   });
 }
 
+function isMeasurableScriptUrl(url) {
+  if (/\/g\/collect/.test(url)) return false;
+  return /\.js(\?|$)/.test(url) || /\/gtag\/js(\?|$)/.test(url);
+}
+
 export async function collectRunMetrics(page, scriptHostPatterns) {
   const scriptResponses = new Map();
   const requestIds = new Set();
@@ -31,11 +36,13 @@ export async function collectRunMetrics(page, scriptHostPatterns) {
 
   cdp.on('Network.responseReceived', (event) => {
     const { requestId, response, type } = event;
-    if (!['Script', 'XHR', 'Fetch', 'Document'].includes(type)) return;
+    if (type !== 'Script') return;
     if (!matchesHostPattern(response.url, scriptHostPatterns)) return;
+    if (!isMeasurableScriptUrl(response.url)) return;
     requestIds.add(requestId);
     scriptResponses.set(requestId, {
       url: response.url,
+      requestId,
       transferSizeBytes: 0,
       decodedBodySizeBytes: 0,
     });
@@ -56,8 +63,40 @@ export async function collectRunMetrics(page, scriptHostPatterns) {
     async finish() {
       await page.waitForTimeout(POST_LOAD_WAIT_MS);
 
+      for (const entry of scriptResponses.values()) {
+        if (entry.decodedBodySizeBytes > 0) continue;
+        try {
+          const body = await cdp.send('Network.getResponseBody', { requestId: entry.requestId });
+          entry.decodedBodySizeBytes = Buffer.from(
+            body.body,
+            body.base64Encoded ? 'base64' : 'utf8',
+          ).length;
+        } catch {
+          // Response body may be unavailable for cached or opaque responses.
+        }
+      }
+
       const longTasks = await page.evaluate(() => window.__benchmarkLongTasks ?? []);
-      const scripts = [...scriptResponses.values()].filter((entry) => entry.url.endsWith('.js') || entry.url.includes('.js?'));
+      let scripts = [...scriptResponses.values()];
+
+      if (scripts.length === 0) {
+        scripts = await page.evaluate((patterns) => {
+          function measureScript(url) {
+            if (/\/g\/collect/.test(url)) return false;
+            return /\.js(\?|$)/.test(url) || /\/gtag\/js(\?|$)/.test(url);
+          }
+
+          return performance
+            .getEntriesByType('resource')
+            .filter((entry) => patterns.some((pattern) => entry.name.includes(pattern)))
+            .filter((entry) => measureScript(entry.name))
+            .map((entry) => ({
+              url: entry.name,
+              transferSizeBytes: entry.transferSize || 0,
+              decodedBodySizeBytes: entry.decodedBodySize || 0,
+            }));
+        }, scriptHostPatterns);
+      }
 
       const transferSizeBytes = scripts.reduce((sum, entry) => sum + entry.transferSizeBytes, 0);
       const decodedBodySizeBytes = scripts.reduce((sum, entry) => sum + entry.decodedBodySizeBytes, 0);

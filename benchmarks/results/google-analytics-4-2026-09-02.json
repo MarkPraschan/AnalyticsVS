@@ -1,0 +1,130 @@
+{
+  "fixtureVersion": "minimal-v1",
+  "tool": "google-analytics-4",
+  "toolName": "Google Analytics 4",
+  "testDate": "2026-09-02",
+  "fixtureUrl": "https://bench.analyticsvs.com/bench/minimal-v1/google-analytics-4/",
+  "environment": {
+    "connection": "Fast 4G",
+    "device": "Desktop",
+    "browser": "Chromium 151.0.7922.34",
+    "runs": 7,
+    "aggregation": "mean"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "transferSizeBytes": 174647,
+      "decodedBodySizeBytes": 519843,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 2,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 3,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 4,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 5,
+      "transferSizeBytes": 174641,
+      "decodedBodySizeBytes": 519873,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 6,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    },
+    {
+      "run": 7,
+      "transferSizeBytes": 174632,
+      "decodedBodySizeBytes": 519853,
+      "mainThreadBlockingMs": 0,
+      "scriptUrls": [
+        "https://www.googletagmanager.com/gtag/js?id=G-YSTS04XC4B"
+      ],
+      "longTaskCount": 0
+    }
+  ],
+  "metrics": {
+    "transferSizeBytes": 174635,
+    "decodedBodySizeBytes": 519854,
+    "mainThreadBlockingMs": 0,
+    "lighthouseScoreImpact": null
+  },
+  "aggregates": {
+    "transferSizeBytes": {
+      "mean": 174635.42857142858,
+      "values": [
+        174647,
+        174632,
+        174632,
+        174632,
+        174641,
+        174632,
+        174632
+      ]
+    },
+    "decodedBodySizeBytes": {
+      "mean": 519854.4285714286,
+      "values": [
+        519843,
+        519853,
+        519853,
+        519853,
+        519873,
+        519853,
+        519853
+      ]
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

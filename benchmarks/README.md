@@ -49,7 +49,7 @@ Snippet keys are visible in the browser anyway; we gitignore the file so you do 
 npm run benchmark:fixtures
 ```
 
-Writes HTML to `public/bench/minimal-v1/{tool}/index.html` (deployed with the site).
+When `snippets.json` is missing (e.g. on Vercel), the build step skips generation and uses committed `public/bench/` files.
 
 ### 4. Run benchmarks
 

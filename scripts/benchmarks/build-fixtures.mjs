@@ -60,7 +60,14 @@ function writeFixture(tool, html) {
 function main() {
   const manifest = loadManifest();
   const snippets = loadSnippets();
-  const fixtureHost = snippets?.fixtureHost ?? manifest.recommendedHost ?? 'bench.analyticsvs.com';
+
+  if (!snippets) {
+    console.log('[fixtures] snippets.json not found — keeping committed public/bench/ fixtures.');
+    console.log('[fixtures] Copy benchmarks/config/snippets.example.json → snippets.json to regenerate locally.');
+    return;
+  }
+
+  const fixtureHost = snippets.fixtureHost ?? manifest.recommendedHost ?? 'bench.analyticsvs.com';
 
   fs.mkdirSync(outputRoot, { recursive: true });
 
@@ -104,11 +111,6 @@ function main() {
 
   fs.writeFileSync(path.join(outputRoot, 'index.html'), indexHtml, 'utf8');
   console.log(`[fixtures] Wrote ${manifest.tools.length} tool pages to public/bench/${FIXTURE_VERSION}/`);
-
-  if (!snippets) {
-    console.warn('[fixtures] benchmarks/config/snippets.json not found — only placeholders were built.');
-    console.warn('[fixtures] Copy benchmarks/config/snippets.example.json → snippets.json');
-  }
 }
 
 main();

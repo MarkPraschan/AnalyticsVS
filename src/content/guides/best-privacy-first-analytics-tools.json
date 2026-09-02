@@ -6,9 +6,10 @@
   "relatedComparisons": [
     "plausible-vs-fathom",
     "google-analytics-vs-plausible",
+    "google-analytics-vs-matomo",
     "plausible-vs-umami"
   ],
-  "relatedTools": ["plausible", "fathom", "umami", "google-analytics-4"],
+  "relatedTools": ["plausible", "fathom", "umami", "google-analytics-4", "matomo"],
   "sections": [
     {
       "id": "what-privacy-first-means",

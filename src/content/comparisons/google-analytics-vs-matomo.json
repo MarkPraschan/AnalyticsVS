@@ -1,0 +1,42 @@
+{
+  "title": "Google Analytics vs Matomo",
+  "description": "Google Analytics 4 vs Matomo — compare data ownership, GDPR options, feature depth, pricing, and when to self-host instead of staying on Google.",
+  "tools": ["google-analytics-4", "matomo"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Choose Matomo when you need GA-like reporting with data ownership, EU hosting options, or self-hosting. Choose GA4 when Google Ads integration, zero SaaS cost, and ecosystem lock-in matter more than where the data lives.",
+  "quickAnswer": "**Matomo** is the better fit if data ownership, GDPR posture, or self-hosting matter — it can approach GA-like depth without sending hits to Google. **Google Analytics 4** is the better fit if you need free scale and deep Google Ads / Search Console / BigQuery workflows and can accept Google as the processor.",
+  "bottomLine": "These are the closest “same job, different trust model” pair in our directory. Matomo wins when legal, residency, or ownership requirements rule out Google. GA4 wins when marketing stack and cost (standard tier is free) outweigh those constraints. Lightweight tools like Plausible remain simpler if you only need traffic stats — Matomo is for teams that still want serious web analytics.",
+  "faq": [
+    {
+      "question": "Is Matomo a drop-in replacement for Google Analytics?",
+      "answer": "For many marketing and ecommerce reporting needs, yes — goals, ecommerce, custom dimensions, and funnels are available. It does not match GA4’s Google Ads attribution depth or free BigQuery export path. Expect migration work for tags, goals, and historical data."
+    },
+    {
+      "question": "Does Matomo avoid cookie consent banners?",
+      "answer": "Only when configured for cookieless / anonymized tracking that meets your counsel’s bar. Default Matomo setups often use first-party cookies and may still need consent. GA4 typically requires consent UX in GDPR jurisdictions."
+    },
+    {
+      "question": "Is Matomo free like GA4?",
+      "answer": "Self-hosted Matomo software is free; you pay infrastructure and ops. Matomo Cloud is paid per hit tier. GA4 standard is free for most sites, with compliance and implementation time as the real cost."
+    },
+    {
+      "question": "When should I pick Matomo over Plausible or Fathom?",
+      "answer": "When you need deeper reporting, ecommerce, or true self-hosting with GA-like flexibility. Pick Plausible or Fathom when you want cookieless simplicity and minimal ops."
+    },
+    {
+      "question": "Can I run GA4 and Matomo together?",
+      "answer": "Yes — some teams keep GA4 for ads attribution while Matomo holds primary reporting or privacy-sensitive properties. That doubles script weight and maintenance, so treat it as a temporary bridge unless both are required."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Ownership vs ecosystem",
+      "content": "If your constraint is **where data lives**, Matomo (especially self-hosted or EU cloud) is the serious alternative. If your constraint is **paid search attribution inside Google**, GA4 remains hard to beat. Many EU public-sector and regulated teams choose Matomo for the first reason; growth marketers stay on GA4 for the second."
+    },
+    {
+      "title": "Performance",
+      "content": "We publish recorded script benchmarks on our [benchmarks hub](/benchmarks/) — never estimated numbers. GA4’s default gtag install is measured; Matomo’s script weight depends on cloud vs self-host and plugins, so compare implementations carefully."
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import {
   FIXTURE_PATH_PREFIX,
   FIXTURE_VERSION,
 } from './lib/constants.mjs';
-import { loadManifest, loadSnippets } from './lib/fixtures.mjs';
+import { loadManifest, loadSnippets, isConfiguredSnippet } from './lib/fixtures.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const outputRoot = path.join(projectRoot, 'public', 'bench', FIXTURE_VERSION);
@@ -70,7 +70,7 @@ function main() {
     const entry = snippets?.tools?.[tool.id];
     const headHtml = entry?.headHtml?.trim();
 
-    if (headHtml && !headHtml.startsWith('<!--')) {
+    if (isConfiguredSnippet(headHtml)) {
       writeFixture(tool, buildHtml({ tool, headHtml, fixtureHost }));
       configured += 1;
       console.log(`[fixtures] ${tool.id} → ${FIXTURE_PATH_PREFIX}/${tool.slug}/`);

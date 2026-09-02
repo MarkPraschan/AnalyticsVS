@@ -22,6 +22,13 @@ export function loadSnippets() {
   return JSON.parse(fs.readFileSync(snippetsPath, 'utf8'));
 }
 
+export function isConfiguredSnippet(headHtml) {
+  const html = headHtml?.trim();
+  if (!html) return false;
+  if (/^<!--[\s\S]*-->$/.test(html)) return false;
+  return /<script/i.test(html);
+}
+
 export function getConfiguredTools() {
   const manifest = loadManifest();
   const snippets = loadSnippets();
@@ -31,9 +38,7 @@ export function getConfiguredTools() {
 
   return manifest.tools.filter((tool) => {
     const entry = snippets.tools[tool.id];
-    if (!entry?.headHtml) return false;
-    const html = entry.headHtml.trim();
-    return html.length > 0 && !html.startsWith('<!--');
+    return isConfiguredSnippet(entry?.headHtml);
   });
 }
 

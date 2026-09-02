@@ -60,7 +60,7 @@ const hasRecorded = recorded.length > 0;
       hasRecorded && (
         <section aria-labelledby="recorded-benchmarks-heading">
           <h2 id="recorded-benchmarks-heading" class="sr-only">Recorded benchmarks</h2>
-          <ul class="space-y-6">
+          <ul class="grid gap-4">
             {recorded.map((benchmark) => (
               <li>
                 <BenchmarkCard
@@ -87,10 +87,13 @@ const hasRecorded = recorded.length > 0;
             These benchmarks are planned and awaiting controlled recording. No performance numbers are
             shown until testing is finished.
           </p>
-          <ul class="mt-6 space-y-6">
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2">
             {pending.map((benchmark) => (
               <li>
-                <BenchmarkCard benchmark={benchmark} />
+                <BenchmarkCard
+                  benchmark={benchmark}
+                  href={`/benchmarks/${benchmark.data.slug}/`}
+                />
               </li>
             ))}
           </ul>

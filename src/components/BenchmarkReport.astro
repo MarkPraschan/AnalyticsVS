@@ -53,35 +53,9 @@ const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? nu
           <dl class="benchmark-facts__item benchmark-facts__item--wide">
             <dt>Script filesize</dt>
             <dd class="benchmark-facts__pair">
-              {
-                transferStat && (
-                  <span>
-                    {formatKib(transferStat.mean)} transfer
-                    {
-                      transferStat.min !== transferStat.max && (
-                        <span class="benchmark-facts__detail">
-                          ({formatKib(transferStat.min)} – {formatKib(transferStat.max)})
-                        </span>
-                      )
-                    }
-                  </span>
-                )
-              }
+              {transferStat && <span>{formatKib(transferStat.mean)} transfer</span>}
               {transferStat && decodedStat && <span class="benchmark-facts__sep" aria-hidden="true">·</span>}
-              {
-                decodedStat && (
-                  <span>
-                    {formatKib(decodedStat.mean)} decoded
-                    {
-                      decodedStat.min !== decodedStat.max && (
-                        <span class="benchmark-facts__detail">
-                          ({formatKib(decodedStat.min)} – {formatKib(decodedStat.max)})
-                        </span>
-                      )
-                    }
-                  </span>
-                )
-              }
+              {decodedStat && <span>{formatKib(decodedStat.mean)} decoded</span>}
             </dd>
             <p class="benchmark-facts__explainer">
               Transfer is the compressed download size, and decoded is what the browser parses afterward.

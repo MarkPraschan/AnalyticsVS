@@ -91,6 +91,7 @@
   h3,
   h4 {
     @apply font-heading text-fg leading-tight;
+    font-variant-ligatures: none;
   }
 
   [id] {
@@ -190,6 +191,10 @@
     @apply shrink-0 rounded-md border border-mint/35 bg-mint/12 px-2.5 py-1 text-xs font-medium text-mint;
   }
 
+  .benchmark-badge--pending {
+    @apply border-border bg-surface-raised text-muted;
+  }
+
   .benchmark-card__meta {
     @apply font-body text-sm text-muted;
     text-shadow: none;
@@ -210,6 +215,42 @@
 
   .benchmark-card__link:hover .font-heading {
     @apply text-indigo-dark;
+  }
+
+  .benchmark-card-summary {
+    @apply p-5 sm:p-6;
+  }
+
+  .benchmark-card-summary:hover .font-heading {
+    @apply text-indigo-dark;
+  }
+
+  .benchmark-card-summary__facts {
+    @apply grid gap-3 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .benchmark-card-summary__facts > div {
+    @apply min-w-0 rounded-lg border border-border bg-surface-raised/60 px-3 py-2.5;
+  }
+
+  .benchmark-card-summary__facts dt {
+    @apply font-mono text-[0.65rem] font-medium uppercase tracking-wider text-muted;
+  }
+
+  .benchmark-card-summary__facts dd {
+    @apply mt-1 font-heading text-sm font-semibold text-fg;
+  }
+
+  .benchmark-card-summary__cta {
+    @apply text-sm font-medium text-indigo-dark;
+  }
+
+  .benchmark-card-summary__cta span {
+    @apply ml-1 inline-block transition-transform;
+  }
+
+  .benchmark-card-summary:hover .benchmark-card-summary__cta span {
+    transform: translateX(0.15rem);
   }
 
   .benchmark-section__title {
@@ -699,6 +740,14 @@
     }
   }
 
+  .last-updated {
+    @apply text-xs text-muted;
+  }
+
+  .last-updated time {
+    @apply text-muted;
+  }
+
   .freshness-badge {
     @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-surface-raised px-3 py-1.5 text-xs;
   }
@@ -1122,6 +1171,10 @@
 
   .profile-header {
     @apply mb-10 rounded-xl border border-border bg-white p-6 shadow-sm sm:p-8;
+  }
+
+  .profile-header__meta {
+    @apply mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-2;
   }
 
   @supports (corner-shape: squircle) {

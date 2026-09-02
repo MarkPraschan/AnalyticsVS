@@ -16,22 +16,22 @@ const isAffiliate = isAffiliateTool(tool);
 ---
 
 <header class="profile-header">
-  <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-    <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:gap-5">
-      <div class="shrink-0 pt-0.5">
-        <ToolMark tool={tool} size="lg" href={false} />
-      </div>
+  <div class="flex min-w-0 gap-4 sm:gap-5">
+    <div class="shrink-0 pt-0.5">
+      <ToolMark tool={tool} size="lg" href={false} />
+    </div>
+
+    <div class="flex min-w-0 flex-1 flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
       <div class="min-w-0">
         <h1 class="heading-lg text-gradient-primary">{tool.name}</h1>
         <p class="page-intro mt-1.5">{tool.tagline}</p>
-        <div class="mt-3">
+        <div class="profile-header__meta">
+          <AttributeBadges tool={tool} />
           <LastUpdated date={updatedDate} />
         </div>
-        <div class="mt-4">
-          <AttributeBadges tool={tool} />
-        </div>
       </div>
+
+      {visitUrl && <VisitCTA url={visitUrl} affiliate={isAffiliate} />}
     </div>
-    {visitUrl && <VisitCTA url={visitUrl} affiliate={isAffiliate} />}
   </div>
 </header>

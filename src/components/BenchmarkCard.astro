@@ -1,86 +1,114 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BenchmarkReport from './BenchmarkReport.astro';
+import {
+  formatAddedMs,
+  formatKib,
+  formatSnippetLoadingSummary,
+  getOverheadStat,
+  getRunStat,
+} from '../lib/benchmarks';
 
 interface Props {
   benchmark: CollectionEntry<'benchmarks'>;
-  /** When set, wraps the main body (not the footer) in a link to the detail page. */
+  /** When set, renders a compact summary card that links to the detail page. */
   href?: string;
 }
 
 const { benchmark, href } = Astro.props;
 const { data } = benchmark;
 const isPending = data.status === 'pending';
+const isCompact = Boolean(href);
+
+const transferStat = getRunStat(data, 'transferSizeBytes');
+const decodedStat = getRunStat(data, 'decodedBodySizeBytes');
+const overheadPageLoadStat = getOverheadStat(data, 'pageLoadMs');
+const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? null;
+const loadingMode = data.install?.loading ?? 'async';
+const renderBlocking = data.install?.renderBlocking ?? false;
+
+const metaParts = [
+  data.testDate,
+  data.environment.device,
+  data.environment.connection,
+  data.runStats?.runs ? `Avg of ${data.runStats.runs} runs` : null,
+].filter(Boolean);
 ---
 
-<article class="card benchmark-card">
-  {
-    href ? (
-      <a href={href} class="benchmark-card__link block no-underline">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h3 class="font-heading text-xl font-semibold text-fg">{data.title}</h3>
-            <p class="benchmark-card__meta mt-1 text-sm text-muted">
-              {data.testDate} · {data.environment.device} · {data.environment.connection}
-              {data.runStats?.runs ? ` · Avg of ${data.runStats.runs} runs` : ''}
-            </p>
-          </div>
-          {
-            !isPending && (
-              <span class="benchmark-badge">Recorded by AnalyticsVS</span>
-            )
-          }
+{
+  isCompact ? (
+    <a href={href} class="card-interactive benchmark-card-summary block no-underline">
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <div class="min-w-0">
+          <h3 class="font-heading text-lg font-semibold text-fg sm:text-xl">{data.title}</h3>
+          <p class="benchmark-card__meta mt-1">{metaParts.join(' · ')}</p>
         </div>
-        {
-          isPending ? (
-            <p class="mt-6 text-sm leading-relaxed text-muted">
-              This benchmark is queued for controlled testing. We publish results only after recording
-              real measurements on a live test page — never estimated or vendor-claimed numbers.
-            </p>
-          ) : (
-            <div class="mt-6">
-              <BenchmarkReport benchmark={benchmark} />
-            </div>
-          )
-        }
-      </a>
-    ) : (
-      <>
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <h3 class="font-heading text-xl font-semibold">{data.title}</h3>
-            <p class="benchmark-card__meta mt-1 text-sm text-muted">
-              {data.testDate} · {data.environment.device} · {data.environment.connection}
-              {data.runStats?.runs ? ` · Avg of ${data.runStats.runs} runs` : ''}
-            </p>
-          </div>
-          {
-            !isPending && (
-              <span class="benchmark-badge">Recorded by AnalyticsVS</span>
-            )
-          }
-        </div>
-        {
-          isPending ? (
-            <p class="mt-6 text-sm leading-relaxed text-muted">
-              This benchmark is queued for controlled testing. We publish results only after recording
-              real measurements on a live test page — never estimated or vendor-claimed numbers.
-            </p>
-          ) : (
-            <div class="mt-6">
-              <BenchmarkReport benchmark={benchmark} />
-            </div>
-          )
-        }
-      </>
-    )
-  }
+        {!isPending && <span class="benchmark-badge">Recorded by AnalyticsVS</span>}
+        {isPending && <span class="benchmark-badge benchmark-badge--pending">Queued</span>}
+      </div>
 
-  {
-    !isPending && (
-      <footer class="benchmark-card__footer">
-        <a href="/methodology/">How we benchmark</a>
-      </footer>
-    )
-  }
-</article>
+      {isPending ? (
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          Awaiting controlled recording. No performance numbers until testing is finished.
+        </p>
+      ) : (
+        <dl class="benchmark-card-summary__facts mt-4">
+          {overheadMs != null && (
+            <div>
+              <dt>Load overhead</dt>
+              <dd>{formatAddedMs(overheadMs)}</dd>
+            </div>
+          )}
+          <div>
+            <dt>Loading</dt>
+            <dd>{formatSnippetLoadingSummary(loadingMode, renderBlocking)}</dd>
+          </div>
+          {transferStat && (
+            <div>
+              <dt>Transfer</dt>
+              <dd>{formatKib(transferStat.mean)}</dd>
+            </div>
+          )}
+          {decodedStat && (
+            <div>
+              <dt>Decoded</dt>
+              <dd>{formatKib(decodedStat.mean)}</dd>
+            </div>
+          )}
+        </dl>
+      )}
+
+      <p class="benchmark-card-summary__cta mt-4">
+        {isPending ? 'View details' : 'View full benchmark'}
+        <span aria-hidden="true">→</span>
+      </p>
+    </a>
+  ) : (
+    <article class="card benchmark-card">
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h3 class="font-heading text-xl font-semibold">{data.title}</h3>
+          <p class="benchmark-card__meta mt-1">{metaParts.join(' · ')}</p>
+        </div>
+        {!isPending && <span class="benchmark-badge">Recorded by AnalyticsVS</span>}
+      </div>
+
+      {isPending ? (
+        <p class="mt-6 text-sm leading-relaxed text-muted">
+          This benchmark is queued for controlled testing. We publish results only after recording
+          real measurements on a live test page — never estimated or vendor-claimed numbers.
+        </p>
+      ) : (
+        <div class="mt-6">
+          <BenchmarkReport benchmark={benchmark} />
+        </div>
+      )}
+
+      {!isPending && (
+        <footer class="benchmark-card__footer">
+          <a href="/methodology/">How we benchmark</a>
+        </footer>
+      )}
+    </article>
+  )
+}

@@ -5,6 +5,16 @@
   "framework": "astro",
   "redirects": [
     {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "destination": "https://www.analyticsvs.com/$1",
       "permanent": true,

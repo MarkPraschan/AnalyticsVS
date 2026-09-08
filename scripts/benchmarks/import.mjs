@@ -27,7 +27,8 @@ function detectInstall(headHtml) {
 }
 
 function buildContentEntry(result, inputPath) {
-  const tool = getToolFromManifest(result.tool);
+  const fixtureTool = getToolFromManifest(result.tool);
+  const contentToolId = fixtureTool.contentToolId ?? fixtureTool.id;
   const slug = slugForResult(result);
   const rawResultsPath = path.relative(projectRoot, inputPath).replace(/\\/g, '/');
 
@@ -46,10 +47,10 @@ function buildContentEntry(result, inputPath) {
   }
 
   return {
-    tool: result.tool,
+    tool: contentToolId,
     testDate: result.testDate,
     slug,
-    title: `${tool.name} Script Performance`,
+    title: `${fixtureTool.name} Script Performance`,
     status: 'recorded',
     environment: {
       connection: result.environment.connection,

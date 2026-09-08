@@ -26,11 +26,12 @@ const TOOL_TIMING_KEYS = ['pageLoadMs', 'scriptLoadMs', 'mainThreadBlockingMs'];
 const TOOL_SIZE_KEYS = ['transferSizeBytes', 'decodedBodySizeBytes'];
 
 function parseArgs(argv) {
-  const options = { tool: null };
+  const options = { tools: [] };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === '--tool') {
-      options.tool = argv[index + 1] ?? null;
+      const value = argv[index + 1] ?? null;
+      if (value) options.tools.push(value);
       index += 1;
     }
   }
@@ -179,7 +180,7 @@ async function runTool(browser, tool, baseUrl, baseline) {
 }
 
 async function main() {
-  const { tool: toolFilter } = parseArgs(process.argv.slice(2));
+  const { tools: toolFilters } = parseArgs(process.argv.slice(2));
   const baseUrl = process.env.BENCHMARK_BASE_URL ?? 'http://localhost:4321';
   const manifest = loadManifest();
 
@@ -190,14 +191,17 @@ async function main() {
     process.exit(1);
   }
 
-  if (toolFilter) {
-    const tool = getToolFromManifest(toolFilter);
-    const configured = tools.some((entry) => entry.id === tool.id);
-    if (!configured) {
-      console.error(`[benchmark] Tool "${toolFilter}" has no snippet in snippets.json`);
-      process.exit(1);
-    }
-    tools = [tool];
+  if (toolFilters.length > 0) {
+    const configuredTools = tools;
+    tools = toolFilters.map((toolFilter) => {
+      const tool = getToolFromManifest(toolFilter);
+      const configured = configuredTools.some((entry) => entry.id === tool.id);
+      if (!configured) {
+        console.error(`[benchmark] Tool "${toolFilter}" has no snippet in snippets.json`);
+        process.exit(1);
+      }
+      return tool;
+    });
   }
 
   const browser = await chromium.launch({ headless: true });

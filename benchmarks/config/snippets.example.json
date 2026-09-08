@@ -31,8 +31,12 @@
       "setupNotes": "Umami Cloud → Add website → tracking code"
     },
     "datafast": {
-      "headHtml": "<!-- Paste DataFast script from dashboard -->",
-      "setupNotes": "DataFast → Add site → install script"
+      "headHtml": "<!-- Paste DataFast default script.js from dashboard -->",
+      "setupNotes": "DataFast → Add site bench.analyticsvs.com → default tracking script"
+    },
+    "datafast-cookieless": {
+      "headHtml": "<!-- Paste DataFast cookieless script.cookieless.js from dashboard -->",
+      "setupNotes": "DataFast → Add site bench.analyticsvs.com → cookieless tracking script"
     },
     "ahrefs": {
       "headHtml": "<!-- Paste Ahrefs Web Analytics snippet after domain verification -->",

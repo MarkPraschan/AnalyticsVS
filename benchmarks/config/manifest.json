@@ -49,6 +49,14 @@
       "id": "datafast",
       "slug": "datafast",
       "name": "DataFast",
+      "contentToolId": "datafast",
+      "scriptHostPatterns": ["datafa.st"]
+    },
+    {
+      "id": "datafast-cookieless",
+      "slug": "datafast-cookieless",
+      "name": "DataFast (cookieless)",
+      "contentToolId": "datafast",
       "scriptHostPatterns": ["datafa.st"]
     },
     {

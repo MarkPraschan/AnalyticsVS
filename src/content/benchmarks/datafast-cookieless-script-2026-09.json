@@ -1,0 +1,86 @@
+{
+  "tool": "datafast",
+  "testDate": "2026-09-08",
+  "slug": "datafast-cookieless-script-2026-09",
+  "title": "DataFast (cookieless) Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "defer",
+    "renderBlocking": false
+  },
+  "baseline": {
+    "pageLoadMs": 287,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 287,
+        "min": 248,
+        "max": 309
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 231,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 232,
+        "min": 201,
+        "max": 274
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "metrics": {
+    "transferSizeBytes": 5819,
+    "decodedBodySizeBytes": 12805,
+    "mainThreadBlockingMs": 0,
+    "pageLoadMs": 518,
+    "scriptLoadMs": 514
+  },
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 5819,
+      "min": 5819,
+      "max": 5819
+    },
+    "decodedBodySizeBytes": {
+      "mean": 12805,
+      "min": 12805,
+      "max": 12805
+    },
+    "pageLoadMs": {
+      "mean": 518,
+      "min": 503,
+      "max": 565
+    },
+    "scriptLoadMs": {
+      "mean": 514,
+      "min": 499,
+      "max": 562
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "rawResultsUrl": null
+}

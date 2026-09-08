@@ -11,11 +11,18 @@ export interface ToolReviewFaq {
   answer: string;
 }
 
+export interface ToolReviewFigure {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ToolReviewSection {
   id: string;
   title: string;
   dimension: ReviewDimension;
   content: string;
+  figures?: ToolReviewFigure[];
 }
 
 export interface ToolReview {
@@ -28,6 +35,9 @@ export interface ToolReview {
   notFor: string[];
   sections: ToolReviewSection[];
   setupNotes: string;
+  setupFigures: ToolReviewFigure[];
+  benchmarkNotes?: string;
+  benchmarkFigures: ToolReviewFigure[];
   pricingNotes: string;
   limitations: string[];
   faq: ToolReviewFaq[];

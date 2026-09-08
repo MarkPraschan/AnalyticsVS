@@ -127,13 +127,39 @@ const schema = [
         </p>
       </section>
 
-      <ToolReviewSetup setupNotes={review.setupNotes} />
+      <ToolReviewSetup setupNotes={review.setupNotes} setupFigures={review.setupFigures} />
 
       {
         benchmarks.length > 0 && (
           <section id="benchmarks" class="mt-10">
             <h2 class="article-heading">Performance benchmarks</h2>
-            <div class="mt-4 space-y-4">
+            {review.benchmarkNotes && (
+              <div
+                class="prose-content review-prose mt-4"
+                set:html={renderReviewMarkdown(review.benchmarkNotes)}
+              />
+            )}
+            {(review.benchmarkFigures?.length ?? 0) > 0 && (
+              <div class="mt-6 space-y-6">
+                {review.benchmarkFigures.map((figure) => (
+                  <figure class="review-figure">
+                    <img
+                      src={figure.src}
+                      alt={figure.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      decoding="async"
+                      class="review-figure__image"
+                    />
+                    {figure.caption && (
+                      <figcaption class="review-figure__caption">{figure.caption}</figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            )}
+            <div class:list={['space-y-4', (review.benchmarkNotes || review.benchmarkFigures?.length) && 'mt-6']}>
               {benchmarks.map((benchmark) => (
                 <BenchmarkCard benchmark={benchmark} />
               ))}

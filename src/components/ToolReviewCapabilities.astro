@@ -14,6 +14,26 @@ const { sections } = Astro.props;
     <section id={section.id} class="mt-10">
       <h2 class="article-heading">{section.title}</h2>
       <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(section.content)} />
+      {(section.figures?.length ?? 0) > 0 && (
+        <div class="mt-6 space-y-6">
+          {section.figures!.map((figure) => (
+            <figure class="review-figure">
+              <img
+                src={figure.src}
+                alt={figure.alt}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                class="review-figure__image"
+              />
+              {figure.caption && (
+                <figcaption class="review-figure__caption">{figure.caption}</figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      )}
     </section>
   ))
 }

@@ -1,15 +1,38 @@
 ---
 import { renderReviewMarkdown } from '../lib/markdown';
-import type { ToolReview } from '../lib/reviews';
+import type { ToolReviewFigure } from '../lib/reviews';
 
 interface Props {
   setupNotes: string;
+  setupFigures?: ToolReviewFigure[];
 }
 
-const { setupNotes } = Astro.props;
+const { setupNotes, setupFigures = [] } = Astro.props;
 ---
 
 <section id="setup" class="mt-10">
   <h2 class="article-heading">Setup & implementation</h2>
   <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(setupNotes)} />
+  {
+    setupFigures.length > 0 && (
+      <div class="mt-6 space-y-6">
+        {setupFigures.map((figure) => (
+          <figure class="review-figure">
+            <img
+              src={figure.src}
+              alt={figure.alt}
+              width="1200"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              class="review-figure__image"
+            />
+            {figure.caption && (
+              <figcaption class="review-figure__caption">{figure.caption}</figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    )
+  }
 </section>

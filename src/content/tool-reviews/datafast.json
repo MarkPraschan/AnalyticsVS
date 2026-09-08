@@ -19,7 +19,14 @@
       "id": "revenue-attribution",
       "title": "Revenue attribution",
       "dimension": "revenue-attribution",
-      "content": "DataFast's core value is joining **website visits to completed payments**. On first visit, the script sets first-party cookies (`datafast_visitor_id`, `datafast_session_id`). When a customer pays, those IDs must reach your payment provider — typically via **Stripe Checkout or PaymentIntent metadata** — so DataFast can match revenue to referrer, campaign, and landing page.\n\nSupported processors include **Stripe, Lemon Squeezy, Polar, Paddle, Shopify, and WooCommerce**, plus a **Payment API** for custom stacks. Connected providers sync automatically; custom flows require a server-side POST when payment succeeds.\n\nThis depends on correct metadata wiring and cookies surviving through checkout. One-off payments and short attribution windows are well supported; complex B2B sales cycles with offline closes are a weaker fit."
+      "content": "DataFast's headline feature is optional, and that matters. After you add a site and install the script, onboarding offers a third step: **Attribute revenue**. You can skip it and still get normal traffic analytics. Completing it is what turns DataFast into a \"which channel made money?\" tool instead of a pageview counter.\n\nSetup has two parts. First, [connect a payment provider](https://datafa.st/docs/connect-payment-provider) in Site Settings → Revenue — Stripe, Lemon Squeezy, Polar, Paddle, Shopify, WooCommerce, and similar. For Stripe, DataFast asks for a **restricted API key** so it can pull payment data into your dashboard. Shopify and WooCommerce integrations can handle more of the visitor-to-revenue link automatically; other stacks usually need a short follow-up step.\n\nSecond, [link payments to traffic](https://datafa.st/docs/revenue-attribution-guide). On the default (cookie) script, DataFast stores visitor and session IDs in first-party cookies. Your checkout needs to pass those IDs into the payment (for Stripe, typically Checkout or PaymentIntent **metadata**) so DataFast can match a sale back to the referrer, campaign, and landing page. Custom billing can use DataFast's Payment API instead.\n\nThis works best for online checkouts with a short path from click to payment. Long B2B deals that close offline are a weaker fit. Cookieless mode also weakens this path — see Privacy & compliance.",
+      "figures": [
+        {
+          "src": "/reviews/datafast-revenue-attribution.jpg",
+          "alt": "DataFast optional Attribute revenue step showing Stripe selected, a restricted API key field, and a link-with-traffic prompt",
+          "caption": "Revenue attribution is an optional onboarding step: pick a provider, connect it (Stripe uses a restricted API key), then link payments to traffic."
+        }
+      ]
     },
     {
       "id": "web-analytics",
@@ -31,17 +38,32 @@
       "id": "privacy-compliance",
       "title": "Privacy & compliance",
       "dimension": "privacy-compliance",
-      "content": "DataFast markets a **privacy-friendly** posture: no third-party ad cookies, no cross-site tracking network, and GDPR-oriented documentation. Revenue attribution still relies on **first-party cookies** to link visitors to payments — so you may still need consent messaging depending on jurisdiction and counsel's interpretation.\n\nData is not self-hostable. Retention is **3 years on Starter** and **5+ years on Growth** per vendor plan pages. For strict data-residency or air-gapped requirements, consider Matomo self-hosted instead."
+      "content": "DataFast is built as a **privacy-friendly** alternative to ad-heavy analytics stacks. It does not use third-party advertising cookies or a cross-site tracking network, and it publishes GDPR-oriented documentation.\n\nWhen you install DataFast, you choose how visitor identity works. The **default** option stores a small first-party cookie so DataFast can recognize the same visitor across visits. That is what makes multi-day customer journeys and **revenue attribution** work when you connect Stripe or another payment tool.\n\n**Cookieless mode** turns that off. DataFast's own confirmation screen explains the trade-offs: there are no cookies for visitor IDs, which is better for privacy, but multi-day journeys and revenue attribution get weaker because visitor IDs rotate about every 24 hours. You also lose the User and Journey tabs, returning-visitor breakdowns, and visit-count filters.\n\nIf your main goal is knowing which marketing channel led to a sale, stay on the default mode. If you mainly want simpler traffic stats with less persistent identity, cookieless may fit better. Either way, check consent requirements with a lawyer or privacy advisor for your markets. DataFast is cloud-only. Plan retention is **3 years on Starter** and **5+ years on Growth** according to vendor pricing pages. Teams that need to keep all analytics data on their own servers should look at Matomo self-hosted instead.",
+      "figures": [
+        {
+          "src": "/reviews/datafast-cookieless-mode.jpg",
+          "alt": "DataFast dialog explaining cookieless mode: no cookies for visitor IDs, weaker multi-day journeys and revenue attribution, and no User or Journey tabs",
+          "caption": "DataFast's cookieless confirmation screen spells out the privacy benefit and the reporting trade-offs before you switch."
+        }
+      ]
     }
   ],
-  "setupNotes": "**Typical setup (Stripe SaaS):**\n\n1. Add the DataFast script to your marketing site or app shell.\n2. Connect Stripe (or another supported processor) in the DataFast dashboard.\n3. Pass `datafast_visitor_id` and `datafast_session_id` into Stripe Checkout or PaymentIntent **metadata** on your backend.\n4. Confirm a test payment appears with referrer and channel data in the dashboard.\n\nExpect **1–2 hours** for a standard Next.js + Stripe Checkout stack if you read the docs first. No webhook is required for basic Stripe metadata pass-through — DataFast pulls from the processor API.\n\n**Common pitfalls:** metadata not forwarded on custom checkout flows, cookies blocked before payment on a different subdomain, and counting custom product events that inflate tier usage.",
+  "setupNotes": "**Typical setup (Stripe SaaS):**\n\n1. Add your site in the DataFast dashboard, then install tracking via the **script snippet**, **npm**, **Shopify**, or **WordPress** path (Next.js has a dedicated guide).\n2. Choose default or **cookieless** tracking, then paste the snippet into your site `<head>` or app shell.\n3. Optionally open **Attribute revenue**, pick Stripe (or another provider), and connect it — Stripe uses a **restricted API key** from your Stripe account.\n4. Link payments to traffic by passing DataFast's visitor and session IDs into Stripe Checkout or PaymentIntent **metadata** (or follow the Shopify / WooCommerce guides if those integrations apply).\n5. Confirm a test payment shows up with referrer and channel data in the dashboard.\n\nFor basic Stripe connections, DataFast pulls payment data from the provider API after you connect the key. The metadata step is what ties each sale back to a visit.\n\n**Common pitfalls:** enabling cookieless when you still need multi-day revenue attribution, skipping the metadata link so revenue appears without clear sources, cookies blocked before payment on a different subdomain, and counting custom product events that inflate tier usage.",
+  "setupFigures": [
+    {
+      "src": "/reviews/datafast-install-script.jpg",
+      "alt": "DataFast install wizard showing script, npm, Shopify, and WordPress options with a cookieless tracking checkbox and head snippet",
+      "caption": "The install step offers Script, npm, Shopify, or WordPress, plus an optional cookieless tracking checkbox before you copy the snippet."
+    }
+  ],
+  "benchmarkNotes": "DataFast offers two tracking scripts — the default version and a cookieless version — so we measured both under the same conditions.\n\nThe noteworthy result is how close they are. Cookieless is a little smaller to download, and neither script blocked the page in our tests. If you are choosing between them for speed alone, there is not much to gain. The real difference is the privacy and reporting trade-off covered in Privacy & compliance. Exact sizes and timings are in the cards below.",
+  "benchmarkFigures": [],
   "pricingNotes": "Plans combine a **base subscription** with **event-volume tiers**. Starter is **$9/month** (10K events, 1 site, 1 seat); Growth is **$19/month** (10K events, up to 30 sites, 30 seats, extended retention). Higher event bands scale to **$299/month at 10M events** per our directory data.\n\nEvents include pageviews and tracked custom events — heavy event instrumentation increases cost faster than pageview-only analytics. A **14-day free trial** (no card required per vendor) lowers evaluation risk.\n\nUse our [pricing calculator](/calculators/pricing/) with pageviews + custom events to estimate your band.",
   "limitations": [
-    "Revenue attribution requires developer work (metadata or Payment API) — not plug-and-play like dropping in GA4 alone.",
-    "First-party cookies are required for attribution; cookieless positioning applies to third-party tracking, not the attribution flow itself.",
+    "Revenue attribution is optional for traffic analytics, but connecting a payment provider and linking checkout metadata (or using Shopify/WooCommerce integrations) is required if you want channel-to-revenue reports.",
+    "Cookieless mode weakens multi-day journeys and revenue attribution (visitor IDs rotate about every 24 hours) and removes User/Journey tabs and related filters.",
     "No session replay, heatmaps, or A/B testing — pair with Hotjar or PostHog if you need behavior tooling.",
-    "Cloud-only — no self-hosted deployment.",
-    "Script performance benchmark not yet published on AnalyticsVS."
+    "Cloud-only — no self-hosted deployment."
   ],
   "faq": [
     {
@@ -49,12 +71,16 @@
       "answer": "For marketing sites that only need traffic reports, probably not — GA4 is free and deeper for ad integrations. DataFast makes sense when revenue per channel is the metric you optimize for and you use a supported payment processor."
     },
     {
+      "question": "Should I use cookieless or default tracking?",
+      "answer": "Choose the default mode if you care about revenue attribution and recognizing visitors across multiple days — that is DataFast's main job. Choose cookieless when you prefer less persistent visitor identity and can accept weaker attribution plus fewer journey and returning-visitor reports. In our benchmarks, the cookieless script is only a little smaller to download."
+    },
+    {
       "question": "Which payment providers work out of the box?",
       "answer": "Stripe, Lemon Squeezy, Polar, Paddle, Shopify, and WooCommerce can be connected in the dashboard. Custom billing stacks can use the Payment API with your server sending transaction data after checkout."
     },
     {
       "question": "How hard is Stripe attribution to implement?",
-      "answer": "For Stripe Checkout or PaymentIntents, add datafast_visitor_id and datafast_session_id to payment metadata on your backend. Skipping this step means revenue will not tie to traffic sources."
+      "answer": "Connecting Stripe is mostly pasting a restricted API key in DataFast. Linking each payment back to a marketing visit usually means adding DataFast's visitor and session IDs to Stripe Checkout or PaymentIntent metadata on your site. Skip that second step and you may see revenue totals without clear channel attribution."
     },
     {
       "question": "DataFast vs Plausible — when do I pick each?",
@@ -63,7 +89,11 @@
   ],
   "sources": [
     { "label": "DataFast pricing", "url": "https://datafa.st/pricing", "checkedOn": "2026-08-28" },
+    { "label": "Connect your payment provider", "url": "https://datafa.st/docs/connect-payment-provider", "checkedOn": "2026-09-08" },
+    { "label": "Revenue attribution guide", "url": "https://datafa.st/docs/revenue-attribution-guide", "checkedOn": "2026-09-08" },
     { "label": "Stripe PaymentIntent attribution docs", "url": "https://datafa.st/docs/stripe-payment-intent-api", "checkedOn": "2026-08-28" },
-    { "label": "Payment API docs", "url": "https://datafa.st/docs/payments-api", "checkedOn": "2026-08-28" }
+    { "label": "Payment API docs", "url": "https://datafa.st/docs/payments-api", "checkedOn": "2026-08-28" },
+    { "label": "DataFast default script benchmark", "url": "https://www.analyticsvs.com/benchmarks/datafast-script-2026-09/", "checkedOn": "2026-09-08" },
+    { "label": "DataFast cookieless script benchmark", "url": "https://www.analyticsvs.com/benchmarks/datafast-cookieless-script-2026-09/", "checkedOn": "2026-09-08" }
   ]
 }

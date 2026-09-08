@@ -190,11 +190,18 @@ const reviewDimensionSchema = z.enum([
   'other',
 ]);
 
+const toolReviewFigureSchema = z.object({
+  src: z.string(),
+  alt: z.string(),
+  caption: z.string().optional(),
+});
+
 const toolReviewSectionSchema = z.object({
   id: z.string(),
   title: z.string(),
   dimension: reviewDimensionSchema,
   content: z.string(),
+  figures: z.array(toolReviewFigureSchema).default([]),
 });
 
 const toolReviewSourceSchema = z.object({
@@ -214,6 +221,9 @@ const toolReviews = defineCollection({
     notFor: z.array(z.string()),
     sections: z.array(toolReviewSectionSchema),
     setupNotes: z.string(),
+    setupFigures: z.array(toolReviewFigureSchema).default([]),
+    benchmarkNotes: z.string().optional(),
+    benchmarkFigures: z.array(toolReviewFigureSchema).default([]),
     pricingNotes: z.string(),
     limitations: z.array(z.string()),
     faq: z.array(faqSchema),

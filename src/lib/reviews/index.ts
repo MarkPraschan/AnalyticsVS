@@ -16,6 +16,9 @@ function toToolReview(entry: ToolReviewEntry, slug: string): ToolReview {
     notFor: entry.data.notFor,
     sections: entry.data.sections,
     setupNotes: entry.data.setupNotes,
+    setupFigures: entry.data.setupFigures ?? [],
+    benchmarkNotes: entry.data.benchmarkNotes,
+    benchmarkFigures: entry.data.benchmarkFigures ?? [],
     pricingNotes: entry.data.pricingNotes,
     limitations: entry.data.limitations,
     faq: entry.data.faq,
@@ -38,7 +41,13 @@ export async function getAllToolReviews(): Promise<ToolReviewEntry[]> {
   return getCollection('toolReviews');
 }
 
-export type { ToolReview, ToolReviewFaq, ToolReviewSection, ToolReviewSource } from './types';
+export type {
+  ToolReview,
+  ToolReviewFaq,
+  ToolReviewFigure,
+  ToolReviewSection,
+  ToolReviewSource,
+} from './types';
 export {
   DIMENSION_LABELS,
   DIMENSION_ORDER,

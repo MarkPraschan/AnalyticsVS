@@ -813,6 +813,18 @@
     }
   }
 
+  .review-figure {
+    @apply overflow-hidden rounded-xl border border-border bg-surface-raised;
+  }
+
+  .review-figure__image {
+    @apply block h-auto w-full;
+  }
+
+  .review-figure__caption {
+    @apply border-t border-border px-4 py-3 text-sm leading-relaxed text-muted;
+  }
+
   .review-inline-code {
     @apply rounded-md bg-surface-raised px-1.5 py-0.5 font-mono text-xs text-fg;
   }

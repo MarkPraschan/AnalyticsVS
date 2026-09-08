@@ -12,8 +12,24 @@ const BRAND_LOGO_SLUGS: Partial<Record<string, string>> = {
   ahrefs: 'ahrefs',
 };
 
+/** Local static marks when Reicon has no logo (paths under `/public`). */
+const LOCAL_BRAND_LOGOS: Partial<Record<string, string>> = {
+  datafast: '/brands/datafast.png',
+};
+
+/** Tool IDs whose mark already includes its own square background (skip frame padding). */
+const FULL_BLEED_BRAND_LOGOS = new Set<string>([]);
+
 export function getBrandLogoUrl(toolId: string): string | null {
+  const localPath = LOCAL_BRAND_LOGOS[toolId];
+  if (localPath) return localPath;
+
   const slug = BRAND_LOGO_SLUGS[toolId];
   if (!slug) return null;
   return `${REICON_LOGO_CDN}/${slug}/original.svg`;
+}
+
+/** True when the mark already includes its own square background (skip frame padding). */
+export function isFullBleedBrandLogo(toolId: string): boolean {
+  return FULL_BLEED_BRAND_LOGOS.has(toolId);
 }

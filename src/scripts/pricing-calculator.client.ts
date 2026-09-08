@@ -7,6 +7,7 @@ interface PricingToolRow {
   visitUrl: string;
   isAffiliate: boolean;
   logoUrl: string | null;
+  logoBleed?: boolean;
   initial: string;
 }
 
@@ -32,7 +33,8 @@ function formatCurrency(amount: number | null): string {
 
 function renderToolMark(tool: PricingToolRow): string {
   if (tool.logoUrl) {
-    return `<span class="tool-mark-stack tool-mark-stack--logo tool-mark-stack--sm shrink-0">
+    const bleed = tool.logoBleed ? ' tool-mark-stack--logo-bleed' : '';
+    return `<span class="tool-mark-stack tool-mark-stack--logo${bleed} tool-mark-stack--sm shrink-0">
       <span class="tool-mark tool-mark--sm tool-mark--initials tool-mark-stack__fallback" aria-hidden="true">${tool.initial}</span>
       <img src="${tool.logoUrl}" alt="" width="32" height="32" class="tool-mark-stack__logo" loading="lazy" decoding="async" onerror="this.remove(); this.parentElement?.querySelector('.tool-mark-stack__fallback')?.classList.add('is-visible')" />
     </span>`;

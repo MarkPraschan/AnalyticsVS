@@ -1,7 +1,7 @@
 ---
 import type { ToolEntry } from '../lib/tools';
 import { getToolInitial } from '../lib/tools';
-import { getBrandLogoUrl } from '../lib/brand-logos';
+import { getBrandLogoUrl, isFullBleedBrandLogo } from '../lib/brand-logos';
 
 interface Props {
   tool: ToolEntry['data'];
@@ -13,6 +13,7 @@ interface Props {
 const { tool, size = 'md', href, class: className } = Astro.props;
 const initial = getToolInitial(tool.name);
 const brandLogoUrl = getBrandLogoUrl(tool.id);
+const fullBleedLogo = brandLogoUrl != null && isFullBleedBrandLogo(tool.id);
 const profileUrl = `/tools/${tool.slug}/`;
 const linkHref = href === false ? null : (href ?? profileUrl);
 const sizePx = size === 'sm' ? 32 : size === 'lg' ? 64 : size === 'xl' ? 72 : 48;
@@ -32,6 +33,7 @@ const tagProps = linkHref
     class:list={[
       'tool-mark-stack',
       'tool-mark-stack--logo',
+      fullBleedLogo && 'tool-mark-stack--logo-bleed',
       `tool-mark-stack--${size}`,
       className,
     ]}

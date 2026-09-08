@@ -1,7 +1,7 @@
 ---
 import { getAllTools, getToolInitial } from '../lib/tools';
 import { getToolVisitUrl, isAffiliateTool } from '../lib/affiliate';
-import { getBrandLogoUrl } from '../lib/brand-logos';
+import { getBrandLogoUrl, isFullBleedBrandLogo } from '../lib/brand-logos';
 
 const tools = await getAllTools();
 const hasAffiliateTools = tools.some((tool) => isAffiliateTool(tool.data));
@@ -13,6 +13,7 @@ const pricingData = tools.map((tool) => ({
   visitUrl: getToolVisitUrl(tool.data),
   isAffiliate: isAffiliateTool(tool.data),
   logoUrl: getBrandLogoUrl(tool.data.id),
+  logoBleed: isFullBleedBrandLogo(tool.data.id),
   initial: getToolInitial(tool.data.name),
 }));
 ---

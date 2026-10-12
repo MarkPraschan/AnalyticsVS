@@ -767,6 +767,45 @@
     @apply text-muted;
   }
 
+  .comparison-card__updated {
+    @apply text-xs text-muted;
+  }
+
+  .comparison-card__updated time {
+    @apply text-muted;
+  }
+
+  .comparison-filter__header {
+    @apply mb-3 flex flex-wrap items-center justify-between gap-2;
+  }
+
+  .comparison-filter__label {
+    @apply text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .comparison-filter__clear {
+    @apply min-h-11 rounded-lg px-3 py-2 text-sm font-medium text-indigo-dark transition hover:bg-surface-raised;
+  }
+
+  .comparison-filter__chips {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .comparison-filter__chip {
+    @apply min-h-11 rounded-lg border border-border bg-base px-3.5 py-2 text-sm font-medium text-fg transition hover:border-indigo/40 hover:bg-surface-raised;
+  }
+
+  .comparison-filter__chip.is-active {
+    border-color: color-mix(in oklab, var(--color-indigo) 45%, transparent);
+    background: color-mix(in oklab, var(--color-indigo) 8%, white);
+    color: var(--color-indigo-dark);
+  }
+
+  .comparison-filter__status,
+  .comparison-filter__empty {
+    @apply mt-3 text-sm text-muted;
+  }
+
   .freshness-badge {
     @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-surface-raised px-3 py-1.5 text-xs;
   }

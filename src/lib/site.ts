@@ -102,6 +102,20 @@ export function formatDate(date: Date | string): string {
   });
 }
 
+/** Compact freshness label, e.g. "Oct 2026". */
+export function formatMonthYear(date: Date | string): string {
+  const d =
+    typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)
+      ? new Date(`${date}T12:00:00`)
+      : typeof date === 'string'
+        ? new Date(date)
+        : date;
+  return d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+  });
+}
+
 export function formatBytes(bytes: number | null | undefined): string {
   if (bytes == null) return '—';
   if (bytes < 1024) return `${bytes} B`;

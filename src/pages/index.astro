@@ -6,6 +6,7 @@ import ToolMark from '../components/ToolMark.astro';
 import { getCollection } from 'astro:content';
 import { getAllTools, getToolsByIds } from '../lib/tools';
 import { getPublishedBenchmarks } from '../lib/benchmarks';
+import { getEntryUpdatedDate } from '../lib/contentDates';
 import { formatCountWord } from '../lib/site';
 
 const FEATURED_COMPARISON_IDS = ['google-analytics-vs-plausible', 'datafast-vs-posthog'];
@@ -24,6 +25,7 @@ const comparisonTools = await Promise.all(
   comparisons.map(async (comparison) => ({
     comparison,
     tools: await getToolsByIds(comparison.data.tools),
+    updatedDate: getEntryUpdatedDate(comparison),
   })),
 );
 
@@ -62,9 +64,14 @@ const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
       <h2 id="featured-heading" class="section-heading">Featured comparisons</h2>
       <ul class="mt-6 grid gap-4 sm:grid-cols-2">
         {
-          comparisonTools.map(({ comparison, tools: pair }) => (
+          comparisonTools.map(({ comparison, tools: pair, updatedDate }) => (
             <li>
-              <ComparisonCard comparison={comparison} tools={pair} heading="h3" />
+              <ComparisonCard
+                comparison={comparison}
+                tools={pair}
+                heading="h3"
+                updatedDate={updatedDate}
+              />
             </li>
           ))
         }

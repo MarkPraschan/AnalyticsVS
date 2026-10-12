@@ -3,18 +3,34 @@ import type { CollectionEntry } from 'astro:content';
 import type { ToolEntry } from '../lib/tools';
 import ComparisonPairMarks from './ComparisonPairMarks.astro';
 import Reicon from './Reicon.astro';
+import { formatMonthYear } from '../lib/site';
 
 interface Props {
   comparison: CollectionEntry<'comparisons'>;
   tools: ToolEntry[];
   heading?: 'h2' | 'h3';
+  /** ISO date string (YYYY-MM-DD) for the card freshness line. */
+  updatedDate?: string;
 }
 
-const { comparison, tools, heading: Heading = 'h2' } = Astro.props;
+const { comparison, tools, heading: Heading = 'h2', updatedDate } = Astro.props;
 ---
 
-<a href={`/compare/${comparison.id}/`} class="card-interactive flex h-full flex-col">
-  <ComparisonPairMarks tools={tools} size="card" />
+<a
+  href={`/compare/${comparison.id}/`}
+  class="card-interactive flex h-full flex-col"
+  data-comparison-tools={comparison.data.tools.join(',')}
+>
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <ComparisonPairMarks tools={tools} size="card" />
+    {
+      updatedDate && (
+        <p class="comparison-card__updated shrink-0" role="note">
+          Updated <time datetime={updatedDate}>{formatMonthYear(updatedDate)}</time>
+        </p>
+      )
+    }
+  </div>
   <Heading class="mt-4 font-heading text-lg font-semibold text-fg sm:text-xl">
     {comparison.data.title}
   </Heading>

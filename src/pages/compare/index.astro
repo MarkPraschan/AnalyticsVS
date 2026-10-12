@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ComparisonCard from '../../components/ComparisonCard.astro';
 import { getCollection } from 'astro:content';
-import { getToolsByIds } from '../../lib/tools';
+import { getAllTools, getToolsByIds } from '../../lib/tools';
+import { getEntryUpdatedDate } from '../../lib/contentDates';
 
 const comparisons = (await getCollection('comparisons')).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
@@ -11,8 +12,12 @@ const comparisonTools = await Promise.all(
   comparisons.map(async (comparison) => ({
     comparison,
     tools: await getToolsByIds(comparison.data.tools),
+    updatedDate: getEntryUpdatedDate(comparison),
   })),
 );
+
+const toolIdsInComparisons = new Set(comparisons.flatMap((entry) => entry.data.tools));
+const filterTools = (await getAllTools()).filter((tool) => toolIdsInComparisons.has(tool.data.id));
 ---
 
 <BaseLayout
@@ -20,7 +25,7 @@ const comparisonTools = await Promise.all(
   description="Side-by-side comparisons of web, product, and behavior analytics tools."
 >
   <div class="page-shell">
-    <header class="prose-width mb-10">
+    <header class="prose-width mb-8">
       <h1 class="section-heading text-gradient-primary">Comparisons</h1>
       <p class="page-intro mt-4">
         In-depth "X vs Y" guides for analytics tools. Each comparison includes feature matrices,
@@ -28,14 +33,147 @@ const comparisonTools = await Promise.all(
       </p>
     </header>
 
-    <ul class="grid gap-4 sm:grid-cols-2">
+    <div class="comparison-filter mb-8" data-comparison-filter>
+      <div class="comparison-filter__header">
+        <p class="comparison-filter__label" id="comparison-filter-label">Filter by tool</p>
+        <button type="button" class="comparison-filter__clear" data-filter-clear hidden>
+          Clear
+        </button>
+      </div>
+      <div
+        class="comparison-filter__chips"
+        role="group"
+        aria-labelledby="comparison-filter-label"
+      >
+        {
+          filterTools.map((tool) => (
+            <button
+              type="button"
+              class="comparison-filter__chip"
+              data-filter-tool={tool.data.id}
+              aria-pressed="false"
+            >
+              {tool.data.name}
+            </button>
+          ))
+        }
+      </div>
+      <p class="comparison-filter__status" data-filter-status aria-live="polite">
+        Showing all {comparisons.length} comparisons
+      </p>
+    </div>
+
+    <ul class="grid gap-4 sm:grid-cols-2" data-comparison-list>
       {
-        comparisonTools.map(({ comparison, tools }) => (
-          <li>
-            <ComparisonCard comparison={comparison} tools={tools} />
+        comparisonTools.map(({ comparison, tools, updatedDate }) => (
+          <li data-comparison-item data-tools={comparison.data.tools.join(',')}>
+            <ComparisonCard comparison={comparison} tools={tools} updatedDate={updatedDate} />
           </li>
         ))
       }
     </ul>
+
+    <p class="comparison-filter__empty mt-8" data-filter-empty hidden role="status">
+      No comparisons match the selected tools. Clear the filter or pick another tool.
+    </p>
   </div>
 </BaseLayout>
+
+<script>
+  function parseSelectedTools(): string[] {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get('tools') ?? params.get('tool') ?? '';
+    return raw
+      .split(',')
+      .map((value) => value.trim())
+      .filter(Boolean);
+  }
+
+  function writeSelectedTools(selected: string[]) {
+    const url = new URL(window.location.href);
+    if (selected.length === 0) {
+      url.searchParams.delete('tools');
+      url.searchParams.delete('tool');
+    } else {
+      url.searchParams.delete('tool');
+      url.searchParams.set('tools', selected.join(','));
+    }
+    window.history.replaceState({}, '', url);
+  }
+
+  function initComparisonFilter() {
+    const root = document.querySelector('[data-comparison-filter]');
+    const list = document.querySelector('[data-comparison-list]');
+    if (!(root instanceof HTMLElement) || !(list instanceof HTMLElement)) return;
+
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-filter-tool]')];
+    const items = [...list.querySelectorAll<HTMLElement>('[data-comparison-item]')];
+    const clearButton = root.querySelector<HTMLButtonElement>('[data-filter-clear]');
+    const status = root.querySelector<HTMLElement>('[data-filter-status]');
+    const empty = document.querySelector<HTMLElement>('[data-filter-empty]');
+    const total = items.length;
+
+    let selected = parseSelectedTools().filter((id) =>
+      chips.some((chip) => chip.dataset.filterTool === id),
+    );
+
+    const apply = () => {
+      chips.forEach((chip) => {
+        const id = chip.dataset.filterTool ?? '';
+        const active = selected.includes(id);
+        chip.setAttribute('aria-pressed', active ? 'true' : 'false');
+        chip.classList.toggle('is-active', active);
+      });
+
+      if (clearButton) {
+        clearButton.hidden = selected.length === 0;
+      }
+
+      let visible = 0;
+      items.forEach((item) => {
+        const tools = (item.dataset.tools ?? '').split(',').filter(Boolean);
+        const matches =
+          selected.length === 0 || selected.every((id) => tools.includes(id));
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+
+      if (status) {
+        if (selected.length === 0) {
+          status.textContent = `Showing all ${total} comparisons`;
+        } else if (visible === 1) {
+          status.textContent = `Showing 1 comparison`;
+        } else {
+          status.textContent = `Showing ${visible} comparisons`;
+        }
+      }
+
+      if (empty) {
+        empty.hidden = visible !== 0;
+      }
+
+      writeSelectedTools(selected);
+    };
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const id = chip.dataset.filterTool;
+        if (!id) return;
+        selected = selected.includes(id)
+          ? selected.filter((value) => value !== id)
+          : [...selected, id];
+        apply();
+      });
+    });
+
+    clearButton?.addEventListener('click', () => {
+      selected = [];
+      apply();
+    });
+
+    apply();
+  }
+
+  initComparisonFilter();
+  document.addEventListener('astro:page-load', initComparisonFilter);
+</script>

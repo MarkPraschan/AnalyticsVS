@@ -1,0 +1,86 @@
+{
+  "tool": "fathom",
+  "testDate": "2026-10-12",
+  "slug": "fathom-script-2026-10",
+  "title": "Fathom Analytics Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "defer",
+    "renderBlocking": false
+  },
+  "baseline": {
+    "pageLoadMs": 276,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 276,
+        "min": 243,
+        "max": 304
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 251,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 251,
+        "min": 190,
+        "max": 314
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "metrics": {
+    "transferSizeBytes": 2757,
+    "decodedBodySizeBytes": 6981,
+    "mainThreadBlockingMs": 0,
+    "pageLoadMs": 528,
+    "scriptLoadMs": 525
+  },
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 2757,
+      "min": 2757,
+      "max": 2757
+    },
+    "decodedBodySizeBytes": {
+      "mean": 6981,
+      "min": 6981,
+      "max": 6981
+    },
+    "pageLoadMs": {
+      "mean": 528,
+      "min": 489,
+      "max": 557
+    },
+    "scriptLoadMs": {
+      "mean": 525,
+      "min": 488,
+      "max": 556
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "rawResultsUrl": null
+}

@@ -1,0 +1,86 @@
+{
+  "tool": "plausible",
+  "testDate": "2026-10-12",
+  "slug": "plausible-script-2026-10",
+  "title": "Plausible Analytics Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "async",
+    "renderBlocking": false
+  },
+  "baseline": {
+    "pageLoadMs": 276,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 276,
+        "min": 243,
+        "max": 304
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 250,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 250,
+        "min": 202,
+        "max": 294
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "metrics": {
+    "transferSizeBytes": 3274,
+    "decodedBodySizeBytes": 6034,
+    "mainThreadBlockingMs": 0,
+    "pageLoadMs": 527,
+    "scriptLoadMs": 523
+  },
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 3274,
+      "min": 3273,
+      "max": 3275
+    },
+    "decodedBodySizeBytes": {
+      "mean": 6034,
+      "min": 6034,
+      "max": 6034
+    },
+    "pageLoadMs": {
+      "mean": 527,
+      "min": 488,
+      "max": 587
+    },
+    "scriptLoadMs": {
+      "mean": 523,
+      "min": 485,
+      "max": 576
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "rawResultsUrl": null
+}

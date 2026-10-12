@@ -25,8 +25,10 @@ export function loadSnippets() {
 export function isConfiguredSnippet(headHtml) {
   const html = headHtml?.trim();
   if (!html) return false;
-  if (/^<!--[\s\S]*-->$/.test(html)) return false;
-  return /<script/i.test(html);
+  // Require a real <script> tag. Placeholder comments alone (or comments that
+  // wrap a paste-me note) are not configured — but vendor snippets that include
+  // decorative HTML comments around a script still count.
+  return /<script[\s>]/i.test(html);
 }
 
 export function getConfiguredTools() {

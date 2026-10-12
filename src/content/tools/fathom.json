@@ -7,7 +7,10 @@
   "website": "https://usefathom.com",
   "brandColor": "#9187D6",
   "affiliate": {
-    "enabled": false
+    "enabled": true,
+    "url": "https://usefathom.com/ref/U4V5UE",
+    "commission": "25% lifetime",
+    "notes": "Referred customers get $10 off their first invoice."
   },
   "pricing": {
     "model": "monthly_pageviews",

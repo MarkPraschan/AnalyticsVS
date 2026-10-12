@@ -6,6 +6,7 @@ export interface ToolAffiliateData {
     enabled: boolean;
     url?: string;
     commission?: string;
+    notes?: string;
   };
 }
 
@@ -44,6 +45,7 @@ export interface AffiliatePartner {
   id: string;
   name: string;
   commission?: string;
+  notes?: string;
 }
 
 export function getAffiliatePartners(
@@ -55,6 +57,7 @@ export function getAffiliatePartners(
       id: tool.data.id,
       name: tool.data.name,
       commission: tool.data.affiliate.commission,
+      notes: tool.data.affiliate.notes,
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 }

@@ -27,6 +27,7 @@ const allSchema = schema
   : websiteSchema;
 
 const mainTransition = fade({ duration: '150ms' });
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 ---
 
 <!doctype html>
@@ -59,6 +60,6 @@ const mainTransition = fade({ duration: '150ms' });
     >
       <slot />
     </main>
-    <SiteFooter transition:persist />
+    <SiteFooter showBetterLaunch={isHome} />
   </body>
 </html>

@@ -30,7 +30,8 @@ const partners = getAffiliatePartners(tools);
             {partners.map((partner) => (
               <li>
                 <strong>{partner.name}</strong>
-                {partner.commission && ` — up to ${partner.commission} commission`}
+                {partner.commission && ` — ${partner.commission} commission`}
+                {partner.notes && ` ${partner.notes}`}
                 {partner.id === 'hotjar' && (
                   <span>
                     {' '}

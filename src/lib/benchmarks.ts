@@ -5,6 +5,17 @@ export type BenchmarkEntry = CollectionEntry<'benchmarks'>;
 export type RunStat = { mean: number; min: number; max: number };
 export type BenchRating = 'good' | 'mid' | 'bad';
 
+/** Bold the tool name; keep the rest of the benchmark title at normal weight for scanning. */
+export function splitBenchmarkTitle(
+  title: string,
+  toolName: string,
+): { toolName: string; rest: string } {
+  if (toolName && title.startsWith(toolName)) {
+    return { toolName, rest: title.slice(toolName.length) };
+  }
+  return { toolName: title, rest: '' };
+}
+
 /** Absolute bands from the recorded corpus (see /methodology/). */
 export const BENCH_THRESHOLDS = {
   overheadMs: { goodMax: 350, midMax: 800 },

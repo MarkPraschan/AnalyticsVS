@@ -4,8 +4,8 @@ import ComparisonCard from '../components/ComparisonCard.astro';
 import HeroIllustration from '../components/HeroIllustration.astro';
 import ToolMark from '../components/ToolMark.astro';
 import { getCollection } from 'astro:content';
-import { getAllTools, getToolsByIds } from '../lib/tools';
-import { getPublishedBenchmarks } from '../lib/benchmarks';
+import { getAllTools, getToolById, getToolsByIds } from '../lib/tools';
+import { getPublishedBenchmarks, splitBenchmarkTitle } from '../lib/benchmarks';
 import { getEntryUpdatedDate } from '../lib/contentDates';
 import { formatCountWord } from '../lib/site';
 
@@ -30,7 +30,16 @@ const comparisonTools = await Promise.all(
 );
 
 const allBenchmarks = await getPublishedBenchmarks();
-const recentBenchmarks = allBenchmarks.slice(0, RECENT_BENCHMARK_LIMIT);
+const recentBenchmarks = await Promise.all(
+  allBenchmarks.slice(0, RECENT_BENCHMARK_LIMIT).map(async (benchmark) => {
+    const tool = await getToolById(benchmark.data.tool);
+    const toolName = tool?.data.name ?? benchmark.data.tool;
+    return {
+      benchmark,
+      titleParts: splitBenchmarkTitle(benchmark.data.title, toolName),
+    };
+  }),
+);
 const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
 ---
 
@@ -118,15 +127,16 @@ const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
             )}
           </div>
           <ul class="mt-6 grid gap-3">
-            {recentBenchmarks.map((benchmark) => (
+            {recentBenchmarks.map(({ benchmark, titleParts }) => (
               <li>
                 <a
                   href={`/benchmarks/${benchmark.data.slug}/`}
                   class="card-interactive flex min-h-11 items-center justify-between gap-3 px-4 py-3"
                 >
                   <span class="min-w-0">
-                    <span class="block truncate font-heading font-semibold text-fg">
-                      {benchmark.data.title}
+                    <span class="block truncate font-heading text-fg">
+                      <span class="font-semibold">{titleParts.toolName}</span>
+                      {titleParts.rest && <span class="font-normal">{titleParts.rest}</span>}
                     </span>
                     <span class="mt-0.5 block text-sm text-muted">
                       {benchmark.data.testDate}
@@ -143,10 +153,5 @@ const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
         </section>
       )
     }
-
-    <section class="page-section">
-          
-          <a href="https://www.betterlaunch.co/product/analyticsvs"><img src="https://www.betterlaunch.co/badge-launching-light.svg" alt="View AnalyticsVS on Better Launch" width="200" height="56"></a>
-        </section>
   </div>
 </BaseLayout>

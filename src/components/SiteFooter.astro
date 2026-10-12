@@ -1,5 +1,11 @@
 ---
 import { SITE } from '../lib/site';
+
+interface Props {
+  showBetterLaunch?: boolean;
+}
+
+const { showBetterLaunch = false } = Astro.props;
 ---
 
 <footer class="relative z-10 mt-16 border-t border-border bg-base">
@@ -12,6 +18,26 @@ import { SITE } from '../lib/site';
           Independent benchmark directory and comparison engine for web, product, and revenue
           analytics tools.
         </p>
+        {
+          showBetterLaunch && (
+            <p class="mt-5">
+              <a
+                href="https://www.betterlaunch.co/product/analyticsvs"
+                class="inline-block no-underline"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://www.betterlaunch.co/badge-launching-light.svg"
+                  alt="View AnalyticsVS on Better Launch"
+                  width="200"
+                  height="56"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+            </p>
+          )
+        }
       </div>
       <div class="grid grid-cols-2 gap-6 text-sm">
         <div>

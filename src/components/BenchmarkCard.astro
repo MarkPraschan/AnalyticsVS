@@ -13,7 +13,9 @@ import {
   rateLoadingMethod,
   rateOverheadMs,
   rateTransferBytes,
+  splitBenchmarkTitle,
 } from '../lib/benchmarks';
+import { getToolById } from '../lib/tools';
 
 interface Props {
   benchmark: CollectionEntry<'benchmarks'>;
@@ -25,6 +27,8 @@ const { benchmark, href } = Astro.props;
 const { data } = benchmark;
 const isPending = data.status === 'pending';
 const isCompact = Boolean(href);
+const tool = await getToolById(data.tool);
+const titleParts = splitBenchmarkTitle(data.title, tool?.data.name ?? data.tool);
 
 const transferStat = getRunStat(data, 'transferSizeBytes');
 const decodedStat = getRunStat(data, 'decodedBodySizeBytes');
@@ -50,7 +54,10 @@ const metaParts = [
     <a href={href} class="card-interactive benchmark-card-summary block no-underline">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div class="min-w-0">
-          <h3 class="font-heading text-lg font-semibold text-fg sm:text-xl">{data.title}</h3>
+          <h3 class="font-heading text-lg text-fg sm:text-xl">
+            <span class="font-semibold">{titleParts.toolName}</span>
+            {titleParts.rest && <span class="font-normal">{titleParts.rest}</span>}
+          </h3>
           <p class="benchmark-card__meta mt-1">{metaParts.join(' · ')}</p>
         </div>
         {!isPending && <span class="benchmark-badge">Recorded by AnalyticsVS</span>}

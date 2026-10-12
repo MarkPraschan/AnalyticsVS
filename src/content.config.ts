@@ -6,6 +6,8 @@ const affiliateSchema = z.object({
   enabled: z.boolean(),
   url: z.string().url().optional(),
   commission: z.string().optional(),
+  /** Extra partner terms shown on /disclosure/ (e.g. referral discounts). */
+  notes: z.string().optional(),
 });
 
 const pricingTierSchema = z.object({

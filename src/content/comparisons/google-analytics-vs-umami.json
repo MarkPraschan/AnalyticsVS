@@ -1,0 +1,42 @@
+{
+  "title": "Google Analytics vs Umami",
+  "description": "Google Analytics 4 vs Umami — compare free Google analytics vs open-source self-hostable privacy-friendly web analytics.",
+  "tools": ["google-analytics-4", "umami"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Choose Umami when you want open-source, self-hostable (or Umami Cloud) web analytics with a simple dashboard and cookieless options. Choose GA4 when you need free Google ecosystem depth — Ads, Search Console, BigQuery — and can accept cookie/consent complexity.",
+  "quickAnswer": "**Umami** is the better fit if you want **MIT-licensed, self-hostable analytics** with essential metrics and low ops cost for developers. **Google Analytics 4** is the better fit if you need **free, deep marketing analytics** integrated with Google Ads and warehouses.",
+  "bottomLine": "Umami wins for technical teams escaping GA4 complexity and ownership concerns. GA4 wins for marketers living in Google’s stack. Non-technical teams who want managed privacy analytics without Docker should prefer Plausible Cloud or Fathom over self-hosted Umami.",
+  "faq": [
+    {
+      "question": "Is Umami a full GA4 replacement?",
+      "answer": "For basic traffic reporting, often yes. It does not replace Google Ads linking, BigQuery export, app+web properties, or GA4’s exploratory analysis tools."
+    },
+    {
+      "question": "Is Umami free?",
+      "answer": "Self-hosted Umami is free software; you pay for hosting. Umami Cloud is a paid managed option. GA4 standard remains free within Google’s limits."
+    },
+    {
+      "question": "Does Umami need cookies?",
+      "answer": "Umami supports cookieless tracking configurations. Confirm your setup and legal requirements; self-hosting does not automatically equal compliance."
+    },
+    {
+      "question": "Who should not self-host Umami?",
+      "answer": "Teams without someone to handle deploys, upgrades, backups, and auth hardening. Use Umami Cloud, Plausible, or Fathom instead."
+    },
+    {
+      "question": "How does performance compare?",
+      "answer": "GA4’s recorded script is heavy on our fixture (~171&nbsp;KiB transfer, ~+1.16&nbsp;s overhead). Umami’s script weight is not yet published on AnalyticsVS — treat Umami performance as pending until we record a fixture."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Open source vs free SaaS",
+      "content": "GA4 is free as a Google SaaS with Google’s terms and infrastructure. Umami is free as software you operate (or pay Umami Cloud to operate). The cost shift is from vendor subscription to engineering time — or a smaller managed bill."
+    },
+    {
+      "title": "Scope",
+      "content": "Umami intentionally stays narrow: pageviews, referrers, devices, countries, custom events. If you need heatmaps, flags, or warehouse pipelines, pair or pick another tool."
+    }
+  ]
+}

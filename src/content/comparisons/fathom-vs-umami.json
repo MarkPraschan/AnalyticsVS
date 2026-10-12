@@ -1,0 +1,42 @@
+{
+  "title": "Fathom vs Umami",
+  "description": "Fathom Analytics vs Umami — compare polished hosted privacy analytics vs open-source self-hostable web analytics.",
+  "tools": ["fathom", "umami"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Fathom (hosted) is the polished managed privacy analytics product with vendor support and a higher pageview-tier floor. Umami is the open-source / self-host path (plus Umami Cloud) for developers who want ownership and lower marginal cost at scale.",
+  "quickAnswer": "**Fathom** is the better fit if you want **managed, polished privacy analytics** without running infrastructure. **Umami** is the better fit if you want **MIT open source, self-hosting (or cheap cloud), and full data ownership** and can handle ops.",
+  "bottomLine": "Pick **hosted Fathom** for founders who want a clean dashboard and support, and will pay from ~$15/month for 100K pageviews. Pick **Umami** when Docker/VPS comfort is high and recurring SaaS analytics fees feel wrong. Also compare **Plausible** if you want open source plus a mature managed cloud middle ground.",
+  "faq": [
+    {
+      "question": "Is Fathom open source?",
+      "answer": "Hosted Fathom Analytics is proprietary SaaS. Fathom Lite is a separate free self-hosted product with fewer features and no vendor support — different from Umami’s MIT community model."
+    },
+    {
+      "question": "Is Umami easier than Fathom?",
+      "answer": "Hosted Fathom is easier for non-developers. Self-hosted Umami is easier for developers who already ship Docker apps and want zero analytics SaaS lock-in."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "At low traffic, hosted Fathom’s $15/100K entry can beat some competitors’ site limits but costs more than a tiny VPS running Umami. At high traffic, self-hosted Umami often undercuts per-pageview SaaS if your time is cheap. Use the pricing calculator for SaaS tiers; add hosting for Umami self-host estimates."
+    },
+    {
+      "question": "Which has better privacy?",
+      "answer": "Both aim at privacy-friendly web analytics. Hosted Fathom keeps data on Fathom’s cloud; Umami self-hosted keeps data on your servers. Legal review still applies for either path."
+    },
+    {
+      "question": "How do scripts compare?",
+      "answer": "Fathom’s recorded bench is lightweight (~2.7&nbsp;KiB transfer, ~+251&nbsp;ms overhead). Umami’s script weight is not yet recorded on AnalyticsVS."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Triangle with Plausible",
+      "content": "We already publish Plausible vs Fathom and Plausible vs Umami. This page closes the third side: managed polish (Fathom) vs open-source ownership (Umami). Many teams still land on Plausible as the default compromise."
+    },
+    {
+      "title": "Affiliate status",
+      "content": "Fathom’s affiliate program exists but is not enabled on AnalyticsVS until signup is complete. Umami has no referral program here. See [disclosure](/disclosure/)."
+    }
+  ]
+}

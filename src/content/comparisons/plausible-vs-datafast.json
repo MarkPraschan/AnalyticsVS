@@ -1,0 +1,46 @@
+{
+  "title": "Plausible vs DataFast",
+  "description": "Plausible vs DataFast — compare privacy-first web analytics vs revenue attribution for Stripe SaaS and indie products.",
+  "tools": ["plausible", "datafast"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Plausible is built for simple, privacy-first traffic analytics on marketing sites and blogs. DataFast covers similar lightweight web analytics but adds optional payment-processor revenue attribution so indie SaaS teams can see which channels drive paid customers — not just pageviews.",
+  "quickAnswer": "**Plausible** is the better fit if you need **clean, cookieless traffic reports** without payment wiring. **DataFast** is the better fit if your north star is **revenue per channel** for a Stripe (or similar) product and you can pass visitor IDs into checkout metadata.",
+  "bottomLine": "Choose **Plausible** for privacy-first marketing analytics with a mature open-source/self-host option and pageview-tier pricing from $9/month. Choose **DataFast** when \"which landing page made money?\" matters more than a pure privacy pageview dashboard. Content sites with no checkout should default to Plausible (or Fathom); paid SaaS with short online checkout paths should strongly consider DataFast.",
+  "faq": [
+    {
+      "question": "Can Plausible do revenue attribution like DataFast?",
+      "answer": "Not out of the box. Plausible can track goals and custom events, but it does not offer DataFast-style Stripe (and similar) revenue-per-channel reports. You would need custom events plus your own join logic."
+    },
+    {
+      "question": "Can DataFast replace Plausible for simple traffic stats?",
+      "answer": "Yes for many indie SaaS marketing sites. DataFast includes pageviews, referrers, and goals. Skip revenue attribution if you only need traffic — but if you never connect payments, Plausible or Fathom may be a clearer privacy-first fit."
+    },
+    {
+      "question": "Which is more privacy-friendly?",
+      "answer": "Both position as privacy-friendly alternatives to GA4. Plausible is widely chosen for cookieless, EU-oriented marketing analytics. DataFast’s default mode uses first-party cookies for multi-day journeys and revenue matching; cookieless mode is available with weaker attribution. Confirm consent needs with counsel either way."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "Plausible starts at $9/month for 10K pageviews. DataFast Starter is in a similar entry range for small products — compare your pageviews and whether you need revenue features in our pricing calculator."
+    },
+    {
+      "question": "Can either be self-hosted?",
+      "answer": "Plausible offers an open-source self-hosted edition. DataFast is cloud-only SaaS."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Different primary questions",
+      "content": "Plausible answers \"where did traffic come from and which pages convert to goals?\" DataFast answers that plus \"which channel led to **paid** customers?\" If you do not have online payments, DataFast’s differentiator is unused — pick Plausible or Fathom instead."
+    },
+    {
+      "title": "Script weight",
+      "content": "Both are lightweight vs GA4/PostHog on our recorded benches (roughly +250&nbsp;ms load overhead and single-digit KiB transfer on the Slow-4G fixture). See individual benchmark pages for exact numbers."
+    },
+    {
+      "title": "Affiliate disclosure",
+      "content": "AnalyticsVS may earn a commission from DataFast visit links. Plausible has no affiliate program on our directory. Verdicts are independent — see our [disclosure](/disclosure/)."
+    }
+  ]
+}

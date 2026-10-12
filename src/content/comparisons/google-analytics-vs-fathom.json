@@ -1,0 +1,42 @@
+{
+  "title": "Google Analytics vs Fathom",
+  "description": "Google Analytics 4 vs Fathom Analytics — compare free Google ecosystem analytics vs privacy-first hosted web analytics.",
+  "tools": ["google-analytics-4", "fathom"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Choose Fathom when you want a polished, privacy-oriented traffic dashboard without GA4 complexity or cookie-heavy tracking. Choose GA4 when Google Ads, Search Console, BigQuery, or free scale matter more than simplicity and privacy posture.",
+  "quickAnswer": "**Fathom** is the better fit if privacy, dashboard clarity, and a lightweight marketing report matter most. **Google Analytics 4** is the better fit if you need free deep analytics tied to Google’s advertising and data ecosystem.",
+  "bottomLine": "Fathom wins the \"I want analytics someone will actually open\" contest for many marketing sites. GA4 wins when paid search, app+web, or warehouse export are non-negotiable. Hosted Fathom starts around $15/month for 100K pageviews; GA4 standard remains $0 with higher compliance and learning costs.",
+  "faq": [
+    {
+      "question": "Is Fathom a GA4 replacement?",
+      "answer": "For many blogs and marketing sites, yes — if you mainly need pages, referrers, UTMs, and goals. It does not replace Google Ads attribution, BigQuery export, or GA4’s exploratory depth."
+    },
+    {
+      "question": "Does Fathom need a cookie banner?",
+      "answer": "Fathom is designed as privacy-first and cookie-light. Many teams run it without a banner in some EU contexts, but you should still verify with legal counsel for your jurisdiction and configuration."
+    },
+    {
+      "question": "Is Google Analytics free compared to Fathom?",
+      "answer": "GA4 standard is free. Fathom bills on pageview tiers (entry around $15/month for 100K pageviews). Factor consent tooling and analyst time into GA4’s true cost."
+    },
+    {
+      "question": "Can I self-host Fathom?",
+      "answer": "Hosted Fathom Analytics is cloud-only. Fathom Lite is a separate free self-hosted product with fewer features and no vendor support. For open-source self-hosting with an active community, also compare Plausible and Umami."
+    },
+    {
+      "question": "Which script is lighter?",
+      "answer": "On our recorded Slow-4G fixture, Fathom transferred about 2.7&nbsp;KiB with roughly +251&nbsp;ms load overhead. GA4 transferred about 171&nbsp;KiB with roughly +1.16&nbsp;s overhead. See the benchmarks hub for full details."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Privacy vs ecosystem",
+      "content": "This is the classic GA escape tradeoff. Fathom trades Google’s free depth for a readable, privacy-oriented SaaS. If your growth engine is Google Ads, staying on GA4 (or running both) is usually safer than a hard cutover."
+    },
+    {
+      "title": "Performance",
+      "content": "We publish recorded script benchmarks for both tools. Color bands on those pages use absolute thresholds documented on [methodology](/methodology/)."
+    }
+  ]
+}

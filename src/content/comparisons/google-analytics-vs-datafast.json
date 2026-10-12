@@ -1,0 +1,42 @@
+{
+  "title": "Google Analytics vs DataFast",
+  "description": "Google Analytics 4 vs DataFast — compare free Google web analytics vs revenue attribution analytics for Stripe SaaS.",
+  "tools": ["google-analytics-4", "datafast"],
+  "category": "product-analytics",
+  "winner": null,
+  "verdict": "GA4 is free, deep, and tightly integrated with Google Ads and BigQuery — but revenue attribution for indie Stripe checkouts takes deliberate ecommerce event setup. DataFast is a paid, narrower tool that makes channel-to-revenue reporting the product for small SaaS teams willing to wire payment metadata.",
+  "quickAnswer": "**Google Analytics 4** is the better fit if you need **free, full-funnel web/app analytics** and Google ecosystem links. **DataFast** is the better fit if you primarily need **which marketing channel drove Stripe (or similar) revenue** with less GA4 instrumentation tax.",
+  "bottomLine": "Stay on **GA4** when ads attribution, BigQuery, or $0 SaaS cost dominate. Switch or add **DataFast** when your painful question is revenue-per-channel for a short online checkout path and you do not want to build that join in GA4. Many indie founders use DataFast for acquisition ROI and keep GA4 only if Google Ads demands it.",
+  "faq": [
+    {
+      "question": "Can GA4 do what DataFast does for Stripe?",
+      "answer": "GA4 can track purchases and revenue with ecommerce events, but matching marketing channels to Stripe payments usually means careful tagging, consent mode, and maintenance. DataFast’s product is that join via payment-provider connection and visitor/session metadata."
+    },
+    {
+      "question": "Can DataFast replace GA4?",
+      "answer": "For indie SaaS marketing analytics focused on traffic and revenue channels, often yes. It does not replace Google Ads native linking, app+web properties, or warehouse-scale analysis."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "GA4 standard is free. DataFast is a paid SaaS from roughly $9/month entry tiers. Compare whether free-but-complex beats paid-but-focused for your team’s time."
+    },
+    {
+      "question": "Is DataFast more private than GA4?",
+      "answer": "DataFast positions as privacy-friendly without ad-network tracking. GA4 typically involves cookies, Google processing, and consent banners in GDPR regions. DataFast default mode still uses first-party cookies for journeys/attribution; cookieless mode is available with tradeoffs."
+    },
+    {
+      "question": "Which script is lighter?",
+      "answer": "On our recorded benches, DataFast is in the lightweight cluster (~6&nbsp;KiB transfer, ~+260&nbsp;ms overhead). GA4 is heavy (~171&nbsp;KiB, ~+1.16&nbsp;s). See [benchmarks](/benchmarks/)."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Instrumentation tax",
+      "content": "GA4’s tax is learning explorations, consent, and ecommerce event design. DataFast’s tax is connecting a payment provider and passing visitor/session IDs into checkout. Budget for whichever join you actually need."
+    },
+    {
+      "title": "Affiliate disclosure",
+      "content": "AnalyticsVS may earn a commission from DataFast visit links. GA4 has no affiliate program. See our [disclosure](/disclosure/)."
+    }
+  ]
+}

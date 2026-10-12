@@ -1,22 +1,19 @@
 ---
 interface Props {
   label: string;
+  /** Colored status cue — only the dot stays chromatic. */
   dotClassName: string;
-  bgClassName: string;
-  borderBClassName: string;
+  /** Unused: chip chrome is neutral. Kept for call-site compatibility. */
+  bgClassName?: string;
+  /** Unused: chip chrome is neutral. Kept for call-site compatibility. */
+  borderBClassName?: string;
 }
 
-const { label, dotClassName, bgClassName, borderBClassName } = Astro.props;
+const { label, dotClassName } = Astro.props;
 ---
 
-<span
-  class:list={[
-    'inline-flex items-center gap-x-1.5 rounded-md border border-b-2 border-gray-100 px-2 py-1 text-xs font-medium text-neutral-900',
-    bgClassName,
-    borderBClassName,
-  ]}
->
-  <svg viewBox="0 0 6 6" aria-hidden="true" class:list={['size-1.5', dotClassName]}>
+<span class="attr-badge">
+  <svg viewBox="0 0 6 6" aria-hidden="true" class:list={['attr-badge__dot', dotClassName]}>
     <circle r="3" cx="3" cy="3" />
   </svg>
   {label}

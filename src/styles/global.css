@@ -767,6 +767,14 @@
     @apply text-muted;
   }
 
+  .attr-badge {
+    @apply inline-flex items-center gap-x-1.5 rounded-md border border-border bg-surface-raised px-2 py-1 text-xs font-medium text-muted;
+  }
+
+  .attr-badge__dot {
+    @apply size-1.5 shrink-0;
+  }
+
   .comparison-card__updated {
     @apply text-xs text-muted;
   }

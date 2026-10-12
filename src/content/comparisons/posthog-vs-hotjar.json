@@ -1,0 +1,50 @@
+{
+  "title": "PostHog vs Hotjar",
+  "description": "PostHog vs Hotjar — compare product analytics with feature flags and experiments vs heatmaps, session recordings, and on-site surveys.",
+  "tools": ["posthog", "hotjar"],
+  "category": "behavior-analytics",
+  "winner": null,
+  "verdict": "PostHog is built for product and engineering teams that need event-based analytics, session replay tied to product metrics, feature flags, and experiments in one stack. Hotjar is built for marketing and UX teams that need heatmaps, session recordings, and on-site surveys to diagnose page-level friction — usually alongside a separate traffic or product analytics tool.",
+  "quickAnswer": "**PostHog** is the better fit if you need **product funnels, retention, feature flags, and experiments** with replay tied to those events. **Hotjar** is the better fit if you need **heatmaps, rage-click diagnosis, and on-page surveys** for marketing or UX optimization — and you already have (or will keep) a separate analytics baseline.",
+  "bottomLine": "Choose **PostHog** when your primary questions are product questions: activation, feature adoption, experiment outcomes, and engineering-owned instrumentation. Choose **Hotjar** when your primary questions are UX questions on specific pages: where people click, how far they scroll, and what feedback they leave. Teams sometimes use both — Hotjar for qualitative page diagnosis and PostHog for product telemetry — but picking one first depends on which team owns the problem.",
+  "faq": [
+    {
+      "question": "Can Hotjar replace PostHog?",
+      "answer": "No for product analytics. Hotjar does not provide feature flags, A/B experiments, retention cohorts, or a full event taxonomy for SaaS product metrics. It complements traffic tools; it does not replace a product analytics platform."
+    },
+    {
+      "question": "Can PostHog replace Hotjar?",
+      "answer": "Partially for session replay. PostHog includes replay and some visual tools, but Hotjar remains stronger for marketing-oriented heatmaps, scroll maps, and on-site survey/feedback widgets aimed at UX and growth teams."
+    },
+    {
+      "question": "Which is better for a SaaS product team?",
+      "answer": "PostHog in most cases. It ties user journeys to named events, flags, and experiments. Hotjar is still useful if marketers own landing-page conversion diagnosis and need heatmaps without waiting on engineering event schemas."
+    },
+    {
+      "question": "Which is better for landing-page UX?",
+      "answer": "Hotjar for heatmaps, recordings scoped to key URLs, and surveys. Pair it with GA4, Plausible, or PostHog for traffic and conversion counts — Hotjar alone does not replace acquisition analytics."
+    },
+    {
+      "question": "How do privacy tradeoffs differ?",
+      "answer": "Both involve client-side capture that can include personal data when recording is enabled. Hotjar’s heatmaps and recordings typically need careful suppression and consent in regulated markets. PostHog’s replay and autocapture raise similar issues plus event identity — configure masking, consent, and retention for whichever tool you enable."
+    },
+    {
+      "question": "Which is cheaper to start?",
+      "answer": "PostHog Cloud includes a large free event tier that works for many early startups. Hotjar’s free tier is limited by daily recorded sessions; paid plans start around $39/month for more session capacity. Compare your expected events vs recorded sessions in our pricing calculator."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Replay is not the same product",
+      "content": "Both advertise **session replay**, but the surrounding product differs. PostHog replay is meant to sit next to **product events, funnels, and flags**. Hotjar replay sits next to **heatmaps and surveys** for page-level UX. If you only need “watch users on the pricing page,” Hotjar is usually the shorter path. If you need “watch users who failed activation after signup,” PostHog’s event-linked workflow wins."
+    },
+    {
+      "title": "Script weight context",
+      "content": "We have a recorded PostHog script benchmark on AnalyticsVS (~144&nbsp;KiB transfer, roughly +1.3&nbsp;s load overhead on our empty Slow-4G fixture). Hotjar’s script weight is not yet measured here — treat performance claims as pending until we publish a Hotjar fixture result."
+    },
+    {
+      "title": "Affiliate disclosure",
+      "content": "AnalyticsVS may earn a commission from Hotjar / Contentsquare visit links. PostHog links are direct (no affiliate program on our directory). This does not change comparison verdicts — see our [disclosure](/disclosure/)."
+    }
+  ]
+}

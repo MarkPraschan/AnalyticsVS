@@ -2,12 +2,18 @@
 import type { CollectionEntry } from 'astro:content';
 import BenchmarkLoadChart from './BenchmarkLoadChart.astro';
 import {
+  benchRatingClass,
+  benchRatingLabel,
   formatAddedMs,
   formatKib,
   formatSnippetLoadingExplainer,
   formatSnippetLoadingSummary,
   getOverheadStat,
   getRunStat,
+  rateDecodedBytes,
+  rateLoadingMethod,
+  rateOverheadMs,
+  rateTransferBytes,
 } from '../lib/benchmarks';
 
 interface Props {
@@ -27,6 +33,11 @@ const decodedStat = getRunStat(data, 'decodedBodySizeBytes');
 const renderBlocking = data.install?.renderBlocking ?? false;
 const loadingMode = data.install?.loading ?? 'async';
 const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? null;
+
+const overheadRating = rateOverheadMs(overheadMs);
+const loadingRating = rateLoadingMethod(loadingMode, renderBlocking);
+const transferRating = rateTransferBytes(transferStat?.mean);
+const decodedRating = rateDecodedBytes(decodedStat?.mean);
 ---
 
 <div class="benchmark-report space-y-6">
@@ -44,7 +55,11 @@ const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? nu
 
       <dl class="benchmark-facts__item">
         <dt>Loading method</dt>
-        <dd>{formatSnippetLoadingSummary(loadingMode, renderBlocking)}</dd>
+        <dd>
+          <span class={benchRatingClass(loadingRating)} title={benchRatingLabel(loadingRating)}>
+            {formatSnippetLoadingSummary(loadingMode, renderBlocking)}
+          </span>
+        </dd>
         <p class="benchmark-facts__explainer">{formatSnippetLoadingExplainer(loadingMode, renderBlocking)}</p>
       </dl>
 
@@ -53,9 +68,21 @@ const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? nu
           <dl class="benchmark-facts__item benchmark-facts__item--wide">
             <dt>Script filesize</dt>
             <dd class="benchmark-facts__pair">
-              {transferStat && <span>{formatKib(transferStat.mean)} transfer</span>}
+              {
+                transferStat && (
+                  <span class={benchRatingClass(transferRating)} title={benchRatingLabel(transferRating)}>
+                    {formatKib(transferStat.mean)} transfer
+                  </span>
+                )
+              }
               {transferStat && decodedStat && <span class="benchmark-facts__sep" aria-hidden="true">·</span>}
-              {decodedStat && <span>{formatKib(decodedStat.mean)} decoded</span>}
+              {
+                decodedStat && (
+                  <span class={benchRatingClass(decodedRating)} title={benchRatingLabel(decodedRating)}>
+                    {formatKib(decodedStat.mean)} decoded
+                  </span>
+                )
+              }
             </dd>
             <p class="benchmark-facts__explainer">
               Transfer is the compressed download size, and decoded is what the browser parses afterward.
@@ -74,9 +101,11 @@ const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? nu
               overheadMs != null ? (
                 <>
                   On our empty test page, the load event finished{' '}
-                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> later with
-                  the tag installed. Expect a similar cost on a real site, because a blocking script has to
-                  finish before the page can keep drawing.
+                  <strong class={`benchmark-report__metric ${benchRatingClass(overheadRating)}`} title={benchRatingLabel(overheadRating)}>
+                    {formatAddedMs(overheadMs)}
+                  </strong>{' '}
+                  later with the tag installed. Expect a similar cost on a real site, because a blocking
+                  script has to finish before the page can keep drawing.
                 </>
               ) : (
                 <>
@@ -92,11 +121,15 @@ const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? nu
               overheadMs != null ? (
                 <>
                   On our empty test page, the load event finished{' '}
-                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> later with
-                  the tag installed. On a real site, page load is likely to take at least that long — but
-                  usually not the full{' '}
-                  <strong class="benchmark-report__metric">{formatAddedMs(overheadMs)}</strong> stacked on top
-                  of your other assets, because much of the work overlaps parallel downloads.
+                  <strong class={`benchmark-report__metric ${benchRatingClass(overheadRating)}`} title={benchRatingLabel(overheadRating)}>
+                    {formatAddedMs(overheadMs)}
+                  </strong>{' '}
+                  later with the tag installed. On a real site, page load is likely to take at least that
+                  long — but usually not the full{' '}
+                  <strong class={`benchmark-report__metric ${benchRatingClass(overheadRating)}`} title={benchRatingLabel(overheadRating)}>
+                    {formatAddedMs(overheadMs)}
+                  </strong>{' '}
+                  stacked on top of your other assets, because much of the work overlaps parallel downloads.
                 </>
               ) : (
                 <>

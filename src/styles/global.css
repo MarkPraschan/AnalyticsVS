@@ -15,6 +15,9 @@
   --color-cyan: #00b8d4;
   --color-mint: #059669;
   --color-chartreuse: #65a30d;
+  --color-bench-good: #047857;
+  --color-bench-mid: #b45309;
+  --color-bench-bad: #b91c1c;
 
   --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-body: Inter, system-ui, -apple-system, sans-serif;
@@ -266,7 +269,23 @@
   }
 
   .benchmark-report__metric {
-    @apply font-semibold text-indigo;
+    @apply font-semibold;
+  }
+
+  .bench-rating {
+    @apply font-semibold;
+  }
+
+  .bench-rating--good {
+    color: var(--color-bench-good);
+  }
+
+  .bench-rating--mid {
+    color: var(--color-bench-mid);
+  }
+
+  .bench-rating--bad {
+    color: var(--color-bench-bad);
   }
 
   .benchmark-report__impact-title {
@@ -822,7 +841,7 @@
   }
 
   .review-figure__caption {
-    @apply border-t border-border px-4 py-3 text-sm leading-relaxed text-muted;
+    @apply border-t border-border bg-white px-4 py-3 text-sm leading-relaxed text-muted;
   }
 
   .review-inline-code {

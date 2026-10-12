@@ -73,6 +73,18 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
       <li><strong>Scope:</strong> initial page load only (first 5 seconds after <code>load</code>), not SPA navigation or session replay over time.</li>
       <li><strong>Not measured in v1:</strong> Lighthouse performance score impact (we may add this in a future version).</li>
     </ul>
+    <h3>Color bands on published stats</h3>
+    <p>
+      Green / amber / red labels are absolute thresholds derived from our recorded corpus — not
+      relative ranks that reshuffle when a new tool is added. Numbers stay visible; color is a
+      secondary cue.
+    </p>
+    <ul>
+      <li><strong>Load overhead:</strong> green ≤350&nbsp;ms · amber ≤800&nbsp;ms · red &gt;800&nbsp;ms</li>
+      <li><strong>Transfer size:</strong> green ≤10&nbsp;KiB · amber ≤50&nbsp;KiB · red &gt;50&nbsp;KiB</li>
+      <li><strong>Decoded size:</strong> green ≤20&nbsp;KiB · amber ≤150&nbsp;KiB · red &gt;150&nbsp;KiB</li>
+      <li><strong>Loading method:</strong> green for async/defer/module non-blocking · red for blocking / render-blocking</li>
+    </ul>
     <ul>
       <li>We never publish estimated, scraped, or AI-generated performance numbers.</li>
       <li>Each published benchmark includes the test date and environment details.</li>

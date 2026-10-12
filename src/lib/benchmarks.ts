@@ -3,6 +3,60 @@ import { getCollection } from 'astro:content';
 
 export type BenchmarkEntry = CollectionEntry<'benchmarks'>;
 export type RunStat = { mean: number; min: number; max: number };
+export type BenchRating = 'good' | 'mid' | 'bad';
+
+/** Absolute bands from the recorded corpus (see /methodology/). */
+export const BENCH_THRESHOLDS = {
+  overheadMs: { goodMax: 350, midMax: 800 },
+  transferBytes: { goodMax: 10 * 1024, midMax: 50 * 1024 },
+  decodedBytes: { goodMax: 20 * 1024, midMax: 150 * 1024 },
+} as const;
+
+export function rateOverheadMs(ms: number | null | undefined): BenchRating | null {
+  if (ms == null) return null;
+  if (ms <= BENCH_THRESHOLDS.overheadMs.goodMax) return 'good';
+  if (ms <= BENCH_THRESHOLDS.overheadMs.midMax) return 'mid';
+  return 'bad';
+}
+
+export function rateTransferBytes(bytes: number | null | undefined): BenchRating | null {
+  if (bytes == null) return null;
+  if (bytes <= BENCH_THRESHOLDS.transferBytes.goodMax) return 'good';
+  if (bytes <= BENCH_THRESHOLDS.transferBytes.midMax) return 'mid';
+  return 'bad';
+}
+
+export function rateDecodedBytes(bytes: number | null | undefined): BenchRating | null {
+  if (bytes == null) return null;
+  if (bytes <= BENCH_THRESHOLDS.decodedBytes.goodMax) return 'good';
+  if (bytes <= BENCH_THRESHOLDS.decodedBytes.midMax) return 'mid';
+  return 'bad';
+}
+
+export function rateLoadingMethod(
+  loading: 'async' | 'defer' | 'blocking' | 'module' | string | undefined,
+  renderBlocking: boolean,
+): BenchRating {
+  if (renderBlocking || loading === 'blocking') return 'bad';
+  return 'good';
+}
+
+export function benchRatingClass(rating: BenchRating | null | undefined): string {
+  if (!rating) return '';
+  return `bench-rating bench-rating--${rating}`;
+}
+
+export function benchRatingLabel(rating: BenchRating | null | undefined): string | undefined {
+  if (!rating) return undefined;
+  switch (rating) {
+    case 'good':
+      return 'Good';
+    case 'mid':
+      return 'Medium';
+    case 'bad':
+      return 'Poor';
+  }
+}
 
 /** Only recorded benchmarks are published on the site. */
 export function isPublishedBenchmark(benchmark: BenchmarkEntry): boolean {

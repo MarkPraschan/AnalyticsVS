@@ -41,7 +41,7 @@
     "Requires engineering ownership for clean event schemas and identity rules.",
     "Session replay raises privacy and performance considerations.",
     "Google Ads native integration is not GA4-class.",
-    "Script bundle heavier than lightweight analytics — benchmark pending on AnalyticsVS."
+    "Script bundle heavier than lightweight analytics — see our recorded PostHog script benchmark."
   ],
   "faq": [
     {

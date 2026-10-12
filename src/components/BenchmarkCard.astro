@@ -2,11 +2,17 @@
 import type { CollectionEntry } from 'astro:content';
 import BenchmarkReport from './BenchmarkReport.astro';
 import {
+  benchRatingClass,
+  benchRatingLabel,
   formatAddedMs,
   formatKib,
   formatSnippetLoadingSummary,
   getOverheadStat,
   getRunStat,
+  rateDecodedBytes,
+  rateLoadingMethod,
+  rateOverheadMs,
+  rateTransferBytes,
 } from '../lib/benchmarks';
 
 interface Props {
@@ -26,6 +32,10 @@ const overheadPageLoadStat = getOverheadStat(data, 'pageLoadMs');
 const overheadMs = data.overhead?.pageLoadMs ?? overheadPageLoadStat?.mean ?? null;
 const loadingMode = data.install?.loading ?? 'async';
 const renderBlocking = data.install?.renderBlocking ?? false;
+const overheadRating = rateOverheadMs(overheadMs);
+const loadingRating = rateLoadingMethod(loadingMode, renderBlocking);
+const transferRating = rateTransferBytes(transferStat?.mean);
+const decodedRating = rateDecodedBytes(decodedStat?.mean);
 
 const metaParts = [
   data.testDate,
@@ -56,23 +66,39 @@ const metaParts = [
           {overheadMs != null && (
             <div>
               <dt>Load overhead</dt>
-              <dd>{formatAddedMs(overheadMs)}</dd>
+              <dd>
+                <span class={benchRatingClass(overheadRating)} title={benchRatingLabel(overheadRating)}>
+                  {formatAddedMs(overheadMs)}
+                </span>
+              </dd>
             </div>
           )}
           <div>
             <dt>Loading</dt>
-            <dd>{formatSnippetLoadingSummary(loadingMode, renderBlocking)}</dd>
+            <dd>
+              <span class={benchRatingClass(loadingRating)} title={benchRatingLabel(loadingRating)}>
+                {formatSnippetLoadingSummary(loadingMode, renderBlocking)}
+              </span>
+            </dd>
           </div>
           {transferStat && (
             <div>
               <dt>Transfer</dt>
-              <dd>{formatKib(transferStat.mean)}</dd>
+              <dd>
+                <span class={benchRatingClass(transferRating)} title={benchRatingLabel(transferRating)}>
+                  {formatKib(transferStat.mean)}
+                </span>
+              </dd>
             </div>
           )}
           {decodedStat && (
             <div>
               <dt>Decoded</dt>
-              <dd>{formatKib(decodedStat.mean)}</dd>
+              <dd>
+                <span class={benchRatingClass(decodedRating)} title={benchRatingLabel(decodedRating)}>
+                  {formatKib(decodedStat.mean)}
+                </span>
+              </dd>
             </div>
           )}
         </dl>

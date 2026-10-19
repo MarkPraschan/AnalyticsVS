@@ -55,7 +55,7 @@
         "label": "Cloud · 10M+ hits"
       }
     ],
-    "notes": "Matomo Cloud pricing as of Oct 2026. 10M+ hits is contact. Self-hosted is free.",
+    "notes": "Matomo Cloud pricing as of Oct 2026. Self-hosted is free.",
     "projectLimits": {
       "included": 30,
       "billingModel": "tiered",

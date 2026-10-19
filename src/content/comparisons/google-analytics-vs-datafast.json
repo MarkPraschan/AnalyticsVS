@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs DataFast",
   "description": "Google Analytics 4 vs DataFast — compare free Google web analytics vs revenue attribution analytics for Stripe SaaS.",
-  "tools": ["google-analytics-4", "datafast"],
+  "tools": [
+    "google-analytics-4",
+    "datafast"
+  ],
   "category": "product-analytics",
   "winner": null,
   "verdict": "GA4 is free, deep, and tightly integrated with Google Ads and BigQuery — but revenue attribution for indie Stripe checkouts takes deliberate ecommerce event setup. DataFast is a paid, narrower tool that makes channel-to-revenue reporting the product for small SaaS teams willing to wire payment metadata.",
@@ -38,5 +41,7 @@
       "title": "Affiliate disclosure",
       "content": "AnalyticsVS may earn a commission from DataFast visit links. GA4 has no affiliate program. See our [disclosure](/disclosure/)."
     }
-  ]
+  ],
+  "seoTitle": "DataFast vs Google Analytics 4 (2026): Revenue vs Web Data",
+  "seoDescription": "DataFast vs Google Analytics 4 compared: Stripe revenue attribution vs free Google web analytics. Pricing, privacy, setup and which teams each one fits."
 }

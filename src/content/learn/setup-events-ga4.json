@@ -1,0 +1,38 @@
+{
+  "title": "How to set up events in Google Analytics 4",
+  "slug": "setup-events-ga4",
+  "description": "A practical GA4 event setup primer — enhanced measurement, custom events, key events (conversions), and common pitfalls — without dumping full vendor docs.",
+  "publishedOn": "2026-10-18",
+  "category": "how-to",
+  "status": "draft",
+  "quickAnswer": "In **GA4**, start with **enhanced measurement** for automatic pageviews/scrolls, then add **custom events** only for decisions you care about. Mark critical ones as **key events** (conversions). Prefer a short, named taxonomy over dozens of noisy tags.",
+  "relatedComparisons": [
+    "google-analytics-vs-plausible",
+    "google-analytics-vs-posthog",
+    "google-analytics-vs-matomo"
+  ],
+  "relatedTools": ["google-analytics-4", "plausible", "posthog"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "start-here",
+      "title": "Start with enhanced measurement",
+      "content": "After the GA4 tag is installed, turn on **enhanced measurement** for the basics (pageviews, outbound clicks, site search when configured). That covers many marketing sites without custom code.\n\nOnly add custom events when a dashboard or experiment depends on them — signup submit, pricing CTA, download, purchase."
+    },
+    {
+      "id": "custom-events",
+      "title": "Custom events that stay useful",
+      "content": "Use stable names (`signup_completed`, not `btn_click_hero_2`). Attach a few parameters (plan, location, value) — not twenty.\n\nSend events via gtag, GTM, or your framework’s analytics helper. QA in DebugView before you trust reports."
+    },
+    {
+      "id": "key-events",
+      "title": "Mark conversions as key events",
+      "content": "In GA4, mark the events that define success as **key events**. That powers conversion reporting and ads optimization when you link Google Ads.\n\nIf you do not run ads, you still want key events for cleaner exploration reports — just fewer of them."
+    },
+    {
+      "id": "pitfalls",
+      "title": "Common pitfalls",
+      "content": "- Duplicate tags (GTM + hard-coded gtag) double-counting\n- Consent mode misconfiguration changing event volume overnight\n- Autocapture-style GTM clutter with no owners\n- Comparing GA4 counts to Plausible pageviews as if they were the same metric\n\nFor when GA4 is overkill, read [GA4 vs Plausible](/compare/google-analytics-vs-plausible/). For product depth, see [GA4 vs PostHog](/compare/google-analytics-vs-posthog/)."
+    }
+  ]
+}

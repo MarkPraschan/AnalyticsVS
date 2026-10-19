@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs Matomo",
   "description": "Google Analytics 4 vs Matomo — compare data ownership, GDPR options, feature depth, pricing, and when to self-host instead of staying on Google.",
-  "tools": ["google-analytics-4", "matomo"],
+  "tools": [
+    "google-analytics-4",
+    "matomo"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Choose Matomo when you need GA-like reporting with data ownership, EU hosting options, or self-hosting. Choose GA4 when Google Ads integration, zero SaaS cost, and ecosystem lock-in matter more than where the data lives.",
@@ -38,5 +41,7 @@
       "title": "Performance",
       "content": "We publish recorded script benchmarks on our [benchmarks hub](/benchmarks/) — never estimated numbers. GA4’s default gtag install is measured; Matomo’s script weight depends on cloud vs self-host and plugins, so compare implementations carefully."
     }
-  ]
+  ],
+  "seoTitle": "Matomo vs Google Analytics 4 (2026): Data Ownership & Cost",
+  "seoDescription": "Matomo vs Google Analytics 4 compared: data ownership, GDPR options, cloud vs self-hosted Matomo, pricing and feature depth. Know when to leave Google."
 }

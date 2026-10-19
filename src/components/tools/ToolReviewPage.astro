@@ -50,6 +50,8 @@ const relatedComparisons = await Promise.all(
     tools: await getToolsByIds(comparison.data.tools),
   })),
 );
+const fallbackTools =
+  relatedComparisons.length === 0 ? await getToolsByIds(tool.data.fallbackRelated ?? []) : [];
 
 const tryTheseTools = [tool, ...relatedTools.slice(0, 2)];
 
@@ -100,12 +102,49 @@ const schema = [
 ].filter((item): item is Record<string, unknown> => item != null);
 ---
 
-<ArticleLayout title={tool.data.name} description={tool.data.tagline} schema={schema}>
+<ArticleLayout
+  title={tool.data.name}
+  fullTitle={tool.data.seoTitle}
+  description={tool.data.seoDescription ?? tool.data.tagline}
+  schema={schema}
+>
   <ToolProfileHeader tool={tool.data} updatedDate={updatedDate} slot="header" />
 
   <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
     <div class="min-w-0">
       <ToolReviewIntro review={review} pageUrl="#features" />
+
+      {
+        relatedComparisons.length > 0 && (
+          <nav aria-label={`${tool.data.name} comparisons`} class="mt-6 text-sm">
+            <span class="font-semibold text-fg">Compare {tool.data.name}:</span>{' '}
+            {relatedComparisons.map(({ comparison, tools: pair }, index) => {
+              const other = pair.find((entry) => entry.data.id !== tool.data.id);
+              return (
+                <>
+                  {index > 0 && ' · '}
+                  <a href={`/compare/${comparison.id}/`}>
+                    {tool.data.name} vs {other?.data.name}
+                  </a>
+                </>
+              );
+            })}
+          </nav>
+        )
+      }
+      {
+        relatedComparisons.length === 0 && fallbackTools.length > 0 && (
+          <nav aria-label={`${tool.data.name} comparisons`} class="mt-6 text-sm">
+            <span class="font-semibold text-fg">Compare with:</span>{' '}
+            {fallbackTools.map((related, index) => (
+              <>
+                {index > 0 && ' · '}
+                <a href={`/tools/${related.data.slug}/`}>{related.data.name}</a>
+              </>
+            ))}
+          </nav>
+        )
+      }
 
       <ToolFeatureChecklist tool={tool} reviewScope={review.reviewScope} />
 

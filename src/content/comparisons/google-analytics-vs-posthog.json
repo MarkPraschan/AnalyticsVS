@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs PostHog",
   "description": "Google Analytics 4 vs PostHog — compare web analytics vs full product analytics, pricing models, and when each tool fits.",
-  "tools": ["google-analytics-4", "posthog"],
+  "tools": [
+    "google-analytics-4",
+    "posthog"
+  ],
   "category": "product-analytics",
   "winner": null,
   "verdict": "GA4 is a free, general-purpose web analytics platform deeply integrated with Google. PostHog is a product analytics suite with event tracking, funnels, session replay, and feature flags — better for SaaS and app teams.",
@@ -30,5 +33,7 @@
       "title": "Use case fit",
       "content": "For a **marketing website or blog**, GA4 or a privacy tool like Plausible is usually enough. For a **SaaS product with user accounts**, PostHog fits better. For **content sites with ad attribution**, GA4 wins. For **feature flags and A/B tests**, choose PostHog. For **free analytics at high traffic**, GA4 has no direct SaaS cost."
     }
-  ]
+  ],
+  "seoTitle": "PostHog vs Google Analytics 4 (2026): Which Should You Use?",
+  "seoDescription": "PostHog vs Google Analytics 4 compared: product vs web analytics, funnels, session replay, pricing and privacy. See when each tool is the right choice."
 }

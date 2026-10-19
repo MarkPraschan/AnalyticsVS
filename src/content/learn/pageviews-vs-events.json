@@ -1,0 +1,44 @@
+{
+  "title": "Pageviews vs Events: Which Should You Track?",
+  "slug": "pageviews-vs-events",
+  "description": "When pageview analytics is enough, when you need custom events, and how that choice maps to privacy tools vs GA4 vs product analytics.",
+  "publishedOn": "2026-10-14",
+  "category": "primers",
+  "status": "published",
+  "featuredImage": "/learn/pageviews-vs-events.jpg",
+  "quickAnswer": "**Pageviews** answer traffic questions: how many visits, from where, to which URLs. **Custom events** answer action questions: signups, upgrades, feature use. Most marketing sites start with pageviews; SaaS products usually need events.",
+  "relatedComparisons": [
+    "google-analytics-vs-plausible",
+    "posthog-vs-plausible",
+    "google-analytics-vs-posthog"
+  ],
+  "relatedTools": ["plausible", "fathom", "google-analytics-4", "posthog"],
+  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "sections": [
+    {
+      "id": "two-questions",
+      "title": "Two different questions",
+      "content": "**Pageview analytics** asks: *What content did people see, and how did they arrive?*\n\n**Event analytics** asks: *What did people do that matters to the business or product?*\n\nBoth can live in one tool (GA4, PostHog). Many privacy-first tools intentionally stay closer to pageviews and simple goals so the product stays light and compliant."
+    },
+    {
+      "id": "when-pageviews-win",
+      "title": "When pageviews are enough",
+      "content": "Stay pageview-first when:\n\n- You run a **blog, docs site, or marketing site**\n- Success metrics are traffic, referrers, and a few conversion goals (signup click, contact form)\n- You want **privacy-first, lightweight** analytics without a big event taxonomy\n\nPlausible and Fathom are built for this lane. You can still fire custom events for key buttons — just do not expect full product analytics depth."
+    },
+    {
+      "id": "when-events-win",
+      "title": "When you need custom events",
+      "content": "Invest in events when:\n\n- Users have **accounts** and multi-step journeys inside an app\n- You care about **activation, retention, feature adoption**, or experiments\n- Revenue happens through **instrumented purchases** you need to attribute precisely\n\nThat is the PostHog / mature GA4 lane. Expect engineering time for naming, identity, and QA — not just a script paste."
+    },
+    {
+      "id": "billing-gotchas",
+      "title": "Billing and volume gotchas",
+      "content": "How you are charged changes the incentives:\n\n- **Pageview tiers** (Plausible, Fathom hosted) — more pages ≈ more cost; custom events are usually secondary\n- **Event volume** (PostHog Cloud, GA4 collection limits) — autocapture and chatty SDKs can burn quota\n- **Session caps** (Hotjar) — recordings are not the same unit as pageviews\n\nUse our [pricing calculator](/calculators/pricing/) with the unit your shortlist actually bills on."
+    },
+    {
+      "id": "practical-rule",
+      "title": "A practical rule of thumb",
+      "content": "If your weekly meeting stares at **referrers and top pages**, start with a privacy-first web analytics tool.\n\nIf your weekly meeting stares at **funnels and retention charts**, start with product analytics (and optionally keep a lightweight tool on the marketing site).\n\nNew to the vocabulary? Read [Analytics Events: What They Are and Why They Matter](/learn/what-are-analytics-events/) next, then pick a comparison that matches your shortlist."
+    }
+  ]
+}

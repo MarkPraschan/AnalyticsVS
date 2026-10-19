@@ -11,6 +11,8 @@ interface ArticleSchemaInput {
   description: string;
   url: string;
   dateModified: string;
+  datePublished?: string;
+  image?: string;
   breadcrumbs: BreadcrumbItem[];
   speakableCssSelector?: string;
 }
@@ -46,6 +48,8 @@ export function buildArticleSchema(input: ArticleSchemaInput): Record<string, un
     description: input.description,
     url: input.url,
     dateModified: input.dateModified,
+    ...(input.datePublished ? { datePublished: input.datePublished } : {}),
+    ...(input.image ? { image: [input.image] } : {}),
     author: {
       '@type': 'Organization',
       name: SITE.author,

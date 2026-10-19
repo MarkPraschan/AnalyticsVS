@@ -20,7 +20,7 @@ export function calculateAhrefsPricing(input: PricingInput): PricingResult {
   }
 
   base.note =
-    'Per verified project. Included with Ahrefs Free up to 1M events; add-ons billed per project.';
+    'Per verified project. Ahrefs docs describe the free limit as 1M page views in one place and 1M events in another; add-ons billed per project.';
 
   return applyProjectPricing(TOOL_PROJECT_CONFIGS.ahrefs, input, base);
 }

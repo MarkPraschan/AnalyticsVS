@@ -1,4 +1,5 @@
 import { getCollection } from 'astro:content';
+import { getPublishedLearnPosts } from '../learn';
 import { SITE } from '../site';
 import { getAllTools, getToolsByIds, getToolInitial } from '../tools';
 import type { OgImageEntry } from './types';
@@ -50,6 +51,12 @@ export async function getOgEntries(): Promise<OgImageEntry[]> {
       description:
         'Framework-first guides for choosing analytics tools, with links to detailed comparisons.',
     },
+    {
+      path: 'learn',
+      title: 'Learn Analytics Concepts',
+      description:
+        'Educational primers on analytics events, pageviews, and how to choose tools.',
+    },
   ];
 
   const tools = await getAllTools();
@@ -97,6 +104,15 @@ export async function getOgEntries(): Promise<OgImageEntry[]> {
       path: `guides/${guide.data.slug}`,
       title: guide.data.title,
       description: guide.data.description,
+    });
+  }
+
+  const learnPosts = await getPublishedLearnPosts();
+  for (const post of learnPosts) {
+    entries.push({
+      path: `learn/${post.data.slug}`,
+      title: post.data.title,
+      description: post.data.description,
     });
   }
 

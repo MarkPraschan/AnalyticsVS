@@ -1,7 +1,10 @@
 {
   "title": "PostHog vs Hotjar",
   "description": "PostHog vs Hotjar — compare product analytics with feature flags and experiments vs heatmaps, session recordings, and on-site surveys.",
-  "tools": ["posthog", "hotjar"],
+  "tools": [
+    "posthog",
+    "hotjar"
+  ],
   "category": "behavior-analytics",
   "winner": null,
   "verdict": "PostHog is built for product and engineering teams that need event-based analytics, session replay tied to product metrics, feature flags, and experiments in one stack. Hotjar is built for marketing and UX teams that need heatmaps, session recordings, and on-site surveys to diagnose page-level friction — usually alongside a separate traffic or product analytics tool.",
@@ -46,5 +49,7 @@
       "title": "Affiliate disclosure",
       "content": "AnalyticsVS may earn a commission from Hotjar / Contentsquare visit links. PostHog links are direct (no affiliate program on our directory). This does not change comparison verdicts — see our [disclosure](/disclosure/)."
     }
-  ]
+  ],
+  "seoTitle": "PostHog vs Hotjar 2026: Session Replay, Heatmaps & Pricing",
+  "seoDescription": "PostHog vs Hotjar compared: session replay, heatmaps, surveys, product analytics and pricing. See whether you need one tool or both for your product team."
 }

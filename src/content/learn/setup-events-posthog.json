@@ -1,0 +1,38 @@
+{
+  "title": "How to set up events in PostHog",
+  "slug": "setup-events-posthog",
+  "description": "Practical PostHog event setup — autocapture vs custom capture, identify, and when the heavier SDK is worth it on marketing pages vs the product app.",
+  "publishedOn": "2026-10-19",
+  "category": "how-to",
+  "status": "draft",
+  "quickAnswer": "**PostHog** can autocapture many clicks, but durable product analytics still needs a small set of **named custom events** plus **identify** after login. Prefer the full SDK in the app; think twice before loading it on a lightweight marketing homepage.",
+  "relatedComparisons": [
+    "posthog-vs-plausible",
+    "google-analytics-vs-posthog",
+    "datafast-vs-posthog"
+  ],
+  "relatedTools": ["posthog", "plausible", "google-analytics-4", "datafast"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "autocapture-vs-custom",
+      "title": "Autocapture vs custom events",
+      "content": "Autocapture is great for exploration and debugging. It is a poor long-term contract for funnels — CSS and copy changes rename \"events\" out from under you.\n\nDefine a short list of **product events** you will keep for a year (`signup_completed`, `project_created`, `invite_sent`) and capture those explicitly."
+    },
+    {
+      "id": "identify",
+      "title": "Identify users after login",
+      "content": "Call `identify` with your user id once the session is authenticated so anonymous pre-login events merge into the person profile. Without that, retention and funnels across signup break.\n\nGroup analytics (organizations/workspaces) needs a parallel group identify pattern when you bill or report by account."
+    },
+    {
+      "id": "where-to-load",
+      "title": "Where to load the script",
+      "content": "PostHog’s default web bundle is in our **heavy** [script performance](/learn/analytics-script-performance/) cluster. That is often acceptable inside a SaaS app. On a content marketing site that only needs pageviews, prefer Plausible/Fathom (or a thinner PostHog config) and keep PostHog for the product.\n\nSee [PostHog vs Plausible](/compare/posthog-vs-plausible/) for the category split."
+    },
+    {
+      "id": "qa",
+      "title": "QA checklist",
+      "content": "1. Fire each custom event once in a staging project.\n2. Confirm properties types (strings vs numbers).\n3. Verify identify merges pre/post login.\n4. Recheck quota so autocapture is not burning the bill.\n\nThen build one funnel that matches a real weekly decision — not twelve unused insights."
+    }
+  ]
+}

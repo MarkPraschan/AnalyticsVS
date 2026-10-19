@@ -1,0 +1,38 @@
+{
+  "title": "How to set up events in Plausible and Fathom",
+  "slug": "setup-events-plausible-fathom",
+  "description": "How custom events / goals work in Plausible and Fathom — when they are enough, how to keep naming simple, and when to graduate to GA4 or PostHog.",
+  "publishedOn": "2026-10-20",
+  "category": "how-to",
+  "status": "draft",
+  "quickAnswer": "**Plausible** and **Fathom** are pageview-first. Add a handful of **custom events or goals** for key CTAs (signup, contact, download). They will not replace product funnels — and that is intentional for privacy-first marketing sites.",
+  "relatedComparisons": [
+    "plausible-vs-fathom",
+    "google-analytics-vs-plausible",
+    "posthog-vs-plausible"
+  ],
+  "relatedTools": ["plausible", "fathom", "google-analytics-4", "posthog"],
+  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "sections": [
+    {
+      "id": "goals-not-taxonomies",
+      "title": "Goals, not giant taxonomies",
+      "content": "These tools shine when you track **a few conversions** on top of traffic reports. Aim for five or fewer named goals on a marketing site.\n\nIf you need nested funnels, account-level retention, or experiment assignment, look at PostHog or GA4 instead."
+    },
+    {
+      "id": "plausible",
+      "title": "Plausible custom events",
+      "content": "Plausible supports custom events via a small JS API or attribute-based triggers (depending on your setup). Name events clearly (`Signup`, `Demo Request`) and verify them in the realtime dashboard.\n\nBilling is primarily **pageviews**, so events are about clarity — not a separate meter in the same way event-based products charge."
+    },
+    {
+      "id": "fathom",
+      "title": "Fathom events / goals",
+      "content": "Fathom’s model likewise centers on simple site analytics plus goals for conversions. Keep the same discipline: stable names, one purpose per goal, test after deploy.\n\nCompare pricing and UX with [Plausible vs Fathom](/compare/plausible-vs-fathom/)."
+    },
+    {
+      "id": "when-to-graduate",
+      "title": "When to graduate",
+      "content": "Graduate when weekly questions outgrow \"traffic + one CTA\": multi-step onboarding, feature adoption, or ads-heavy attribution. Until then, a light script and a short goal list beat an unused event warehouse.\n\nScript weight context: both sit in our light [performance matrix](/learn/analytics-script-performance/)."
+    }
+  ]
+}

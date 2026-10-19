@@ -13,6 +13,10 @@ export const CATEGORY_LABELS: Record<string, string> = {
   'behavior-analytics': 'Behavior Analytics',
   'product-analytics': 'Product Analytics',
   'revenue-analytics': 'Revenue Analytics',
+  concepts: 'Concepts',
+  'how-to': 'How-to',
+  primers: 'Primers',
+  performance: 'Performance',
 };
 
 export type CategoryBadgeStyle = {

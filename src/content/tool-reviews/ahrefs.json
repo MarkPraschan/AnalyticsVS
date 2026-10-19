@@ -19,7 +19,7 @@
       "id": "privacy-compliance",
       "title": "Privacy & compliance",
       "dimension": "privacy-compliance",
-      "content": "Ahrefs Web Analytics is marketed as **cookie-free** and **privacy-friendly**, with **no personal data collected** in default configurations. That positions it alongside Plausible and Fathom for teams reducing consent-banner friction in the EU and UK — still verify with counsel for your tracking setup.\n\nBecause data lives in Ahrefs' cloud (Singapore-based company), data residency and DPA terms follow Ahrefs' platform policies, not your own infrastructure. This is a different tradeoff than self-hosted Umami or Matomo.\n\nThe lightweight script (~2 KB claimed) also reduces performance impact versus heavier GA4 tags."
+      "content": "Ahrefs Web Analytics is marketed as **cookie-free** and **privacy-friendly**, with **no personal data collected** in default configurations. That positions it alongside Plausible and Fathom for teams reducing consent-banner friction in the EU and UK — still verify with counsel for your tracking setup.\n\nBecause data lives in Ahrefs' cloud (Singapore-based company), data residency and DPA terms follow Ahrefs' platform policies, not your own infrastructure. This is a different tradeoff than self-hosted Umami or Matomo.\n\nThe lightweight script (~2 KB claimed) also reduces performance impact versus heavier GA4 tags.\n\nCompare with [Plausible](/tools/plausible/), [Fathom](/tools/fathom/) and [Google Analytics 4](/tools/google-analytics-4/)."
     },
     {
       "id": "analytics-scope",
@@ -41,7 +41,7 @@
     }
   ],
   "setupNotes": "**Typical setup:**\n\n1. Create or sign in to an **Ahrefs Free** account.\n2. Add a **Web Analytics** project and verify site ownership.\n3. Paste the **JavaScript snippet** into your site `<head>` (or use the GA4 import path if migrating).\n4. Run the in-app **installation check** to confirm events are flowing.\n5. Optionally connect **Google Search Console** and configure **custom events** or **funnels** for key conversions.\n\nNo tag manager is required, though you can deploy via GTM if preferred.\n\n**Common pitfalls:** mixing Ahrefs event counts with GA4 pageview definitions, forgetting verification for the free tier, and tracking staging domains you did not intend to bill against project limits.",
-  "pricingNotes": "Ahrefs Web Analytics is **free up to 1 million events per verified project per month** on Ahrefs Free. Above that, **per-project add-ons** scale event limits — Ahrefs documents tiers at roughly **$99/month (up to 5M events)**, **$299/month (20M)**, and **$999/month (100M)** per project as of Sep 2026.\n\nThis is separate from Ahrefs SEO subscriptions (Lite, Standard, Advanced), though Web Analytics appears across plans. High-traffic sites pay per project for headroom, not a single global pool.\n\nUse our [pricing calculator](/calculators/pricing/) to estimate Web Analytics add-on cost at your event volume.",
+  "pricingNotes": "Ahrefs documents the free Web Analytics limit as **1 million page views** in one place and **1 million events** in another, per verified project per month on Ahrefs Free. Above that, **per-project add-ons** scale limits — Ahrefs documents tiers at roughly **$99/month (up to 5M events)**, **$299/month (20M)**, and **$999/month (100M)** per project as of Sep 2026.\n\nThis is separate from Ahrefs SEO subscriptions (Lite, Standard, Advanced), though Web Analytics appears across plans. High-traffic sites pay per project for headroom, not a single global pool.\n\nUse our [pricing calculator](/calculators/pricing/) to estimate Web Analytics add-on cost at your event volume.",
   "limitations": [
     "Requires an Ahrefs account — not a standalone analytics SKU you can buy in isolation from the platform.",
     "No session replay, heatmaps, or product analytics depth — pair with Hotjar or PostHog if needed.",
@@ -51,12 +51,20 @@
   ],
   "faq": [
     {
-      "question": "Is Ahrefs Web Analytics really free?",
-      "answer": "Yes for verified projects up to 1 million events per month on Ahrefs Free. Higher volumes require paid per-project add-ons documented in Ahrefs' help center."
+      "question": "Is Ahrefs Web Analytics free?",
+      "answer": "Yes, Ahrefs Web Analytics is free for websites with verified ownership, up to 1 million events per month per project, and a free Ahrefs account can add as many sites as you want. Higher volumes need a paid per-project add-on (see pricing below)."
     },
     {
-      "question": "Ahrefs Web Analytics vs Google Analytics 4?",
-      "answer": "Ahrefs emphasizes cookie-free privacy, faster real-time data, a smaller script, and unlimited historical retention in its positioning. GA4 remains stronger for Google Ads, BigQuery, and enterprise marketing platform integrations at no direct cost for standard properties."
+      "question": "Does Ahrefs Web Analytics use cookies, and is it GDPR compliant?",
+      "answer": "It uses no cookies and stores no IP addresses with analytics data. Unique visitors are counted with a hash of IP address and user agent plus a salt that is regenerated every 24 hours, so visitors cannot be tracked across days, devices or other sites. Ahrefs states that site owners remain responsible for their own GDPR obligations, so check your setup with counsel."
+    },
+    {
+      "question": "Ahrefs Web Analytics vs Google Analytics 4: what is the difference?",
+      "answer": "Ahrefs is a lighter, cookie-free alternative focused on traffic, SEO and AI referrals, while GA4 is a full marketing analytics platform. Ahrefs' own comparison lists zero cookies vs GA4's first-party cookies, data available instantly vs 24-48 hours, a 2 KB script vs about 98 KB, and unlimited historical data vs 26 months. GA4 remains stronger for Google Ads, audiences and BigQuery export, and Ahrefs can import GA4 data if you switch."
+    },
+    {
+      "question": "How much does Ahrefs Web Analytics cost above the free limit?",
+      "answer": "Above 1 million events a month, Ahrefs charges per project: up to 5M events for $99/month, up to 20M for $299/month and up to 100M for $999/month (USD; Ahrefs notes prices can vary by location). Features on every tier include AI traffic reports (ChatGPT, Perplexity, Gemini), Search Console keywords, funnels, custom events, UTM breakdowns and outbound link tracking."
     },
     {
       "question": "Ahrefs vs Plausible or Fathom?",
@@ -71,12 +79,12 @@
     {
       "label": "Ahrefs Web Analytics product page",
       "url": "https://ahrefs.com/web-analytics",
-      "checkedOn": "2026-09-01"
+      "checkedOn": "2026-10-19"
     },
     {
       "label": "About Ahrefs Web Analytics (help center)",
       "url": "https://help.ahrefs.com/en/articles/10247870-about-ahrefs-web-analytics",
-      "checkedOn": "2026-09-01"
+      "checkedOn": "2026-10-19"
     },
     {
       "label": "Ahrefs pricing",

@@ -4,17 +4,23 @@ import { getOgImageUrl } from '../lib/og/url';
 
 interface Props {
   title?: string;
+  /** Document title used verbatim, with no site-name suffix. */
+  fullTitle?: string;
   description?: string;
   canonical?: string;
   ogType?: string;
+  /** Absolute or site-relative image URL; overrides generated OG art when set. */
+  ogImage?: string;
 }
 
-const { title, description, canonical, ogType = 'website' } = Astro.props;
+const { title, fullTitle, description, canonical, ogType = 'website', ogImage } = Astro.props;
 
-const pageTitle = title ? `${title} | ${SITE.name}` : SITE.title;
+const pageTitle = fullTitle ?? (title ? `${title} | ${SITE.name}` : SITE.title);
 const pageDescription = description ?? SITE.description;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).href;
-const ogImageUrl = getOgImageUrl(new URL(canonicalUrl).pathname);
+const ogImageUrl = ogImage
+  ? new URL(ogImage, SITE.url).href
+  : getOgImageUrl(new URL(canonicalUrl).pathname);
 
 const fontsUrl =
   'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap';

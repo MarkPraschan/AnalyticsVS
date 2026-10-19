@@ -43,7 +43,10 @@ const recentBenchmarks = await Promise.all(
 const hasMoreBenchmarks = allBenchmarks.length > RECENT_BENCHMARK_LIMIT;
 ---
 
-<BaseLayout>
+<BaseLayout
+  fullTitle="AnalyticsVS: Compare Analytics Tools on Price and Privacy"
+  description="Independent comparisons of GA4, Plausible, PostHog, Matomo, Fathom, Umami and more, with real pricing data and script performance benchmarks. No fluff."
+>
   <div class="page-shell">
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__content prose-width">

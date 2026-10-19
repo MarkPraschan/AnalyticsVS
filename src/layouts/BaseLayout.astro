@@ -12,13 +12,15 @@ import { buildWebSiteSchema } from '../lib/schema';
 
 interface Props {
   title?: string;
+  fullTitle?: string;
   description?: string;
   canonical?: string;
   ogType?: string;
+  ogImage?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[] | null;
 }
 
-const { title, description, canonical, ogType, schema } = Astro.props;
+const { title, fullTitle, description, canonical, ogType, ogImage, schema } = Astro.props;
 const websiteSchema = buildWebSiteSchema();
 const allSchema = schema
   ? Array.isArray(schema)
@@ -33,7 +35,14 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 <!doctype html>
 <html lang="en">
   <head>
-    <MetaTags title={title} description={description} canonical={canonical} ogType={ogType} />
+    <MetaTags
+      title={title}
+      fullTitle={fullTitle}
+      description={description}
+      canonical={canonical}
+      ogType={ogType}
+      ogImage={ogImage}
+    />
     <ClientRouter />
     <StructuredData data={allSchema} />
     <PostHog />

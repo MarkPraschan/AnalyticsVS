@@ -9,7 +9,14 @@
     "google-analytics-vs-matomo",
     "plausible-vs-umami"
   ],
-  "relatedTools": ["plausible", "fathom", "umami", "google-analytics-4", "matomo"],
+  "relatedTools": [
+    "plausible",
+    "fathom",
+    "umami",
+    "google-analytics-4",
+    "matomo",
+    "ahrefs"
+  ],
   "sections": [
     {
       "id": "what-privacy-first-means",
@@ -24,7 +31,7 @@
     {
       "id": "common-categories",
       "title": "Three common privacy-first categories",
-      "content": "**Lightweight hosted SaaS** (Plausible, Fathom hosted) — fastest setup, predictable pageview billing, minimal script weight.\n\n**Open-source self-hosted** (Plausible self-hosted, Umami) — more control and potentially lower cost at scale, but you own uptime and upgrades.\n\n**Enterprise privacy suites** (Matomo cloud/self-hosted) — deeper reporting and data ownership, with more configuration overhead.\n\nGoogle Analytics 4 is often the default alternative: free and powerful, but heavier on compliance work and ad-ecosystem coupling. See our GA4 vs Plausible comparison for when each wins."
+      "content": "**Lightweight hosted SaaS** (Plausible, Fathom hosted) — fastest setup, predictable pageview billing, minimal script weight.\n\n**Open-source self-hosted** (Plausible self-hosted, Umami) — more control and potentially lower cost at scale, but you own uptime and upgrades.\n\n**Enterprise privacy suites** (Matomo cloud/self-hosted) — deeper reporting and data ownership, with more configuration overhead.\n\nGoogle Analytics 4 is often the default alternative: free and powerful, but heavier on compliance work and ad-ecosystem coupling. See our GA4 vs Plausible comparison for when each wins.\n\nAlready on Ahrefs for SEO? [Ahrefs Web Analytics](/tools/ahrefs/) is a free, cookie-free option for verified sites."
     },
     {
       "id": "next-steps",

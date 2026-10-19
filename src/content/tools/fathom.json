@@ -16,13 +16,34 @@
     "model": "monthly_pageviews",
     "currency": "USD",
     "tiers": [
-      { "limit": 100000, "price": 15 },
-      { "limit": 200000, "price": 25 },
-      { "limit": 500000, "price": 39 },
-      { "limit": 1000000, "price": 59 },
-      { "limit": 2000000, "price": 79 },
-      { "limit": 5000000, "price": 119 },
-      { "limit": 10000000, "price": 169 }
+      {
+        "limit": 100000,
+        "price": 15
+      },
+      {
+        "limit": 200000,
+        "price": 25
+      },
+      {
+        "limit": 500000,
+        "price": 39
+      },
+      {
+        "limit": 1000000,
+        "price": 59
+      },
+      {
+        "limit": 2000000,
+        "price": 79
+      },
+      {
+        "limit": 5000000,
+        "price": 119
+      },
+      {
+        "limit": 10000000,
+        "price": 169
+      }
     ],
     "notes": "Pricing as of Aug 2026 — verify on vendor site.",
     "projectLimits": {
@@ -57,5 +78,7 @@
         "custom_events": false
       }
     }
-  ]
+  ],
+  "seoTitle": "Fathom Analytics Review 2026: Pricing, Privacy, Alternatives",
+  "seoDescription": "Fathom Analytics reviewed: cookie-free tracking, pricing by pageviews, script performance benchmarks, limits, and how it compares to Plausible and Umami."
 }

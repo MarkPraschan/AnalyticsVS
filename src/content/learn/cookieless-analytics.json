@@ -1,0 +1,38 @@
+{
+  "title": "Cookieless analytics: what it means",
+  "slug": "cookieless-analytics",
+  "description": "What cookieless analytics actually changes — tracking method, consent banners, accuracy trade-offs — and which tools on AnalyticsVS support it.",
+  "publishedOn": "2026-10-15",
+  "category": "primers",
+  "status": "draft",
+  "quickAnswer": "**Cookieless analytics** measures traffic without storing a long-lived cookie on the visitor’s device. That often reduces consent-banner friction in the EU, but it can also change how returning visitors and sessions are counted. Plausible, Fathom, Umami, and DataFast’s cookieless mode sit in this lane; GA4 and PostHog typically rely on cookies or similar storage for full identity.",
+  "relatedComparisons": [
+    "plausible-vs-fathom",
+    "google-analytics-vs-plausible",
+    "plausible-vs-datafast"
+  ],
+  "relatedTools": ["plausible", "fathom", "umami", "datafast", "google-analytics-4"],
+  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "sections": [
+    {
+      "id": "definition",
+      "title": "Cookieless is a method, not a magic shield",
+      "content": "Cookieless usually means the vendor avoids **first-party analytics cookies** used to stitch visits over time. Measurement may instead use short-lived identifiers, fingerprint-light techniques (controversial and restricted in some contexts), or **aggregate / cookieless modes** that intentionally weaken cross-day identity.\n\nIt does **not** automatically mean GDPR-free, zero privacy risk, or identical numbers to cookie-based GA4. It means a different data model with different strengths."
+    },
+    {
+      "id": "why-teams-want-it",
+      "title": "Why teams want it",
+      "content": "Common reasons:\n\n- **Fewer consent banners** for simple pageview analytics in many EU setups (still get legal advice for your case)\n- **Simpler scripts** and lighter performance cost — see our [script performance matrix](/learn/analytics-script-performance/)\n- **Less ad-ecosystem coupling** than GA4\n\nIf you need ads attribution, user-level product funnels, or warehouse export, cookieless-only tools may be too shallow — pair them with a product tool or accept GA4’s compliance work."
+    },
+    {
+      "id": "accuracy-tradeoffs",
+      "title": "Accuracy trade-offs to expect",
+      "content": "When identity is weaker, expect:\n\n- Softer **returning visitor** counts\n- Different **session** definitions vs GA4\n- Harder **cross-device** journeys\n\nThat is often fine for marketing traffic trends. It is a problem if your KPI is \"unique users who completed onboarding across devices.\""
+    },
+    {
+      "id": "tool-map",
+      "title": "Where AnalyticsVS tools land",
+      "content": "**Typically cookieless / privacy-first web:** Plausible, Fathom hosted, Umami — compare [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n**Optional cookieless mode:** DataFast — see the [cookieless script benchmark](/benchmarks/datafast-cookieless-script-2026-09/) vs the [default script](/benchmarks/datafast-script-2026-09/).\n\n**Cookie / identity heavy by design:** GA4 and PostHog for ads and product analytics depth.\n\nStart with the [privacy-first guide](/guides/best-privacy-first-analytics-tools/), then a head-to-head for your shortlist."
+    }
+  ]
+}

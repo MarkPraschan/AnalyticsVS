@@ -13,19 +13,49 @@
     "model": "monthly_pageviews",
     "currency": "USD",
     "tiers": [
-      { "limit": 10000, "price": 9 },
-      { "limit": 100000, "price": 19 },
-      { "limit": 200000, "price": 29 },
-      { "limit": 500000, "price": 49 },
-      { "limit": 1000000, "price": 69 },
-      { "limit": 2000000, "price": 89 },
-      { "limit": 5000000, "price": 109 },
-      { "limit": 10000000, "price": 149 }
+      {
+        "limit": 10000,
+        "price": 9
+      },
+      {
+        "limit": 100000,
+        "price": 19
+      },
+      {
+        "limit": 200000,
+        "price": 29
+      },
+      {
+        "limit": 500000,
+        "price": 49
+      },
+      {
+        "limit": 1000000,
+        "price": 69
+      },
+      {
+        "limit": 2000000,
+        "price": 89
+      },
+      {
+        "limit": 5000000,
+        "price": 109
+      },
+      {
+        "limit": 10000000,
+        "price": 149
+      }
     ],
     "notes": "Pricing as of Aug 2026 — verify on vendor site.",
     "projectLimits": {
       "included": 1,
-      "plans": [{ "name": "Growth", "maxProjects": 3, "notes": "Team plan for up to 3 sites on one subscription." }]
+      "plans": [
+        {
+          "name": "Growth",
+          "maxProjects": 3,
+          "notes": "Team plan for up to 3 sites on one subscription."
+        }
+      ]
     }
   },
   "features": {
@@ -40,5 +70,7 @@
     "product_analytics": false,
     "self_hosted": true,
     "open_source": true
-  }
+  },
+  "seoTitle": "Plausible Analytics Review 2026: Pricing, Privacy & Limits",
+  "seoDescription": "Plausible Analytics reviewed: cookie-free tracking, pricing by pageviews, script speed benchmarks, limits, and how it compares to Fathom, Umami and GA4."
 }

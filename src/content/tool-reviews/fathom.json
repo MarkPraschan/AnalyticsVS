@@ -20,7 +20,7 @@
       "id": "privacy-compliance",
       "title": "Privacy & compliance",
       "dimension": "privacy-compliance",
-      "content": "Fathom positions itself as **privacy-first**: no cross-site tracking, no sale of visitor data, and analytics designed to reduce cookie-banner friction. Like Plausible, it targets teams that want compliance simplicity without sacrificing usable traffic reports.\n\n**Fathom Analytics** (hosted) runs on Fathom's serverless cloud infrastructure. **Fathom Lite** is a separate self-hosted download you operate yourself — same privacy positioning, but you own uptime, updates, and backups.\n\nVerify consent requirements with legal counsel; \"privacy-friendly\" does not automatically mean zero compliance obligations in every jurisdiction."
+      "content": "Fathom positions itself as **privacy-first**: no cross-site tracking, no sale of visitor data, and analytics designed to reduce cookie-banner friction. Like Plausible, it targets teams that want compliance simplicity without sacrificing usable traffic reports.\n\n**Fathom Analytics** (hosted) runs on Fathom's serverless cloud infrastructure. **Fathom Lite** is a separate self-hosted download you operate yourself — same privacy positioning, but you own uptime, updates, and backups.\n\nVerify consent requirements with legal counsel; \"privacy-friendly\" does not automatically mean zero compliance obligations in every jurisdiction.\n\nIf you already use Ahrefs for SEO, [Ahrefs Web Analytics](/tools/ahrefs/) is a cookie-free option that stays free up to 1M events per project."
     },
     {
       "id": "web-analytics",
@@ -70,9 +70,25 @@
     }
   ],
   "sources": [
-    { "label": "Fathom Analytics pricing", "url": "https://usefathom.com/pricing", "checkedOn": "2026-09-01" },
-    { "label": "Fathom Lite (self-hosted)", "url": "https://usefathom.com/pricing/lite", "checkedOn": "2026-09-01" },
-    { "label": "Fathom privacy policy", "url": "https://usefathom.com/privacy", "checkedOn": "2026-09-01" },
-    { "label": "Fathom help docs", "url": "https://usefathom.com/docs", "checkedOn": "2026-09-01" }
+    {
+      "label": "Fathom Analytics pricing",
+      "url": "https://usefathom.com/pricing",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "Fathom Lite (self-hosted)",
+      "url": "https://usefathom.com/pricing/lite",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "Fathom privacy policy",
+      "url": "https://usefathom.com/privacy",
+      "checkedOn": "2026-09-01"
+    },
+    {
+      "label": "Fathom help docs",
+      "url": "https://usefathom.com/docs",
+      "checkedOn": "2026-09-01"
+    }
   ]
 }

@@ -15,20 +15,50 @@
     "model": "monthly_events",
     "currency": "USD",
     "tiers": [
-      { "limit": 10000, "price": 9 },
-      { "limit": 100000, "price": 29 },
-      { "limit": 200000, "price": 49 },
-      { "limit": 500000, "price": 79 },
-      { "limit": 1000000, "price": 99 },
-      { "limit": 2000000, "price": 149 },
-      { "limit": 5000000, "price": 199 },
-      { "limit": 10000000, "price": 299 }
+      {
+        "limit": 10000,
+        "price": 9
+      },
+      {
+        "limit": 100000,
+        "price": 29
+      },
+      {
+        "limit": 200000,
+        "price": 49
+      },
+      {
+        "limit": 500000,
+        "price": 79
+      },
+      {
+        "limit": 1000000,
+        "price": 99
+      },
+      {
+        "limit": 2000000,
+        "price": 149
+      },
+      {
+        "limit": 5000000,
+        "price": 199
+      },
+      {
+        "limit": 10000000,
+        "price": 299
+      }
     ],
     "notes": "Starter plan pricing as of Aug 2026 — verify on vendor site. Growth tier adds multi-site and team features at higher base price.",
     "hasFreeTrial": true,
     "projectLimits": {
       "included": 1,
-      "plans": [{ "name": "Growth", "maxProjects": 30, "notes": "Growth covers up to 30 sites on one account." }]
+      "plans": [
+        {
+          "name": "Growth",
+          "maxProjects": 30,
+          "notes": "Growth covers up to 30 sites on one account."
+        }
+      ]
     }
   },
   "features": {
@@ -43,5 +73,7 @@
     "product_analytics": true,
     "self_hosted": false,
     "revenue_tracking": true
-  }
+  },
+  "seoTitle": "DataFast Review 2026: Revenue Analytics, Pricing & Limits",
+  "seoDescription": "DataFast reviewed: revenue-first web analytics with Stripe attribution. See pricing, script benchmarks, limits, and how it compares to PostHog, Plausible."
 }

@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs Umami",
   "description": "Google Analytics 4 vs Umami — compare free Google analytics vs open-source self-hostable privacy-friendly web analytics.",
-  "tools": ["google-analytics-4", "umami"],
+  "tools": [
+    "google-analytics-4",
+    "umami"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Choose Umami when you want open-source, self-hostable (or Umami Cloud) web analytics with a simple dashboard and cookieless options. Choose GA4 when you need free Google ecosystem depth — Ads, Search Console, BigQuery — and can accept cookie/consent complexity.",
@@ -38,5 +41,7 @@
       "title": "Scope",
       "content": "Umami intentionally stays narrow: pageviews, referrers, devices, countries, custom events. If you need heatmaps, flags, or warehouse pipelines, pair or pick another tool."
     }
-  ]
+  ],
+  "seoTitle": "Umami vs Google Analytics 4 (2026): Privacy, Cost, Features",
+  "seoDescription": "Umami vs Google Analytics 4 compared: cookie-free open-source tracking vs Google's free platform. Privacy, pricing, self-hosting and features side by side."
 }

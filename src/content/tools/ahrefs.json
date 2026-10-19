@@ -13,13 +13,26 @@
     "model": "monthly_events",
     "currency": "USD",
     "tiers": [
-      { "limit": 1000000, "price": 0, "label": "Free" },
-      { "limit": 5000000, "price": 99 },
-      { "limit": 20000000, "price": 299 },
-      { "limit": 100000000, "price": 999 }
+      {
+        "limit": 1000000,
+        "price": 0,
+        "label": "Free"
+      },
+      {
+        "limit": 5000000,
+        "price": 99
+      },
+      {
+        "limit": 20000000,
+        "price": 299
+      },
+      {
+        "limit": 100000000,
+        "price": 999
+      }
     ],
     "freeLimit": 1000000,
-    "notes": "Included with Ahrefs Free up to 1M events per verified project per month. Higher limits via per-project Web Analytics add-ons — verify on vendor site.",
+    "notes": "Ahrefs docs describe the free limit as 1M page views in one place and 1M events in another, per verified project per month. Higher limits via per-project Web Analytics add-ons — verify on vendor site.",
     "projectLimits": {
       "included": 1,
       "billingModel": "per_site",
@@ -39,5 +52,12 @@
     "self_hosted": false,
     "open_source": false,
     "revenue_tracking": false
-  }
+  },
+  "seoTitle": "Ahrefs Web Analytics Review 2026: Free, Cookieless, Pricing",
+  "seoDescription": "Ahrefs Web Analytics reviewed: free up to 1M events a month per project, no cookies, AI traffic and Search Console data, plus how it stacks up to GA4.",
+  "fallbackRelated": [
+    "google-analytics-4",
+    "plausible",
+    "fathom"
+  ]
 }

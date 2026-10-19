@@ -14,13 +14,33 @@
     "model": "monthly_events",
     "currency": "USD",
     "tiers": [
-      { "limit": 50000, "price": 23, "label": "Cloud · up to 50K hits" },
-      { "limit": 100000, "price": 49, "label": "Cloud · up to 100K hits" },
-      { "limit": 250000, "price": 99, "label": "Cloud · up to 250K hits" },
-      { "limit": 500000, "price": 189, "label": "Cloud · up to 500K hits" },
-      { "limit": 1000000, "price": 389, "label": "Cloud · up to 1M hits" }
+      {
+        "limit": 50000,
+        "price": 29,
+        "label": "Cloud · up to 50K hits"
+      },
+      {
+        "limit": 100000,
+        "price": 49,
+        "label": "Cloud · up to 100K hits"
+      },
+      {
+        "limit": 250000,
+        "price": 99,
+        "label": "Cloud · up to 250K hits"
+      },
+      {
+        "limit": 500000,
+        "price": 189,
+        "label": "Cloud · up to 500K hits"
+      },
+      {
+        "limit": 1000000,
+        "price": 389,
+        "label": "Cloud · up to 1M hits"
+      }
     ],
-    "notes": "Matomo Cloud pricing as of Aug 2026. Self-hosted is free. Hits include pageviews and tracked events.",
+    "notes": "Matomo Cloud pricing as of Oct 2026. Self-hosted is free.",
     "projectLimits": {
       "included": 1,
       "billingModel": "per_site",
@@ -39,5 +59,7 @@
     "product_analytics": false,
     "self_hosted": true,
     "open_source": true
-  }
+  },
+  "seoTitle": "Matomo Review 2026: Cloud vs Self-Hosted, Hosting & Pricing",
+  "seoDescription": "Matomo Cloud vs On-Premise compared: hosting options, real costs, backups, GDPR controls and when self-hosting Matomo is worth the ops work in 2026."
 }

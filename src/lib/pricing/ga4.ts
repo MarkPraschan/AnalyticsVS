@@ -10,7 +10,7 @@ export function calculateGA4Pricing(input: PricingInput): PricingResult {
       ? {
           monthlyCost: 0,
           label: 'Free (standard GA4)',
-          note: 'GA4 360 enterprise pricing starts around $50,000/year.',
+          note: 'Google Analytics 360 is a custom-priced annual contract (contact Google or a Sales Partner).',
         }
       : {
           monthlyCost: null,

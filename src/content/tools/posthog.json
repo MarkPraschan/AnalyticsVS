@@ -14,8 +14,16 @@
     "currency": "USD",
     "freeLimit": 1000000,
     "tiers": [
-      { "limit": 1000000, "price": 0, "label": "Free tier" },
-      { "limit": 2000000, "price": 0, "label": "Usage-based above free" }
+      {
+        "limit": 1000000,
+        "price": 0,
+        "label": "Free tier"
+      },
+      {
+        "limit": 2000000,
+        "price": 0,
+        "label": "Usage-based above free"
+      }
     ],
     "notes": "1M events/month free on cloud. Above that, usage-based pricing applies. Self-hosting available.",
     "projectLimits": {
@@ -36,5 +44,7 @@
     "product_analytics": true,
     "self_hosted": true,
     "open_source": true
-  }
+  },
+  "seoTitle": "PostHog Review 2026: Pricing, Free Tier, vs Google Analytics",
+  "seoDescription": "PostHog reviewed: product analytics, session replay and feature flags. See the 1M-event free tier, usage-based pricing, and how PostHog compares to GA4."
 }

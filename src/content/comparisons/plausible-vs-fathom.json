@@ -1,7 +1,10 @@
 {
   "title": "Plausible vs Fathom",
   "description": "Plausible Analytics vs Fathom Analytics — two leading privacy-first analytics tools compared on pricing, features, and performance.",
-  "tools": ["plausible", "fathom"],
+  "tools": [
+    "plausible",
+    "fathom"
+  ],
   "category": "privacy-analytics",
   "verdict": "Both are excellent privacy-first alternatives to GA4. Plausible tends to be slightly cheaper at lower traffic tiers and offers open-source self-hosting. Fathom offers hosted simplicity plus Fathom Lite for free self-hosting with fewer features.",
   "quickAnswer": "**Plausible** and **Fathom** are both strong privacy-first alternatives to GA4. The usual decider is traffic-tier pricing and whether you want managed hosting or self-hosting — see our head-to-head for specifics.",
@@ -24,5 +27,7 @@
       "answer": "Yes. Both Plausible and Fathom support custom event tracking for goals like signups, downloads, and button clicks."
     }
   ],
-  "editorialNotes": []
+  "editorialNotes": [],
+  "seoTitle": "Plausible vs Fathom Analytics 2026: Pricing & Features",
+  "seoDescription": "Plausible vs Fathom Analytics compared: pricing by pageviews, privacy, EU hosting, script speed benchmarks and features. Pick the right privacy-first tool."
 }

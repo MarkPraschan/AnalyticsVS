@@ -21,8 +21,9 @@ const filterTools = (await getAllTools()).filter((tool) => toolIdsInComparisons.
 ---
 
 <BaseLayout
-  title="Analytics Tool Comparisons"
-  description="Side-by-side comparisons of web, product, and behavior analytics tools."
+  title="Comparisons"
+  fullTitle="Web Analytics Comparison 2026: Side-by-Side Tool Matchups"
+  description="Compare web analytics tools side by side: GA4 vs Plausible, PostHog, Matomo, Umami, Fathom and more. Pricing, privacy, features and speed in one place."
 >
   <div class="page-shell">
     <header class="prose-width mb-8">
@@ -75,6 +76,11 @@ const filterTools = (await getAllTools()).filter((tool) => toolIdsInComparisons.
 
     <p class="comparison-filter__empty mt-8" data-filter-empty hidden role="status">
       No comparisons match the selected tools. Clear the filter or pick another tool.
+    </p>
+
+    <p class="mt-8 text-sm text-muted">
+      Looking for a free tool? See <a href="/tools/ahrefs/">Ahrefs Web Analytics</a> and{' '}
+      <a href="/tools/google-analytics-4/">Google Analytics 4</a>.
     </p>
   </div>
 </BaseLayout>

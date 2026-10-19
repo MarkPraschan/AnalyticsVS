@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs Fathom",
   "description": "Google Analytics 4 vs Fathom Analytics — compare free Google ecosystem analytics vs privacy-first hosted web analytics.",
-  "tools": ["google-analytics-4", "fathom"],
+  "tools": [
+    "google-analytics-4",
+    "fathom"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Choose Fathom when you want a polished, privacy-oriented traffic dashboard without GA4 complexity or cookie-heavy tracking. Choose GA4 when Google Ads, Search Console, BigQuery, or free scale matter more than simplicity and privacy posture.",
@@ -38,5 +41,7 @@
       "title": "Performance",
       "content": "We publish recorded script benchmarks for both tools. Color bands on those pages use absolute thresholds documented on [methodology](/methodology/)."
     }
-  ]
+  ],
+  "seoTitle": "Fathom vs Google Analytics 4 (2026): Privacy, Cost, Features",
+  "seoDescription": "Fathom vs Google Analytics 4 compared: cookie-free tracking vs Google's free platform. Privacy, consent banners, pricing and features side by side."
 }

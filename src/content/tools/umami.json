@@ -14,16 +14,34 @@
     "model": "monthly_events",
     "currency": "USD",
     "tiers": [
-      { "limit": 100000, "price": 0, "label": "Hobby (up to 100K events)" },
-      { "limit": 1000000, "price": 20, "label": "Pro (up to 1M events)" },
-      { "limit": 10000000, "price": 200, "label": "Business (up to 10M events)" }
+      {
+        "limit": 100000,
+        "price": 0,
+        "label": "Hobby (up to 100K events)"
+      },
+      {
+        "limit": 1000000,
+        "price": 20,
+        "label": "Pro (up to 1M events)"
+      },
+      {
+        "limit": 10000000,
+        "price": 200,
+        "label": "Business (up to 10M events)"
+      }
     ],
     "notes": "Cloud pricing as of Aug 2026. Self-hosted is free. Events include pageviews and custom events.",
     "projectLimits": {
       "included": 1,
       "plans": [
-        { "name": "Pro", "maxProjects": 10 },
-        { "name": "Business", "maxProjects": 100 }
+        {
+          "name": "Pro",
+          "maxProjects": 10
+        },
+        {
+          "name": "Business",
+          "maxProjects": 100
+        }
       ],
       "notes": "Hobby is limited to one website; Pro and Business support multiple sites."
     }
@@ -40,5 +58,7 @@
     "product_analytics": false,
     "self_hosted": true,
     "open_source": true
-  }
+  },
+  "seoTitle": "Umami Analytics Review 2026: Cloud vs Self-Hosted & Pricing",
+  "seoDescription": "Umami reviewed: open-source, privacy-first web analytics. Compare Umami Cloud pricing with self-hosting, see its limits, and how it stacks up to Plausible."
 }

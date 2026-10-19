@@ -1,0 +1,251 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonCard from '../../components/ComparisonCard.astro';
+import LearnBenchmarkMatrix from '../../components/LearnBenchmarkMatrix.astro';
+import QuickAnswerCallout from '../../components/QuickAnswerCallout.astro';
+import ToolMark from '../../components/ToolMark.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import { getCollection } from 'astro:content';
+import { getEntryUpdatedDate } from '../../lib/contentDates';
+import { getPublishedLearnPosts } from '../../lib/learn';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import { getToolsByIds } from '../../lib/tools';
+import { SITE, formatCategory, formatDate } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import type { BenchmarkEntry } from '../../lib/benchmarks';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedLearnPosts();
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const updatedDate = getEntryUpdatedDate(post);
+const pageUrl = new URL(`/learn/${post.data.slug}/`, SITE.url).href;
+const featuredImageUrl = post.data.featuredImage
+  ? new URL(post.data.featuredImage, SITE.url).href
+  : undefined;
+
+const comparisons = await getCollection('comparisons');
+const guides = await getCollection('guides');
+const benchmarks = await getCollection('benchmarks');
+const allTools = await getCollection('tools');
+
+const relatedComparisons = post.data.relatedComparisons.flatMap((id) => {
+  const comparison = comparisons.find((entry) => entry.id === id);
+  return comparison ? [comparison] : [];
+});
+const relatedGuides = post.data.relatedGuides.flatMap((slug) => {
+  const guide = guides.find((entry) => entry.data.slug === slug || entry.id === slug);
+  return guide ? [guide] : [];
+});
+const relatedTools = await getToolsByIds(post.data.relatedTools);
+const relatedComparisonCards = await Promise.all(
+  relatedComparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+
+const matrixRows = post.data.relatedBenchmarks
+  .flatMap((id) => {
+    const benchmark = benchmarks.find(
+      (entry) => entry.id === id || entry.data.slug === id,
+    ) as BenchmarkEntry | undefined;
+    if (!benchmark || benchmark.data.status !== 'recorded') return [];
+    const tool = allTools.find((entry) => entry.data.id === benchmark.data.tool);
+    const cookieless = benchmark.data.slug.includes('cookieless');
+    const label = cookieless
+      ? `${tool?.data.name ?? benchmark.data.tool} (cookieless)`
+      : (tool?.data.name ?? benchmark.data.title);
+    return [{ benchmark, tool, label }];
+  })
+  .sort(
+    (a, b) =>
+      (a.benchmark.data.metrics?.transferSizeBytes ?? Number.POSITIVE_INFINITY) -
+      (b.benchmark.data.metrics?.transferSizeBytes ?? Number.POSITIVE_INFINITY),
+  );
+
+const tocHeadings = [
+  ...(post.data.quickAnswer
+    ? [{ depth: 2 as const, slug: 'quick-answer', text: 'Quick answer' }]
+    : []),
+  ...(matrixRows.length > 0
+    ? [{ depth: 2 as const, slug: 'performance-matrix', text: 'Performance matrix' }]
+    : []),
+  ...post.data.sections.map((section) => ({
+    depth: 2 as const,
+    slug: section.id,
+    text: section.title,
+  })),
+  ...(relatedComparisons.length > 0
+    ? [{ depth: 2 as const, slug: 'related-comparisons', text: 'Related comparisons' }]
+    : []),
+  ...(relatedGuides.length > 0
+    ? [{ depth: 2 as const, slug: 'related-guides', text: 'Related guides' }]
+    : []),
+  { depth: 2, slug: 'sources', text: 'Sources & review status' },
+];
+
+const schema = [
+  buildArticleSchema({
+    title: post.data.title,
+    description: post.data.description,
+    url: pageUrl,
+    dateModified: updatedDate,
+    datePublished: post.data.publishedOn,
+    image: featuredImageUrl,
+    breadcrumbs: [],
+    speakableCssSelector: post.data.quickAnswer
+      ? '#quick-answer'
+      : `#${post.data.sections[0]?.id ?? 'sources'}`,
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Learn', url: new URL('/learn/', SITE.url).href },
+    { name: post.data.title, url: pageUrl },
+  ]),
+];
+---
+
+<ArticleLayout
+  title={post.data.title}
+  description={post.data.description}
+  lastUpdated={updatedDate}
+  ogImage={post.data.featuredImage}
+  schema={schema}
+>
+  <p class="label-mono text-gradient-secondary" slot="lead-meta">
+    {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
+  </p>
+
+  {
+    post.data.featuredImage && (
+      <figure class="review-figure w-full overflow-hidden" slot="header-media">
+        <img
+          src={post.data.featuredImage}
+          alt={post.data.title}
+          width="1024"
+          height="571"
+          class="block h-auto w-full"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
+    )
+  }
+
+  <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
+    <div class="min-w-0">
+      {
+        post.data.quickAnswer && (
+          <QuickAnswerCallout
+            content={post.data.quickAnswer}
+            pageUrl={matrixRows.length > 0 ? '#performance-matrix' : undefined}
+          />
+        )
+      }
+
+      {
+        matrixRows.length > 0 && (
+          <section id="performance-matrix" class="mt-10">
+            <h2 class="article-heading">Performance matrix</h2>
+            <p class="mt-2 text-sm text-muted">
+              Live numbers from our recorded benchmarks — not estimates. Open each report for run
+              ranges and environment notes.
+            </p>
+            <div class="mt-4">
+              <LearnBenchmarkMatrix rows={matrixRows} />
+            </div>
+          </section>
+        )
+      }
+
+      {
+        post.data.sections.map((section) => (
+          <section id={section.id} class="mt-10">
+            <h2 class="article-heading">{section.title}</h2>
+            <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(section.content)} />
+          </section>
+        ))
+      }
+
+      {
+        relatedComparisonCards.length > 0 && (
+          <section id="related-comparisons" class="mt-10">
+            <h2 class="article-heading">Related comparisons</h2>
+            <p class="mt-2 text-sm text-muted">
+              Head-to-head pages with feature matrices, pricing context, and verdicts.
+            </p>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedComparisonCards.map(({ comparison, tools }) => (
+                <li>
+                  <ComparisonCard comparison={comparison} tools={tools} heading="h3" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        relatedGuides.length > 0 && (
+          <section id="related-guides" class="mt-10">
+            <h2 class="article-heading">Related guides</h2>
+            <ul class="mt-4 grid gap-3">
+              {relatedGuides.map((guide) => (
+                <li>
+                  <a
+                    href={`/guides/${guide.data.slug}/`}
+                    class="card block no-underline transition hover:border-indigo/40"
+                  >
+                    <h3 class="font-heading text-lg font-semibold text-fg">{guide.data.title}</h3>
+                    <p class="mt-1 text-sm text-muted">{guide.data.description}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        relatedTools.length > 0 && (
+          <section class="mt-10">
+            <h2 class="article-heading">Tools mentioned</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {relatedTools.map((tool) => (
+                <li>
+                  <a
+                    href={`/tools/${tool.data.slug}/`}
+                    class="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-3 py-1.5 text-sm text-muted no-underline transition hover:border-indigo/40 hover:text-indigo"
+                  >
+                    <ToolMark tool={tool.data} size="sm" href={false} />
+                    {tool.data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <section id="sources" class="mt-10">
+        <h2 class="article-heading">Sources & review status</h2>
+        <div class="review-meta card mt-4">
+          <p class="text-sm text-muted">
+            Published {formatDate(post.data.publishedOn)} · Updated {formatDate(updatedDate)} ·{' '}
+            <a href="/methodology/">How we measure</a> · <a href="/benchmarks/">All benchmarks</a> ·{' '}
+            <a href="/learn/">More Learn articles</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <aside class="hidden lg:block">
+      <TableOfContents headings={tocHeadings} />
+    </aside>
+  </div>
+</ArticleLayout>

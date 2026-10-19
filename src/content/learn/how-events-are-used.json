@@ -1,0 +1,43 @@
+{
+  "title": "How analytics events are used in practice",
+  "slug": "how-events-are-used",
+  "description": "Practical uses for analytics events — funnels, retention, revenue, debugging — and which tool categories support each job.",
+  "publishedOn": "2026-10-17",
+  "category": "concepts",
+  "status": "draft",
+  "quickAnswer": "Teams use events to measure **funnels** (step completion), **retention** (return behavior), **revenue** (purchases tied to journeys), and **debugging** (what failed before support tickets). Pageview-only tools cover light goals; product analytics tools cover the rest.",
+  "relatedComparisons": [
+    "google-analytics-vs-posthog",
+    "posthog-vs-plausible",
+    "datafast-vs-posthog"
+  ],
+  "relatedTools": ["posthog", "google-analytics-4", "plausible", "datafast", "hotjar"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "funnels",
+      "title": "Funnels",
+      "content": "A funnel is an ordered set of events: `signup_started` → `email_verified` → `project_created`. You care about drop-off between steps, not just landing-page traffic.\n\n**Best fit:** PostHog, mature GA4 explorations. **Light goals only:** Plausible/Fathom custom events — useful for one conversion, weak for multi-step product funnels."
+    },
+    {
+      "id": "retention",
+      "title": "Retention and engagement",
+      "content": "Retention asks whether users come back and do the core action again. That requires **stable identity** and a clear \"active\" event.\n\nProduct analytics tools are built for this. Web analytics tools usually stop at returning visitors by cookie or cookieless approximation — a different question."
+    },
+    {
+      "id": "revenue",
+      "title": "Revenue and attribution",
+      "content": "Two common patterns:\n\n- **Ecommerce / purchase events** inside GA4 or PostHog\n- **Payment-provider attribution** (e.g. DataFast + Stripe) that ties revenue to the visit that led to checkout\n\nPick the pattern that matches how you sell. Indie SaaS often wants channel → paid customer; marketplaces want item-level purchase events."
+    },
+    {
+      "id": "debugging",
+      "title": "Debugging UX with events (and replay)",
+      "content": "Events tell you *that* something failed (`checkout_error`). Session replay and heatmaps help you see *why*. Hotjar and PostHog sit in that adjacent lane — heavier privacy and performance review required.\n\nInstrument the failure event first; add replay only where tickets prove you need video."
+    },
+    {
+      "id": "governance",
+      "title": "Keep the event list small",
+      "content": "Every event has a cost: engineering time, quota, and dashboard trust. Prefer a short list of decision-grade events over autocapture of every click.\n\nNew to the idea of events? Start with [Analytics Events: What They Are and Why They Matter](/learn/what-are-analytics-events/)."
+    }
+  ]
+}

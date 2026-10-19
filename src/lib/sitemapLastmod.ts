@@ -36,6 +36,11 @@ interface GuideJson {
   slug: string;
 }
 
+interface LearnJson {
+  slug: string;
+  status?: string;
+}
+
 function pagePath(relativePath: string): string {
   return path.join(projectRoot, relativePath);
 }
@@ -79,6 +84,9 @@ export async function buildSitemapLastmodMap(): Promise<Map<string, string>> {
   const benchmarks = readJsonFiles<BenchmarkJson>('src/content/benchmarks');
   const reviews = readJsonFiles<ToolReviewJson>('src/content/tool-reviews');
   const guides = readJsonFiles<GuideJson>('src/content/guides');
+  const learnPosts = readJsonFiles<LearnJson>('src/content/learn').filter(
+    (post) => post.data.status !== 'draft',
+  );
 
   const toolsById = new Map(tools.map((tool) => [tool.data.id, tool]));
   const reviewsByTool = new Map(reviews.map((review) => [review.data.tool, review]));
@@ -184,6 +192,19 @@ export async function buildSitemapLastmodMap(): Promise<Map<string, string>> {
 
   for (const guide of guides) {
     setLastmod(map, `guides/${guide.data.slug}`, getContentUpdatedDate(guide.filePath));
+  }
+
+  setLastmod(
+    map,
+    'learn',
+    getLatestContentUpdatedDate([
+      pagePath('src/pages/learn/index.astro'),
+      ...learnPosts.map((post) => post.filePath),
+    ]),
+  );
+
+  for (const post of learnPosts) {
+    setLastmod(map, `learn/${post.data.slug}`, getContentUpdatedDate(post.filePath));
   }
 
   return map;

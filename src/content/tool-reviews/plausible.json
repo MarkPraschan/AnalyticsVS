@@ -25,7 +25,7 @@
       "id": "web-analytics",
       "title": "Web analytics scope",
       "dimension": "analytics-scope",
-      "content": "Plausible covers the essentials well: **pageviews, referrers, UTM campaigns, goals, custom events**, and a realtime dashboard. You get enough to answer \"where did traffic come from?\" and \"which pages convert to signup?\" without learning a complex reporting UI.\n\nWhat you do not get: advanced funnels, user-level product analytics, predictive metrics, or native Google Marketing Platform integrations. For most content and marketing sites, that tradeoff is intentional.\n\nCustom events are supported but keep naming disciplined — each tracked interaction can matter for billing on event-based competitors, though Plausible bills on **pageviews**."
+      "content": "Plausible covers the essentials well: **pageviews, referrers, UTM campaigns, goals, custom events**, and a realtime dashboard. You get enough to answer \"where did traffic come from?\" and \"which pages convert to signup?\" without learning a complex reporting UI.\n\nWhat you do not get: advanced funnels, user-level product analytics, predictive metrics, or native Google Marketing Platform integrations. For most content and marketing sites, that tradeoff is intentional.\n\nCustom events are supported but keep naming disciplined — each tracked interaction can matter for billing on event-based competitors, though Plausible bills on **pageviews**.\n\nIf you already pay for Ahrefs SEO, compare [Ahrefs Web Analytics](/tools/ahrefs/), which is free up to 1M events per project."
     },
     {
       "id": "deployment",
@@ -62,8 +62,20 @@
     }
   ],
   "sources": [
-    { "label": "Plausible pricing", "url": "https://plausible.io/pricing", "checkedOn": "2026-08-27" },
-    { "label": "Plausible data policy", "url": "https://plausible.io/data-policy", "checkedOn": "2026-08-27" },
-    { "label": "Self-hosted docs", "url": "https://plausible.io/docs/self-hosting", "checkedOn": "2026-08-27" }
+    {
+      "label": "Plausible pricing",
+      "url": "https://plausible.io/pricing",
+      "checkedOn": "2026-08-27"
+    },
+    {
+      "label": "Plausible data policy",
+      "url": "https://plausible.io/data-policy",
+      "checkedOn": "2026-08-27"
+    },
+    {
+      "label": "Self-hosted docs",
+      "url": "https://plausible.io/docs/self-hosting",
+      "checkedOn": "2026-08-27"
+    }
   ]
 }

@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ToolMark from './ToolMark.astro';
+import {
+  benchRatingClass,
+  benchRatingLabel,
+  formatAddedMs,
+  formatKib,
+  formatLoadingMode,
+  rateDecodedBytes,
+  rateLoadingMethod,
+  rateOverheadMs,
+  rateTransferBytes,
+} from '../lib/benchmarks';
+import type { BenchmarkEntry } from '../lib/benchmarks';
+
+interface Props {
+  rows: Array<{
+    benchmark: BenchmarkEntry;
+    tool: CollectionEntry<'tools'> | undefined;
+    label: string;
+  }>;
+}
+
+const { rows } = Astro.props;
+---
+
+<div class="overflow-x-auto rounded-xl border border-border">
+  <table class="w-full min-w-[40rem] border-collapse text-left text-sm">
+    <caption class="sr-only">
+      Recorded analytics script benchmarks sorted by transfer size
+    </caption>
+    <thead>
+      <tr class="border-b border-border bg-surface-raised text-xs uppercase tracking-wide text-muted">
+        <th scope="col" class="px-3 py-3 font-medium">Tool / install</th>
+        <th scope="col" class="px-3 py-3 font-medium">Transfer</th>
+        <th scope="col" class="px-3 py-3 font-medium">Decoded</th>
+        <th scope="col" class="px-3 py-3 font-medium">Load overhead</th>
+        <th scope="col" class="px-3 py-3 font-medium">Loading</th>
+        <th scope="col" class="px-3 py-3 font-medium">Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map(({ benchmark, tool, label }) => {
+          const { data } = benchmark;
+          const transfer = data.metrics?.transferSizeBytes;
+          const decoded = data.metrics?.decodedBodySizeBytes;
+          const overhead = data.overhead?.pageLoadMs;
+          const transferRating = rateTransferBytes(transfer);
+          const decodedRating = rateDecodedBytes(decoded);
+          const overheadRating = rateOverheadMs(overhead);
+          const loadingRating = rateLoadingMethod(data.install?.loading, data.install?.renderBlocking ?? false);
+
+          return (
+            <tr class="border-b border-border last:border-b-0">
+              <th scope="row" class="px-3 py-3 font-heading font-semibold text-fg">
+                <span class="flex items-center gap-2">
+                  {tool && <ToolMark tool={tool.data} size="sm" href={false} />}
+                  <span>{label}</span>
+                </span>
+              </th>
+              <td class:list={['px-3 py-3 tabular-nums', benchRatingClass(transferRating)]}>
+                <span title={benchRatingLabel(transferRating)}>{formatKib(transfer)}</span>
+              </td>
+              <td class:list={['px-3 py-3 tabular-nums', benchRatingClass(decodedRating)]}>
+                <span title={benchRatingLabel(decodedRating)}>{formatKib(decoded)}</span>
+              </td>
+              <td class:list={['px-3 py-3 tabular-nums', benchRatingClass(overheadRating)]}>
+                <span title={benchRatingLabel(overheadRating)}>{formatAddedMs(overhead)}</span>
+              </td>
+              <td class:list={['px-3 py-3', benchRatingClass(loadingRating)]}>
+                <span title={benchRatingLabel(loadingRating)}>
+                  {formatLoadingMode(data.install?.loading)}
+                </span>
+              </td>
+              <td class="px-3 py-3">
+                <a href={`/benchmarks/${data.slug}/`} class="font-medium no-underline hover:underline">
+                  Full report →
+                </a>
+              </td>
+            </tr>
+          );
+        })
+      }
+    </tbody>
+  </table>
+</div>
+<p class="mt-3 text-xs text-muted">
+  Sorted by transfer size. Color bands match our{' '}
+  <a href="/methodology/">methodology thresholds</a>{' '}
+  (green / amber / red). Averages of 7 cold runs on the minimal-v1 Slow 4G fixture.
+</p>

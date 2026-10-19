@@ -1,7 +1,10 @@
 {
   "title": "Google Analytics vs Plausible",
   "description": "Compare Google Analytics 4 and Plausible Analytics on privacy, pricing, performance, and ease of use for websites of all sizes.",
-  "tools": ["google-analytics-4", "plausible"],
+  "tools": [
+    "google-analytics-4",
+    "plausible"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Choose Plausible if you need cookieless, GDPR-friendly analytics with a lightweight script. Choose GA4 if you need deep integration with Google Ads, BigQuery, and enterprise-scale reporting at no direct cost.",
@@ -30,5 +33,7 @@
       "title": "Performance",
       "content": "Plausible's script is designed to be lightweight. GA4's gtag.js loads additional Google libraries that can increase main-thread work. We publish recorded benchmark data on our [benchmarks hub](/benchmarks/) — never estimated numbers."
     }
-  ]
+  ],
+  "seoTitle": "Plausible vs Google Analytics 4 (2026): Privacy, Cost, Speed",
+  "seoDescription": "Plausible vs Google Analytics 4 compared: privacy and consent, pricing, script speed benchmarks and reporting depth. See which one fits your website."
 }

@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedLearnPosts } from '../../lib/learn';
+import { formatCategory, formatMonthYear } from '../../lib/site';
+
+const posts = await getPublishedLearnPosts();
+---
+
+<BaseLayout
+  title="Learn Analytics Concepts"
+  description="Educational primers on analytics events, pageviews, and how to choose tools — then follow through to comparisons, guides, and the pricing calculator."
+>
+  <div class="page-shell">
+    <header class="prose-width mb-10">
+      <h1 class="section-heading text-gradient-primary">Learn</h1>
+      <p class="page-intro mt-4">
+        Short, evergreen explainers for analytics concepts. Learn the vocabulary here, then use our{' '}
+        <a href="/compare/">comparisons</a>, <a href="/guides/">guides</a>, and{' '}
+        <a href="/tools/">tool profiles</a> when you are ready to choose.
+      </p>
+    </header>
+
+    {
+      posts.length === 0 ? (
+        <p class="text-sm text-muted" role="status">
+          No Learn articles published yet.
+        </p>
+      ) : (
+        <ul role="list" class="grid gap-4 sm:grid-cols-2">
+          {posts.map((post) => (
+            <li>
+              <a
+                href={`/learn/${post.data.slug}/`}
+                class="card flex h-full flex-col overflow-hidden p-0 no-underline transition hover:border-indigo/40"
+              >
+                {
+                  post.data.featuredImage ? (
+                    <img
+                      src={post.data.featuredImage}
+                      alt=""
+                      width="1024"
+                      height="571"
+                      class="aspect-[1024/571] w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : null
+                }
+                <div class="flex flex-1 flex-col p-5">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <p class="label-mono text-gradient-secondary">{formatCategory(post.data.category)}</p>
+                    <p class="text-xs text-muted">
+                      <time datetime={post.data.publishedOn}>{formatMonthYear(post.data.publishedOn)}</time>
+                    </p>
+                  </div>
+                  <h2 class="mt-2 font-heading text-xl font-semibold text-fg">{post.data.title}</h2>
+                  <p class="mt-2 text-sm leading-relaxed text-muted">{post.data.description}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</BaseLayout>

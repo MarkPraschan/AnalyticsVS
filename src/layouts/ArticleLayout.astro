@@ -4,43 +4,81 @@ import LastUpdated from '../components/LastUpdated.astro';
 
 interface Props {
   title: string;
+  fullTitle?: string;
   description: string;
   lastUpdated?: Date | string;
+  ogImage?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[] | null;
 }
 
-const { title, description, lastUpdated, schema } = Astro.props;
+const { title, fullTitle, description, lastUpdated, ogImage, schema } = Astro.props;
 const hasCustomHeader = Astro.slots.has('header');
 const hasLead = Astro.slots.has('lead');
+const hasLeadMeta = Astro.slots.has('lead-meta');
+const hasHeaderMedia = Astro.slots.has('header-media');
 ---
 
-<BaseLayout title={title} description={description} ogType="article" schema={schema}>
+<BaseLayout
+  title={title}
+  fullTitle={fullTitle}
+  description={description}
+  ogType="article"
+  ogImage={ogImage}
+  schema={schema}
+>
   <article class="page-shell">
     {
       hasCustomHeader ? (
         <slot name="header" />
       ) : (
         <header class="mb-10 border-b border-border pb-8">
-      <div class:list={[hasLead && 'flex items-start gap-4 sm:gap-5']}>
-        {
-          hasLead && (
-            <div class="shrink-0 pt-1">
-              <slot name="lead" />
-            </div>
-          )
-        }
-        <div class="min-w-0">
-          <h1 class="heading-lg text-gradient-primary">{title}</h1>
-          <p class="page-intro mt-4">{description}</p>
-          {
-            lastUpdated && (
-              <div class="mt-4">
-                <LastUpdated date={lastUpdated} />
+          <div
+            class:list={[
+              hasHeaderMedia &&
+                'flex flex-col gap-5 md:flex-row md:items-start md:justify-between md:gap-8',
+            ]}
+          >
+            <div
+              class:list={[
+                'min-w-0',
+                hasHeaderMedia && 'flex-1',
+                hasLead && 'flex items-start gap-4 sm:gap-5',
+              ]}
+            >
+              {
+                hasLead && (
+                  <div class="shrink-0 pt-1">
+                    <slot name="lead" />
+                  </div>
+                )
+              }
+              <div class="min-w-0">
+                {
+                  hasLeadMeta && (
+                    <div class="mb-3">
+                      <slot name="lead-meta" />
+                    </div>
+                  )
+                }
+                <h1 class="heading-lg text-gradient-primary">{title}</h1>
+                <p class="page-intro mt-4">{description}</p>
+                {
+                  lastUpdated && (
+                    <div class="mt-4">
+                      <LastUpdated date={lastUpdated} />
+                    </div>
+                  )
+                }
               </div>
-            )
-          }
-        </div>
-      </div>
+            </div>
+            {
+              hasHeaderMedia && (
+                <div class="w-full shrink-0 md:w-[min(100%,20rem)] lg:w-[22.5rem]">
+                  <slot name="header-media" />
+                </div>
+              )
+            }
+          </div>
         </header>
       )
     }

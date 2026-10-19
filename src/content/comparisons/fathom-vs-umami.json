@@ -1,7 +1,10 @@
 {
   "title": "Fathom vs Umami",
   "description": "Fathom Analytics vs Umami — compare polished hosted privacy analytics vs open-source self-hostable web analytics.",
-  "tools": ["fathom", "umami"],
+  "tools": [
+    "fathom",
+    "umami"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Fathom (hosted) is the polished managed privacy analytics product with vendor support and a higher pageview-tier floor. Umami is the open-source / self-host path (plus Umami Cloud) for developers who want ownership and lower marginal cost at scale.",
@@ -38,5 +41,7 @@
       "title": "Affiliate status",
       "content": "Fathom’s affiliate program exists but is not enabled on AnalyticsVS until signup is complete. Umami has no referral program here. See [disclosure](/disclosure/)."
     }
-  ]
+  ],
+  "seoTitle": "Fathom vs Umami 2026: Hosted vs Open-Source Analytics",
+  "seoDescription": "Fathom Analytics vs Umami compared: polished hosted privacy analytics vs open-source self-hostable tracking. Pricing, features and speed side by side."
 }

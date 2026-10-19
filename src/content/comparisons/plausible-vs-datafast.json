@@ -1,7 +1,10 @@
 {
   "title": "Plausible vs DataFast",
   "description": "Plausible vs DataFast — compare privacy-first web analytics vs revenue attribution for Stripe SaaS and indie products.",
-  "tools": ["plausible", "datafast"],
+  "tools": [
+    "plausible",
+    "datafast"
+  ],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Plausible is built for simple, privacy-first traffic analytics on marketing sites and blogs. DataFast covers similar lightweight web analytics but adds optional payment-processor revenue attribution so indie SaaS teams can see which channels drive paid customers — not just pageviews.",
@@ -42,5 +45,7 @@
       "title": "Affiliate disclosure",
       "content": "AnalyticsVS may earn a commission from DataFast visit links. Plausible has no affiliate program on our directory. Verdicts are independent — see our [disclosure](/disclosure/)."
     }
-  ]
+  ],
+  "seoTitle": "Plausible vs DataFast 2026: Privacy vs Revenue Analytics",
+  "seoDescription": "Plausible vs DataFast compared: privacy-first web analytics vs revenue attribution for Stripe SaaS. Pricing, features, script speed and which to choose."
 }

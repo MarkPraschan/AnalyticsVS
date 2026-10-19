@@ -29,13 +29,13 @@
     },
     {
       "id": "deployment",
-      "title": "Cloud vs self-hosted",
+      "title": "Matomo Cloud vs On-Premise (self-hosted)",
       "dimension": "deployment",
-      "content": "**Matomo Cloud** starts around **$23/month for 50K hits** in our directory — ops-free but paid per hit tier.**Self-hosted** is free open-source software plus your infrastructure and labor.\n\nSelf-hosting suits regulated industries and high-traffic sites where SaaS per-hit pricing would sting. Cloud suits teams that want Matomo's privacy story without running PHP/MySQL (or recommended stack) themselves.\n\nWrong choice here is the most common Matomo failure mode: self-hosting without a maintainer."
+      "content": "Matomo comes in two hosting models, and both keep 100% data ownership.\n\n| | Matomo Cloud | Matomo On-Premise |\n|---|---|---|\n| Who hosts it | Matomo, on its servers | You, on your own servers |\n| Data location | Frankfurt, Germany | Wherever you put your servers |\n| Price | from $29/month for 50K hits | Core software free (Community); paid plugin bundles from €230/month |\n| Updates, backups, security | Included: hosting, maintenance, automatic updates, security monitoring, daily backups | Your job |\n| Premium features (funnels, heatmaps, A/B tests) | Included in Cloud plans | Bought as plugins or bundles (Team, Business, Enterprise) |\n| Limits | Business plan: 30 websites, 30 team members, 24 months raw data retention, reports kept forever; over 10M hits/month is custom | Community: unlimited users and hits |\n\n**Choose Cloud** if nobody on your team wants to run PHP and a database, patch servers and test backups. **Choose On-Premise** if you need data in a specific country or on your own infrastructure, or if your traffic makes per-hit pricing expensive.\n\nYou can switch later: Matomo will import On-Premise data into Cloud or export Cloud data for self-hosting.\n\n### Matomo hosting: what self-hosting actually costs\nThe software is free, but you still pay for a server, a database, SSL, backups and someone to apply updates. Paid On-Premise bundles (per matomo.org, Oct 2026) are Team from €230/month (up to 5M hits, 4 users), Business from €1,209/month (up to 30M hits, 20 users) and Enterprise from €2,834/month (up to 100M hits, 50 users). Server sizing depends on traffic; see Matomo's [installation docs](https://matomo.org/docs/installation/) for requirements.\n\n### Backups\nMatomo Cloud includes daily backups. On-Premise, back up the database and config yourself and test restores, since a lost database means lost history."
     }
   ],
   "setupNotes": "**Typical setup (cloud):**\n\n1. Create a Matomo Cloud site or install self-hosted on your server.\n2. Add the **tracking JavaScript** snippet or use Matomo Tag Manager.\n3. Configure **goals**, ecommerce (if applicable), and user privacy settings.\n4. Set up **consent** integration if required in your regions.\n5. Validate tracking with Matomo's real-time debugger.\n\nSelf-hosted production installs need SSL, backups, and ongoing updates in addition to the tracking snippet.\n\n**Common pitfalls:** under-resourced self-hosting, misconfigured cookieless mode breaking attribution, and comparing \"hits\" to GA4 \"events\" without alignment.",
-  "pricingNotes": "Matomo Cloud uses **monthly hit tiers** from **$23/50K hits** up to **$249/10M hits** in our directory. Self-hosted software is free; you pay hosting, SSL, backups, and engineer time.\n\nPlugins and support contracts add cost on self-hosted. For tiny blogs, Plausible is cheaper and simpler. For regulated mid-size sites, Matomo's TCO can beat GA4 once legal and export work is counted.\n\nUse our [pricing calculator](/calculators/pricing/) with your hit/pageview estimates.",
+  "pricingNotes": "Matomo Cloud uses **monthly hit tiers** from **$29/50K hits** up to **$389/1M hits** in our directory. Self-hosted software is free; you pay hosting, SSL, backups, and engineer time.\n\nPlugins and support contracts add cost on self-hosted. For tiny blogs, Plausible is cheaper and simpler. For regulated mid-size sites, Matomo's TCO can beat GA4 once legal and export work is counted.\n\nUse our [pricing calculator](/calculators/pricing/) with your hit/pageview estimates.",
   "limitations": [
     "Self-hosted ops burden is non-trivial — not a weekend project at scale.",
     "UI and onboarding are less modern than Fathom/Plausible for casual users.",
@@ -53,17 +53,37 @@
       "answer": "Matomo provides tools for anonymization, consent, and EU hosting, but compliance depends on your configuration and legal context — not the logo alone."
     },
     {
-      "question": "Self-hosted or cloud?",
-      "answer": "Cloud if you lack ops staff. Self-hosted if data must stay on your infrastructure and you can maintain it."
-    },
-    {
       "question": "Matomo vs Plausible?",
       "answer": "Plausible for simplicity and speed. Matomo when you need deeper reporting, ecommerce, or self-hosting with GA-like flexibility."
+    },
+    {
+      "question": "Matomo Cloud vs On-Premise: which should I choose?",
+      "answer": "Choose Matomo Cloud if you want Matomo without running servers: hosting, updates, security monitoring and daily backups are included, and data is stored in Frankfurt, Germany. Choose On-Premise if you need full control of where data lives or have the engineering time to maintain it."
+    },
+    {
+      "question": "Is self-hosted Matomo free?",
+      "answer": "The core Matomo On-Premise software (Community) is free with unlimited users and hits, but you pay for hosting and maintenance. Premium features such as funnels, heatmaps and A/B testing are paid plugins or bundles, starting from €230/month for the Team bundle."
+    },
+    {
+      "question": "Can I move from Matomo On-Premise to Matomo Cloud later?",
+      "answer": "Yes. Matomo says it can import data collected On-Premise into Cloud, or export Cloud data for you to self-host."
     }
   ],
   "sources": [
-    { "label": "Matomo pricing", "url": "https://matomo.org/pricing/", "checkedOn": "2026-08-27" },
-    { "label": "Matomo privacy", "url": "https://matomo.org/privacy/", "checkedOn": "2026-08-27" },
-    { "label": "Self-hosting guide", "url": "https://matomo.org/docs/installation/", "checkedOn": "2026-08-27" }
+    {
+      "label": "Matomo pricing (Cloud and On-Premise)",
+      "url": "https://matomo.org/pricing/",
+      "checkedOn": "2026-10-19"
+    },
+    {
+      "label": "Matomo privacy",
+      "url": "https://matomo.org/privacy/",
+      "checkedOn": "2026-08-27"
+    },
+    {
+      "label": "Self-hosting guide",
+      "url": "https://matomo.org/docs/installation/",
+      "checkedOn": "2026-08-27"
+    }
   ]
 }

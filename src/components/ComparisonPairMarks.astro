@@ -22,7 +22,9 @@ const markSize = size === 'hero' ? 'xl' : 'md';
       aria-hidden="true"
     >
       <ToolMark tool={left.data} href={false} size={markSize} class="tool-mark-overlap" />
+      {' '}
       <span class="comparison-pair__vs">vs</span>
+      {' '}
       <ToolMark tool={right.data} href={false} size={markSize} class="tool-mark-overlap" />
     </div>
   )

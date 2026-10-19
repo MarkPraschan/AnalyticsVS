@@ -1,0 +1,38 @@
+{
+  "title": "How to set up events and revenue tracking in DataFast",
+  "slug": "setup-events-datafast",
+  "description": "Practical DataFast setup for web analytics goals and payment-linked revenue attribution — including cookieless mode trade-offs for indie SaaS.",
+  "publishedOn": "2026-10-21",
+  "category": "how-to",
+  "status": "draft",
+  "quickAnswer": "**DataFast** covers lightweight web analytics plus optional **payment attribution** (e.g. Stripe). Set up the site script first, define goals/funnels you need, then connect payments and pass visitor/session ids into checkout metadata so revenue ties back to channels.",
+  "relatedComparisons": [
+    "plausible-vs-datafast",
+    "datafast-vs-posthog",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": ["datafast", "plausible", "posthog", "google-analytics-4"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "script-first",
+      "title": "Install the script first",
+      "content": "Add DataFast via snippet, npm, or the CMS path that matches your stack. Confirm pageviews and referrers before you chase revenue joins.\n\nChoose **default vs cookieless** deliberately — cookieless can ease consent friction but changes identity. We recorded both installs: [default](/benchmarks/datafast-script-2026-09/) and [cookieless](/benchmarks/datafast-cookieless-script-2026-09/)."
+    },
+    {
+      "id": "goals",
+      "title": "Goals and funnels",
+      "content": "Define goals for the marketing actions that matter (pricing click, signup). Keep the list short. DataFast is closer to web analytics than full product analytics — see [DataFast vs PostHog](/compare/datafast-vs-posthog/) if you need deep in-app events."
+    },
+    {
+      "id": "revenue",
+      "title": "Connect revenue attribution",
+      "content": "For Stripe-style flows: connect the provider, then pass DataFast visitor/session identifiers into checkout or payment metadata so paid conversions inherit channel and referrer context.\n\nQA with a test payment and confirm the sale appears with traffic source attached. Missing metadata is the usual failure mode."
+    },
+    {
+      "id": "when-not",
+      "title": "When DataFast is the wrong event tool",
+      "content": "If your primary need is feature flags, session replay, or complex product funnels, instrument PostHog (or similar) in the app and keep DataFast for marketing + revenue questions — or pick one stack consciously.\n\nCompare cost and fit with [Plausible vs DataFast](/compare/plausible-vs-datafast/) and the [pricing calculator](/calculators/pricing/)."
+    }
+  ]
+}

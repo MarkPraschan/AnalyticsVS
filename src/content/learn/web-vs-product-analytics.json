@@ -1,0 +1,38 @@
+{
+  "title": "Web analytics vs product analytics",
+  "slug": "web-vs-product-analytics",
+  "description": "How marketing-site analytics differs from in-app product analytics — questions, data model, script weight, and which AnalyticsVS tools fit each job.",
+  "publishedOn": "2026-10-16",
+  "category": "primers",
+  "status": "draft",
+  "quickAnswer": "**Web analytics** answers how people find and browse your site (pages, referrers, campaigns). **Product analytics** answers what signed-in users do inside the product (activation, funnels, retention). Plausible and Fathom are web-first; PostHog is product-first; GA4 can span both with more setup.",
+  "relatedComparisons": [
+    "posthog-vs-plausible",
+    "google-analytics-vs-posthog",
+    "datafast-vs-posthog"
+  ],
+  "relatedTools": ["plausible", "fathom", "posthog", "google-analytics-4", "datafast"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "two-jobs",
+      "title": "Two jobs, two dashboards",
+      "content": "If your team asks \"which blog posts drive signup clicks?\" you need **web analytics**.\n\nIf your team asks \"what percent of new workspaces invite a teammate in seven days?\" you need **product analytics**.\n\nUsing one tool for both is possible (GA4, PostHog) but not free — instrumentation, privacy review, and script weight all go up. Many teams run a light web tool on the marketing site and a product tool in the app."
+    },
+    {
+      "id": "data-model",
+      "title": "Data model differences",
+      "content": "Web tools optimize for **URLs, referrers, UTM campaigns, and goals**.\n\nProduct tools optimize for **named events, user/account identity, funnels, retention, and often session replay or flags**.\n\nSee [Pageviews vs Events: Which Should You Track?](/learn/pageviews-vs-events/) for the vocabulary bridge."
+    },
+    {
+      "id": "cost-and-weight",
+      "title": "Cost and script weight",
+      "content": "Lightweight web tags (Plausible, Fathom, DataFast) sit in our light [script performance](/learn/analytics-script-performance/) cluster. PostHog’s default web SDK is much heavier because it ships product capabilities — fine in an app shell, often excessive on a brochure homepage.\n\nPrice units differ too: pageview tiers vs event volume. Check the [pricing calculator](/calculators/pricing/)."
+    },
+    {
+      "id": "pick-a-lane",
+      "title": "How to pick a lane",
+      "content": "1. List the three decisions you make weekly from analytics.\n2. If they are traffic/campaign decisions → start web-first ([Plausible vs PostHog](/compare/posthog-vs-plausible/) explains the mismatch).\n3. If they are activation/retention decisions → start product-first ([GA4 vs PostHog](/compare/google-analytics-vs-posthog/)).\n4. Add a second tool only when the first lane is clearly insufficient."
+    }
+  ]
+}

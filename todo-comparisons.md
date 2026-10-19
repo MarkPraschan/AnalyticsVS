@@ -30,7 +30,7 @@
 - [ ] GA4 alternatives for GDPR compliance
 - [ ] How to choose analytics for a SaaS startup
 - [ ] Cookieless analytics: what it means and which tools support it
-- [ ] Analytics script weight comparison (link to benchmarks)
+- [x] Analytics script weight comparison (link to benchmarks) — shipped as `/learn/analytics-script-performance/`
 - [ ] How much does [tool] cost at [X] pageviews? (calculator landing pages)
 
 ## Benchmarks — record real data (high differentiation)

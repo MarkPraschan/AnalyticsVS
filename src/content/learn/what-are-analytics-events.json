@@ -1,0 +1,44 @@
+{
+  "title": "Analytics Events: What They Are and Why They Matter",
+  "slug": "what-are-analytics-events",
+  "description": "What an analytics event is, how it differs from a pageview, and why GA4 and PostHog treat named actions as the unit of product insight.",
+  "publishedOn": "2026-10-14",
+  "category": "concepts",
+  "status": "published",
+  "featuredImage": "/learn/what-are-analytics-events.jpg",
+  "quickAnswer": "An **analytics event** is a named action you choose to record — signup, purchase, button click, or pageview. Pageviews are one kind of event; product analytics tools treat almost everything as events so you can build funnels, retention, and revenue reports.",
+  "relatedComparisons": [
+    "google-analytics-vs-posthog",
+    "posthog-vs-plausible",
+    "datafast-vs-posthog"
+  ],
+  "relatedTools": ["google-analytics-4", "posthog", "plausible", "datafast"],
+  "relatedGuides": [],
+  "sections": [
+    {
+      "id": "definition",
+      "title": "A simple definition",
+      "content": "An **event** is a discrete thing that happened that you want to measure. Clicking \"Start trial,\" completing checkout, watching a video, or loading a page can all be events.\n\nVendors disagree about defaults — some auto-capture many clicks, others only count pageviews unless you define goals — but the idea is the same: **name the action, attach useful context, analyze the counts**."
+    },
+    {
+      "id": "pageviews-are-events",
+      "title": "Pageviews are events too",
+      "content": "Classic web analytics centers on **pageviews** and sessions. Modern tools (including GA4) model a pageview as an event with properties like URL, title, and referrer.\n\nThat shift matters because the same pipeline can then track:\n\n- Marketing goals (newsletter signup)\n- Product actions (created project, invited teammate)\n- Revenue (purchase completed)\n\nIf you only need \"how many people visited /blog,\" a pageview-first tool like Plausible is enough. If you need \"how many invited a teammate within 7 days of signup,\" you need custom events — and usually a product analytics tool."
+    },
+    {
+      "id": "anatomy",
+      "title": "Anatomy of a useful event",
+      "content": "A durable event usually has:\n\n1. **A stable name** — e.g. `signup_completed`, not `click_button_3`\n2. **Properties** — plan tier, source, error code, value\n3. **Identity rules** — anonymous visitor vs logged-in user\n4. **A reason to exist** — a decision or dashboard that depends on it\n\nNaming discipline beats volume. Ten well-named events outperform a hundred noisy autocaptured clicks you never trust."
+    },
+    {
+      "id": "where-tools-differ",
+      "title": "Where tools differ",
+      "content": "**GA4** is event-based by design and free at high volume, with deep Google Ads ties. Setup and reporting take learning.\n\n**PostHog** is built for product events, funnels, replay, and flags — stronger inside SaaS apps, heavier script and instrumentation tax.\n\n**Plausible / Fathom** emphasize pageviews and simple goals; custom events exist but the product stays marketing-site focused.\n\n**DataFast** tracks traffic and optional payment-linked revenue events for indie SaaS — different primary question than product funnels.\n\nRead the head-to-heads when you are choosing a stack; this primer is only the vocabulary."
+    },
+    {
+      "id": "next-steps",
+      "title": "What to do next",
+      "content": "1. List the 5–10 actions that change a business decision (not every click).\n2. Decide whether you need **web** analytics, **product** analytics, or both.\n3. Compare tools that match that job — then check [pricing](/calculators/pricing/) and [recorded script benchmarks](/benchmarks/).\n\nFor the vocabulary gap between counting pages and counting actions, see [Pageviews vs Events: Which Should You Track?](/learn/pageviews-vs-events/)."
+    }
+  ]
+}

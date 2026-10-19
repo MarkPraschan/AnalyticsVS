@@ -13,7 +13,7 @@
     "model": "free",
     "currency": "USD",
     "freeLimit": 10000000,
-    "notes": "Free for most sites. GA4 360 starts around $50,000/year for enterprise contracts.",
+    "notes": "Free for most sites. Google Analytics 360 is a custom-priced annual contract (contact Google or a Sales Partner).",
     "projectLimits": {
       "unlimited": true,
       "notes": "Standard GA4 remains free regardless of how many properties you track."
@@ -30,5 +30,7 @@
     "ab_testing": false,
     "product_analytics": true,
     "self_hosted": false
-  }
+  },
+  "seoTitle": "Google Analytics 4 Pricing 2026: Free GA4 vs GA4 360 Cost",
+  "seoDescription": "How much does Google Analytics cost? GA4 standard is free; GA4 360 is a sales contract. See the limits, hidden costs and when paying actually makes sense."
 }

@@ -81,6 +81,10 @@ const tools = defineCollection({
     slug: z.string(),
     category: z.string(),
     tagline: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().min(140).max(160).optional(),
+    /** Tool ids to link when this profile has no comparison pages yet. */
+    fallbackRelated: z.array(z.string()).default([]),
     website: z.string().url(),
     brandColor: z.string(),
     logo: z.string().optional(),
@@ -106,6 +110,8 @@ const comparisons = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(60).optional(),
+    seoDescription: z.string().min(140).max(160).optional(),
     tools: z.array(z.string()).length(2),
     category: z.string(),
     winner: z.string().nullable().optional(),
@@ -252,4 +258,32 @@ const guides = defineCollection({
   }),
 });
 
-export const collections = { tools, comparisons, benchmarks, toolReviews, guides };
+const learnSectionSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  content: z.string(),
+});
+
+const learn = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/learn' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    /** ISO date (YYYY-MM-DD) used for listing sort and byline. */
+    publishedOn: z.string(),
+    category: z.string(),
+    status: z.enum(['draft', 'published']).default('published'),
+    /** Public path to featured/hero image (also used for og:image when set). */
+    featuredImage: z.string().optional(),
+    quickAnswer: z.string().optional(),
+    /** Benchmark content ids (filename without .json) for live matrix tables. */
+    relatedBenchmarks: z.array(z.string()).default([]),
+    relatedComparisons: z.array(z.string()).default([]),
+    relatedTools: z.array(z.string()).default([]),
+    relatedGuides: z.array(z.string()).default([]),
+    sections: z.array(learnSectionSchema).min(1),
+  }),
+});
+
+export const collections = { tools, comparisons, benchmarks, toolReviews, guides, learn };

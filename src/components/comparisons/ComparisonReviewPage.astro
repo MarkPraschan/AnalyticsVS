@@ -87,7 +87,12 @@ const schema = [
 ].filter((item): item is Record<string, unknown> => item != null);
 ---
 
-<ArticleLayout title={comparison.data.title} description={comparison.data.description} schema={schema}>
+<ArticleLayout
+  title={comparison.data.title}
+  fullTitle={comparison.data.seoTitle}
+  description={comparison.data.seoDescription ?? comparison.data.description}
+  schema={schema}
+>
   <ComparisonProfileHeader
     title={comparison.data.title}
     description={comparison.data.description}

@@ -15,10 +15,26 @@
     "model": "tiered_sessions",
     "currency": "USD",
     "tiers": [
-      { "limit": 35, "price": 0, "label": "Free (35 daily sessions)" },
-      { "limit": 100, "price": 39, "label": "Plus" },
-      { "limit": 500, "price": 99, "label": "Business" },
-      { "limit": 2000, "price": 213, "label": "Business scale" }
+      {
+        "limit": 35,
+        "price": 0,
+        "label": "Free (35 daily sessions)"
+      },
+      {
+        "limit": 100,
+        "price": 39,
+        "label": "Plus"
+      },
+      {
+        "limit": 500,
+        "price": 99,
+        "label": "Business"
+      },
+      {
+        "limit": 2000,
+        "price": 213,
+        "label": "Business scale"
+      }
     ],
     "notes": "Based on daily session recordings. Pricing as of Aug 2026 — verify on vendor site.",
     "projectLimits": {
@@ -38,5 +54,7 @@
     "ab_testing": false,
     "product_analytics": false,
     "self_hosted": false
-  }
+  },
+  "seoTitle": "Hotjar Pricing & Review 2026: Plans, Limits, Alternatives",
+  "seoDescription": "Hotjar pricing explained: free and paid plans, daily session limits, heatmaps and recordings, plus when PostHog or Matomo is a better fit for your team."
 }

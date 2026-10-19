@@ -1,7 +1,10 @@
 {
   "title": "PostHog vs Plausible",
   "description": "PostHog vs Plausible — compare product analytics with flags and replay vs simple privacy-first web analytics.",
-  "tools": ["posthog", "plausible"],
+  "tools": [
+    "posthog",
+    "plausible"
+  ],
   "category": "product-analytics",
   "winner": null,
   "verdict": "PostHog is a product analytics suite for SaaS teams that need events, funnels, retention, session replay, feature flags, and experiments. Plausible is a privacy-first web analytics tool for marketing sites that need clean traffic and goal reports without GA4 complexity.",
@@ -38,5 +41,7 @@
       "title": "Self-hosting",
       "content": "Both offer self-hosted paths. Plausible’s self-hosted edition is a lighter ops footprint than full PostHog (ClickHouse/Kafka class). Most startups should start on each vendor’s cloud and revisit self-hosting for compliance or cost later."
     }
-  ]
+  ],
+  "seoTitle": "PostHog vs Plausible 2026: Product vs Privacy Analytics",
+  "seoDescription": "PostHog vs Plausible compared: product analytics with replay and flags vs simple cookie-free web analytics. Pricing, privacy, speed and when to use each."
 }

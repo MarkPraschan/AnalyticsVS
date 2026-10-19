@@ -12,7 +12,8 @@ const affiliateSchema = z.object({
 
 const pricingTierSchema = z.object({
   limit: z.number(),
-  price: z.number(),
+  /** Null means the vendor publishes this band as contact-only. */
+  price: z.number().nullable(),
   label: z.string().optional(),
 });
 

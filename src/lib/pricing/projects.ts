@@ -44,8 +44,7 @@ export const TOOL_PROJECT_CONFIGS: Record<string, ToolProjectConfig> = {
     plans: [{ name: 'Growth', maxProjects: 30 }],
   },
   matomo: {
-    includedProjects: 1,
-    perSiteMultiplier: true,
+    includedProjects: 30,
   },
   ahrefs: {
     includedProjects: 1,

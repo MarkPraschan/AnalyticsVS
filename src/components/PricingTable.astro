@@ -25,9 +25,11 @@ const { pricing } = tool.data;
           {pricing.tiers.map((tier) => (
             <tr>
               <td>{tier.label ?? '—'}</td>
-              <td class="font-mono text-indigo">{tier.limit.toLocaleString()}</td>
+              <td class="font-mono text-indigo">
+                {tier.price == null ? `${tier.limit.toLocaleString()}+` : tier.limit.toLocaleString()}
+              </td>
               <td class="font-semibold text-fg">
-                {formatCurrency(tier.price, pricing.currency)}
+                {tier.price == null ? 'Contact' : formatCurrency(tier.price, pricing.currency)}
               </td>
             </tr>
           ))}

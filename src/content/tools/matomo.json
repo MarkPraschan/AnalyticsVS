@@ -16,35 +16,50 @@
     "tiers": [
       {
         "limit": 50000,
-        "price": 29,
+        "price": 26,
         "label": "Cloud · up to 50K hits"
       },
       {
         "limit": 100000,
-        "price": 49,
+        "price": 42,
         "label": "Cloud · up to 100K hits"
       },
       {
-        "limit": 250000,
-        "price": 99,
-        "label": "Cloud · up to 250K hits"
+        "limit": 300000,
+        "price": 85,
+        "label": "Cloud · up to 300K hits"
       },
       {
-        "limit": 500000,
-        "price": 189,
-        "label": "Cloud · up to 500K hits"
+        "limit": 600000,
+        "price": 139,
+        "label": "Cloud · up to 600K hits"
       },
       {
         "limit": 1000000,
-        "price": 389,
+        "price": 204,
         "label": "Cloud · up to 1M hits"
+      },
+      {
+        "limit": 2000000,
+        "price": 399,
+        "label": "Cloud · up to 2M hits"
+      },
+      {
+        "limit": 5000000,
+        "price": 975,
+        "label": "Cloud · up to 5M hits"
+      },
+      {
+        "limit": 10000000,
+        "price": null,
+        "label": "Cloud · 10M+ hits"
       }
     ],
-    "notes": "Matomo Cloud pricing as of Oct 2026. Self-hosted is free.",
+    "notes": "Matomo Cloud pricing as of Oct 2026. 10M+ hits is contact. Self-hosted is free.",
     "projectLimits": {
-      "included": 1,
-      "billingModel": "per_site",
-      "notes": "Matomo Cloud subscriptions are typically per site. Self-hosted has no site cap."
+      "included": 30,
+      "billingModel": "tiered",
+      "notes": "A Matomo Cloud plan includes up to 30 websites. Enterprise allowances are custom. Self-hosted has no site cap."
     }
   },
   "features": {

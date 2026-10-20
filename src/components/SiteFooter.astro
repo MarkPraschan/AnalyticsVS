@@ -20,10 +20,11 @@ const { showBetterLaunch = false } = Astro.props;
         </p>
         {
           showBetterLaunch && (
-            <p class="mt-5">
+            <p class="mt-5 flex flex-wrap items-center gap-3">
               <a
                 href="https://www.betterlaunch.co/product/analyticsvs"
                 class="inline-block no-underline"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
@@ -31,6 +32,21 @@ const { showBetterLaunch = false } = Astro.props;
                   alt="View AnalyticsVS on Better Launch"
                   width="200"
                   height="56"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <a
+                href="https://bricklaun.ch/dev-tools/analyticsvs"
+                class="inline-block no-underline"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="https://bricklaun.ch/badge/brick-launch-badge-a-light.svg"
+                  alt="Featured on Brick Launch"
+                  width="140"
+                  height="54"
                   loading="lazy"
                   decoding="async"
                 />

@@ -85,6 +85,10 @@
     line-height: 1.6;
   }
 
+  tbody {
+    background-color: var(--color-base);
+  }
+
   p {
     text-wrap: pretty;
   }

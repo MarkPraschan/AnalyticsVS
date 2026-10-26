@@ -4,15 +4,22 @@
   "description": "How custom events / goals work in Plausible and Fathom — when they are enough, how to keep naming simple, and when to graduate to GA4 or PostHog.",
   "publishedOn": "2026-10-20",
   "category": "how-to",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "**Plausible** and **Fathom** are pageview-first. Add a handful of **custom events or goals** for key CTAs (signup, contact, download). They will not replace product funnels — and that is intentional for privacy-first marketing sites.",
   "relatedComparisons": [
     "plausible-vs-fathom",
     "google-analytics-vs-plausible",
     "posthog-vs-plausible"
   ],
-  "relatedTools": ["plausible", "fathom", "google-analytics-4", "posthog"],
-  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "relatedTools": [
+    "plausible",
+    "fathom",
+    "google-analytics-4",
+    "posthog"
+  ],
+  "relatedGuides": [
+    "best-privacy-first-analytics-tools"
+  ],
   "sections": [
     {
       "id": "goals-not-taxonomies",

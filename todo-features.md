@@ -48,13 +48,6 @@ Educational analytics articles that sit above comparisons/tools — teach concep
 - [x] Analytics Events: What They Are and Why They Matter
 - [x] Pageviews vs Events: Which Should You Track?
 - [x] Analytics Script Performance Benchmarks (2026)
-- [ ] **Scheduled drafts (publish daily 9:00 America/New_York)** — flip `status: draft` → `published` when `publishedOn` is due, then push `master`:
-  - [ ] 2026-10-15 — Cookieless analytics (`cookieless-analytics`)
-  - [ ] 2026-10-16 — Web vs product analytics (`web-vs-product-analytics`)
-  - [ ] 2026-10-17 — How events are used (`how-events-are-used`)
-  - [ ] 2026-10-18 — Set up events in GA4 (`setup-events-ga4`)
-  - [ ] 2026-10-19 — Set up events in PostHog (`setup-events-posthog`)
-  - [ ] 2026-10-20 — Set up events in Plausible & Fathom (`setup-events-plausible-fathom`)
-  - [ ] 2026-10-21 — Set up events / revenue in DataFast (`setup-events-datafast`)
+- [x] **Scheduled Learn posts marked published** (dates 2026-10-15 through 2026-10-21). Still need a commit and push before they are on the live site.
 
 Notes: prefer evergreen + “last updated”; cross-link heavily to `/tools/`, `/compare/`, `/guides/`, `/benchmarks/`, and the pricing calculator. Listing only shows `status: published` with `publishedOn` ≤ today (ET).

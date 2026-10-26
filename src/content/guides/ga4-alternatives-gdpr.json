@@ -1,0 +1,37 @@
+{
+  "title": "GA4 alternatives for GDPR",
+  "slug": "ga4-alternatives-gdpr",
+  "description": "A shortlist of Google Analytics 4 alternatives when EU privacy, consent banners, or data residency are the reason you are switching.",
+  "category": "privacy-analytics",
+  "relatedComparisons": [
+    "google-analytics-vs-plausible",
+    "google-analytics-vs-fathom",
+    "google-analytics-vs-umami",
+    "google-analytics-vs-matomo",
+    "matomo-vs-plausible",
+    "plausible-vs-fathom"
+  ],
+  "relatedTools": ["plausible", "fathom", "umami", "matomo", "google-analytics-4"],
+  "sections": [
+    {
+      "id": "why-teams-leave",
+      "title": "Why teams look past GA4",
+      "content": "GA4 is free and deep, and it is tied to Google's advertising stack. Teams leave when they want fewer consent prompts, data stored outside Google, or a dashboard someone will actually open.\n\nThis page is a shortlist, not legal advice. Confirm the setup with counsel for your visitors and your contracts."
+    },
+    {
+      "id": "shortlist",
+      "title": "Four alternatives that cover most switches",
+      "content": "**Plausible** and **Fathom** — hosted, cookieless web analytics for blogs and marketing sites. Start here if you need pages, referrers, and a few goals. Compare them in [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n**Umami** — open-source web analytics you can self-host. A fit when you want a simple dashboard and you are willing to run it. See [Google Analytics vs Umami](/compare/google-analytics-vs-umami/).\n\n**Matomo** — the closest GA-like suite, as Matomo Cloud or On-Premise. Choose it when ecommerce, custom dimensions, or data on your own servers matter. See [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/) and [Matomo vs Plausible](/compare/matomo-vs-plausible/)."
+    },
+    {
+      "id": "how-to-pick",
+      "title": "How to pick in one sitting",
+      "content": "1. If you still need Google Ads attribution, keep GA4 for ads and add a privacy-first tool for the public site — or accept the consent work and stay on GA4.\n2. If the site is content or marketing only, pick Plausible or Fathom and estimate cost in the [pricing calculator](/calculators/pricing/).\n3. If the data must live on your servers, shortlist Umami or Matomo On-Premise.\n4. Read the matching comparison before you migrate. The verdicts and pricing context stay on those pages."
+    },
+    {
+      "id": "what-you-give-up",
+      "title": "What you give up",
+      "content": "Lightweight alternatives do not include BigQuery export, Google Ads native attribution, or GA4's exploration depth. Matomo gets closer on reporting and still will not be a Google Ads product.\n\nScript weight is a separate decision. Our recorded numbers, including Umami, are in the [script performance matrix](/learn/analytics-script-performance/). Matomo is not in that matrix until we record it."
+    }
+  ]
+}

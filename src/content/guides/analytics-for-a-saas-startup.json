@@ -1,0 +1,41 @@
+{
+  "title": "How to choose analytics for a SaaS startup",
+  "slug": "analytics-for-a-saas-startup",
+  "description": "A practical way for a SaaS startup to choose analytics: marketing site, product app, and revenue — without installing three tools on day one.",
+  "category": "product-analytics",
+  "relatedComparisons": [
+    "posthog-vs-plausible",
+    "google-analytics-vs-posthog",
+    "plausible-vs-datafast",
+    "datafast-vs-posthog",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": ["plausible", "fathom", "posthog", "google-analytics-4", "datafast"],
+  "sections": [
+    {
+      "id": "three-questions",
+      "title": "Three questions, not one tool",
+      "content": "A SaaS startup usually has three different questions:\n\n1. **Marketing** — which page or channel brought the visit?\n2. **Product** — did the new account do the thing that predicts they stay?\n3. **Revenue** — which channel produced paid customers?\n\nOne tool can cover more than one question. Most early teams still overload a single install and then trust none of the charts."
+    },
+    {
+      "id": "marketing-site",
+      "title": "Start with the marketing site",
+      "content": "If the site is a homepage, docs, and a signup page, a pageview tool is enough. **Plausible** or **Fathom** answer referrers, campaigns, and a signup goal without a heavy script.\n\nAdd **GA4** only if Google Ads or Search attribution is a weekly decision. Read [PostHog vs Plausible](/compare/posthog-vs-plausible/) before you put a product SDK on the marketing homepage — our recorded PostHog script is in a much heavier band than Plausible."
+    },
+    {
+      "id": "product",
+      "title": "Add product analytics when accounts exist",
+      "content": "Once people sign in, you need a few named events: signup completed, project created, invite sent, upgrade clicked. **PostHog** is built for that, including funnels and flags. **GA4** can do events too, with more reporting overhead.\n\nKeep the event list under ten until a chart changes a decision. The vocabulary is in [What are analytics events?](/learn/what-are-analytics-events/) and [Pageviews vs events](/learn/pageviews-vs-events/)."
+    },
+    {
+      "id": "revenue",
+      "title": "Connect revenue when Stripe is the scoreboard",
+      "content": "If the question is \"which blog post or ad led to a paid customer,\" look at **DataFast**'s payment attribution or a deliberate ecommerce setup in GA4. DataFast is not a replacement for in-app funnels. Compare [Plausible vs DataFast](/compare/plausible-vs-datafast/) and [DataFast vs PostHog](/compare/datafast-vs-posthog/).\n\nPrice the shortlist at your traffic in the [pricing calculator](/calculators/pricing/) before you add a second subscription."
+    },
+    {
+      "id": "default-stack",
+      "title": "A default stack",
+      "content": "Marketing site: Plausible or Fathom. Product app: PostHog, once you have logged-in users. Revenue: DataFast or GA4 ecommerce, when payments are the metric that matters.\n\nSkip the third tool until the first two leave a question you cannot answer. Heatmaps and recordings (Hotjar, or PostHog replay) come after a specific page is failing, not on day one."
+    }
+  ]
+}

@@ -4,14 +4,18 @@
   "description": "A practical GA4 event setup primer — enhanced measurement, custom events, key events (conversions), and common pitfalls — without dumping full vendor docs.",
   "publishedOn": "2026-10-18",
   "category": "how-to",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "In **GA4**, start with **enhanced measurement** for automatic pageviews/scrolls, then add **custom events** only for decisions you care about. Mark critical ones as **key events** (conversions). Prefer a short, named taxonomy over dozens of noisy tags.",
   "relatedComparisons": [
     "google-analytics-vs-plausible",
     "google-analytics-vs-posthog",
     "google-analytics-vs-matomo"
   ],
-  "relatedTools": ["google-analytics-4", "plausible", "posthog"],
+  "relatedTools": [
+    "google-analytics-4",
+    "plausible",
+    "posthog"
+  ],
   "relatedGuides": [],
   "sections": [
     {

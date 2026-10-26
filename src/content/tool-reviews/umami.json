@@ -41,7 +41,7 @@
     "Feature set is intentionally narrow — no replay, flags, or deep funnels.",
     "No official Google Ads integration or BigQuery export.",
     "Enterprise support and compliance documentation lighter than Matomo Cloud.",
-    "Script performance benchmark pending on AnalyticsVS."
+    "See the recorded Umami script benchmark for transfer size and Slow 4G load overhead."
   ],
   "faq": [
     {

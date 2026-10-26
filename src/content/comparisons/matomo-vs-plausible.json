@@ -1,0 +1,36 @@
+{
+  "title": "Matomo vs Plausible",
+  "description": "Matomo vs Plausible Analytics — self-hosted depth and data ownership versus hosted, cookieless simplicity.",
+  "tools": ["matomo", "plausible"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Choose Plausible when you want hosted, cookieless web analytics with a short setup and predictable pageview pricing. Choose Matomo when you need GA-like reporting depth, data residency, or a self-hosted install you control.",
+  "quickAnswer": "**Plausible** is the better fit for a marketing site that needs simple traffic reports without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites, or the data on infrastructure you own.",
+  "bottomLine": "Most small sites should start with **Plausible**. Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. Matomo Cloud starts at $26/month for 50K hits; Plausible starts at $9/month for 10K pageviews. Self-hosted Matomo software is free, plus hosting and maintenance.",
+  "faq": [
+    {
+      "question": "Is Matomo more private than Plausible?",
+      "answer": "Both can be configured as privacy-friendly alternatives to GA4. Plausible is cookieless by default. Matomo supports cookieless and anonymization options, and self-hosting keeps the database on your servers. Privacy depends on the settings you turn on, not the brand name alone."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "Plausible is usually cheaper for a single small site: $9/month for 10K pageviews and $19/month for 100K. Matomo Cloud starts at $26/month for 50K hits and includes up to 30 websites. Self-hosted Matomo has no license fee; you pay for the server and the time to keep it updated."
+    },
+    {
+      "question": "Can I self-host both?",
+      "answer": "Yes. Plausible has an open-source self-hosted edition. Matomo On-Premise is the product most teams mean by self-hosted analytics. Matomo Cloud is the managed alternative if you want ownership without operating PHP and a database."
+    },
+    {
+      "question": "Which replaces Google Analytics more completely?",
+      "answer": "Matomo. It covers ecommerce, goals, funnels, custom dimensions, and a tag manager. Plausible covers pageviews, referrers, campaigns, and a short list of goals. Use Plausible when that shorter list is the job."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "What you are actually choosing",
+      "content": "This is not two versions of the same dashboard. Plausible is a lightweight hosted analytics product. Matomo is a full web analytics suite you can run yourself or buy as cloud. If the weekly question is \"which pages and channels brought traffic,\" Plausible is enough. If the weekly question is \"ecommerce, custom dimensions, and data that never leaves our servers,\" look at Matomo."
+    }
+  ],
+  "seoTitle": "Matomo vs Plausible (2026): Hosting, Privacy, Price",
+  "seoDescription": "Matomo vs Plausible compared: self-hosting and data ownership versus cookieless hosted analytics, with pricing and when each privacy-first tool wins."
+}

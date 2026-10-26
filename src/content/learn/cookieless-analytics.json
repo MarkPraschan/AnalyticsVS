@@ -4,15 +4,23 @@
   "description": "What cookieless analytics actually changes — tracking method, consent banners, accuracy trade-offs — and which tools on AnalyticsVS support it.",
   "publishedOn": "2026-10-15",
   "category": "primers",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "**Cookieless analytics** measures traffic without storing a long-lived cookie on the visitor’s device. That often reduces consent-banner friction in the EU, but it can also change how returning visitors and sessions are counted. Plausible, Fathom, Umami, and DataFast’s cookieless mode sit in this lane; GA4 and PostHog typically rely on cookies or similar storage for full identity.",
   "relatedComparisons": [
     "plausible-vs-fathom",
     "google-analytics-vs-plausible",
     "plausible-vs-datafast"
   ],
-  "relatedTools": ["plausible", "fathom", "umami", "datafast", "google-analytics-4"],
-  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "relatedTools": [
+    "plausible",
+    "fathom",
+    "umami",
+    "datafast",
+    "google-analytics-4"
+  ],
+  "relatedGuides": [
+    "best-privacy-first-analytics-tools"
+  ],
   "sections": [
     {
       "id": "definition",

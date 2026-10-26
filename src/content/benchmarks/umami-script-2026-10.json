@@ -1,0 +1,86 @@
+{
+  "tool": "umami",
+  "testDate": "2026-10-26",
+  "slug": "umami-script-2026-10",
+  "title": "Umami Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "defer",
+    "renderBlocking": false
+  },
+  "baseline": {
+    "pageLoadMs": 182,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 182,
+        "min": 174,
+        "max": 188
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 245,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 244,
+        "min": 207,
+        "max": 272
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "metrics": {
+    "transferSizeBytes": 3457,
+    "decodedBodySizeBytes": 4810,
+    "mainThreadBlockingMs": 0,
+    "pageLoadMs": 427,
+    "scriptLoadMs": 423
+  },
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 3457,
+      "min": 3456,
+      "max": 3459
+    },
+    "decodedBodySizeBytes": {
+      "mean": 4810,
+      "min": 4810,
+      "max": 4810
+    },
+    "pageLoadMs": {
+      "mean": 427,
+      "min": 395,
+      "max": 458
+    },
+    "scriptLoadMs": {
+      "mean": 423,
+      "min": 392,
+      "max": 455
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "rawResultsUrl": null
+}

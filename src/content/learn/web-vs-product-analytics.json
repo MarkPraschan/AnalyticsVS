@@ -4,14 +4,20 @@
   "description": "How marketing-site analytics differs from in-app product analytics — questions, data model, script weight, and which AnalyticsVS tools fit each job.",
   "publishedOn": "2026-10-16",
   "category": "primers",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "**Web analytics** answers how people find and browse your site (pages, referrers, campaigns). **Product analytics** answers what signed-in users do inside the product (activation, funnels, retention). Plausible and Fathom are web-first; PostHog is product-first; GA4 can span both with more setup.",
   "relatedComparisons": [
     "posthog-vs-plausible",
     "google-analytics-vs-posthog",
     "datafast-vs-posthog"
   ],
-  "relatedTools": ["plausible", "fathom", "posthog", "google-analytics-4", "datafast"],
+  "relatedTools": [
+    "plausible",
+    "fathom",
+    "posthog",
+    "google-analytics-4",
+    "datafast"
+  ],
   "relatedGuides": [],
   "sections": [
     {

@@ -4,14 +4,19 @@
   "description": "Practical DataFast setup for web analytics goals and payment-linked revenue attribution — including cookieless mode trade-offs for indie SaaS.",
   "publishedOn": "2026-10-21",
   "category": "how-to",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "**DataFast** covers lightweight web analytics plus optional **payment attribution** (e.g. Stripe). Set up the site script first, define goals/funnels you need, then connect payments and pass visitor/session ids into checkout metadata so revenue ties back to channels.",
   "relatedComparisons": [
     "plausible-vs-datafast",
     "datafast-vs-posthog",
     "google-analytics-vs-datafast"
   ],
-  "relatedTools": ["datafast", "plausible", "posthog", "google-analytics-4"],
+  "relatedTools": [
+    "datafast",
+    "plausible",
+    "posthog",
+    "google-analytics-4"
+  ],
   "relatedGuides": [],
   "sections": [
     {

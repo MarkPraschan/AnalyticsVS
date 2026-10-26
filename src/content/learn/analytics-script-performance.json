@@ -1,17 +1,18 @@
 {
   "title": "Analytics Script Performance Benchmarks (2026)",
   "slug": "analytics-script-performance",
-  "description": "Recorded transfer size, decoded weight, and Slow 4G page-load overhead for Fathom, Plausible, DataFast, PostHog, and GA4 — measured on AnalyticsVS controlled fixtures, never estimated.",
+  "description": "Recorded transfer size, decoded weight, and Slow 4G page-load overhead for Fathom, Plausible, Umami, DataFast, PostHog, and GA4 — measured on AnalyticsVS controlled fixtures, never estimated.",
   "publishedOn": "2026-10-14",
   "category": "performance",
   "status": "published",
   "featuredImage": "/learn/analytics-script-performance.jpg",
-  "quickAnswer": "**Six recorded AnalyticsVS benchmarks** put Fathom, Plausible, and DataFast in a light cluster (~**2.7–6.4 KiB** transfer, about **+230–260 ms** Slow 4G load overhead) and GA4 / PostHog in a heavy cluster (~**144–171 KiB** transfer, about **+1.2–1.3 s** overhead). Decoded size is what the browser parses — and it is much larger than the download. Full run reports stay on AnalyticsVS; we never publish estimated script weights.",
+  "quickAnswer": "**Seven recorded AnalyticsVS benchmarks** put Fathom, Plausible, Umami, and DataFast in a light cluster (~**2.7–6.4 KiB** transfer, about **+230–260 ms** Slow 4G load overhead) and GA4 / PostHog in a heavy cluster (~**144–171 KiB** transfer, about **+1.2–1.3 s** overhead). Decoded size is what the browser parses — and it is much larger than the download. Full run reports stay on AnalyticsVS; we never publish estimated script weights.",
   "relatedBenchmarks": [
     "fathom-script-2026-10",
     "plausible-script-2026-10",
     "datafast-cookieless-script-2026-09",
     "datafast-script-2026-09",
+    "umami-script-2026-10",
     "posthog-script-2026-10",
     "google-analytics-4-script-2026-09"
   ],
@@ -27,7 +28,8 @@
     "plausible",
     "datafast",
     "posthog",
-    "google-analytics-4"
+    "google-analytics-4",
+    "umami"
   ],
   "relatedGuides": ["best-privacy-first-analytics-tools"],
   "sections": [
@@ -49,17 +51,17 @@
     {
       "id": "reading-overhead",
       "title": "How to read load overhead",
-      "content": "On an empty test page, lightweight tools (Fathom, Plausible, DataFast default and cookieless) cluster around **+230–260 ms** of page-load overhead under Slow 4G. GA4 lands around **+1.16 s**. PostHog lands around **+1.29 s**.\n\nOn a real site those milliseconds do not stack additively on top of every other asset — downloads overlap. Still, the empty-page overhead is a clean lower bound for \"how expensive is this tag in isolation?\"\n\nAll six installs we recorded so far are **async or defer** and **non-blocking**. Script *weight* and *initialization work* are the differentiators, not classic parser-blocking snippets."
+      "content": "On an empty test page, lightweight tools (Fathom, Plausible, Umami, DataFast default and cookieless) cluster around **+230–260 ms** of page-load overhead under Slow 4G. GA4 lands around **+1.16 s**. PostHog lands around **+1.29 s**.\n\nOn a real site those milliseconds do not stack additively on top of every other asset — downloads overlap. Still, the empty-page overhead is a clean lower bound for \"how expensive is this tag in isolation?\"\n\nEvery install we have recorded so far is **async or defer** and **non-blocking**. Script *weight* and *initialization work* are the differentiators, not classic parser-blocking snippets."
     },
     {
       "id": "choosing-a-tool",
       "title": "Choosing a tool with performance in mind",
-      "content": "**If you need simple web analytics** (pages, referrers, goals) and care about script weight: start with [Fathom](/tools/fathom/), [Plausible](/tools/plausible/), or [DataFast](/tools/datafast/) — then compare features and price, not only bytes.\n\n**If you need product analytics, flags, or replay:** [PostHog](/tools/posthog/) is a different category. Expect a heavier script; decide whether that capability is worth the cost on marketing pages vs app routes.\n\n**If you need Google Ads / GA4 ecosystem depth:** [Google Analytics 4](/tools/google-analytics-4/) remains the default — with a heavier footprint and more compliance work.\n\nNext step: open the head-to-head pages for your shortlist, then run your traffic through the [pricing calculator](/calculators/pricing/)."
+      "content": "**If you need simple web analytics** (pages, referrers, goals) and care about script weight: start with [Fathom](/tools/fathom/), [Plausible](/tools/plausible/), [Umami](/tools/umami/), or [DataFast](/tools/datafast/) — then compare features and price, not only bytes.\n\n**If you need product analytics, flags, or replay:** [PostHog](/tools/posthog/) is a different category. Expect a heavier script; decide whether that capability is worth the cost on marketing pages vs app routes.\n\n**If you need Google Ads / GA4 ecosystem depth:** [Google Analytics 4](/tools/google-analytics-4/) remains the default — with a heavier footprint and more compliance work.\n\nNext step: open the head-to-head pages for your shortlist, then run your traffic through the [pricing calculator](/calculators/pricing/)."
     },
     {
       "id": "whats-next",
       "title": "What we are measuring next",
-      "content": "This matrix only includes tools with **recorded** AnalyticsVS benchmarks. Umami, Matomo, and additional install variants are on the backlog. When those runs publish, this page updates — we do not fill gaps with estimates.\n\nFor per-run charts, environment notes, and raw ranges, open each linked benchmark report from the matrix above."
+      "content": "This matrix only includes tools with **recorded** AnalyticsVS benchmarks. Matomo and additional install variants are still on the backlog. When those runs publish, this page updates — we do not fill gaps with estimates.\n\nFor per-run charts, environment notes, and raw ranges, open each linked benchmark report from the matrix above."
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "title": "Google Analytics vs Hotjar",
+  "description": "Google Analytics 4 vs Hotjar — traffic and campaign measurement versus heatmaps, recordings, and on-site feedback.",
+  "tools": ["google-analytics-4", "hotjar"],
+  "category": "behavior-analytics",
+  "winner": null,
+  "verdict": "GA4 measures how people arrived and what they did in aggregate. Hotjar shows how they moved on a page. They answer different questions, and many teams run both.",
+  "quickAnswer": "**Google Analytics 4** is the traffic and conversion system: channels, events, and ads. **Hotjar** is the behavior system: heatmaps, session recordings, and surveys. Neither replaces the other.",
+  "bottomLine": "Keep **GA4** (or a privacy-first analytics tool) as the source for traffic and goals. Add **Hotjar** when a page is underperforming and you need to see clicks, scroll depth, and recordings. Hotjar's paid plans start around $39/month and bill by recorded sessions, not pageviews. GA4 standard stays free.",
+  "faq": [
+    {
+      "question": "Can Hotjar replace Google Analytics?",
+      "answer": "No. Hotjar does not replace channel reports, campaign attribution, or Google Ads measurement. Use it next to GA4, Plausible, or another analytics tool."
+    },
+    {
+      "question": "Can Google Analytics replace Hotjar?",
+      "answer": "No. GA4 can show events and pages. It does not give you heatmaps, scroll maps, or watchable session recordings of a landing page."
+    },
+    {
+      "question": "Do I need a cookie banner for Hotjar?",
+      "answer": "Usually yes when you record sessions, because recordings can capture what a person did on the page. Confirm the consent setup with your counsel. GA4 also commonly needs a consent setup in the EU."
+    },
+    {
+      "question": "Is PostHog a closer Hotjar alternative?",
+      "answer": "For session replay tied to product events, yes. See our PostHog vs Hotjar comparison. Hotjar is still the more direct fit for marketing heatmaps and on-page surveys."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Use them for different jobs",
+      "content": "Open GA4 when you need to know which channel or page lost traffic. Open Hotjar when you already know the page and need to see where people hesitate. Stacking both adds script weight and a second privacy review, so add Hotjar to the pages where a recording would change a design decision."
+    }
+  ],
+  "seoTitle": "Google Analytics vs Hotjar (2026): Traffic vs Behavior",
+  "seoDescription": "Google Analytics 4 vs Hotjar compared: traffic and ads measurement versus heatmaps, recordings, and surveys, plus when to run one tool or both."
+}

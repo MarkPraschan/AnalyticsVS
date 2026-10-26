@@ -4,14 +4,20 @@
   "description": "Practical uses for analytics events — funnels, retention, revenue, debugging — and which tool categories support each job.",
   "publishedOn": "2026-10-17",
   "category": "concepts",
-  "status": "draft",
+  "status": "published",
   "quickAnswer": "Teams use events to measure **funnels** (step completion), **retention** (return behavior), **revenue** (purchases tied to journeys), and **debugging** (what failed before support tickets). Pageview-only tools cover light goals; product analytics tools cover the rest.",
   "relatedComparisons": [
     "google-analytics-vs-posthog",
     "posthog-vs-plausible",
     "datafast-vs-posthog"
   ],
-  "relatedTools": ["posthog", "google-analytics-4", "plausible", "datafast", "hotjar"],
+  "relatedTools": [
+    "posthog",
+    "google-analytics-4",
+    "plausible",
+    "datafast",
+    "hotjar"
+  ],
   "relatedGuides": [],
   "sections": [
     {

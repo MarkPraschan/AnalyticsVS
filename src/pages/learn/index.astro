@@ -26,30 +26,32 @@ const posts = await getPublishedLearnPosts();
           No Learn articles published yet.
         </p>
       ) : (
-        <ul role="list" class="grid gap-4 sm:grid-cols-2">
+        <ul role="list" class="grid gap-8">
           {posts.map((post) => (
             <li>
               <a
                 href={`/learn/${post.data.slug}/`}
-                class="card flex h-full flex-col overflow-hidden p-0 no-underline transition hover:border-indigo/40"
+                class="card flex min-h-36 items-stretch overflow-hidden p-0 no-underline transition hover:border-indigo/40"
               >
                 {
                   post.data.featuredImage ? (
-                    <img
-                      src={post.data.featuredImage}
-                      alt=""
-                      width="1024"
-                      height="571"
-                      class="aspect-[1024/571] w-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <span class="relative w-36 shrink-0 self-stretch sm:w-56 md:w-72">
+                      <img
+                        src={post.data.featuredImage}
+                        alt=""
+                        width="1024"
+                        height="571"
+                        class="absolute inset-0 size-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
                   ) : null
                 }
-                <div class="flex flex-1 flex-col p-5">
+                <div class="flex flex-1 flex-col justify-center p-6">
                   <div class="flex flex-wrap items-center justify-between gap-2">
                     <p class="label-mono text-gradient-secondary">{formatCategory(post.data.category)}</p>
-                    <p class="text-xs text-muted">
+                    <p class="text-xs text-indigo-700">
                       <time datetime={post.data.publishedOn}>{formatMonthYear(post.data.publishedOn)}</time>
                     </p>
                   </div>

@@ -1,6 +1,7 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import ComparisonCard from '../../components/ComparisonCard.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
 import LearnBenchmarkMatrix from '../../components/LearnBenchmarkMatrix.astro';
 import QuickAnswerCallout from '../../components/QuickAnswerCallout.astro';
 import ToolMark from '../../components/ToolMark.astro';
@@ -114,27 +115,40 @@ const schema = [
 <ArticleLayout
   title={post.data.title}
   description={post.data.description}
-  lastUpdated={updatedDate}
+  lastUpdated={post.data.featuredImage ? undefined : updatedDate}
   ogImage={post.data.featuredImage}
   schema={schema}
 >
-  <p class="label-mono text-gradient-secondary" slot="lead-meta">
-    {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
-  </p>
-
   {
-    post.data.featuredImage && (
-      <figure class="review-figure w-full overflow-hidden" slot="header-media">
+    post.data.featuredImage ? (
+      <header slot="header" class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
         <img
           src={post.data.featuredImage}
-          alt={post.data.title}
+          alt=""
           width="1024"
           height="571"
-          class="block h-auto w-full"
+          class="absolute inset-0 size-full object-cover blur-xs "
           decoding="async"
           fetchpriority="high"
         />
-      </figure>
+        <div class="learn-hero__scrim rounded-none absolute inset-0" aria-hidden="true" />
+        <div class="relative max-w-xl px-5 py-8 sm:px-10 sm:py-12">
+          <div class="rounded-xl bg-base/95 p-5 shadow-sm sm:bg-transparent sm:p-0 sm:shadow-none">
+            <p class="label-mono text-gradient-secondary">
+              {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
+            </p>
+            <h1 class="heading-lg mt-3 text-gradient-primary">{post.data.title}</h1>
+            <p class="page-intro mt-4">{post.data.description}</p>
+            <div class="mt-4">
+              <LastUpdated date={updatedDate} />
+            </div>
+          </div>
+        </div>
+      </header>
+    ) : (
+      <p class="label-mono text-gradient-secondary" slot="lead-meta">
+        {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
+      </p>
     )
   }
 

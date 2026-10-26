@@ -45,5 +45,6 @@
       "title": "Keep the event list small",
       "content": "Every event has a cost: engineering time, quota, and dashboard trust. Prefer a short list of decision-grade events over autocapture of every click.\n\nNew to the idea of events? Start with [Analytics Events: What They Are and Why They Matter](/learn/what-are-analytics-events/)."
     }
-  ]
+  ],
+  "featuredImage": "/learn/how-events-are-used.jpg"
 }

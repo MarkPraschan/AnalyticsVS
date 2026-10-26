@@ -38,5 +38,6 @@
       "title": "Common pitfalls",
       "content": "- Duplicate tags (GTM + hard-coded gtag) double-counting\n- Consent mode misconfiguration changing event volume overnight\n- Autocapture-style GTM clutter with no owners\n- Comparing GA4 counts to Plausible pageviews as if they were the same metric\n\nFor when GA4 is overkill, read [GA4 vs Plausible](/compare/google-analytics-vs-plausible/). For product depth, see [GA4 vs PostHog](/compare/google-analytics-vs-posthog/)."
     }
-  ]
+  ],
+  "featuredImage": "/learn/setup-events-ga4.jpg"
 }

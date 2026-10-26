@@ -12,7 +12,12 @@
     "posthog-vs-plausible",
     "datafast-vs-posthog"
   ],
-  "relatedTools": ["google-analytics-4", "posthog", "plausible", "datafast"],
+  "relatedTools": [
+    "google-analytics-4",
+    "posthog",
+    "plausible",
+    "datafast"
+  ],
   "relatedGuides": [],
   "sections": [
     {

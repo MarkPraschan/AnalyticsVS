@@ -42,5 +42,6 @@
       "title": "Where AnalyticsVS tools land",
       "content": "**Typically cookieless / privacy-first web:** Plausible, Fathom hosted, Umami — compare [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n**Optional cookieless mode:** DataFast — see the [cookieless script benchmark](/benchmarks/datafast-cookieless-script-2026-09/) vs the [default script](/benchmarks/datafast-script-2026-09/).\n\n**Cookie / identity heavy by design:** GA4 and PostHog for ads and product analytics depth.\n\nStart with the [privacy-first guide](/guides/best-privacy-first-analytics-tools/), then a head-to-head for your shortlist."
     }
-  ]
+  ],
+  "featuredImage": "/learn/cookieless-analytics.jpg"
 }

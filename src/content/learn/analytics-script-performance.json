@@ -31,7 +31,9 @@
     "google-analytics-4",
     "umami"
   ],
-  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "relatedGuides": [
+    "best-privacy-first-analytics-tools"
+  ],
   "sections": [
     {
       "id": "why-script-weight-matters",

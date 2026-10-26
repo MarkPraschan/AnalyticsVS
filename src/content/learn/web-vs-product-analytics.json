@@ -40,5 +40,6 @@
       "title": "How to pick a lane",
       "content": "1. List the three decisions you make weekly from analytics.\n2. If they are traffic/campaign decisions → start web-first ([Plausible vs PostHog](/compare/posthog-vs-plausible/) explains the mismatch).\n3. If they are activation/retention decisions → start product-first ([GA4 vs PostHog](/compare/google-analytics-vs-posthog/)).\n4. Add a second tool only when the first lane is clearly insufficient."
     }
-  ]
+  ],
+  "featuredImage": "/learn/web-vs-product-analytics.jpg"
 }

@@ -39,5 +39,6 @@
       "title": "When DataFast is the wrong event tool",
       "content": "If your primary need is feature flags, session replay, or complex product funnels, instrument PostHog (or similar) in the app and keep DataFast for marketing + revenue questions — or pick one stack consciously.\n\nCompare cost and fit with [Plausible vs DataFast](/compare/plausible-vs-datafast/) and the [pricing calculator](/calculators/pricing/)."
     }
-  ]
+  ],
+  "featuredImage": "/learn/setup-events-datafast.jpg"
 }

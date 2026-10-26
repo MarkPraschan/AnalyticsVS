@@ -41,5 +41,6 @@
       "title": "When to graduate",
       "content": "Graduate when weekly questions outgrow \"traffic + one CTA\": multi-step onboarding, feature adoption, or ads-heavy attribution. Until then, a light script and a short goal list beat an unused event warehouse.\n\nScript weight context: both sit in our light [performance matrix](/learn/analytics-script-performance/)."
     }
-  ]
+  ],
+  "featuredImage": "/learn/setup-events-plausible-fathom.jpg"
 }

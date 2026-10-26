@@ -12,8 +12,15 @@
     "posthog-vs-plausible",
     "google-analytics-vs-posthog"
   ],
-  "relatedTools": ["plausible", "fathom", "google-analytics-4", "posthog"],
-  "relatedGuides": ["best-privacy-first-analytics-tools"],
+  "relatedTools": [
+    "plausible",
+    "fathom",
+    "google-analytics-4",
+    "posthog"
+  ],
+  "relatedGuides": [
+    "best-privacy-first-analytics-tools"
+  ],
   "sections": [
     {
       "id": "two-questions",

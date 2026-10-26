@@ -39,5 +39,6 @@
       "title": "QA checklist",
       "content": "1. Fire each custom event once in a staging project.\n2. Confirm properties types (strings vs numbers).\n3. Verify identify merges pre/post login.\n4. Recheck quota so autocapture is not burning the bill.\n\nThen build one funnel that matches a real weekly decision — not twelve unused insights."
     }
-  ]
+  ],
+  "featuredImage": "/learn/setup-events-posthog.jpg"
 }

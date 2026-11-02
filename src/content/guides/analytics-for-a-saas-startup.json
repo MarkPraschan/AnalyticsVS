@@ -3,6 +3,7 @@
   "slug": "analytics-for-a-saas-startup",
   "description": "A practical way for a SaaS startup to choose analytics: marketing site, product app, and revenue — without installing three tools on day one.",
   "category": "product-analytics",
+  "featuredImage": "/guides/analytics-for-a-saas-startup.jpg",
   "relatedComparisons": [
     "posthog-vs-plausible",
     "google-analytics-vs-posthog",

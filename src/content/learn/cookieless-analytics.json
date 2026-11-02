@@ -1,47 +1,117 @@
 {
-  "title": "Cookieless analytics: what it means",
+  "title": "Cookieless Analytics: How It Works, Trade-offs & Best Tools (2026)",
   "slug": "cookieless-analytics",
-  "description": "What cookieless analytics actually changes — tracking method, consent banners, accuracy trade-offs — and which tools on AnalyticsVS support it.",
+  "description": "What cookieless web analytics changes — tracking method, consent banners, accuracy trade-offs — and the best cookieless tools on AnalyticsVS for 2026.",
+  "seoTitle": "Cookieless Analytics: How It Works, Trade-offs & Best Tools (2026)",
   "publishedOn": "2026-10-15",
   "category": "primers",
   "status": "published",
-  "quickAnswer": "**Cookieless analytics** measures traffic without storing a long-lived cookie on the visitor’s device. That often reduces consent-banner friction in the EU, but it can also change how returning visitors and sessions are counted. Plausible, Fathom, Umami, and DataFast’s cookieless mode sit in this lane; GA4 and PostHog typically rely on cookies or similar storage for full identity.",
+  "featuredImage": "/learn/cookieless-analytics.jpg",
+  "quickAnswer": "**Cookieless analytics** (also called cookieless web analytics) measures traffic without storing a long-lived analytics cookie on the visitor’s device. That often reduces consent-banner friction in the EU, but it can change how returning visitors and sessions are counted. Fathom, DataFast (cookieless mode), Plausible, Umami, and Ahrefs Web Analytics sit in this lane; GA4 and PostHog typically rely on cookies or similar storage for full identity.",
+  "faq": [
+    {
+      "question": "What is cookieless analytics?",
+      "answer": "Cookieless analytics measures site usage without placing a long-lived first-party analytics cookie on the visitor’s browser. Vendors still collect pageviews and referrers, but they avoid (or weaken) persistent identifiers used to stitch visits over days and devices."
+    },
+    {
+      "question": "What is cookieless web analytics?",
+      "answer": "Cookieless web analytics is the same idea applied to marketing sites and blogs: traffic, referrers, campaigns, and simple goals without a classic analytics cookie. It is a good fit for privacy-first web reporting; it is usually the wrong primary tool for ads attribution or in-app product funnels."
+    }
+  ],
   "relatedComparisons": [
+    "matomo-vs-plausible",
     "plausible-vs-fathom",
-    "google-analytics-vs-plausible",
-    "plausible-vs-datafast"
+    "google-analytics-vs-plausible"
   ],
   "relatedTools": [
-    "plausible",
     "fathom",
-    "umami",
     "datafast",
+    "plausible",
+    "umami",
+    "ahrefs",
     "google-analytics-4"
   ],
   "relatedGuides": [
-    "best-privacy-first-analytics-tools"
+    "best-privacy-first-analytics-tools",
+    "ga4-alternatives-gdpr"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/guides/best-privacy-first-analytics-tools/",
+      "label": "Best privacy-first web analytics tools"
+    },
+    {
+      "href": "/guides/ga4-alternatives-gdpr/",
+      "label": "GA4 alternatives for GDPR"
+    },
+    {
+      "href": "/compare/matomo-vs-plausible/",
+      "label": "Plausible vs Matomo"
+    },
+    {
+      "href": "/compare/plausible-vs-fathom/",
+      "label": "Plausible vs Fathom"
+    },
+    {
+      "href": "/compare/google-analytics-vs-plausible/",
+      "label": "Google Analytics vs Plausible"
+    },
+    {
+      "href": "/tools/ahrefs/",
+      "label": "Ahrefs Web Analytics"
+    },
+    {
+      "href": "/benchmarks/datafast-cookieless-script-2026-09/",
+      "label": "DataFast cookieless script benchmark"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "fathom",
+      "bestFor": "Teams that want polished hosted privacy analytics with simple dashboards — referred customers get $10 off their first invoice."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS that needs cookieless traffic analytics plus optional Stripe / payment revenue attribution."
+    },
+    {
+      "toolId": "plausible",
+      "bestFor": "Marketing sites that want a lightweight, cookieless SaaS with clear pageview pricing."
+    },
+    {
+      "toolId": "umami",
+      "bestFor": "Developers who want open-source cookieless analytics they can self-host or run on Umami Cloud."
+    },
+    {
+      "toolId": "ahrefs",
+      "bestFor": "SEO teams already on Ahrefs that want free cookie-free web analytics on verified projects."
+    }
   ],
   "sections": [
     {
       "id": "definition",
       "title": "Cookieless is a method, not a magic shield",
-      "content": "Cookieless usually means the vendor avoids **first-party analytics cookies** used to stitch visits over time. Measurement may instead use short-lived identifiers, fingerprint-light techniques (controversial and restricted in some contexts), or **aggregate / cookieless modes** that intentionally weaken cross-day identity.\n\nIt does **not** automatically mean GDPR-free, zero privacy risk, or identical numbers to cookie-based GA4. It means a different data model with different strengths."
+      "content": "Cookieless web analytics usually means the vendor avoids **first-party analytics cookies** used to stitch visits over time. Measurement may instead use short-lived identifiers, aggregate modes, or other designs that intentionally weaken cross-day identity.\n\nIt does **not** automatically mean GDPR-free, zero privacy risk, or identical numbers to cookie-based GA4. It means a different data model with different strengths — and you still need a privacy policy and legal review for your jurisdiction."
+    },
+    {
+      "id": "cookieless-vs-cookie-based",
+      "title": "Cookieless vs cookie-based analytics",
+      "content": "| Topic | Cookieless web analytics | Cookie-based analytics (typical GA4 / product tools) |\n|---|---|---|\n| Storage | No long-lived analytics cookie (by design or mode) | First-party cookies or similar storage for identity |\n| Consent UX | Often lighter banners for simple traffic stats (confirm with counsel) | Usually needs consent in GDPR regions |\n| Returning visitors | Softer / less precise | Stronger cross-day stitching |\n| Cross-device | Weak or unavailable | Better when users are identified |\n| Best job | Marketing traffic trends, privacy-first sites | Ads attribution, product funnels, warehouse identity |\n| Examples on AnalyticsVS | Fathom, Plausible, Umami, Ahrefs Web Analytics, DataFast cookieless mode | GA4, PostHog, DataFast default mode |\n\nIf your weekly KPI is \"unique users who completed onboarding across devices,\" cookieless-only tools are usually too shallow. If your weekly KPI is \"which pages and channels brought traffic,\" cookieless web analytics is often enough."
     },
     {
       "id": "why-teams-want-it",
-      "title": "Why teams want it",
-      "content": "Common reasons:\n\n- **Fewer consent banners** for simple pageview analytics in many EU setups (still get legal advice for your case)\n- **Simpler scripts** and lighter performance cost — see our [script performance matrix](/learn/analytics-script-performance/)\n- **Less ad-ecosystem coupling** than GA4\n\nIf you need ads attribution, user-level product funnels, or warehouse export, cookieless-only tools may be too shallow — pair them with a product tool or accept GA4’s compliance work."
+      "title": "Why teams want cookieless web analytics",
+      "content": "Common reasons:\n\n- **Fewer consent banners** for simple pageview analytics in many EU setups (still get legal advice for your case)\n- **Simpler scripts** and lighter performance cost — see our [script performance matrix](/learn/analytics-script-performance/)\n- **Less ad-ecosystem coupling** than GA4\n\nIf you need ads attribution, user-level product funnels, or warehouse export, cookieless-only tools may be too shallow — pair them with a product tool or accept GA4’s compliance work. For GDPR-focused switching paths, read [GA4 alternatives for GDPR](/guides/ga4-alternatives-gdpr/)."
     },
     {
       "id": "accuracy-tradeoffs",
       "title": "Accuracy trade-offs to expect",
-      "content": "When identity is weaker, expect:\n\n- Softer **returning visitor** counts\n- Different **session** definitions vs GA4\n- Harder **cross-device** journeys\n\nThat is often fine for marketing traffic trends. It is a problem if your KPI is \"unique users who completed onboarding across devices.\""
+      "content": "When identity is weaker, expect:\n\n- Softer **returning visitor** counts\n- Different **session** definitions vs GA4\n- Harder **cross-device** journeys\n\nThat is often fine for marketing traffic trends. It is a problem if your KPI is \"unique users who completed onboarding across devices.\"\n\nDataFast’s optional cookieless mode is a useful case study: compare the [cookieless script benchmark](/benchmarks/datafast-cookieless-script-2026-09/) with the [default script](/benchmarks/datafast-script-2026-09/) before you choose a mode."
     },
     {
-      "id": "tool-map",
-      "title": "Where AnalyticsVS tools land",
-      "content": "**Typically cookieless / privacy-first web:** Plausible, Fathom hosted, Umami — compare [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n**Optional cookieless mode:** DataFast — see the [cookieless script benchmark](/benchmarks/datafast-cookieless-script-2026-09/) vs the [default script](/benchmarks/datafast-script-2026-09/).\n\n**Cookie / identity heavy by design:** GA4 and PostHog for ads and product analytics depth.\n\nStart with the [privacy-first guide](/guides/best-privacy-first-analytics-tools/), then a head-to-head for your shortlist."
+      "id": "how-to-choose",
+      "title": "How to choose among cookieless tools",
+      "content": "1. **Hosted vs self-hosted** — Fathom and Plausible Cloud minimize ops; Umami and Matomo shine when you want the database on your servers (Matomo is not always cookieless by default — configure carefully).\n2. **Traffic vs revenue** — Plausible/Fathom/Umami/Ahrefs answer traffic questions; DataFast adds payment-linked revenue attribution.\n3. **Script weight** — Prefer tools with **recorded** AnalyticsVS benchmarks when page speed matters.\n4. **Compare pairs, not vibes** — start with [Plausible vs Fathom](/compare/plausible-vs-fathom/), [Plausible vs Matomo](/compare/matomo-vs-plausible/), or [Google Analytics vs Plausible](/compare/google-analytics-vs-plausible/).\n\nThen read the [privacy-first tools guide](/guides/best-privacy-first-analytics-tools/) for the evaluation framework."
     }
-  ],
-  "featuredImage": "/learn/cookieless-analytics.jpg"
+  ]
 }

@@ -5,6 +5,8 @@ import LastUpdated from '../../components/LastUpdated.astro';
 import LearnBenchmarkMatrix from '../../components/LearnBenchmarkMatrix.astro';
 import QuickAnswerCallout from '../../components/QuickAnswerCallout.astro';
 import ToolMark from '../../components/ToolMark.astro';
+import ToolShortlist from '../../components/ToolShortlist.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import { getCollection } from 'astro:content';
 import { getEntryUpdatedDate } from '../../lib/contentDates';
@@ -12,7 +14,7 @@ import { getPublishedLearnPosts } from '../../lib/learn';
 import { renderReviewMarkdown } from '../../lib/markdown';
 import { getToolsByIds } from '../../lib/tools';
 import { SITE, formatCategory, formatDate } from '../../lib/site';
-import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 import type { BenchmarkEntry } from '../../lib/benchmarks';
 
 export async function getStaticPaths() {
@@ -50,6 +52,13 @@ const relatedComparisonCards = await Promise.all(
     tools: await getToolsByIds(comparison.data.tools),
   })),
 );
+const shortlistTools = await getToolsByIds(
+  (post.data.toolShortlist ?? []).map((item) => item.toolId),
+);
+const toolShortlistItems = (post.data.toolShortlist ?? []).flatMap((item) => {
+  const tool = shortlistTools.find((entry) => entry.data.id === item.toolId);
+  return tool ? [{ tool, bestFor: item.bestFor }] : [];
+});
 
 const matrixRows = post.data.relatedBenchmarks
   .flatMap((id) => {
@@ -82,11 +91,20 @@ const tocHeadings = [
     slug: section.id,
     text: section.title,
   })),
+  ...(toolShortlistItems.length > 0
+    ? [{ depth: 2 as const, slug: 'best-cookieless-tools', text: 'Best cookieless analytics tools' }]
+    : []),
+  ...((post.data.faq?.length ?? 0) > 0
+    ? [{ depth: 2 as const, slug: 'faq', text: 'FAQ' }]
+    : []),
   ...(relatedComparisons.length > 0
     ? [{ depth: 2 as const, slug: 'related-comparisons', text: 'Related comparisons' }]
     : []),
   ...(relatedGuides.length > 0
     ? [{ depth: 2 as const, slug: 'related-guides', text: 'Related guides' }]
+    : []),
+  ...((post.data.relatedLinks?.length ?? 0) > 0
+    ? [{ depth: 2 as const, slug: 'related-reading', text: 'Related reading' }]
     : []),
   { depth: 2, slug: 'sources', text: 'Sources & review status' },
 ];
@@ -109,7 +127,11 @@ const schema = [
     { name: 'Learn', url: new URL('/learn/', SITE.url).href },
     { name: post.data.title, url: pageUrl },
   ]),
-];
+  buildFaqSchema(post.data.faq ?? [], {
+    pageUrl,
+    sectionLabel: 'full article',
+  }),
+].filter((item): item is Record<string, unknown> => item != null);
 ---
 
 <ArticleLayout
@@ -188,6 +210,28 @@ const schema = [
         ))
       }
 
+      <ToolShortlist
+        items={toolShortlistItems}
+        heading="Best cookieless analytics tools"
+        id="best-cookieless-tools"
+      />
+
+      {
+        (post.data.faq?.length ?? 0) > 0 && (
+          <section id="faq" class="mt-10">
+            <h2 class="article-heading">Frequently asked questions</h2>
+            <dl class="mt-6 space-y-4">
+              {post.data.faq.map((item) => (
+                <div class="card">
+                  <dt class="font-heading font-semibold text-fg">{item.question}</dt>
+                  <dd class="mt-2 leading-relaxed text-muted">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )
+      }
+
       {
         relatedComparisonCards.length > 0 && (
           <section id="related-comparisons" class="mt-10">
@@ -247,6 +291,8 @@ const schema = [
           </section>
         )
       }
+
+      <RelatedLinks links={post.data.relatedLinks ?? []} />
 
       <section id="sources" class="mt-10">
         <h2 class="article-heading">Sources & review status</h2>

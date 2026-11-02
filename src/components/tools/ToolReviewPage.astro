@@ -54,6 +54,22 @@ const fallbackTools =
   relatedComparisons.length === 0 ? await getToolsByIds(tool.data.fallbackRelated ?? []) : [];
 
 const tryTheseTools = [tool, ...relatedTools.slice(0, 2)];
+const alsoConsiderTools = await getToolsByIds(
+  (tool.data.alsoConsider ?? []).map((item) => item.toolId),
+);
+const alsoConsiderItems = (tool.data.alsoConsider ?? []).flatMap((item) => {
+  const entry = alsoConsiderTools.find((candidate) => candidate.data.id === item.toolId);
+  return entry
+    ? [
+        {
+          tool: entry,
+          note: item.note,
+          compareHref: item.compareHref,
+          compareLabel: item.compareLabel,
+        },
+      ]
+    : [];
+});
 
 const tocHeadings = [
   { depth: 2, slug: 'quick-answer', text: 'Quick answer' },
@@ -75,7 +91,13 @@ const tocHeadings = [
     ? [{ depth: 2, slug: 'compared-with', text: 'Often compared with' }]
     : []),
   { depth: 2, slug: 'limitations', text: 'Limitations' },
+  ...(alsoConsiderItems.length > 0
+    ? [{ depth: 2, slug: 'also-consider', text: 'Also consider' }]
+    : []),
   ...(review.faq.length > 0 ? [{ depth: 2, slug: 'faq', text: 'FAQ' }] : []),
+  ...((tool.data.relatedLinks?.length ?? 0) > 0
+    ? [{ depth: 2, slug: 'related-reading', text: 'Related reading' }]
+    : []),
   { depth: 2, slug: 'sources', text: 'Sources & review status' },
 ];
 
@@ -243,7 +265,11 @@ const schema = [
         )
       }
 
-      <ToolReviewClosing review={review} />
+      <ToolReviewClosing
+        review={review}
+        alsoConsiderItems={alsoConsiderItems}
+        relatedLinks={tool.data.relatedLinks ?? []}
+      />
     </div>
     <aside class="hidden lg:block">
       <TableOfContents headings={tocHeadings} />

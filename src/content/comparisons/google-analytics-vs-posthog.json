@@ -1,19 +1,24 @@
 {
-  "title": "Google Analytics vs PostHog",
-  "description": "Google Analytics 4 vs PostHog — compare web analytics vs full product analytics, pricing models, and when each tool fits.",
-  "tools": [
-    "google-analytics-4",
-    "posthog"
-  ],
+  "title": "PostHog vs Google Analytics 4",
+  "description": "PostHog vs Google Analytics 4 — compare product analytics with funnels and replay versus free web analytics in the Google ecosystem.",
+  "tools": ["posthog", "google-analytics-4"],
   "category": "product-analytics",
   "winner": null,
   "verdict": "GA4 is a free, general-purpose web analytics platform deeply integrated with Google. PostHog is a product analytics suite with event tracking, funnels, session replay, and feature flags — better for SaaS and app teams.",
-  "quickAnswer": "**Google Analytics 4** answers \"how much traffic does my site get and where does it come from?\" **PostHog** answers \"what are users doing inside my product and which features drive retention?\" They overlap on pageviews but serve different primary use cases.",
+  "quickAnswer": "**PostHog vs GA4:** PostHog is for product questions (activation, retention, flags); GA4 is for marketing traffic and Google Ads. **PostHog vs Google Analytics:** same split — Google Analytics (GA4) wins on free web reporting and ads linking; PostHog wins when users have accounts and you ship features weekly.",
   "bottomLine": "Don't pit these tools as direct competitors unless you only need pageview tracking. For marketing analytics, GA4 (or a privacy alternative) wins on cost and ecosystem. For product teams shipping features weekly, PostHog is the more capable platform.",
   "faq": [
     {
-      "question": "Is PostHog a replacement for Google Analytics?",
-      "answer": "For basic website traffic reporting, PostHog can replace GA4. PostHog shines when you need product analytics — tracking user journeys, feature adoption, and running experiments."
+      "question": "PostHog vs GA4: which should I use?",
+      "answer": "Use GA4 for marketing-site traffic, Google Ads attribution, and free reporting at scale. Use PostHog when you need product analytics — identified users, funnels, retention, session replay, and feature flags. Many SaaS teams run GA4 on the marketing site and PostHog in the app."
+    },
+    {
+      "question": "PostHog vs Google Analytics: what’s the real difference?",
+      "answer": "Google Analytics (GA4) is web and campaign analytics in Google’s ecosystem. PostHog is a product analytics suite. They overlap on pageviews, but PostHog is built for in-app behavior and experimentation, while Google Analytics is built for acquisition and media reporting."
+    },
+    {
+      "question": "Is PostHog a Google Analytics alternative?",
+      "answer": "Yes for basic website traffic reporting, and often a better alternative when product analytics is the job. It is not a drop-in ads-attribution replacement for teams that depend on Google Ads and Search Console linking inside GA4."
     },
     {
       "question": "Is PostHog free?",
@@ -32,6 +37,25 @@
     {
       "title": "Use case fit",
       "content": "For a **marketing website or blog**, GA4 or a privacy tool like Plausible is usually enough. For a **SaaS product with user accounts**, PostHog fits better. For **content sites with ad attribution**, GA4 wins. For **feature flags and A/B tests**, choose PostHog. For **free analytics at high traffic**, GA4 has no direct SaaS cost."
+    }
+  ],
+  "afterVerdict": "If you only need heatmaps and session recordings for page-level UX — not full product analytics — look at [Hotjar](https://invite.contentsquare.com/analyticsvs) and our [PostHog vs Hotjar](/compare/posthog-vs-hotjar/) comparison.",
+  "relatedLinks": [
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/compare/posthog-vs-plausible/",
+      "label": "PostHog vs Plausible"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web analytics vs product analytics"
+    },
+    {
+      "href": "/learn/pageviews-vs-events/",
+      "label": "Pageviews vs events"
     }
   ],
   "seoTitle": "PostHog vs Google Analytics 4 (2026): Which Should You Use?",

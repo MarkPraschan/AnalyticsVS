@@ -1,0 +1,77 @@
+---
+import AffiliateDisclosure from './AffiliateDisclosure.astro';
+import ToolMark from './ToolMark.astro';
+import { getToolVisitRel, getToolVisitUrl, isAffiliateTool, type ToolEntry } from '../lib/tools';
+
+export interface ToolShortlistItem {
+  tool: ToolEntry;
+  bestFor: string;
+}
+
+interface Props {
+  items: ToolShortlistItem[];
+  heading?: string;
+  id?: string;
+  class?: string;
+}
+
+const {
+  items,
+  heading = 'Best cookieless analytics tools',
+  id = 'tool-shortlist',
+  class: className,
+} = Astro.props;
+const hasAffiliate = items.some(({ tool }) => isAffiliateTool(tool.data));
+---
+
+{
+  items.length > 0 && (
+    <section id={id} class:list={['mt-10', className]}>
+      <h2 class="article-heading">{heading}</h2>
+      <ol class="mt-4 grid gap-3">
+        {items.map(({ tool, bestFor }, index) => {
+          const affiliate = isAffiliateTool(tool.data);
+          const visitUrl = getToolVisitUrl(tool.data);
+          const visitRel = getToolVisitRel(tool.data);
+          const discount =
+            affiliate && tool.data.affiliate.notes?.includes('$10')
+              ? tool.data.affiliate.notes
+              : null;
+          return (
+            <li class="card flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="label-mono text-muted">{index + 1}.</span>
+                  <ToolMark tool={tool.data} size="sm" href={false} />
+                  <a href={`/tools/${tool.data.slug}/`} class="font-heading font-semibold text-fg">
+                    {tool.data.name}
+                  </a>
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-muted">
+                  <strong class="font-medium text-fg">Best for:</strong> {bestFor}
+                  {discount ? ` ${discount}` : ''}
+                </p>
+              </div>
+              {affiliate ? (
+                <div class="shrink-0">
+                  <a
+                    href={visitUrl}
+                    target="_blank"
+                    rel={visitRel}
+                    class="btn-secondary inline-flex"
+                    data-posthog-vendor-website
+                    data-posthog-cta-label={`Visit ${tool.data.name}`}
+                    data-posthog-affiliate="true"
+                  >
+                    Visit {tool.data.name} →
+                  </a>
+                </div>
+              ) : null}
+            </li>
+          );
+        })}
+      </ol>
+      {hasAffiliate && <AffiliateDisclosure class="mt-3" />}
+    </section>
+  )
+}

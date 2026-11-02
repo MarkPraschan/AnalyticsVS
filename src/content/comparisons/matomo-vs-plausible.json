@@ -1,13 +1,17 @@
 {
-  "title": "Matomo vs Plausible",
-  "description": "Matomo vs Plausible Analytics — self-hosted depth and data ownership versus hosted, cookieless simplicity.",
-  "tools": ["matomo", "plausible"],
+  "title": "Plausible vs Matomo",
+  "description": "Plausible vs Matomo — hosted, cookieless simplicity versus self-hosted depth and data ownership for privacy-first web analytics.",
+  "tools": ["plausible", "matomo"],
   "category": "privacy-analytics",
   "winner": null,
   "verdict": "Choose Plausible when you want hosted, cookieless web analytics with a short setup and predictable pageview pricing. Choose Matomo when you need GA-like reporting depth, data residency, or a self-hosted install you control.",
-  "quickAnswer": "**Plausible** is the better fit for a marketing site that needs simple traffic reports without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites, or the data on infrastructure you own.",
+  "quickAnswer": "This page answers both **Plausible vs Matomo** and **Matomo vs Plausible** — same decision, either search phrasing. **Plausible** is the better fit for a marketing site that needs simple traffic reports without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites, or the data on infrastructure you own.",
   "bottomLine": "Most small sites should start with **Plausible**. Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. Matomo Cloud starts at $26/month for 50K hits; Plausible starts at $9/month for 10K pageviews. Self-hosted Matomo software is free, plus hosting and maintenance.",
   "faq": [
+    {
+      "question": "Plausible vs Matomo: which should I pick?",
+      "answer": "Pick Plausible if you want a hosted, cookieless dashboard with short setup and pageview pricing. Pick Matomo if you need deeper reporting, ecommerce, many sites on one plan, or a self-hosted install you control. For a polished hosted alternative to Plausible, also look at Fathom; for Stripe revenue attribution, look at DataFast."
+    },
     {
       "question": "Is Matomo more private than Plausible?",
       "answer": "Both can be configured as privacy-friendly alternatives to GA4. Plausible is cookieless by default. Matomo supports cookieless and anonymization options, and self-hosting keeps the database on your servers. Privacy depends on the settings you turn on, not the brand name alone."
@@ -31,6 +35,44 @@
       "content": "This is not two versions of the same dashboard. Plausible is a lightweight hosted analytics product. Matomo is a full web analytics suite you can run yourself or buy as cloud. If the weekly question is \"which pages and channels brought traffic,\" Plausible is enough. If the weekly question is \"ecommerce, custom dimensions, and data that never leaves our servers,\" look at Matomo."
     }
   ],
-  "seoTitle": "Matomo vs Plausible (2026): Hosting, Privacy, Price",
-  "seoDescription": "Matomo vs Plausible compared: self-hosting and data ownership versus cookieless hosted analytics, with pricing and when each privacy-first tool wins."
+  "alsoConsider": [
+    {
+      "toolId": "fathom",
+      "note": "A polished hosted privacy analytics alternative if you like Plausible’s simplicity but want to compare vendors — referred customers get $10 off their first invoice.",
+      "compareHref": "/compare/plausible-vs-fathom/",
+      "compareLabel": "Plausible vs Fathom"
+    },
+    {
+      "toolId": "datafast",
+      "note": "Best when the question is which marketing channel drove paid customers (Stripe and similar), not only which pages got traffic."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-vs-matomo/",
+      "label": "Google Analytics vs Matomo"
+    },
+    {
+      "href": "/compare/google-analytics-vs-plausible/",
+      "label": "Google Analytics vs Plausible"
+    },
+    {
+      "href": "/compare/plausible-vs-fathom/",
+      "label": "Plausible vs Fathom"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/guides/best-privacy-first-analytics-tools/",
+      "label": "Best privacy-first web analytics tools"
+    },
+    {
+      "href": "/guides/ga4-alternatives-gdpr/",
+      "label": "GA4 alternatives for GDPR"
+    }
+  ],
+  "seoTitle": "Plausible vs Matomo (2026): Hosting, Privacy, Price",
+  "seoDescription": "Plausible vs Matomo compared: cookieless hosted analytics versus self-hosting and data ownership, with pricing and when each privacy-first tool wins."
 }

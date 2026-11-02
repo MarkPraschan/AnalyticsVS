@@ -1,6 +1,6 @@
 {
   "id": "umami",
-  "name": "Umami",
+  "name": "Umami Analytics",
   "slug": "umami",
   "category": "privacy-analytics",
   "tagline": "Simple, fast, privacy-focused website analytics",
@@ -10,6 +10,40 @@
     "enabled": false,
     "url": "https://umami.is"
   },
+  "alsoConsider": [
+    {
+      "toolId": "fathom",
+      "note": "Polished hosted privacy analytics if you want less ops than self-hosting Umami — referred customers get $10 off their first invoice.",
+      "compareHref": "/compare/fathom-vs-umami/",
+      "compareLabel": "Fathom vs Umami"
+    },
+    {
+      "toolId": "datafast",
+      "note": "Choose DataFast when you need cookieless-friendly web analytics plus optional Stripe / payment revenue attribution."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/plausible-vs-umami/",
+      "label": "Plausible vs Umami"
+    },
+    {
+      "href": "/compare/fathom-vs-umami/",
+      "label": "Fathom vs Umami"
+    },
+    {
+      "href": "/compare/google-analytics-vs-umami/",
+      "label": "Google Analytics vs Umami"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/guides/best-privacy-first-analytics-tools/",
+      "label": "Best privacy-first web analytics tools"
+    }
+  ],
   "pricing": {
     "model": "monthly_events",
     "currency": "USD",

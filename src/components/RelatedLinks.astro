@@ -1,0 +1,31 @@
+---
+interface RelatedLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  links: RelatedLink[];
+  heading?: string;
+  class?: string;
+}
+
+const { links, heading = 'Related reading', class: className } = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <section id="related-reading" class:list={['mt-10', className]}>
+      <h2 class="article-heading">{heading}</h2>
+      <ul class="mt-4 grid gap-2">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="text-sm font-medium">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

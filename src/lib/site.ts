@@ -17,6 +17,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   'how-to': 'How-to',
   primers: 'Primers',
   performance: 'Performance',
+  guides: 'Guides',
 };
 
 export type CategoryBadgeStyle = {

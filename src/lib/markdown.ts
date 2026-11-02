@@ -5,11 +5,24 @@ export function slugifyHeading(title: string): string {
     .replace(/^-|-$/g, '');
 }
 
+const AFFILIATE_HREF_PATTERN =
+  /usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i;
+
+function linkAttributes(href: string): string {
+  const isExternal = /^https?:\/\//i.test(href);
+  if (!isExternal) return '';
+  const affiliate = AFFILIATE_HREF_PATTERN.test(href);
+  const rel = affiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
+  return ` target="_blank" rel="${rel}"`;
+}
+
 function inlineMarkdown(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/`([^`]+)`/g, '<code class="review-inline-code">$1</code>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
+      return `<a href="${href}"${linkAttributes(href)}>${label}</a>`;
+    });
 }
 
 function isMarkdownTable(lines: string[]): boolean {

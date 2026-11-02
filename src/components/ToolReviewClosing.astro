@@ -1,13 +1,17 @@
 ---
+import AlsoConsiderBox, { type AlsoConsiderItem } from './AlsoConsiderBox.astro';
+import RelatedLinks from './RelatedLinks.astro';
 import type { ToolReview } from '../lib/reviews';
 import { renderReviewMarkdown } from '../lib/markdown';
 import { formatDate } from '../lib/site';
 
 interface Props {
   review: ToolReview;
+  alsoConsiderItems?: AlsoConsiderItem[];
+  relatedLinks?: Array<{ href: string; label: string }>;
 }
 
-const { review } = Astro.props;
+const { review, alsoConsiderItems = [], relatedLinks = [] } = Astro.props;
 
 function renderListItem(item: string) {
   return renderReviewMarkdown(item).replace(/^<p>|<\/p>$/g, '');
@@ -30,6 +34,8 @@ function renderListItem(item: string) {
   </div>
 </section>
 
+<AlsoConsiderBox items={alsoConsiderItems} />
+
 {
   review.faq.length > 0 && (
     <section id="faq" class="mt-10">
@@ -45,6 +51,8 @@ function renderListItem(item: string) {
     </section>
   )
 }
+
+<RelatedLinks links={relatedLinks} />
 
 <section id="sources" class="mt-10">
   <h2 class="article-heading">Sources & review status</h2>

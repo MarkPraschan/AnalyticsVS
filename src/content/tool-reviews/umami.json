@@ -45,6 +45,14 @@
   ],
   "faq": [
     {
+      "question": "What is Umami Analytics?",
+      "answer": "Umami Analytics is an open-source, privacy-focused web analytics tool for pageviews, referrers, devices, countries, and custom events. You can self-host it for free or use Umami Cloud as a managed option."
+    },
+    {
+      "question": "Umami Cloud vs self-hosted: which should I use?",
+      "answer": "Use Umami Cloud if you want the Umami product without operating a database, backups, and upgrades. Self-host if you want the data on your infrastructure and are comfortable with Docker or similar deploys. Non-technical teams should prefer Umami Cloud, Plausible, or Fathom over self-hosting."
+    },
+    {
       "question": "Umami vs Plausible?",
       "answer": "Plausible for managed privacy analytics with vendor support. Umami when you want open source and self-hosting control, often at lower marginal cost."
     },

@@ -86,6 +86,24 @@ const tools = defineCollection({
     seoDescription: z.string().min(140).max(160).optional(),
     /** Tool ids to link when this profile has no comparison pages yet. */
     fallbackRelated: z.array(z.string()).default([]),
+    alsoConsider: z
+      .array(
+        z.object({
+          toolId: z.string(),
+          note: z.string(),
+          compareHref: z.string().optional(),
+          compareLabel: z.string().optional(),
+        }),
+      )
+      .default([]),
+    relatedLinks: z
+      .array(
+        z.object({
+          href: z.string(),
+          label: z.string(),
+        }),
+      )
+      .default([]),
     website: z.string().url(),
     brandColor: z.string(),
     logo: z.string().optional(),
@@ -106,6 +124,18 @@ const editorialNoteSchema = z.object({
   content: z.string(),
 });
 
+const relatedLinkSchema = z.object({
+  href: z.string(),
+  label: z.string(),
+});
+
+const alsoConsiderSchema = z.object({
+  toolId: z.string(),
+  note: z.string(),
+  compareHref: z.string().optional(),
+  compareLabel: z.string().optional(),
+});
+
 const comparisons = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/comparisons' }),
   schema: z.object({
@@ -121,6 +151,10 @@ const comparisons = defineCollection({
     bottomLine: z.string(),
     faq: z.array(faqSchema).default([]),
     editorialNotes: z.array(editorialNoteSchema).default([]),
+    /** Optional markdown note rendered immediately after the verdict. */
+    afterVerdict: z.string().optional(),
+    alsoConsider: z.array(alsoConsiderSchema).default([]),
+    relatedLinks: z.array(relatedLinkSchema).default([]),
   }),
 });
 
@@ -247,15 +281,25 @@ const guideSectionSchema = z.object({
   content: z.string(),
 });
 
+const toolShortlistItemSchema = z.object({
+  toolId: z.string(),
+  bestFor: z.string(),
+});
+
 const guides = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/guides' }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
     description: z.string(),
+    seoTitle: z.string().max(70).optional(),
     category: z.string(),
+    /** Public path to featured/hero image (also used on /learn/ cards and og:image). */
+    featuredImage: z.string().optional(),
     relatedComparisons: z.array(z.string()).default([]),
     relatedTools: z.array(z.string()).default([]),
+    relatedLinks: z.array(relatedLinkSchema).default([]),
+    toolShortlist: z.array(toolShortlistItemSchema).default([]),
     sections: z.array(guideSectionSchema).min(1),
   }),
 });
@@ -283,11 +327,15 @@ const learn = defineCollection({
     /** Public path to featured/hero image (also used for og:image when set). */
     featuredImage: z.string().optional(),
     quickAnswer: z.string().optional(),
+    faq: z.array(faqSchema).default([]),
     /** Benchmark content ids (filename without .json) for live matrix tables. */
     relatedBenchmarks: z.array(z.string()).default([]),
     relatedComparisons: z.array(z.string()).default([]),
     relatedTools: z.array(z.string()).default([]),
     relatedGuides: z.array(z.string()).default([]),
+    relatedLinks: z.array(relatedLinkSchema).default([]),
+    toolShortlist: z.array(toolShortlistItemSchema).default([]),
+    alsoConsider: z.array(alsoConsiderSchema).default([]),
     sections: z.array(learnSectionSchema).min(1),
   }),
 });

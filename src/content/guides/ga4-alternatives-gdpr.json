@@ -3,6 +3,7 @@
   "slug": "ga4-alternatives-gdpr",
   "description": "A shortlist of Google Analytics 4 alternatives when EU privacy, consent banners, or data residency are the reason you are switching.",
   "category": "privacy-analytics",
+  "featuredImage": "/guides/ga4-alternatives-gdpr.jpg",
   "relatedComparisons": [
     "google-analytics-vs-plausible",
     "google-analytics-vs-fathom",

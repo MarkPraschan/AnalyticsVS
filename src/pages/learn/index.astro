@@ -1,43 +1,44 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPublishedLearnPosts } from '../../lib/learn';
+import { getLearnFeedItems } from '../../lib/learn';
 import { formatCategory, formatMonthYear } from '../../lib/site';
 
-const posts = await getPublishedLearnPosts();
+const items = await getLearnFeedItems();
 ---
 
 <BaseLayout
   title="Learn Analytics Concepts"
-  description="Educational primers on analytics events, pageviews, and how to choose tools — then follow through to comparisons, guides, and the pricing calculator."
+  description="Educational primers, how-tos, and buying guides for analytics — then follow through to comparisons, tool profiles, and the pricing calculator."
 >
   <div class="page-shell">
     <header class="prose-width mb-10">
       <h1 class="section-heading text-gradient-primary">Learn</h1>
       <p class="page-intro mt-4">
-        Short, evergreen explainers for analytics concepts. Learn the vocabulary here, then use our{' '}
-        <a href="/compare/">comparisons</a>, <a href="/guides/">guides</a>, and{' '}
-        <a href="/tools/">tool profiles</a> when you are ready to choose.
+        Short explainers, how-tos, and buying guides for analytics. Learn the vocabulary here, then
+        use our{' '}
+        <a href="/compare/">comparisons</a> and <a href="/tools/">tool profiles</a> when you are ready
+        to choose.
       </p>
     </header>
 
     {
-      posts.length === 0 ? (
+      items.length === 0 ? (
         <p class="text-sm text-muted" role="status">
           No Learn articles published yet.
         </p>
       ) : (
         <ul role="list" class="grid gap-8">
-          {posts.map((post) => (
+          {items.map((item) => (
             <li>
               <a
-                href={`/learn/${post.data.slug}/`}
+                href={item.href}
                 class="card flex min-h-36 items-stretch overflow-hidden p-0 no-underline transition hover:border-indigo/40"
               >
                 {
-                  post.data.featuredImage ? (
+                  item.featuredImage ? (
                     <span class="relative w-36 shrink-0 self-stretch sm:w-56 md:w-72">
                       <img
-                        src={post.data.featuredImage}
+                        src={item.featuredImage}
                         alt=""
                         width="1024"
                         height="571"
@@ -50,13 +51,13 @@ const posts = await getPublishedLearnPosts();
                 }
                 <div class="flex flex-1 flex-col justify-center p-6">
                   <div class="flex flex-wrap items-center justify-between gap-2">
-                    <p class="label-mono text-gradient-secondary">{formatCategory(post.data.category)}</p>
+                    <p class="label-mono text-gradient-secondary">{formatCategory(item.category)}</p>
                     <p class="text-xs text-indigo-700">
-                      <time datetime={post.data.publishedOn}>{formatMonthYear(post.data.publishedOn)}</time>
+                      <time datetime={item.date}>{formatMonthYear(item.date)}</time>
                     </p>
                   </div>
-                  <h2 class="mt-2 font-heading text-xl font-semibold text-fg">{post.data.title}</h2>
-                  <p class="mt-2 text-sm leading-relaxed text-muted">{post.data.description}</p>
+                  <h2 class="mt-2 font-heading text-xl font-semibold text-fg">{item.title}</h2>
+                  <p class="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
                 </div>
               </a>
             </li>

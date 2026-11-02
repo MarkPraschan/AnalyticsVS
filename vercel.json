@@ -15,6 +15,46 @@
       "permanent": true
     },
     {
+      "source": "/guides",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-privacy-first-analytics-tools",
+      "destination": "/learn/best-privacy-first-analytics-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-privacy-first-analytics-tools/",
+      "destination": "/learn/best-privacy-first-analytics-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ga4-alternatives-gdpr",
+      "destination": "/learn/ga4-alternatives-gdpr/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ga4-alternatives-gdpr/",
+      "destination": "/learn/ga4-alternatives-gdpr/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/analytics-for-a-saas-startup",
+      "destination": "/learn/analytics-for-a-saas-startup/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/analytics-for-a-saas-startup/",
+      "destination": "/learn/analytics-for-a-saas-startup/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "destination": "https://www.analyticsvs.com/$1",
       "permanent": true,

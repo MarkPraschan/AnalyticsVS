@@ -183,28 +183,20 @@ export async function buildSitemapLastmodMap(): Promise<Map<string, string>> {
 
   setLastmod(
     map,
-    'guides',
-    getLatestContentUpdatedDate([
-      pagePath('src/pages/guides/index.astro'),
-      ...guides.map((guide) => guide.filePath),
-    ]),
-  );
-
-  for (const guide of guides) {
-    setLastmod(map, `guides/${guide.data.slug}`, getContentUpdatedDate(guide.filePath));
-  }
-
-  setLastmod(
-    map,
     'learn',
     getLatestContentUpdatedDate([
       pagePath('src/pages/learn/index.astro'),
       ...learnPosts.map((post) => post.filePath),
+      ...guides.map((guide) => guide.filePath),
     ]),
   );
 
   for (const post of learnPosts) {
     setLastmod(map, `learn/${post.data.slug}`, getContentUpdatedDate(post.filePath));
+  }
+
+  for (const guide of guides) {
+    setLastmod(map, `learn/${guide.data.slug}`, getContentUpdatedDate(guide.filePath));
   }
 
   return map;

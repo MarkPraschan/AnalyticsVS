@@ -101,7 +101,7 @@ export async function getOgEntries(): Promise<OgImageEntry[]> {
   const guides = await getCollection('guides');
   for (const guide of guides) {
     entries.push({
-      path: `guides/${guide.data.slug}`,
+      path: `learn/${guide.data.slug}`,
       title: guide.data.title,
       description: guide.data.description,
     });

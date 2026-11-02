@@ -37,11 +37,11 @@
   ],
   "relatedLinks": [
     {
-      "href": "/guides/best-privacy-first-analytics-tools/",
+      "href": "/learn/best-privacy-first-analytics-tools/",
       "label": "Best privacy-first web analytics tools"
     },
     {
-      "href": "/guides/ga4-alternatives-gdpr/",
+      "href": "/learn/ga4-alternatives-gdpr/",
       "label": "GA4 alternatives for GDPR"
     },
     {
@@ -101,7 +101,7 @@
     {
       "id": "why-teams-want-it",
       "title": "Why teams want cookieless web analytics",
-      "content": "Common reasons:\n\n- **Fewer consent banners** for simple pageview analytics in many EU setups (still get legal advice for your case)\n- **Simpler scripts** and lighter performance cost — see our [script performance matrix](/learn/analytics-script-performance/)\n- **Less ad-ecosystem coupling** than GA4\n\nIf you need ads attribution, user-level product funnels, or warehouse export, cookieless-only tools may be too shallow — pair them with a product tool or accept GA4’s compliance work. For GDPR-focused switching paths, read [GA4 alternatives for GDPR](/guides/ga4-alternatives-gdpr/)."
+      "content": "Common reasons:\n\n- **Fewer consent banners** for simple pageview analytics in many EU setups (still get legal advice for your case)\n- **Simpler scripts** and lighter performance cost — see our [script performance matrix](/learn/analytics-script-performance/)\n- **Less ad-ecosystem coupling** than GA4\n\nIf you need ads attribution, user-level product funnels, or warehouse export, cookieless-only tools may be too shallow — pair them with a product tool or accept GA4’s compliance work. For GDPR-focused switching paths, read [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/)."
     },
     {
       "id": "accuracy-tradeoffs",
@@ -111,7 +111,7 @@
     {
       "id": "how-to-choose",
       "title": "How to choose among cookieless tools",
-      "content": "1. **Hosted vs self-hosted** — Fathom and Plausible Cloud minimize ops; Umami and Matomo shine when you want the database on your servers (Matomo is not always cookieless by default — configure carefully).\n2. **Traffic vs revenue** — Plausible/Fathom/Umami/Ahrefs answer traffic questions; DataFast adds payment-linked revenue attribution.\n3. **Script weight** — Prefer tools with **recorded** AnalyticsVS benchmarks when page speed matters.\n4. **Compare pairs, not vibes** — start with [Plausible vs Fathom](/compare/plausible-vs-fathom/), [Plausible vs Matomo](/compare/matomo-vs-plausible/), or [Google Analytics vs Plausible](/compare/google-analytics-vs-plausible/).\n\nThen read the [privacy-first tools guide](/guides/best-privacy-first-analytics-tools/) for the evaluation framework."
+      "content": "1. **Hosted vs self-hosted** — Fathom and Plausible Cloud minimize ops; Umami and Matomo shine when you want the database on your servers (Matomo is not always cookieless by default — configure carefully).\n2. **Traffic vs revenue** — Plausible/Fathom/Umami/Ahrefs answer traffic questions; DataFast adds payment-linked revenue attribution.\n3. **Script weight** — Prefer tools with **recorded** AnalyticsVS benchmarks when page speed matters.\n4. **Compare pairs, not vibes** — start with [Plausible vs Fathom](/compare/plausible-vs-fathom/), [Plausible vs Matomo](/compare/matomo-vs-plausible/), or [Google Analytics vs Plausible](/compare/google-analytics-vs-plausible/).\n\nThen read the [privacy-first tools guide](/learn/best-privacy-first-analytics-tools/) for the evaluation framework."
     }
   ]
 }

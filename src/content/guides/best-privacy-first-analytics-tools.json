@@ -31,7 +31,7 @@
       "label": "Plausible vs Matomo"
     },
     {
-      "href": "/guides/ga4-alternatives-gdpr/",
+      "href": "/learn/ga4-alternatives-gdpr/",
       "label": "GA4 alternatives for GDPR"
     },
     {
@@ -69,7 +69,7 @@
     {
       "id": "what-privacy-first-means",
       "title": "What \"privacy-first\" actually means",
-      "content": "Privacy-first web analytics tools aim to measure **aggregate site usage** without building individual visitor profiles. In practice that usually means:\n\n- **Cookieless** or minimal-cookie tracking by default (see [cookieless analytics](/learn/cookieless-analytics/))\n- **No cross-site ad retargeting** built into the product\n- **Simpler data collection** — pageviews, referrers, goals — rather than full identity graphs\n\nThat is different from \"GDPR-compliant GA4.\" A privacy-first stack often reduces consent-banner friction because you collect less personal data in the first place. If EU transfers or consent banners are why you are leaving GA4, also read [GA4 alternatives for GDPR](/guides/ga4-alternatives-gdpr/)."
+      "content": "Privacy-first web analytics tools aim to measure **aggregate site usage** without building individual visitor profiles. In practice that usually means:\n\n- **Cookieless** or minimal-cookie tracking by default (see [cookieless analytics](/learn/cookieless-analytics/))\n- **No cross-site ad retargeting** built into the product\n- **Simpler data collection** — pageviews, referrers, goals — rather than full identity graphs\n\nThat is different from \"GDPR-compliant GA4.\" A privacy-first stack often reduces consent-banner friction because you collect less personal data in the first place. If EU transfers or consent banners are why you are leaving GA4, also read [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/)."
     },
     {
       "id": "evaluation-framework",

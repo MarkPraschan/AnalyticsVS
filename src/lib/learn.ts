@@ -54,7 +54,7 @@ export async function getLearnFeedItems(): Promise<LearnFeedItem[]> {
   }));
 
   const guideItems: LearnFeedItem[] = guides.map((guide) => ({
-    href: `/guides/${guide.data.slug}/`,
+    href: `/learn/${guide.data.slug}/`,
     title: guide.data.title,
     description: guide.data.description,
     category: 'guides',

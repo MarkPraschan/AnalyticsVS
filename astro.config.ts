@@ -30,6 +30,11 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
+      filter(page) {
+        // Old /guides/* URLs 301 to /learn/* — keep only the new URLs in the sitemap.
+        const pathname = new URL(page).pathname;
+        return !pathname.startsWith('/guides');
+      },
       async serialize(item) {
         const lastmodMap = await getSitemapLastmodMap();
         const key = pathnameToSitemapKey(new URL(item.url).pathname);

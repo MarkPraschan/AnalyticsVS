@@ -8,8 +8,8 @@ AnalyticsVS publishes reference-grade comparisons, pricing calculators, recorded
 
 - Comparisons: /compare/ — "X vs Y" guides with feature matrices, pricing context, and FAQs
 - Tools: /tools/ — Individual tool profiles with pricing tiers and features
-- Guides: /guides/ — Framework-first evaluation guides that link to comparisons and tool profiles
-- Learn: /learn/ — Educational primers (events, script performance matrices, concepts) that funnel into comparisons, tools, and benchmarks
+- Learn: /learn/ — Educational primers, how-tos, and Guides-category evaluation frameworks that funnel into comparisons, tools, and benchmarks
+- Guides (Learn category): /learn/best-privacy-first-analytics-tools/, /learn/ga4-alternatives-gdpr/, /learn/analytics-for-a-saas-startup/
 - Pricing calculator: /calculators/pricing/ — Interactive cost comparison by traffic volume (results are on-site only)
 - Benchmarks: /benchmarks/ — Recorded script performance data (never estimated)
 - Methodology: /methodology/ — How we source data and record benchmarks

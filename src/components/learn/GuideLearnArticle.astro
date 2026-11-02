@@ -1,0 +1,191 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ComparisonCard from '../ComparisonCard.astro';
+import LastUpdated from '../LastUpdated.astro';
+import ToolMark from '../ToolMark.astro';
+import ToolShortlist from '../ToolShortlist.astro';
+import RelatedLinks from '../RelatedLinks.astro';
+import TableOfContents from '../TableOfContents.astro';
+import { getCollection } from 'astro:content';
+import { getEntryUpdatedDate } from '../../lib/contentDates';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import { getToolsByIds } from '../../lib/tools';
+import { SITE, formatDate } from '../../lib/site';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+interface Props {
+  guide: CollectionEntry<'guides'>;
+}
+
+const { guide } = Astro.props;
+const updatedDate = getEntryUpdatedDate(guide);
+const pageUrl = new URL(`/learn/${guide.data.slug}/`, SITE.url).href;
+const featuredImageUrl = guide.data.featuredImage
+  ? new URL(guide.data.featuredImage, SITE.url).href
+  : undefined;
+
+const comparisons = await getCollection('comparisons');
+const relatedComparisons = guide.data.relatedComparisons.flatMap((id) => {
+  const comparison = comparisons.find((entry) => entry.id === id);
+  return comparison ? [comparison] : [];
+});
+const relatedTools = await getToolsByIds(guide.data.relatedTools);
+const relatedComparisonCards = await Promise.all(
+  relatedComparisons.map(async (comparison) => ({
+    comparison,
+    tools: await getToolsByIds(comparison.data.tools),
+  })),
+);
+const shortlistTools = await getToolsByIds(
+  (guide.data.toolShortlist ?? []).map((item) => item.toolId),
+);
+const toolShortlistItems = (guide.data.toolShortlist ?? []).flatMap((item) => {
+  const tool = shortlistTools.find((entry) => entry.data.id === item.toolId);
+  return tool ? [{ tool, bestFor: item.bestFor }] : [];
+});
+
+const tocHeadings = [
+  ...guide.data.sections.map((section) => ({
+    depth: 2 as const,
+    slug: section.id,
+    text: section.title,
+  })),
+  ...(toolShortlistItems.length > 0
+    ? [{ depth: 2 as const, slug: 'privacy-first-shortlist', text: '2026 shortlist' }]
+    : []),
+  ...(relatedComparisons.length > 0
+    ? [{ depth: 2 as const, slug: 'related-comparisons', text: 'Related comparisons' }]
+    : []),
+  ...((guide.data.relatedLinks?.length ?? 0) > 0
+    ? [{ depth: 2 as const, slug: 'related-reading', text: 'Related reading' }]
+    : []),
+  { depth: 2, slug: 'sources', text: 'Sources & review status' },
+];
+
+const schema = [
+  buildArticleSchema({
+    title: guide.data.seoTitle ?? guide.data.title,
+    description: guide.data.description,
+    url: pageUrl,
+    dateModified: updatedDate,
+    image: featuredImageUrl,
+    breadcrumbs: [],
+    speakableCssSelector: `#${guide.data.sections[0]?.id ?? 'sources'}`,
+  }),
+  buildBreadcrumbSchema([
+    { name: 'Home', url: SITE.url },
+    { name: 'Learn', url: new URL('/learn/', SITE.url).href },
+    { name: guide.data.title, url: pageUrl },
+  ]),
+];
+---
+
+<ArticleLayout
+  title={guide.data.title}
+  fullTitle={guide.data.seoTitle}
+  description={guide.data.description}
+  lastUpdated={guide.data.featuredImage ? undefined : updatedDate}
+  ogImage={guide.data.featuredImage}
+  schema={schema}
+>
+  {
+    guide.data.featuredImage ? (
+      <header slot="header" class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
+        <img
+          src={guide.data.featuredImage}
+          alt=""
+          width="1024"
+          height="571"
+          class="absolute inset-0 size-full object-cover blur-xs "
+          decoding="async"
+          fetchpriority="high"
+        />
+        <div class="learn-hero__scrim rounded-none absolute inset-0" aria-hidden="true" />
+        <div class="relative max-w-xl px-5 py-8 sm:px-10 sm:py-12">
+          <div class="rounded-xl bg-base/95 p-5 shadow-sm sm:bg-transparent sm:p-0 sm:shadow-none">
+            <p class="label-mono text-gradient-secondary">Guides</p>
+            <h1 class="heading-lg mt-3 text-gradient-primary">{guide.data.title}</h1>
+            <p class="page-intro mt-4">{guide.data.description}</p>
+            <div class="mt-4">
+              <LastUpdated date={updatedDate} />
+            </div>
+          </div>
+        </div>
+      </header>
+    ) : null
+  }
+
+  <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
+    <div class="min-w-0">
+      {
+        guide.data.sections.map((section) => (
+          <section id={section.id} class="mt-10 first:mt-0">
+            <h2 class="article-heading">{section.title}</h2>
+            <div class="prose-content review-prose mt-4" set:html={renderReviewMarkdown(section.content)} />
+          </section>
+        ))
+      }
+
+      <ToolShortlist
+        items={toolShortlistItems}
+        heading="2026 shortlist"
+        id="privacy-first-shortlist"
+      />
+
+      {
+        relatedComparisonCards.length > 0 && (
+          <section id="related-comparisons" class="mt-10">
+            <h2 class="article-heading">Related comparisons</h2>
+            <p class="mt-2 text-sm text-muted">
+              These head-to-head pages include feature matrices, pricing context, and verdicts.
+            </p>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedComparisonCards.map(({ comparison, tools }) => (
+                <li>
+                  <ComparisonCard comparison={comparison} tools={tools} heading="h3" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        relatedTools.length > 0 && (
+          <section class="mt-10">
+            <h2 class="article-heading">Tools covered in this guide</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {relatedTools.map((tool) => (
+                <li>
+                  <a
+                    href={`/tools/${tool.data.slug}/`}
+                    class="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-3 py-1.5 text-sm text-muted no-underline transition hover:border-indigo/40 hover:text-indigo"
+                  >
+                    <ToolMark tool={tool.data} size="sm" href={false} />
+                    {tool.data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <RelatedLinks links={guide.data.relatedLinks ?? []} />
+
+      <section id="sources" class="mt-10">
+        <h2 class="article-heading">Sources & review status</h2>
+        <div class="review-meta card mt-4">
+          <p class="text-sm text-muted">
+            Guide updated {formatDate(updatedDate)} · <a href="/methodology/">How we write comparisons</a> ·{' '}
+            <a href="/compare/">Browse all comparisons</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <aside class="hidden lg:block">
+      <TableOfContents headings={tocHeadings} />
+    </aside>
+  </div>
+</ArticleLayout>

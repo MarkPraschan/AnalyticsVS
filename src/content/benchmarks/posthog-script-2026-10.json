@@ -3,6 +3,7 @@
   "testDate": "2026-10-12",
   "slug": "posthog-script-2026-10",
   "title": "PostHog Script Performance",
+  "seoDescription": "PostHog script benchmark: transfer size, decoded weight, and Slow 4G load overhead — recorded on AnalyticsVS fixtures so you can compare product-analytics cost.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

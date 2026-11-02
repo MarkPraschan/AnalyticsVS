@@ -3,6 +3,7 @@
   "testDate": "2026-09-08",
   "slug": "datafast-cookieless-script-2026-09",
   "title": "DataFast (cookieless) Script Performance",
+  "seoDescription": "DataFast cookieless script benchmark: transfer size, decoded weight, and Slow 4G overhead vs the default install — recorded on AnalyticsVS fixtures.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

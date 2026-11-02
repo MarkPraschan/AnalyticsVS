@@ -1,0 +1,81 @@
+{
+  "tool": "google-analytics-360",
+  "reviewStatus": "reviewed",
+  "quickAnswer": "**Google Analytics 360** is the paid enterprise tier of GA4 for teams that have outgrown free-property limits on explorations, BigQuery export, or API quota — or that need a formal SLA. Stay on free GA4 if you are under those ceilings and do not need enterprise support.",
+  "bestFor": [
+    "Very high-volume properties that hit free GA4 exploration sampling, BigQuery export, or Data API quotas",
+    "Enterprises that need **contracted SLAs** and a named Google / Sales Partner support path",
+    "Teams that already run GA4 and need longer event-data retention for explorations (up to 50 months)",
+    "Organizations standardized on the Google Marketing Platform who want one contracted analytics stack"
+  ],
+  "notFor": [
+    "Most marketing sites and early-stage SaaS products that fit comfortably inside free GA4 limits",
+    "Teams whose main pain is privacy, consent banners, or Google data processing — 360 does not fix that",
+    "Buyers who need a published list price before talking to sales",
+    "Product teams that primarily need session replay, flags, or experiments — look at PostHog instead"
+  ],
+  "sections": [
+    {
+      "id": "enterprise-limits",
+      "title": "What 360 raises vs free GA4",
+      "dimension": "analytics-scope",
+      "content": "360 is still GA4’s event-based model — the upgrade is capacity and support, not a different product philosophy.\n\nPublished Google limits that matter most:\n\n- Event data retention for explorations: up to **50 months** (free: 2 or 14 months)\n- Explore sampling threshold: **1B events** per query (free: 10M)\n- BigQuery daily export: **billions** of events (free: 1M)\n- Event-scoped custom dimensions: **125** (free: 50); key events: **50** (free: 30); audiences: **400** (free: 100)\n- Data API quota: **2M tokens/day** (free: 200K)\n\nIf you never hit sampling, export caps, or retention walls, free GA4 usually remains enough."
+    },
+    {
+      "id": "sla-support",
+      "title": "SLAs and enterprise support",
+      "dimension": "ux-reliability",
+      "content": "Free GA4 has **no service level agreement**. 360 is sold as an annual contract through Google or a Sales Partner and includes enterprise support expectations tied to that contract.\n\nThat matters when analytics downtime or quota failures block paid media or executive reporting. It does not replace good tagging hygiene, consent configuration, or BigQuery cost controls."
+    },
+    {
+      "id": "ecosystem",
+      "title": "Same Google ecosystem, higher ceilings",
+      "dimension": "integrations",
+      "content": "360 keeps Google Ads, Search Console, Looker Studio, and BigQuery in the same family as free GA4. The practical upgrade is **export and query headroom** — especially unsampled explorations and high-volume BigQuery pipelines.\n\nPrivacy and consent work stay on you: 360 is not a cookieless or EU-sovereignty product."
+    }
+  ],
+  "setupNotes": "Upgrading is a **sales and migration** process, not a self-serve plan toggle:\n\n1. Confirm you are hitting a free-tier limit (sampling, BigQuery export, API quota, or retention) or need a contractual SLA.\n2. Talk to Google or a Google Sales Partner for a quote — there is no public list price.\n3. Plan property mapping, user permissions, and linked Google Ads / BigQuery projects under the 360 contract.\n4. Re-validate key events, audiences, and consent settings after the cutover.\n\nIf the blocker is compliance rather than volume, evaluate Matomo or a privacy-first tool before buying 360.",
+  "pricingNotes": "**Google Analytics 360 has no published list price.** It is a custom annual contract through Google or a Sales Partner.\n\nYou are paying for higher limits and SLAs on top of the same GA4 product family — not for a different measurement model. Free GA4 remains $0 for properties inside Google’s standard ceilings.\n\nBudget separately for BigQuery storage/query charges and ongoing tagging/consent work; those bills exist on both tiers.\n\nCompare free GA4 against paid alternatives in our [pricing calculator](/calculators/pricing/), then treat 360 as a quote-only enterprise step when free limits or SLAs force the conversation.",
+  "limitations": [
+    "No public list price — procurement and budgeting require a sales process.",
+    "Does not remove cookie consent or Google data-processing concerns that push teams to privacy-first tools.",
+    "Still no native session replay or heatmaps — pair with another product if you need behavior UX tools.",
+    "Overkill for sites that never approach free GA4 exploration, export, or API limits."
+  ],
+  "faq": [
+    {
+      "question": "How much does Google Analytics 360 cost?",
+      "answer": "Google does not publish a list price. 360 is sold as a custom annual contract through Google or a Sales Partner. Expect enterprise pricing that only makes sense once free GA4 limits or SLA needs are real."
+    },
+    {
+      "question": "Is Google Analytics 360 a different product from GA4?",
+      "answer": "No. It is the enterprise tier of Google Analytics 4 with higher limits, longer exploration retention options, higher BigQuery export ceilings, and contractual SLAs — same event-based GA4 model."
+    },
+    {
+      "question": "When should I upgrade from free GA4 to 360?",
+      "answer": "Upgrade when you regularly hit free exploration sampling, the 1M-event daily BigQuery export cap, Data API quotas, or need a formal SLA. If your pain is privacy or simplicity, switch tools instead of buying 360."
+    }
+  ],
+  "sources": [
+    {
+      "label": "GA4 360 feature limits",
+      "url": "https://support.google.com/analytics/answer/11202874",
+      "checkedOn": "2026-10-19"
+    },
+    {
+      "label": "GA4 data retention",
+      "url": "https://support.google.com/analytics/answer/7667196",
+      "checkedOn": "2026-10-19"
+    },
+    {
+      "label": "BigQuery export",
+      "url": "https://support.google.com/analytics/answer/9358801",
+      "checkedOn": "2026-08-27"
+    },
+    {
+      "label": "Analytics 360 product page",
+      "url": "https://marketingplatform.google.com/about/analytics-360/",
+      "checkedOn": "2026-11-02"
+    }
+  ]
+}

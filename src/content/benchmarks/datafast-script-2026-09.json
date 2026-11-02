@@ -3,6 +3,7 @@
   "testDate": "2026-09-08",
   "slug": "datafast-script-2026-09",
   "title": "DataFast Script Performance",
+  "seoDescription": "DataFast script benchmark: transfer size, decoded weight, and Slow 4G load overhead — recorded on AnalyticsVS fixtures so you can compare before shipping.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

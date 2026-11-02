@@ -1,0 +1,51 @@
+{
+  "title": "GA4 vs GA4 360: Pricing, Limits and When to Upgrade",
+  "description": "Google Analytics 4 (free) vs Google Analytics 360 — pricing, event and retention limits, sampling, BigQuery export, SLAs, and when an enterprise contract is worth it.",
+  "tools": [
+    "google-analytics-4",
+    "google-analytics-360"
+  ],
+  "category": "web-analytics",
+  "winner": null,
+  "verdict": "Stay on free Google Analytics 4 unless you are hitting exploration sampling, BigQuery export, or API limits — or you need a contractual SLA. Upgrade to Google Analytics 360 only when those enterprise ceilings or support terms are the actual blocker.",
+  "quickAnswer": "**Free GA4** is enough for most sites: $0, full Google Ads linking, and solid reporting inside standard limits. **GA4 360** is the paid enterprise tier for higher event retention, unsampled explorations at huge volume, larger BigQuery exports, and SLAs. There is no public 360 list price — only a sales contract.",
+  "bottomLine": "Do not buy 360 to “get better analytics” in the abstract. Buy it when free-tier ceilings or enterprise support requirements are already costing you unsampled analysis, export completeness, or contractual peace of mind. If your problem is privacy, consent banners, or product analytics depth, a different tool beats a 360 upgrade.",
+  "faq": [
+    {
+      "question": "Is Google Analytics 360 just paid GA4?",
+      "answer": "Yes. 360 is the enterprise tier of Google Analytics 4. You get the same event-based GA4 product with higher limits, longer exploration retention options, higher BigQuery export ceilings, and a contractual SLA — not a separate measurement model."
+    },
+    {
+      "question": "How much does GA4 360 cost vs free GA4?",
+      "answer": "Standard GA4 is free. Google Analytics 360 has no published list price; it is a custom annual contract through Google or a Sales Partner. Budget for the contract plus any BigQuery storage and query charges."
+    },
+    {
+      "question": "What free GA4 limits push teams to 360?",
+      "answer": "Common triggers are exploration sampling above about 10M events per query, the 1M-event daily BigQuery export cap, Data API quota, short event-data retention for explorations (2 or 14 months), and the need for a formal SLA."
+    },
+    {
+      "question": "Does GA4 360 fix privacy or cookie-consent issues?",
+      "answer": "No. 360 is still Google Analytics with cookies and Google infrastructure. If consent banners or data-processing concerns are the reason you are shopping, compare privacy-first tools or Matomo instead of upgrading to 360."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Pricing and cost",
+      "content": "**Standard Google Analytics 4 is free.** **Google Analytics 360** is a custom-priced annual contract sold through Google or a Google Sales Partner — Google does not publish a list price.\n\nWhat you are buying with 360 is capacity and support, not a new analytics philosophy. Free GA4 still covers Google Ads linking, Search Console, Looker Studio, and BigQuery export within standard ceilings.\n\n**Hidden costs on both tiers:** consent and legal work in GDPR regions, Tag Manager maintenance, and BigQuery storage/query bills if you export. Those do not disappear when you upgrade.\n\nUse the [pricing calculator](/calculators/pricing/) to compare free GA4 ($0) against paid alternatives at your traffic level, then treat 360 as a quote-only step when free limits force it."
+    },
+    {
+      "title": "Data limits: events, retention, sampling, BigQuery",
+      "content": "These are the published ceilings that usually decide the upgrade:\n\n| Limit | GA4 (free) | GA4 360 |\n|---|---|---|\n| Event data retention (explorations) | 2 or 14 months | Up to 50 months |\n| Event-scoped custom dimensions | 50 per property | 125 per property |\n| Key events | 30 | 50 |\n| Audiences | 100 | 400 |\n| Explore sampling limit | 10M events per query | 1B events per query |\n| BigQuery daily export | 1M events | Billions of events |\n| Data API quota | 200,000 tokens/day | 2M tokens/day |\n\nStandard aggregated reports are not controlled by the exploration retention setting. The pain shows up in **Explorations**, **unsampled analysis**, **warehouse export completeness**, and **API-driven reporting**.\n\nIf you rarely approach these numbers, free GA4 remains the rational default."
+    },
+    {
+      "title": "SLAs and support",
+      "content": "Free GA4 has **no service level agreement**. 360 adds enterprise support expectations under a sales contract with Google or a Sales Partner.\n\nThat matters when analytics outages or quota failures block paid media ops or board-level reporting. It does not replace tagging QA, consent configuration, or BigQuery cost governance.\n\nIf your team’s real need is a named support path and contractual uptime — not higher limits — say that explicitly in procurement; limits and SLAs are sold together as 360, not as à-la-carte free-tier add-ons."
+    },
+    {
+      "title": "When to upgrade",
+      "content": "Upgrade to **GA4 360** when at least one of these is true:\n\n- Explorations are regularly **sampled** past free thresholds and that skews decisions\n- You need more than **1M events/day** in BigQuery export\n- You are hitting **Data API** quotas for production reporting\n- You need **longer event-level retention** for explorations (toward 50 months)\n- Leadership requires a **contractual SLA** for analytics\n\nStay on **free GA4** when traffic and query volume fit standard limits, you do not need an SLA, and your open questions are about privacy, simplicity, or product analytics — those problems need a different tool, not a 360 contract.\n\nNext step: confirm which free-tier ceiling you are actually hitting, get a 360 quote if needed, or compare [GA4 vs Plausible](/compare/google-analytics-vs-plausible/) / [GA4 vs PostHog](/compare/google-analytics-vs-posthog/) if the fit is wrong."
+    }
+  ],
+  "seoTitle": "GA4 vs GA4 360: Pricing, Limits and When to Upgrade",
+  "seoDescription": "GA4 vs Google Analytics 360 compared: free vs enterprise pricing, event limits, retention, sampling, BigQuery export, SLAs, and when upgrading is worth it."
+}

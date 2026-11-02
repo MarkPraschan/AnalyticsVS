@@ -3,6 +3,7 @@
   "testDate": "2026-10-12",
   "slug": "fathom-script-2026-10",
   "title": "Fathom Analytics Script Performance",
+  "seoDescription": "Fathom script performance: transfer size, decoded weight, and Slow 4G load overhead — recorded on AnalyticsVS fixtures so you can compare before installing.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

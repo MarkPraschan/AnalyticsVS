@@ -3,6 +3,7 @@
   "testDate": "2026-10-26",
   "slug": "umami-script-2026-10",
   "title": "Umami Script Performance",
+  "seoDescription": "Umami script benchmark: transfer size, decoded weight, and Slow 4G load overhead — recorded on AnalyticsVS fixtures so you can compare before installing.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

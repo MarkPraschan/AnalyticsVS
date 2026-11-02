@@ -1,0 +1,36 @@
+{
+  "id": "google-analytics-360",
+  "name": "Google Analytics 360",
+  "slug": "google-analytics-360",
+  "category": "web-analytics",
+  "tagline": "Enterprise GA4 with higher limits, SLAs, and sales-supported contracts",
+  "website": "https://marketingplatform.google.com/about/analytics-360/",
+  "brandColor": "#E37400",
+  "affiliate": {
+    "enabled": false
+  },
+  "pricing": {
+    "model": "custom",
+    "currency": "USD",
+    "notes": "Google Analytics 360 is a custom-priced annual contract sold through Google or a Google Sales Partner. Google does not publish a list price.",
+    "projectLimits": {
+      "unlimited": true,
+      "notes": "Contract terms set property and support allowances; confirm with Google or a Sales Partner."
+    }
+  },
+  "features": {
+    "cookieless": false,
+    "gdpr_compliant": false,
+    "real_time": true,
+    "custom_events": true,
+    "funnels": true,
+    "heatmaps": false,
+    "session_recordings": false,
+    "ab_testing": false,
+    "product_analytics": true,
+    "self_hosted": false
+  },
+  "seoTitle": "Google Analytics 360 Review 2026: Pricing, Limits, SLAs",
+  "seoDescription": "Google Analytics 360 reviewed: custom enterprise pricing, higher GA4 limits, SLAs, BigQuery export, and when upgrading from free GA4 is actually worth it.",
+  "fallbackRelated": ["google-analytics-4", "posthog", "matomo"]
+}

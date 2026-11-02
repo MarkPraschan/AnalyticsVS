@@ -2,6 +2,8 @@
   "title": "Pageviews vs Events: Which Should You Track?",
   "slug": "pageviews-vs-events",
   "description": "When pageview analytics is enough, when you need custom events, and how that choice maps to privacy tools vs GA4 vs product analytics.",
+  "seoTitle": "Event-Based vs Pageview Analytics: Which Is Better for a SaaS App?",
+  "answerUnderTitle": "For a SaaS app, event-based analytics is usually the better fit. Pageviews tell you which marketing or docs pages got traffic; events tell you whether users signed up, activated, retained, or upgraded. Keep a lightweight pageview tool on the marketing site if you want, but instrument the product with events in GA4 or PostHog.",
   "publishedOn": "2026-10-14",
   "category": "primers",
   "status": "published",

@@ -3,6 +3,7 @@
   "testDate": "2026-09-02",
   "slug": "google-analytics-4-script-2026-09",
   "title": "Google Analytics 4 Script Performance",
+  "seoDescription": "Google Analytics 4 script benchmark: transfer size, decoded weight, and Slow 4G load overhead — recorded on AnalyticsVS fixtures so you can compare gtag cost.",
   "status": "recorded",
   "environment": {
     "connection": "Slow 4G (Simulated)",

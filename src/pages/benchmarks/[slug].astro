@@ -20,11 +20,15 @@ const { benchmark } = Astro.props;
 const tool = await getToolById(benchmark.data.tool);
 
 const pageUrl = new URL(`/benchmarks/${benchmark.data.slug}/`, SITE.url).href;
+const toolName = tool?.data.name ?? benchmark.data.tool;
+const metaDescription =
+  benchmark.data.seoDescription ??
+  `Performance benchmark for ${toolName}. Recorded by AnalyticsVS under controlled test conditions.`;
 
 const schema = [
   buildArticleSchema({
     title: benchmark.data.title,
-    description: `Script performance benchmark for ${tool?.data.name ?? benchmark.data.tool}`,
+    description: metaDescription,
     url: pageUrl,
     dateModified: benchmark.data.testDate,
     breadcrumbs: [],
@@ -39,7 +43,7 @@ const schema = [
 
 <ArticleLayout
   title={benchmark.data.title}
-  description={`Performance benchmark for ${tool?.data.name ?? benchmark.data.tool}. Recorded by AnalyticsVS under controlled test conditions.`}
+  description={metaDescription}
   lastUpdated={benchmark.data.testDate}
   schema={schema}
 >

@@ -3,6 +3,7 @@ const REICON_LOGO_CDN = 'https://cdn.reicon.dev/logos';
 /** Reicon CDN slugs for full-color `original.svg` brand marks. */
 const BRAND_LOGO_SLUGS: Partial<Record<string, string>> = {
   'google-analytics-4': 'google-analytics',
+  'google-analytics-360': 'google-analytics',
   plausible: 'plausible-analytics',
   fathom: 'fathom',
   hotjar: 'hotjar',

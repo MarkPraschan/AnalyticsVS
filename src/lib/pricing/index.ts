@@ -1,4 +1,5 @@
 import { calculateGA4Pricing } from './ga4';
+import { calculateGA360Pricing } from './ga360';
 import { calculatePlausiblePricing } from './plausible';
 import { calculateFathomPricing } from './fathom';
 import { calculateHotjarPricing } from './hotjar';
@@ -11,6 +12,7 @@ import type { PricingCalculator } from './types';
 
 export const PRICING_CALCULATORS: Record<string, PricingCalculator> = {
   'google-analytics-4': calculateGA4Pricing,
+  'google-analytics-360': calculateGA360Pricing,
   plausible: calculatePlausiblePricing,
   fathom: calculateFathomPricing,
   hotjar: calculateHotjarPricing,

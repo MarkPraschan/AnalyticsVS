@@ -93,7 +93,7 @@ const tocHeadings = [
 
 const schema = [
   buildArticleSchema({
-    title: post.data.title,
+    title: post.data.seoTitle ?? post.data.title,
     description: post.data.description,
     url: pageUrl,
     dateModified: updatedDate,
@@ -114,6 +114,7 @@ const schema = [
 
 <ArticleLayout
   title={post.data.title}
+  fullTitle={post.data.seoTitle}
   description={post.data.description}
   lastUpdated={post.data.featuredImage ? undefined : updatedDate}
   ogImage={post.data.featuredImage}
@@ -138,7 +139,7 @@ const schema = [
               {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
             </p>
             <h1 class="heading-lg mt-3 text-gradient-primary">{post.data.title}</h1>
-            <p class="page-intro mt-4">{post.data.description}</p>
+            <p class="page-intro mt-4">{post.data.answerUnderTitle ?? post.data.description}</p>
             <div class="mt-4">
               <LastUpdated date={updatedDate} />
             </div>

@@ -18,6 +18,7 @@ import type { ComparisonPageContext } from '../../lib/comparisons';
 import { getBenchmarksForComparison } from '../../lib/comparisons';
 import { getEntryUpdatedDate, getComparisonPageUpdatedDate } from '../../lib/contentDates';
 import { getToolReviewEntry } from '../../lib/reviews';
+import { renderReviewMarkdown } from '../../lib/markdown';
 import { SITE } from '../../lib/site';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 
@@ -30,8 +31,17 @@ const { comparison, context } = Astro.props;
 const tools = context.tools.map(({ tool }) => tool);
 const benchmarks = await getBenchmarksForComparison(comparison.data.tools);
 
+const editorialNotes = comparison.data.editorialNotes ?? [];
 const tocHeadings = [
   { depth: 2, slug: 'quick-answer', text: 'Quick answer' },
+  ...editorialNotes.map((note) => ({
+    depth: 2,
+    slug: note.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, ''),
+    text: note.title,
+  })),
   { depth: 2, slug: 'who-should-pick', text: 'Who should pick which?' },
   { depth: 2, slug: 'feature-comparison', text: 'Feature comparison table' },
   ...(context.dimensions.length > 0
@@ -105,6 +115,25 @@ const schema = [
     <div class="min-w-0">
       <QuickAnswerCallout content={comparison.data.quickAnswer} pageUrl="#feature-comparison" />
 
+      {
+        editorialNotes.length > 0 && (
+          <div class="mt-10 space-y-10">
+            {editorialNotes.map((note) => {
+              const slug = note.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '');
+              return (
+                <section id={slug} class="prose-content review-prose">
+                  <h2 class="article-heading">{note.title}</h2>
+                  <div class="mt-4" set:html={renderReviewMarkdown(note.content)} />
+                </section>
+              );
+            })}
+          </div>
+        )
+      }
+
       <ComparisonFitGrid tools={context.tools} />
 
       <section id="feature-comparison" class="mt-10">
@@ -132,10 +161,7 @@ const schema = [
       }
 
       <ComparisonLimitations tools={context.tools} />
-      <ComparisonVerdict
-        bottomLine={comparison.data.bottomLine}
-        editorialNotes={comparison.data.editorialNotes}
-      />
+      <ComparisonVerdict bottomLine={comparison.data.bottomLine} />
       <ComparisonClosing
         faq={context.mergedFaq}
         sources={context.sources}

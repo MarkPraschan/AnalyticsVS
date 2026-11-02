@@ -172,6 +172,7 @@ const benchmarks = defineCollection({
     testDate: z.string(),
     slug: z.string(),
     title: z.string(),
+    seoDescription: z.string().min(140).max(160).optional(),
     status: z.enum(['pending', 'recorded']),
     environment: z.object({
       connection: z.string(),
@@ -271,6 +272,10 @@ const learn = defineCollection({
     title: z.string(),
     slug: z.string(),
     description: z.string(),
+    /** Optional document title; falls back to title when omitted. */
+    seoTitle: z.string().max(70).optional(),
+    /** Short direct-answer paragraph shown immediately under the H1. */
+    answerUnderTitle: z.string().optional(),
     /** ISO date (YYYY-MM-DD) used for listing sort and byline. */
     publishedOn: z.string(),
     category: z.string(),

@@ -20,7 +20,12 @@ import { getToolPageUpdatedDate } from '../../lib/contentDates';
 import { renderReviewMarkdown } from '../../lib/markdown';
 import { getAllTools, getComparisonsForTool, getBenchmarksForTool, getToolsByIds } from '../../lib/tools';
 import { SITE } from '../../lib/site';
-import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildSoftwareApplicationSchema,
+} from '../../lib/schema';
 import type { ToolEntry } from '../../lib/tools';
 import type { ToolReview } from '../../lib/reviews';
 
@@ -121,6 +126,7 @@ const schema = [
     pageUrl,
     sectionLabel: 'full review',
   }),
+  buildSoftwareApplicationSchema(tool),
 ].filter((item): item is Record<string, unknown> => item != null);
 ---
 

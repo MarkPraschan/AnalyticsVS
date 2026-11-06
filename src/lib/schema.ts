@@ -1,5 +1,101 @@
+import type { CollectionEntry } from 'astro:content';
 import { summarizeFaqAnswerForSchema } from './aeo';
-import { SITE } from './site';
+import { formatCategory, SITE } from './site';
+
+type ToolEntry = CollectionEntry<'tools'>;
+
+const SCHEMA_IN_STOCK = 'https://schema.org/InStock';
+
+function toolOfferUrl(tool: ToolEntry['data']): string {
+  if (tool.affiliate.enabled && tool.affiliate.url) {
+    return tool.affiliate.url;
+  }
+  return tool.website;
+}
+
+/** Numeric tier prices only — null (contact-only) bands are ignored. */
+function numericTierPrices(tool: ToolEntry['data']): number[] {
+  return (tool.pricing.tiers ?? [])
+    .map((tier) => tier.price)
+    .filter((price): price is number => typeof price === 'number');
+}
+
+function buildSoftwareApplicationOffers(
+  tool: ToolEntry['data'],
+): Record<string, unknown> | undefined {
+  const currency = tool.pricing.currency || 'USD';
+  const offerUrl = toolOfferUrl(tool);
+  const prices = numericTierPrices(tool);
+  const cheapest = prices.length > 0 ? Math.min(...prices) : null;
+
+  if (tool.pricing.model === 'free' || cheapest === 0) {
+    return {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: currency,
+      url: offerUrl,
+      availability: SCHEMA_IN_STOCK,
+    };
+  }
+
+  if (prices.length >= 2) {
+    return {
+      '@type': 'AggregateOffer',
+      lowPrice: String(Math.min(...prices)),
+      highPrice: String(Math.max(...prices)),
+      priceCurrency: currency,
+      offerCount: prices.length,
+      url: offerUrl,
+      availability: SCHEMA_IN_STOCK,
+    };
+  }
+
+  if (prices.length === 1) {
+    return {
+      '@type': 'Offer',
+      price: String(prices[0]),
+      priceCurrency: currency,
+      url: offerUrl,
+      availability: SCHEMA_IN_STOCK,
+    };
+  }
+
+  // Custom / sales-led / no published numeric tiers — never invent a price.
+  if (tool.pricing.model === 'custom' || prices.length === 0) {
+    return {
+      '@type': 'Offer',
+      description: tool.pricing.notes?.trim() || 'Custom pricing',
+      url: tool.website,
+      availability: SCHEMA_IN_STOCK,
+    };
+  }
+
+  return undefined;
+}
+
+/**
+ * SoftwareApplication JSON-LD for /tools/[slug]/ pages.
+ * Prefer this over Product schema for analytics SaaS profiles.
+ */
+export function buildSoftwareApplicationSchema(tool: ToolEntry): Record<string, unknown> {
+  const pageUrl = new URL(`/tools/${tool.data.slug}/`, SITE.url).href;
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: tool.data.name,
+    description: tool.data.tagline,
+    url: pageUrl,
+    applicationCategory: formatCategory(tool.data.category),
+    operatingSystem: 'Web',
+  };
+
+  const offers = buildSoftwareApplicationOffers(tool.data);
+  if (offers) {
+    schema.offers = offers;
+  }
+
+  return schema;
+}
 
 interface BreadcrumbItem {
   name: string;

@@ -13,7 +13,11 @@ import { getAllTools, getComparisonsForTool, getBenchmarksForTool, getToolsByIds
 import { getToolReview, getToolReviewEntry } from '../../lib/reviews';
 import { getToolPageUpdatedDate } from '../../lib/contentDates';
 import { SITE } from '../../lib/site';
-import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildSoftwareApplicationSchema,
+} from '../../lib/schema';
 
 export async function getStaticPaths() {
   const tools = await getAllTools();
@@ -72,6 +76,7 @@ const schema = [
     { name: 'Tools', url: new URL('/tools/', SITE.url).href },
     { name: tool.data.name, url: pageUrl },
   ]),
+  buildSoftwareApplicationSchema(tool),
 ];
 ---
 

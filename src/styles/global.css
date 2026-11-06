@@ -798,7 +798,12 @@
   }
 
   .article-solution-cta--compact {
-    @apply mt-4 grid-cols-1 p-4;
+    @apply mt-0 grid-cols-1 p-4;
+  }
+
+  .learn-sidebar {
+    /* Keep TOC + compact CTA on screen (including ~768px-tall desktops) without covering the footer. */
+    max-height: calc(100vh - 8rem);
   }
 
   .learn-hero {

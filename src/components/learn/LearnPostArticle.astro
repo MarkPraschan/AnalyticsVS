@@ -354,18 +354,24 @@ const hasAffiliateCtas =
       </section>
     </div>
     <aside class="hidden lg:block">
-      <TableOfContents headings={tocHeadings} />
-      {
-        heroCtaTool && (
-          <ArticleSolutionCta
-            tool={heroCtaTool}
-            headline={post.data.heroCta?.headline}
-            note={post.data.heroCta?.note}
-            label={post.data.heroCta?.label}
-            compact
-          />
-        )
-      }
+      <div class="learn-sidebar sticky top-28 flex max-h-[calc(100vh-8rem)] flex-col gap-4 self-start">
+        <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <TableOfContents headings={tocHeadings} sticky={false} />
+        </div>
+        {
+          heroCtaTool && (
+            <div class="shrink-0">
+              <ArticleSolutionCta
+                tool={heroCtaTool}
+                headline={post.data.heroCta?.headline}
+                note={post.data.heroCta?.note}
+                label={post.data.heroCta?.label}
+                compact
+              />
+            </div>
+          )
+        }
+      </div>
     </aside>
   </div>
 </ArticleLayout>

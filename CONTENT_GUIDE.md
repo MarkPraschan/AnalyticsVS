@@ -11,7 +11,7 @@ Mirror Jake Ward’s “Anatomy of the Perfect Blog Post”:
 1. **Keyword-focused H1 and metadata.** `title` is the H1. `seoTitle` (max 70 chars) is the document `<title>` when set. `description` is the meta description (aim ~140–160 chars). Put the target query in the H1 and in the first sentence of the description.
 2. **Published and updated dates.** Set `publishedOn` (`YYYY-MM-DD`). The Learn template shows published + updated (file mtime via `getEntryUpdatedDate`). Do not hide dates.
 3. **Author byline.** Learn posts show `Written by AnalyticsVS` (`SITE.author` in `src/lib/site.ts`). Do not invent a personal author or “Personally tested” badge.
-4. **Solution + CTA above the fold.** Use optional `heroCta` (`toolId`, `headline`, `note`, `label`). `LearnPostArticle` renders `ArticleSolutionCta` immediately after key takeaways, and a compact copy in the sticky sidebar.
+4. **Solution + CTA above the fold.** Use optional `heroCta` (`toolId`, `headline`, `note`, `label`). `LearnPostArticle` renders `ArticleSolutionCta` immediately after key takeaways, and a compact copy in the desktop sidebar. The TOC and compact CTA share one `sticky top-28` column (`max-h-[calc(100vh-8rem)]`); the TOC scrolls if needed so the CTA stays fully visible. Mobile is unchanged (sidebar is `hidden lg:block`).
 5. **Key takeaways box.** Fill `keyTakeaways` (string array). Rendered by `src/components/KeyTakeaways.astro` (`#key-takeaways`).
 6. **H1–H3 structure.** One H1 (`title`). Each `sections[]` item is an H2. Use `###` inside `content` markdown for H3s (`renderReviewMarkdown` supports that).
 7. **Short paragraphs.** Split on blank lines. Avoid walls of text.
@@ -130,6 +130,19 @@ npm run preview
 - Disable: `INDEXNOW_SUBMIT=false`. Failures log a warning and **do not** fail the Vercel build.
 - Payload: `host` `www.analyticsvs.com`, `keyLocation` the public txt, `urlList` from the built sitemap. Endpoint: `https://api.indexnow.org/indexnow`.
 
-## Suggested next article ideas (avoid duplicating these)
+## Suggested next article ideas
 
 Already shipped (do not rewrite as “new”): cookieless analytics, script performance, events primers + per-tool setup, pageviews vs events, web vs product analytics, privacy-first tools, GA4 GDPR alternatives, SaaS startup chooser, website heatmaps, and the comparison pairs under `src/content/comparisons/`.
+
+Ranked by likely value; none of these have a dedicated page yet.
+
+1. **Self-hosted web analytics** — `self hosted analytics` (Matomo, Umami, PostHog, Fathom Lite).
+2. **Hotjar alternatives** — `hotjar alternatives` (honest roundup of PostHog + Matomo only).
+3. **Best analytics for a blog** — `best analytics for blog` (Fathom/Plausible/Ahrefs).
+4. **Open-source web analytics** — `open source web analytics`.
+5. **Stripe traffic-to-revenue attribution** — `stripe attribution` (DataFast).
+6. **Cookie consent vs cookieless tags** — `analytics cookie consent`.
+7. **Ahrefs Web Analytics vs GA4** — `ahrefs web analytics`.
+8. **What web analytics costs** — `web analytics pricing` (calculator landing).
+9. **Umami vs Matomo** — `umami vs matomo` (missing comparison pair).
+10. **Server-side tagging** — `server side tagging` (only if we can source claims without inventing GTM setup).

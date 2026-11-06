@@ -13,6 +13,7 @@ export type LearnFeedItem = {
   /** ISO date used for sorting and the card byline. */
   date: string;
   featuredImage?: string;
+  featuredImageAlt?: string;
 };
 
 /** Calendar date in America/New_York as YYYY-MM-DD (Learn publish schedule). */
@@ -51,6 +52,7 @@ export async function getLearnFeedItems(): Promise<LearnFeedItem[]> {
     category: post.data.category,
     date: post.data.publishedOn,
     featuredImage: post.data.featuredImage,
+    featuredImageAlt: post.data.featuredImageAlt,
   }));
 
   const guideItems: LearnFeedItem[] = guides.map((guide) => ({

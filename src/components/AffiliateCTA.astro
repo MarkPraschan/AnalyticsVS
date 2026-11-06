@@ -9,14 +9,16 @@ interface Props {
   affiliate?: boolean;
   label?: string;
   tool?: ToolEntry['data'];
+  /** Drop the inner card chrome when a parent already provides the container. */
+  flush?: boolean;
 }
 
-const { name, url, affiliate = false, label = 'Visit website', tool } = Astro.props;
+const { name, url, affiliate = false, label = 'Visit website', tool, flush = false } = Astro.props;
 ---
 
 {
   url ? (
-    <div class="card flex h-full flex-col gap-4">
+    <div class:list={[!flush && 'card', 'flex h-full flex-col gap-4']}>
       <div class="flex min-w-0 items-center gap-3">
         {tool && <ToolMark tool={tool} size="sm" href={false} />}
         <p class="font-heading font-semibold text-fg">{name}</p>

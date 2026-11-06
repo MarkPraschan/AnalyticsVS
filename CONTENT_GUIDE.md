@@ -10,7 +10,7 @@ Mirror Jake Ward’s “Anatomy of the Perfect Blog Post”:
 
 1. **Keyword-focused H1 and metadata.** `title` is the H1. `seoTitle` (max 70 chars) is the document `<title>` when set. `description` is the meta description (aim ~140–160 chars). Put the target query in the H1 and in the first sentence of the description.
 2. **Published and updated dates.** Set `publishedOn` (`YYYY-MM-DD`). The Learn template shows published + updated (file mtime via `getEntryUpdatedDate`). Do not hide dates.
-3. **Author byline.** Learn posts show `Written by AnalyticsVS` (`SITE.author` in `src/lib/site.ts`). Do not invent a personal author or “Personally tested” badge.
+3. **Author byline.** Keep it generic: `Written by AnalyticsVS` (`SITE.author` in `src/lib/site.ts`). Do **not** add a human author, reviewer, co-founder, or “Personally tested” badge — Learn posts are often agent-written and no named person should be credited unless a human actually wrote the article.
 4. **Solution + CTA above the fold.** Use optional `heroCta` (`toolId`, `headline`, `note`, `label`). `LearnPostArticle` renders `ArticleSolutionCta` immediately after key takeaways, and a compact copy in the desktop sidebar. The TOC and compact CTA share one `sticky top-28` column (`max-h-[calc(100vh-8rem)]`); the TOC scrolls if needed so the CTA stays fully visible. Mobile is unchanged (sidebar is `hidden lg:block`).
 5. **Key takeaways box.** Fill `keyTakeaways` (string array). Rendered by `src/components/KeyTakeaways.astro` (`#key-takeaways`).
 6. **H1–H3 structure.** One H1 (`title`). Each `sections[]` item is an H2. Use `###` inside `content` markdown for H3s (`renderReviewMarkdown` supports that).
@@ -18,7 +18,7 @@ Mirror Jake Ward’s “Anatomy of the Perfect Blog Post”:
 8. **Contextual internal links.** Link to existing `/compare/`, `/learn/`, `/tools/`, `/calculators/pricing/`, and `/benchmarks/` pages in the body — not only in a related-links dump.
 9. **FAQ + schema.** If the page answers distinct questions, add `faq[]`. `LearnPostArticle` outputs FAQPage JSON-LD via `buildFaqSchema`.
 10. **Closing CTA.** `toolShortlist` + `toolShortlistHeading` (defaults to “Tools to consider”). Affiliate visit buttons already use `rel="sponsored"` and `AffiliateDisclosure`.
-11. **Original visual.** Add `featuredImage` under `public/learn/` (existing posts use ~1024×571 JPG). Tables in markdown are supported.
+11. **Original visual.** Add `featuredImage` under `public/learn/` (prefer ~1600px-wide 16:9 WebP or JPG under ~300KB) and set `featuredImageAlt` to a real description — never a blank alt on a unique illustration. Tables in markdown are supported.
 12. **Evidence.** Every pricing or feature claim must link to a directory profile, comparison, benchmark, or a vendor URL **checked the day you write**. If you cannot verify it, leave it out.
 
 Quick-answer box: `quickAnswer` (also used as speakable schema). Optional `answerUnderTitle` sits under the H1 so the meta description can stay keyword-tight.

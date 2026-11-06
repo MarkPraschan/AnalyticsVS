@@ -167,9 +167,9 @@ const hasAffiliateCtas =
       <header slot="header" class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
         <img
           src={post.data.featuredImage}
-          alt=""
-          width="1024"
-          height="571"
+          alt={post.data.featuredImageAlt ?? ''}
+          width="1600"
+          height="900"
           class="absolute inset-0 size-full object-cover blur-xs "
           decoding="async"
           fetchpriority="high"

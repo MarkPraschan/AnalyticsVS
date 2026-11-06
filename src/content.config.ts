@@ -326,6 +326,8 @@ const learn = defineCollection({
     status: z.enum(['draft', 'published']).default('published'),
     /** Public path to featured/hero image (also used for og:image when set). */
     featuredImage: z.string().optional(),
+    /** Accessible description for featuredImage. Required in practice whenever a unique illustration is used. */
+    featuredImageAlt: z.string().optional(),
     quickAnswer: z.string().optional(),
     faq: z.array(faqSchema).default([]),
     /** Benchmark content ids (filename without .json) for live matrix tables. */

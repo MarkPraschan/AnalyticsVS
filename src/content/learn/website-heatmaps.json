@@ -7,7 +7,8 @@
   "publishedOn": "2026-11-06",
   "category": "primers",
   "status": "published",
-  "featuredImage": "/learn/website-heatmaps.jpg",
+  "featuredImage": "/learn/website-heatmaps.webp",
+  "featuredImageAlt": "Pixel-art illustration of a team inspecting a giant website heatmap labeled Website Heatmaps, with click, movement, and scroll hotspots, plus Hotjar and Matomo workstations.",
   "quickAnswer": "**Website heatmaps** aggregate where people click, move, or scroll on a URL. **Session recordings** replay one visit. Neither replaces pageview analytics. [Hotjar](/tools/hotjar/) and [Matomo](/tools/matomo/) have heatmaps in our feature matrix. [PostHog](/tools/posthog/) is flagged for session recordings. [Fathom](/tools/fathom/) and [DataFast](/tools/datafast/) stay in the traffic/revenue lane — add a behavior tool only when a recording would change a layout.",
   "keyTakeaways": [
     "A website heatmap answers layout questions on a known URL. It does not tell you which channel sent the visit.",

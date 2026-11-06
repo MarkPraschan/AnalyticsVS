@@ -1,0 +1,146 @@
+{
+  "title": "Website Heatmaps: How They Work and Which Tools Include Them",
+  "slug": "website-heatmaps",
+  "description": "Website heatmaps show where visitors click and scroll. See which AnalyticsVS tools include heatmaps and session recordings, plus when Hotjar or Matomo fits.",
+  "seoTitle": "Website Heatmaps: How They Work and Which Tools Include Them",
+  "answerUnderTitle": "A website heatmap overlays clicks, movement, or scroll depth on a page so you can see where attention goes. It does not replace traffic analytics. On AnalyticsVS, Hotjar and Matomo list heatmaps; pair them with Fathom, DataFast, Plausible, or GA4 for visits and channels.",
+  "publishedOn": "2026-11-06",
+  "category": "primers",
+  "status": "published",
+  "featuredImage": "/learn/website-heatmaps.jpg",
+  "quickAnswer": "**Website heatmaps** aggregate where people click, move, or scroll on a URL. **Session recordings** replay one visit. Neither replaces pageview analytics. [Hotjar](/tools/hotjar/) and [Matomo](/tools/matomo/) have heatmaps in our feature matrix. [PostHog](/tools/posthog/) is flagged for session recordings. [Fathom](/tools/fathom/) and [DataFast](/tools/datafast/) stay in the traffic/revenue lane — add a behavior tool only when a recording would change a layout.",
+  "keyTakeaways": [
+    "A website heatmap answers layout questions on a known URL. It does not tell you which channel sent the visit.",
+    "Hotjar is the AnalyticsVS behavior tool built around heatmaps, session replays, and surveys.",
+    "Matomo Cloud includes heatmap and session recording features; On-Premise treats them as a paid plugin/bundle.",
+    "Fathom, Plausible, DataFast, and Umami do not list heatmaps — keep them for traffic (and DataFast for Stripe revenue).",
+    "Session replay (Hotjar, Matomo, PostHog) is a different artifact: one visitor, not an aggregate overlay."
+  ],
+  "heroCta": {
+    "toolId": "hotjar",
+    "headline": "See where the click never happens",
+    "note": "If a landing page already gets traffic but conversion is stuck, a heatmap plus a handful of session replays is the shortest diagnosis. Hotjar is the directory tool built for that job. Keep Fathom, DataFast, or GA4 for volume.",
+    "label": "Try Hotjar"
+  },
+  "faq": [
+    {
+      "question": "What is a website heatmap?",
+      "answer": "A website heatmap is a visual overlay of aggregated clicks, mouse movement, or scroll depth on a page. It shows where attention clusters. It is not a traffic report and it is not a recording of one person."
+    },
+    {
+      "question": "Do I still need Fathom, DataFast, or Google Analytics if I use Hotjar?",
+      "answer": "Yes for channel and volume questions. Hotjar explains behavior on a page. Fathom or Plausible (cookieless web analytics), DataFast (revenue attribution), or GA4 still answer how many people arrived and from where. See Google Analytics vs Hotjar."
+    },
+    {
+      "question": "Which AnalyticsVS tools include heatmaps?",
+      "answer": "Our feature matrix marks heatmaps on Hotjar and Matomo. PostHog is marked for session recordings, not heatmaps. Fathom, DataFast, Plausible, Umami, Ahrefs, and GA4 are not heatmap tools in the directory."
+    },
+    {
+      "question": "Are website heatmaps cookieless?",
+      "answer": "Usually not in the same sense as Fathom. Heatmaps and recordings capture on-page behavior and often need consent in the EU. Read the cookieless analytics primer before you mix a behavior script with a privacy-first traffic tag."
+    },
+    {
+      "question": "Hotjar vs PostHog for heatmaps?",
+      "answer": "Choose Hotjar when the job is marketing or UX diagnosis on specific URLs (heatmaps, recordings, surveys). Choose PostHog when the job is product-event replay tied to funnels and flags. Details: PostHog vs Hotjar."
+    }
+  ],
+  "relatedComparisons": [
+    "posthog-vs-hotjar",
+    "google-analytics-vs-hotjar",
+    "google-analytics-vs-matomo"
+  ],
+  "relatedTools": [
+    "hotjar",
+    "matomo",
+    "posthog",
+    "fathom",
+    "datafast",
+    "google-analytics-4",
+    "plausible"
+  ],
+  "relatedGuides": [
+    "analytics-for-a-saas-startup"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/compare/google-analytics-vs-hotjar/",
+      "label": "Google Analytics vs Hotjar"
+    },
+    {
+      "href": "/tools/hotjar/",
+      "label": "Hotjar profile"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web analytics vs product analytics"
+    },
+    {
+      "href": "/learn/analytics-script-performance/",
+      "label": "Analytics script performance"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Pricing calculator"
+    }
+  ],
+  "toolShortlistHeading": "Behavior analytics shortlist",
+  "toolShortlist": [
+    {
+      "toolId": "hotjar",
+      "bestFor": "Marketing and UX teams that need website heatmaps, session replays, and on-page surveys next to a separate traffic tool."
+    },
+    {
+      "toolId": "matomo",
+      "bestFor": "Teams that want heatmaps and recordings inside a GA-like web analytics suite, as Matomo Cloud or a paid On-Premise bundle."
+    },
+    {
+      "toolId": "posthog",
+      "bestFor": "Product teams that need session replay tied to events, flags, and experiments rather than a marketing heatmap overlay."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-is-a-website-heatmap",
+      "title": "What a website heatmap actually shows",
+      "content": "A **website heatmap** is an aggregate picture of a URL. Click maps show where pointers hit. Move maps show hover paths. Scroll maps show how far people reach before they leave.\n\nThat is a layout question: did the pricing table sit below the fold, did the CTA fight the nav, did people rage-click a non-button.\n\nIt is not an acquisition question. Heatmaps will not tell you that Google Ads outspent organic, or that a blog post sent the visit. For that you still need [web analytics](/learn/web-vs-product-analytics/) — [Fathom](/tools/fathom/), [Plausible](/tools/plausible/), [DataFast](/tools/datafast/), or [GA4](/tools/google-analytics-4/)."
+    },
+    {
+      "id": "heatmaps-vs-recordings-vs-analytics",
+      "title": "Heatmaps vs session recordings vs web analytics",
+      "content": "| Job | Artifact | Directory examples |\n|---|---|---|\n| Where do people click or scroll on this URL? | Website heatmap (aggregate) | Hotjar, Matomo |\n| What did one visitor do, in order? | Session recording / session replay | Hotjar, Matomo, PostHog |\n| How many visits, from which channel? | Web analytics | Fathom, Plausible, GA4, DataFast |\n| Which channel produced paid customers? | Revenue attribution | DataFast |\n\nUse a heatmap when you already know the page is important. Use a recording when the heatmap is noisy and you need the story of one session. Use Fathom or GA4 every week regardless.\n\n### Do not swap one for the other\n[Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/) exists because the tools answer different questions. Hotjar does not replace channel reports. GA4 does not give you a click map."
+    },
+    {
+      "id": "which-tools-include-heatmaps",
+      "title": "Which AnalyticsVS tools include heatmaps",
+      "content": "The directory `heatmaps` flag is **true** for [Hotjar](/tools/hotjar/) and [Matomo](/tools/matomo/). It is **false** for Fathom, DataFast, Plausible, Umami, Ahrefs, GA4, and PostHog. The `session_recordings` flag is **true** for Hotjar, Matomo, and PostHog.\n\n### Hotjar\nHotjar is the behavior-analytics product in the directory: click, move, and scroll heatmaps, session recordings, and on-site surveys. Our [Hotjar review](/tools/hotjar/) positions it as a complement to traffic analytics, not a replacement.\n\nHotjar's public [pricing page](https://www.hotjar.com/pricing/) (checked 6 November 2026) lists an Experience Analytics **Free** plan that includes heatmaps and session replays, and a **Growth** plan from **$39/month** on annual billing (**$49/month** billed monthly). Session capture rates and data-retention windows vary by plan — read the vendor table before you budget. Our [Hotjar profile](/tools/hotjar/) still snapshots older Plus/Business bands; when they disagree, trust the vendor page and update the profile.\n\nAffiliate visit links use the Contentsquare partner URL already configured in `src/content/tools/hotjar.json`.\n\n### Matomo\n[Matomo](/tools/matomo/) is web analytics first. Heatmaps and session recording ship with **Matomo Cloud**. On **On-Premise**, they sit in paid plugins or bundles — Matomo's [pricing page](https://matomo.org/pricing/) (checked 6 November 2026) includes Heatmaps & Session Recording from the **Team** bundle (**from €230/month**). Cloud also lists Heatmap & Session Recording as a hosted feature.\n\nChoose Matomo when you already want GA-like reports plus an overlay, and you accept Cloud cost or On-Premise ops. See [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/).\n\n### PostHog (replay, not a heatmap flag)\n[PostHog](/tools/posthog/) is marked for **session recordings**, product analytics, flags, and experiments — not heatmaps — in our feature matrix. PostHog's own [session replay docs](https://posthog.com/session-replay) (checked 6 November 2026) describe recordings tied to events, rage clicks, and funnels. Their marketing also lists a separate Heatmaps app; we have **not** flipped `features.heatmaps` to true, so this article does not recommend PostHog as a heatmap tool.\n\nFor the job split, read [PostHog vs Hotjar](/compare/posthog-vs-hotjar/).\n\n### Tools that skip heatmaps on purpose\n[Fathom](/tools/fathom/), [Plausible](/tools/plausible/), [Umami](/tools/umami/), and [DataFast](/tools/datafast/) are cookieless or privacy-first **traffic** (and DataFast **revenue**) tools. None list heatmaps or session recordings. That is a feature if you want a light [cookieless analytics](/learn/cookieless-analytics/) stack. Add Hotjar or Matomo only on the URLs where a recording would change a design."
+    },
+    {
+      "id": "when-to-add-a-heatmap",
+      "title": "When a heatmap is the right next step",
+      "content": "Add a heatmap tool when all of these are true:\n\n1. A page already gets meaningful traffic (your web analytics tool said so).\n2. A conversion on that page is stuck, and you cannot see why from events alone.\n3. Someone on the team will **watch** recordings or heatmaps on a schedule — not install and forget.\n\nSkip it when you are still guessing which URL matters, when the site is mostly an API, or when policy forbids recording DOM content.\n\nSaaS startups often need product events more than click maps. Start with [how to choose analytics for a SaaS startup](/learn/analytics-for-a-saas-startup/), then add Hotjar for a few marketing URLs if UX owns those pages."
+    },
+    {
+      "id": "privacy-and-performance",
+      "title": "Privacy, consent, and script weight",
+      "content": "Recordings capture DOM content and interactions. Treat them as personal-data processing. Configure field suppression, exclude admin URLs, and honor consent where required. Our Hotjar review is explicit: recording tools face stricter scrutiny than cookie-light pageview tags.\n\nMixing Fathom (cookieless traffic) with Hotjar (behavior) is a common stack. It is two privacy reviews, not one. See [cookieless analytics](/learn/cookieless-analytics/) before you assume the Fathom install makes the heatmap script “fine.”\n\nScript cost: we have a **recorded** [PostHog script benchmark](/learn/analytics-script-performance/). Hotjar’s script weight is **not** recorded on AnalyticsVS yet — do not quote a number. Measure Core Web Vitals after install."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "How to choose among heatmap and replay tools",
+      "content": "1. **Marketing page UX** — start with [Hotjar](https://invite.contentsquare.com/analyticsvs). Keep [Fathom](https://usefathom.com/ref/U4V5UE) or GA4 for traffic.\n2. **Already on Matomo** — turn on Cloud heatmaps, or budget the On-Premise Team bundle, instead of adding a second overlay vendor.\n3. **Product funnels and flags** — [PostHog](/tools/posthog/) replay. Do not expect our directory to treat it as a heatmap replacement.\n4. **Stripe revenue, no overlay** — [DataFast](https://datafa.st/?via=analyticsvs) does not include heatmaps; pair it with Hotjar only if a checkout URL needs a click map.\n\nRun expected volume through the [pricing calculator](/calculators/pricing/). Then compare the pair you actually need, not a twelve-tool roundup we do not have data for.\n\n### Put the next step on the calendar\nA heatmap tool earns its fee when someone reviews the top five URLs every week. If that ritual will not happen, stay on Fathom or GA4 and fix copy with qualitative support tickets instead."
+    },
+    {
+      "id": "sources-checked",
+      "title": "Sources checked for this article",
+      "content": "Feature flags come from AnalyticsVS tool JSON (`heatmaps`, `session_recordings`). Prices and product packaging below were checked on **6 November 2026**:\n\n- [Hotjar / Contentsquare pricing](https://www.hotjar.com/pricing/)\n- [Matomo Cloud and On-Premise pricing](https://matomo.org/pricing/)\n- [PostHog session replay](https://posthog.com/session-replay)\n- [Fathom pricing](https://usefathom.com/pricing) (traffic tool; no heatmap claim)\n- Directory profiles: [Hotjar](/tools/hotjar/), [Matomo](/tools/matomo/), [PostHog](/tools/posthog/), [Fathom](/tools/fathom/), [DataFast](/tools/datafast/)\n- Comparisons: [PostHog vs Hotjar](/compare/posthog-vs-hotjar/), [Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/)\n\nWhere the directory snapshot (Aug–Oct 2026) disagrees with a vendor page checked today, this article follows the vendor page and says so. We do not invent tools that are not in the directory."
+    }
+  ]
+}

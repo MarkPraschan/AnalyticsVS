@@ -19,6 +19,12 @@
     "datafast"
   ],
   "relatedGuides": [],
+  "relatedLinks": [
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps and session recordings"
+    }
+  ],
   "sections": [
     {
       "id": "two-jobs",

@@ -9,6 +9,8 @@
     "dev": "astro dev --force",
     "build": "npm run benchmark:fixtures && astro build",
     "postbuild": "node scripts/indexnow.mjs",
+    "indexnow": "node scripts/indexnow.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "benchmark:install": "playwright install chromium",

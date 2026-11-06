@@ -335,7 +335,20 @@ const learn = defineCollection({
     relatedGuides: z.array(z.string()).default([]),
     relatedLinks: z.array(relatedLinkSchema).default([]),
     toolShortlist: z.array(toolShortlistItemSchema).default([]),
+    /** Heading for the tool shortlist block. Defaults to "Tools to consider". */
+    toolShortlistHeading: z.string().optional(),
     alsoConsider: z.array(alsoConsiderSchema).default([]),
+    /** Concise bullets rendered in the reusable KeyTakeaways box near the top. */
+    keyTakeaways: z.array(z.string()).default([]),
+    /** Optional above-the-fold solution CTA pointing at a directory tool. */
+    heroCta: z
+      .object({
+        toolId: z.string(),
+        headline: z.string().optional(),
+        note: z.string().optional(),
+        label: z.string().optional(),
+      })
+      .optional(),
     sections: z.array(learnSectionSchema).min(1),
   }),
 });

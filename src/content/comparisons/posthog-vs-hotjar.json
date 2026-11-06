@@ -50,6 +50,12 @@
       "content": "AnalyticsVS may earn a commission from Hotjar / Contentsquare visit links. PostHog links are direct (no affiliate program on our directory). This does not change comparison verdicts — see our [disclosure](/disclosure/)."
     }
   ],
+  "relatedLinks": [
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps primer"
+    }
+  ],
   "seoTitle": "PostHog vs Hotjar 2026: Session Replay, Heatmaps & Pricing",
   "seoDescription": "PostHog vs Hotjar compared: session replay, heatmaps, surveys, product analytics and pricing. See whether you need one tool or both for your product team."
 }

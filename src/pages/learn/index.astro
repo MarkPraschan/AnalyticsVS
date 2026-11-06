@@ -39,9 +39,9 @@ const items = await getLearnFeedItems();
                     <span class="relative w-36 shrink-0 self-stretch sm:w-56 md:w-72">
                       <img
                         src={item.featuredImage}
-                        alt=""
-                        width="1024"
-                        height="571"
+                        alt={item.featuredImageAlt ?? ''}
+                        width="1600"
+                        height="900"
                         class="absolute inset-0 size-full object-cover"
                         loading="lazy"
                         decoding="async"

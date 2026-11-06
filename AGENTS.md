@@ -1,3 +1,7 @@
+## Content & SEO
+
+Before adding or editing `/learn/` or `/compare/` pages, read [CONTENT_GUIDE.md](./CONTENT_GUIDE.md). It covers the blog checklist, content collections, internal linking, affiliate rules, source-checking, the build/link-check commands, and IndexNow.
+
 ## Development
 
 When starting the dev server, use background mode:

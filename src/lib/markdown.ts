@@ -5,8 +5,12 @@ export function slugifyHeading(title: string): string {
     .replace(/^-|-$/g, '');
 }
 
-const AFFILIATE_HREF_PATTERN =
+export const AFFILIATE_HREF_PATTERN =
   /usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i;
+
+export function markdownHasAffiliateLinks(source: string | undefined | null): boolean {
+  return Boolean(source && AFFILIATE_HREF_PATTERN.test(source));
+}
 
 function linkAttributes(href: string): string {
   const isExternal = /^https?:\/\//i.test(href);

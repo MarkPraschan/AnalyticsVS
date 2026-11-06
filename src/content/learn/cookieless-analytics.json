@@ -1,8 +1,9 @@
 {
-  "title": "Cookieless Analytics: How It Works, Trade-offs & Best Tools (2026)",
+  "title": "Cookieless Analytics: How Cookieless Web Analytics Works (2026)",
   "slug": "cookieless-analytics",
-  "description": "What cookieless web analytics changes — tracking method, consent banners, accuracy trade-offs — and the best cookieless tools on AnalyticsVS for 2026.",
-  "seoTitle": "Cookieless Analytics: How It Works, Trade-offs & Best Tools (2026)",
+  "description": "Cookieless analytics explained: how cookieless web analytics tracks visits without cookies, consent and accuracy trade-offs, plus Fathom and DataFast.",
+  "seoTitle": "Cookieless Analytics: How Cookieless Web Analytics Works (2026)",
+  "answerUnderTitle": "Cookieless analytics measures traffic without a long-lived analytics cookie. Cookieless web analytics is the same idea on marketing sites: pages, referrers, and simple goals with weaker returning-visitor identity. Fathom is built this way; DataFast can run in cookieless mode.",
   "publishedOn": "2026-10-15",
   "category": "primers",
   "status": "published",
@@ -35,7 +36,24 @@
     "best-privacy-first-analytics-tools",
     "ga4-alternatives-gdpr"
   ],
+  "keyTakeaways": [
+    "Cookieless analytics and cookieless web analytics mean skipping a long-lived analytics cookie — not skipping GDPR, a privacy policy, or legal review.",
+    "You usually get lighter consent UX and simpler scripts, with softer returning-visitor and cross-device counts than cookie-based GA4.",
+    "Fathom, Plausible, Umami, and Ahrefs Web Analytics sit in this lane; DataFast offers an optional cookieless mode.",
+    "If the weekly KPI is unique users across devices, cookieless-only tools are usually too shallow."
+  ],
+  "heroCta": {
+    "toolId": "fathom",
+    "headline": "Start with cookieless web analytics",
+    "note": "Fathom is a hosted, cookieless web analytics tool on our directory. Referred customers get $10 off their first invoice. Need Stripe revenue on top of cookieless traffic stats? Look at DataFast next.",
+    "label": "Try Fathom"
+  },
+  "toolShortlistHeading": "Best cookieless analytics tools",
   "relatedLinks": [
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps and session recordings"
+    },
     {
       "href": "/learn/best-privacy-first-analytics-tools/",
       "label": "Best privacy-first web analytics tools"

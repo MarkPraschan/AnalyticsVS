@@ -1,0 +1,33 @@
+---
+import Check from 'reicon/icons/Check';
+
+interface Props {
+  items: string[];
+  heading?: string;
+}
+
+const { items, heading = 'Key takeaways' } = Astro.props;
+
+const iconSvg = Check.toSvg({
+  size: 16,
+  className: 'h-4 w-4',
+  color: 'currentColor',
+  attrs: { 'aria-hidden': 'true' },
+});
+---
+
+{
+  items.length > 0 && (
+    <section id="key-takeaways" class="key-takeaways">
+      <h2 class="key-takeaways__heading">{heading}</h2>
+      <ul class="key-takeaways__list">
+        {items.map((item) => (
+          <li class="key-takeaways__item">
+            <span class="key-takeaways__icon" set:html={iconSvg} />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

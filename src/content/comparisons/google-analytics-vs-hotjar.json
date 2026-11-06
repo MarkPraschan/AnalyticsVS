@@ -31,6 +31,12 @@
       "content": "Open GA4 when you need to know which channel or page lost traffic. Open Hotjar when you already know the page and need to see where people hesitate. Stacking both adds script weight and a second privacy review, so add Hotjar to the pages where a recording would change a design decision."
     }
   ],
+  "relatedLinks": [
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps primer"
+    }
+  ],
   "seoTitle": "Google Analytics vs Hotjar (2026): Traffic vs Behavior",
   "seoDescription": "Google Analytics 4 vs Hotjar compared: traffic and ads measurement versus heatmaps, recordings, and surveys, plus when to run one tool or both."
 }

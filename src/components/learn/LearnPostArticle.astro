@@ -1,18 +1,20 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ArticleSolutionCta from '../ArticleSolutionCta.astro';
 import ComparisonCard from '../ComparisonCard.astro';
-import LastUpdated from '../LastUpdated.astro';
+import KeyTakeaways from '../KeyTakeaways.astro';
 import LearnBenchmarkMatrix from '../LearnBenchmarkMatrix.astro';
 import QuickAnswerCallout from '../QuickAnswerCallout.astro';
 import ToolMark from '../ToolMark.astro';
 import ToolShortlist from '../ToolShortlist.astro';
 import RelatedLinks from '../RelatedLinks.astro';
 import TableOfContents from '../TableOfContents.astro';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import { getCollection } from 'astro:content';
 import { getEntryUpdatedDate } from '../../lib/contentDates';
-import { renderReviewMarkdown } from '../../lib/markdown';
-import { getToolsByIds } from '../../lib/tools';
+import { markdownHasAffiliateLinks, renderReviewMarkdown } from '../../lib/markdown';
+import { getToolById, getToolsByIds, isAffiliateTool } from '../../lib/tools';
 import { SITE, formatCategory, formatDate } from '../../lib/site';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 import type { BenchmarkEntry } from '../../lib/benchmarks';
@@ -55,6 +57,11 @@ const toolShortlistItems = (post.data.toolShortlist ?? []).flatMap((item) => {
   const tool = shortlistTools.find((entry) => entry.data.id === item.toolId);
   return tool ? [{ tool, bestFor: item.bestFor }] : [];
 });
+const shortlistHeading = post.data.toolShortlistHeading ?? 'Tools to consider';
+const shortlistId = 'tool-shortlist';
+const heroCtaTool = post.data.heroCta
+  ? await getToolById(post.data.heroCta.toolId)
+  : undefined;
 
 const matrixRows = post.data.relatedBenchmarks
   .flatMap((id) => {
@@ -79,6 +86,12 @@ const tocHeadings = [
   ...(post.data.quickAnswer
     ? [{ depth: 2 as const, slug: 'quick-answer', text: 'Quick answer' }]
     : []),
+  ...(post.data.keyTakeaways.length > 0
+    ? [{ depth: 2 as const, slug: 'key-takeaways', text: 'Key takeaways' }]
+    : []),
+  ...(heroCtaTool
+    ? [{ depth: 2 as const, slug: 'solution-cta', text: 'Solution' }]
+    : []),
   ...(matrixRows.length > 0
     ? [{ depth: 2 as const, slug: 'performance-matrix', text: 'Performance matrix' }]
     : []),
@@ -88,7 +101,7 @@ const tocHeadings = [
     text: section.title,
   })),
   ...(toolShortlistItems.length > 0
-    ? [{ depth: 2 as const, slug: 'best-cookieless-tools', text: 'Best cookieless analytics tools' }]
+    ? [{ depth: 2 as const, slug: shortlistId, text: shortlistHeading }]
     : []),
   ...((post.data.faq?.length ?? 0) > 0
     ? [{ depth: 2 as const, slug: 'faq', text: 'FAQ' }]
@@ -128,6 +141,17 @@ const schema = [
     sectionLabel: 'full article',
   }),
 ].filter((item): item is Record<string, unknown> => item != null);
+
+const markdownAffiliate = [
+  post.data.quickAnswer,
+  ...post.data.sections.map((section) => section.content),
+  ...post.data.faq.map((item) => `${item.question} ${item.answer}`),
+].some((block) => markdownHasAffiliateLinks(block));
+
+const hasAffiliateCtas =
+  markdownAffiliate ||
+  Boolean(heroCtaTool && isAffiliateTool(heroCtaTool.data)) ||
+  toolShortlistItems.some(({ tool }) => isAffiliateTool(tool.data));
 ---
 
 <ArticleLayout
@@ -143,9 +167,9 @@ const schema = [
       <header slot="header" class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
         <img
           src={post.data.featuredImage}
-          alt=""
-          width="1024"
-          height="571"
+          alt={post.data.featuredImageAlt ?? ''}
+          width="1600"
+          height="900"
           class="absolute inset-0 size-full object-cover blur-xs "
           decoding="async"
           fetchpriority="high"
@@ -154,19 +178,22 @@ const schema = [
         <div class="relative max-w-xl px-5 py-8 sm:px-10 sm:py-12">
           <div class="rounded-xl bg-base/95 p-5 shadow-sm sm:bg-transparent sm:p-0 sm:shadow-none">
             <p class="label-mono text-gradient-secondary">
-              {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
+              {formatCategory(post.data.category)} · Written by {SITE.author}
             </p>
             <h1 class="heading-lg mt-3 text-gradient-primary">{post.data.title}</h1>
             <p class="page-intro mt-4">{post.data.answerUnderTitle ?? post.data.description}</p>
-            <div class="mt-4">
-              <LastUpdated date={updatedDate} />
-            </div>
+            <p class="mt-4 text-sm text-muted">
+              Published <time datetime={post.data.publishedOn}>{formatDate(post.data.publishedOn)}</time>
+              {' · '}
+              Updated <time datetime={updatedDate}>{formatDate(updatedDate)}</time>
+            </p>
           </div>
         </div>
       </header>
     ) : (
       <p class="label-mono text-gradient-secondary" slot="lead-meta">
-        {formatCategory(post.data.category)} · Published {formatDate(post.data.publishedOn)}
+        {formatCategory(post.data.category)} · Written by {SITE.author} · Published{' '}
+        {formatDate(post.data.publishedOn)}
       </p>
     )
   }
@@ -179,6 +206,25 @@ const schema = [
             content={post.data.quickAnswer}
             pageUrl={matrixRows.length > 0 ? '#performance-matrix' : undefined}
           />
+        )
+      }
+
+      <KeyTakeaways items={post.data.keyTakeaways} />
+
+      {
+        heroCtaTool && (
+          <ArticleSolutionCta
+            tool={heroCtaTool}
+            headline={post.data.heroCta?.headline}
+            note={post.data.heroCta?.note}
+            label={post.data.heroCta?.label}
+          />
+        )
+      }
+
+      {
+        hasAffiliateCtas && !heroCtaTool && (
+          <AffiliateDisclosure class="mt-6" />
         )
       }
 
@@ -208,8 +254,8 @@ const schema = [
 
       <ToolShortlist
         items={toolShortlistItems}
-        heading="Best cookieless analytics tools"
-        id="best-cookieless-tools"
+        heading={shortlistHeading}
+        id={shortlistId}
       />
 
       {
@@ -294,15 +340,38 @@ const schema = [
         <h2 class="article-heading">Sources & review status</h2>
         <div class="review-meta card mt-4">
           <p class="text-sm text-muted">
-            Published {formatDate(post.data.publishedOn)} · Updated {formatDate(updatedDate)} ·{' '}
-            <a href="/methodology/">How we measure</a> · <a href="/benchmarks/">All benchmarks</a> ·{' '}
-            <a href="/learn/">More Learn articles</a>
+            Written by {SITE.author} · Published {formatDate(post.data.publishedOn)} · Updated{' '}
+            {formatDate(updatedDate)} · <a href="/methodology/">How we measure</a> ·{' '}
+            <a href="/benchmarks/">All benchmarks</a> · <a href="/learn/">More Learn articles</a>
+            {hasAffiliateCtas && (
+              <>
+                {' · '}
+                <a href="/disclosure/">Affiliate disclosure</a>
+              </>
+            )}
           </p>
         </div>
       </section>
     </div>
     <aside class="hidden lg:block">
-      <TableOfContents headings={tocHeadings} />
+      <div class="learn-sidebar sticky top-28 flex max-h-[calc(100vh-8rem)] flex-col gap-4 self-start">
+        <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <TableOfContents headings={tocHeadings} sticky={false} />
+        </div>
+        {
+          heroCtaTool && (
+            <div class="shrink-0">
+              <ArticleSolutionCta
+                tool={heroCtaTool}
+                headline={post.data.heroCta?.headline}
+                note={post.data.heroCta?.note}
+                label={post.data.heroCta?.label}
+                compact
+              />
+            </div>
+          )
+        }
+      </div>
     </aside>
   </div>
 </ArticleLayout>

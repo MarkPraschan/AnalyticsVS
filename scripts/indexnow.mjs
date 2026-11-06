@@ -1,20 +1,57 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+
+/**
+ * IndexNow (https://www.indexnow.org/documentation)
+ *
+ * Hosting: Vercel static Astro build (`vercel.json` buildCommand = `npm run build`).
+ * `npm run build` runs the `postbuild` script, which invokes this file.
+ *
+ * When it submits:
+ * - Production Vercel builds (`VERCEL_ENV=production`)
+ * - Or `INDEXNOW_SUBMIT=true` (manual / CI)
+ *
+ * When it skips:
+ * - Local `npm run build` (unless INDEXNOW_SUBMIT=true)
+ * - Vercel preview / development deploys
+ * - `INDEXNOW_SUBMIT=false`
+ *
+ * The key file is public by design and is served from the site root:
+ *   https://www.analyticsvs.com/10e9597eea9841d0ba00e598be768556.txt
+ *
+ * Manual command after a local production-like build:
+ *   INDEXNOW_SUBMIT=true npm run indexnow
+ */
 
 const SITE_HOST = 'www.analyticsvs.com';
 const SITE_ORIGIN = `https://${SITE_HOST}`;
 const INDEXNOW_KEY = '10e9597eea9841d0ba00e598be768556';
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 const DIST_DIR = 'dist';
+const KEY_FILE = join('public', `${INDEXNOW_KEY}.txt`);
 const MAX_URLS_PER_REQUEST = 10_000;
 
 function shouldSubmit() {
   if (process.env.INDEXNOW_SUBMIT === 'false') return false;
   if (process.env.INDEXNOW_SUBMIT === 'true') return true;
-  return process.env.VERCEL === '1' || process.env.CI === 'true';
+  return process.env.VERCEL_ENV === 'production';
+}
+
+function assertKeyFile() {
+  if (!existsSync(KEY_FILE)) {
+    throw new Error(`Missing IndexNow key file at ${KEY_FILE}`);
+  }
+  const contents = readFileSync(KEY_FILE, 'utf8').trim();
+  if (contents !== INDEXNOW_KEY) {
+    throw new Error(`IndexNow key file must contain exactly ${INDEXNOW_KEY}`);
+  }
 }
 
 function collectPageUrls() {
+  if (!existsSync(DIST_DIR)) {
+    return [];
+  }
+
   const files = readdirSync(DIST_DIR).filter(
     (file) => file.startsWith('sitemap') && file.endsWith('.xml'),
   );
@@ -56,8 +93,12 @@ async function submitUrls(urlList) {
 }
 
 async function main() {
+  assertKeyFile();
+
   if (!shouldSubmit()) {
-    console.log('[indexnow] Skipped (set INDEXNOW_SUBMIT=true to run locally).');
+    console.log(
+      '[indexnow] Skipped (production Vercel deploys run automatically; set INDEXNOW_SUBMIT=true to run locally).',
+    );
     return;
   }
 
@@ -76,5 +117,6 @@ async function main() {
 }
 
 main().catch((error) => {
+  // Never fail the Vercel build because Bing/Yandex is unreachable.
   console.warn('[indexnow] Warning:', error.message);
 });

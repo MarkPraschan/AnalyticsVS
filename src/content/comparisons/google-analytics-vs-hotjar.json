@@ -22,7 +22,7 @@
     },
     {
       "question": "Is PostHog a closer Hotjar alternative?",
-      "answer": "For session replay tied to product events, yes. See our PostHog vs Hotjar comparison. Hotjar is still the more direct fit for marketing heatmaps and on-page surveys."
+      "answer": "For session replay tied to product events, yes. See our PostHog vs Hotjar comparison. For other heatmap and recording tools (Clarity, Mouseflow, Lucky Orange, FullStory, Crazy Egg), see the Hotjar alternatives roundup. Hotjar is still the more direct fit for marketing heatmaps and on-page surveys."
     }
   ],
   "editorialNotes": [
@@ -31,10 +31,15 @@
       "content": "Open GA4 when you need to know which channel or page lost traffic. Open Hotjar when you already know the page and need to see where people hesitate. Stacking both adds script weight and a second privacy review, so add Hotjar to the pages where a recording would change a design decision."
     }
   ],
+  "afterVerdict": "Need a heatmap or session-recording tool besides Hotjar? See [Hotjar alternatives](/learn/hotjar-alternatives/). Hotjar visit links may be affiliate; see [disclosure](/disclosure/).",
   "relatedLinks": [
     {
       "href": "/learn/website-heatmaps/",
       "label": "Website heatmaps primer"
+    },
+    {
+      "href": "/learn/hotjar-alternatives/",
+      "label": "Hotjar alternatives"
     }
   ],
   "seoTitle": "Google Analytics vs Hotjar (2026): Traffic vs Behavior",

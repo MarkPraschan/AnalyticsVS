@@ -50,10 +50,15 @@
       "content": "AnalyticsVS may earn a commission from Hotjar / Contentsquare visit links. PostHog links are direct (no affiliate program on our directory). This does not change comparison verdicts — see our [disclosure](/disclosure/)."
     }
   ],
+  "afterVerdict": "If you are leaving Hotjar for reasons other than product analytics — price, surveys, or a free overlay — see [Hotjar alternatives](/learn/hotjar-alternatives/) (Clarity, Mouseflow, Lucky Orange, FullStory, Crazy Egg, Contentsquare). Affiliate visit links for Hotjar use our Contentsquare partner URL; see [disclosure](/disclosure/).",
   "relatedLinks": [
     {
       "href": "/learn/website-heatmaps/",
       "label": "Website heatmaps primer"
+    },
+    {
+      "href": "/learn/hotjar-alternatives/",
+      "label": "Hotjar alternatives"
     }
   ],
   "seoTitle": "PostHog vs Hotjar 2026: Session Replay, Heatmaps & Pricing",

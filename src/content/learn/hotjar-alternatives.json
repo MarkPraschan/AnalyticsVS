@@ -1,0 +1,194 @@
+{
+  "title": "Hotjar Alternatives: Heatmaps and Session Recording Tools",
+  "slug": "hotjar-alternatives",
+  "description": "Hotjar alternatives for heatmaps and session recordings: Clarity, Mouseflow, Lucky Orange, FullStory, PostHog, Crazy Egg — plus when Hotjar still fits.",
+  "seoTitle": "Hotjar Alternatives (2026): Heatmaps & Session Replay",
+  "answerUnderTitle": "The best Hotjar alternative depends on the job: Microsoft Clarity if you want free heatmaps and recordings, PostHog if replay must sit next to product events, Mouseflow or Lucky Orange if you want a paid UX suite, FullStory or Contentsquare if you need enterprise capture. Stay on Hotjar when surveys and marketing heatmaps in one self-serve product still match the brief.",
+  "publishedOn": "2026-11-09",
+  "category": "primers",
+  "status": "published",
+  "featuredImage": "/learn/hotjar-alternatives.webp",
+  "featuredImageAlt": "Pixel-art workshop with a giant website heatmap in the center, session-replay filmstrip along the bottom, and labeled desks for Microsoft Clarity, Mouseflow, Lucky Orange, FullStory, PostHog, Crazy Egg, Contentsquare, and Hotjar still in use.",
+  "quickAnswer": "**Hotjar alternatives** are heatmap and session-recording tools, not traffic-analytics replacements. Start with [Microsoft Clarity](https://clarity.microsoft.com/) if you need a free overlay. Use [PostHog](/tools/posthog/) when replay belongs next to events and flags. Stay on [Hotjar](/tools/hotjar/) when you want heatmaps, recordings, and surveys in one marketing UX product. Keep [Fathom](/tools/fathom/) or [GA4](/tools/google-analytics-4/) for channels.",
+  "keyTakeaways": [
+    "Hotjar alternatives replace heatmaps, session recordings, and often surveys — not channel reports from GA4 or Fathom.",
+    "Microsoft Clarity is the default free heatmap and recording tool; it is not a cookieless traffic tag.",
+    "PostHog is the AnalyticsVS directory alternative when replay must tie to product events, flags, and experiments.",
+    "Mouseflow, Lucky Orange, and Crazy Egg publish self-serve heatmap/replay prices; FullStory paid plans and Contentsquare Experience Platform Pro/Enterprise do not list a public dollar amount.",
+    "Smartlook is winding down as a standalone product. Do not start a new Smartlook account in late 2026.",
+    "Keep Hotjar when marketing or UX owns page diagnosis and you still want surveys next to heatmaps on a self-serve Contentsquare Experience Analytics plan."
+  ],
+  "heroCta": {
+    "toolId": "hotjar",
+    "headline": "Still the right pick for marketing heatmaps",
+    "note": "If the job is click maps, recordings, and on-page surveys on a few URLs — not product funnels — Hotjar (Contentsquare Experience Analytics) is still the shortest path. Pair it with Fathom or GA4 for traffic. Compare alternatives below before you switch.",
+    "label": "Try Hotjar"
+  },
+  "faq": [
+    {
+      "question": "What is the best free Hotjar alternative?",
+      "answer": "Microsoft Clarity is the usual free starting point: heatmaps, session recordings, and no published traffic cap. PostHog Cloud also includes a monthly free replay allowance (5,000 recordings) plus product analytics. Neither replaces surveys the way Hotjar packages them."
+    },
+    {
+      "question": "Is Microsoft Clarity better than Hotjar?",
+      "answer": "Clarity is better when price is zero and you only need heatmaps plus recordings. Hotjar is better when you want surveys, a self-serve paid Growth plan, and the Contentsquare heatmap feature set (zone-based maps and summaries on Growth). They are not traffic-analytics tools."
+    },
+    {
+      "question": "Can PostHog replace Hotjar heatmaps?",
+      "answer": "Partially. PostHog documents heatmaps, scrollmaps, and clickmaps, and session replay tied to events. Our directory still marks PostHog heatmaps as false from an older snapshot — follow the vendor docs for capability. Hotjar remains the more direct marketing UX product with surveys."
+    },
+    {
+      "question": "Is Smartlook still a Hotjar alternative in 2026?",
+      "answer": "Not as a new purchase. Smartlook’s public transition FAQ lists End of Sale on 31 May 2026 and End of Contract Renewals on 31 August 2026. The standalone platform is scheduled to decommission on 30 September 2027. Existing customers should export data; new teams should pick another tool in this roundup."
+    },
+    {
+      "question": "Do I still need Google Analytics or Fathom if I switch from Hotjar?",
+      "answer": "Yes for acquisition questions. Heatmap tools show behavior on a page. They do not replace channel, campaign, or (for DataFast) Stripe revenue reports. See Google Analytics vs Hotjar."
+    },
+    {
+      "question": "When should I stay on Hotjar instead of switching?",
+      "answer": "Stay when a marketing or UX team already reviews recordings weekly, needs on-page surveys next to heatmaps, and is fine with Contentsquare Experience Analytics packaging. Switch when you need a free overlay (Clarity), product-event replay (PostHog), or a different session-priced UX suite."
+    }
+  ],
+  "relatedComparisons": [
+    "posthog-vs-hotjar",
+    "google-analytics-vs-hotjar"
+  ],
+  "relatedTools": [
+    "hotjar",
+    "posthog",
+    "matomo",
+    "fathom",
+    "datafast",
+    "google-analytics-4"
+  ],
+  "relatedGuides": [
+    "analytics-for-a-saas-startup"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps primer"
+    },
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/compare/google-analytics-vs-hotjar/",
+      "label": "Google Analytics vs Hotjar"
+    },
+    {
+      "href": "/tools/hotjar/",
+      "label": "Hotjar profile"
+    },
+    {
+      "href": "/tools/posthog/",
+      "label": "PostHog profile"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web analytics vs product analytics"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Pricing calculator"
+    }
+  ],
+  "toolShortlistHeading": "Directory tools to shortlist",
+  "toolShortlist": [
+    {
+      "toolId": "hotjar",
+      "bestFor": "Marketing and UX teams that still want heatmaps, session replays, and surveys in one self-serve experience-analytics product."
+    },
+    {
+      "toolId": "posthog",
+      "bestFor": "Product teams that need session replay (and vendor-documented heatmaps) tied to events, feature flags, and experiments."
+    },
+    {
+      "toolId": "matomo",
+      "bestFor": "Teams that want heatmaps and recordings inside a GA-like web analytics suite (Cloud, or On-Premise Team bundle)."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-hotjar-alternatives-means",
+      "title": "What people mean by Hotjar alternatives",
+      "content": "The query **hotjar alternatives** is a behavior-analytics query. Searchers want another way to see [website heatmaps](/learn/website-heatmaps/) and session recordings — sometimes surveys — without staying on Hotjar.\n\nThat is not the same as a GA4 alternative. Hotjar does not replace channel reports. A heatmap tool does not replace [web analytics](/learn/web-vs-product-analytics/).\n\n[Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/) exists because the jobs split: traffic vs on-page behavior. Keep that split when you switch vendors.\n\nAnalyticsVS has directory profiles for [Hotjar](/tools/hotjar/), [PostHog](/tools/posthog/), and [Matomo](/tools/matomo/). Clarity, Mouseflow, Lucky Orange, FullStory, Crazy Egg, Contentsquare, and Smartlook are covered here from vendor pages checked on **9 November 2026**, not from invented `/tools/` pages."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "How to choose a Hotjar alternative",
+      "content": "Pick the job first, then the vendor.\n\n### If you only need a free overlay\nStart with [Microsoft Clarity](https://clarity.microsoft.com/). It publishes heatmaps and session recordings with no traffic cap on the marketing homepage.\n\n### If replay must follow product events\nUse [PostHog](/tools/posthog/). Read [PostHog vs Hotjar](/compare/posthog-vs-hotjar/) before you rip out surveys.\n\n### If you want another paid UX suite\nShortlist [Mouseflow](https://mouseflow.com/pricing/), [Lucky Orange](https://www.luckyorange.com/pricing), or [Crazy Egg](https://www.crazyegg.com/pricing) — they publish self-serve prices.\n\n### If you already run Matomo\nTurn on Cloud heatmaps, or budget the On-Premise Team bundle, instead of adding a second overlay vendor. See [Matomo](/tools/matomo/).\n\n### If you need enterprise capture\nLook at [Fullstory](https://www.fullstory.com/pricing/) paid plans or [Contentsquare](https://www.contentsquare.com/pricing/) Experience Platform. Those pages do **not** list a public Pro/Enterprise dollar amount — we do not invent one.\n\n### If surveys plus heatmaps still matter on a few URLs\nStay on [Hotjar](https://invite.contentsquare.com/analyticsvs). Pair it with [Fathom](https://usefathom.com/ref/U4V5UE) or GA4 for visits.\n\nDo not start **Smartlook** as a new stack. Its public FAQ says new paid subscriptions stopped on 31 May 2026."
+    },
+    {
+      "id": "comparison-snapshot",
+      "title": "Snapshot of heatmap and session recording alternatives",
+      "content": "Prices below are from vendor pages checked **9 November 2026**. Session quotas are not comparable 1:1 (some bill monthly sessions, some bill recordings or pageviews).\n\n| Tool | Heatmaps | Session replay | Public starting price (checked 9 Nov 2026) | In AnalyticsVS directory? |\n|---|---|---|---|---|\n| Hotjar / Contentsquare Experience Analytics | Yes | Yes | Free; Growth **$39/month** billed annually (**$49/month** monthly) | Yes — [Hotjar](/tools/hotjar/) |\n| Microsoft Clarity | Yes | Yes | **Free forever**, no published traffic cap | No |\n| Mouseflow | Yes | Yes | Free (500 sessions); Essential **$25/month** billed annually | No |\n| Lucky Orange | Yes | Yes | Build **$32/month** billed annually (3,500 sessions) | No |\n| FullStory | Yes (paid comparison lists heatmaps) | Yes | **FullstoryFree**: 30,000 sessions/month; paid plans contact/demo | No |\n| PostHog | Vendor docs: yes (directory flag still false) | Yes | Cloud free tier includes **5,000 recordings**/month | Yes — [PostHog](/tools/posthog/) |\n| Crazy Egg | Yes | Yes | Starter **$29/month**, billed annually | No |\n| Contentsquare Experience Platform | Yes | Yes | Pro / Enterprise: no public dollar amount | Parent of Hotjar affiliate |\n| Matomo | Yes | Yes | Cloud from **$29/month** at 50k hits; On-Premise heatmaps from Team **€230/month** | Yes — [Matomo](/tools/matomo/) |\n| Smartlook | Yes (legacy product) | Yes | Not selling new paid plans (EoS 31 May 2026) | No |\n\nOur [Hotjar profile](/tools/hotjar/) still snapshots older Plus/Business **daily session** bands (Aug 2026). The live [Hotjar/Contentsquare pricing](https://www.hotjar.com/pricing/) page uses monthly sessions and Experience Analytics **Free / Growth**. When they disagree, this article follows the vendor page."
+    },
+    {
+      "id": "microsoft-clarity",
+      "title": "Microsoft Clarity — free heatmaps and recordings",
+      "content": "[Microsoft Clarity](https://clarity.microsoft.com/) markets itself as free heatmaps and session recordings. The homepage (checked 9 November 2026) says **free forever**, **no limits on traffic**, plus click/scroll heatmaps, recordings, and AI summaries.\n\nMicrosoft’s [Clarity docs](https://learn.microsoft.com/en-us/clarity/) cover session recordings, click maps, scroll maps, area maps, masking, and consent. Treat it as behavior capture, not a [cookieless analytics](/learn/cookieless-analytics/) tag.\n\n**Choose Clarity** when the budget is zero and you will actually watch recordings. **Skip it** when you need Hotjar-style surveys, a paid SLA, or product-event funnels.\n\nClarity is not in the AnalyticsVS directory. There is no affiliate link."
+    },
+    {
+      "id": "mouseflow",
+      "title": "Mouseflow — session-priced UX suite",
+      "content": "[Mouseflow pricing](https://mouseflow.com/pricing/) (checked 9 November 2026) lists:\n\n- **Free** — $0, 1 website, **500 sessions**, click/scroll/geo heatmaps, friction detection, 1 month of history\n- **Essential** — **$25/month billed annually**, 1 website, 5,000 sessions, 3 months of history\n- **Advanced** — **$109/month billed annually**, 2 websites, 25,000 sessions, surveys, extra heatmap types\n- **Premium** — **$319/month billed annually**, 5 websites, 100,000 sessions\n- **Enterprise** — custom\n\nThe same page says a **14-day trial** includes 2,000 sessions and no credit card, then you drop to Free if you do not pick a paid plan.\n\n**Choose Mouseflow** when you want published session tiers and friction detection. **Skip it** if you only needed Clarity’s free overlay, or if product analytics is the real job ([PostHog](/tools/posthog/))."
+    },
+    {
+      "id": "lucky-orange",
+      "title": "Lucky Orange — heatmaps, recordings, and live tools on every plan",
+      "content": "[Lucky Orange](https://www.luckyorange.com/) sells dynamic heatmaps, session recordings, funnels, surveys, live chat, and Discovery AI. The homepage says every tool is included on every plan (their contrast with tools that unbundle surveys).\n\n[Lucky Orange pricing](https://www.luckyorange.com/pricing) (checked 9 November 2026) lists annual prices:\n\n- **Build** — **$32/month** paid annually (**$39/month** monthly), up to **3,500** monthly sessions\n- **Grow** — **$72/month** paid annually, up to **10,000** monthly sessions\n- **Expand** — **$199/month** paid annually, starts at **50,000** monthly sessions\n- **Scale** — **$839/month** paid annually, starts at **300,000** monthly sessions\n- **Enterprise** — custom, from 700,000+ sessions\n\nThe page also advertises a **7-day free trial** with every feature.\n\n**Choose Lucky Orange** when you want recordings plus live chat/surveys without a separate Voice-of-Customer SKU. **Skip it** if you only need a free overlay (Clarity) or engineering-owned replay (PostHog)."
+    },
+    {
+      "id": "fullstory",
+      "title": "FullStory — free tier, then sales-led capture",
+      "content": "[Fullstory pricing](https://www.fullstory.com/pricing/) (checked 9 November 2026) describes Analytics plans **Business / Advanced / Enterprise** without public dollar amounts. The FAQ states **FullstoryFree** is a permanent free plan: **30,000 sessions per month**, **12 months** retention, session replay, basic analytics, and debugging tools for **up to 10 users**. No credit card.\n\nThe same pricing table lists heatmaps, scroll maps, click maps, and session replay on the paid comparison. The [session replay product page](https://www.fullstory.com/platform/session-replay/) describes autocapture and privacy masking.\n\n**Choose FullStory** when you outgrew marketing heatmap tools and can run a demo for paid capture. **Skip quoting a Business price** — the vendor does not publish one. Use FullstoryFree only if 30k sessions/month covers the site."
+    },
+    {
+      "id": "posthog",
+      "title": "PostHog — the directory alternative for product replay",
+      "content": "[PostHog](/tools/posthog/) is the AnalyticsVS product-analytics tool with **session recordings**. [PostHog vs Hotjar](/compare/posthog-vs-hotjar/) is the pair review: PostHog for events, flags, and experiments; Hotjar for marketing heatmaps and surveys.\n\n[PostHog pricing](https://posthog.com/pricing) (checked 9 November 2026) includes **5,000 session recordings** and **1 million analytics events** on the monthly free allowance. Replay on the free plan is retained **1 month**; pay-as-you-go lists **90 days** (add-ons can extend — read the vendor FAQ).\n\nPostHog’s [heatmap docs](https://posthog.com/docs/toolbar/heatmaps) describe heatmaps, scrollmaps, and clickmaps. Heatmap ingest is described as free. The **free plan limits heatmap capture to 3 pages**; toolbar heatmap viewing needs pay-as-you-go.\n\nOur directory JSON still has `features.heatmaps: false` (older snapshot). This article follows the vendor docs and flags that snapshot as stale. We have a recorded [PostHog script benchmark](/learn/analytics-script-performance/); Hotjar’s script weight is **not** recorded here — do not invent one.\n\nSaaS teams choosing events over click maps should start with [analytics for a SaaS startup](/learn/analytics-for-a-saas-startup/)."
+    },
+    {
+      "id": "crazy-egg",
+      "title": "Crazy Egg — heatmaps billed on pageviews",
+      "content": "[Crazy Egg pricing](https://www.crazyegg.com/pricing) (checked 9 November 2026) says every plan includes heatmaps, session recordings, surveys, A/B testing, error tracking, and traffic analysis. **All plans billed annually.** No overages, per that page.\n\n- **Starter** — **$29/month**: 5,000 tracked pageviews/mo, 5 heatmap reports, **50 recordings/mo**, 6 months recording storage\n- **Plus** — **$99/month**: 150,000 pageviews, 75 heatmaps, 1,000 recordings/mo\n- **Pro** — **$249/month**: 500,000 pageviews, 100 heatmaps, 5,000 recordings/mo\n- **Enterprise** — **$599/month**: 1,000,000 pageviews, 200 heatmaps, 10,000 recordings/mo, SAML SSO\n\n**Choose Crazy Egg** when you want heatmaps plus A/B testing on a published annual price. Watch the **recording caps** (Starter is 50/month) — that is much tighter than Clarity’s unlimited marketing claim or Hotjar Growth session packs."
+    },
+    {
+      "id": "contentsquare",
+      "title": "Contentsquare — the platform behind Hotjar",
+      "content": "Hotjar sits inside Contentsquare. The [Hotjar pricing](https://www.hotjar.com/pricing/) and [Contentsquare pricing](https://www.contentsquare.com/pricing/) pages (both checked 9 November 2026) show the same **Experience Analytics** Free and Growth plans, then **Experience Platform** Pro and Enterprise without a public dollar amount.\n\nExperience Analytics **Free**: **$0**, up to **200k** monthly sessions, 1 project, 1 month data access, heatmaps and replays. Replay capture on Free is **5% of sessions (max 10k)**. **Growth**: **$39/month** billed annually (**$49/month** monthly), 13 months data access, 3 projects, zone-based heatmaps. New accounts get a **15-day** Growth trial. Annual card/PayPal billing is advertised as **20%** off vs monthly.\n\nAffiliate visit links on AnalyticsVS use the configured Contentsquare partner URL — see [disclosure](/disclosure/).\n\n**Choose Contentsquare Platform** when a company already needs journey analysis, RUM, and sales-led packaging beyond Growth. **Choose Hotjar/Experience Analytics Growth** when a marketing team still wants self-serve heatmaps. Do not treat “Contentsquare” as a secretly cheaper Hotjar clone — it is the parent catalog."
+    },
+    {
+      "id": "matomo",
+      "title": "Matomo — heatmaps inside web analytics",
+      "content": "[Matomo](/tools/matomo/) is web analytics first. Heatmaps and session recording ship with **Matomo Cloud**. On **On-Premise**, they sit in paid plugins or the **Team** bundle.\n\n[Matomo pricing](https://matomo.org/pricing/) (checked 9 November 2026) lists Cloud from **$29/month** at **50,000 hits** (our directory still snapshots **$26** at that band from Oct 2026 — follow the vendor page). On-Premise **Team** is **from €230/month** and includes Heatmaps & Session Recording.\n\n**Choose Matomo** when you already want GA-like reports plus an overlay and you accept Cloud cost or On-Premise ops. See [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/). It is a weaker “Hotjar alternative” if you only wanted recordings and already have Fathom."
+    },
+    {
+      "id": "smartlook",
+      "title": "Smartlook — do not start a new account",
+      "content": "[Smartlook’s pricing URL](https://www.smartlook.com/pricing) (checked 9 November 2026) is a wind-down FAQ, not a plan grid. Cisco/Splunk states Smartlook joined Cisco and will wind down as a standalone product.\n\nPublished dates:\n\n- **31 May 2026** — End of Sale (no new paid subscriptions)\n- **31 August 2026** — End of Contract Renewals\n- **31 August 2027** — Last Day of Support for remaining paid subscriptions\n- **30 September 2027** — platform decommissioned; remaining data deleted\n\nAs of **9 November 2026**, End of Sale and End of Renewals have already passed. **Do not migrate onto Smartlook.** Existing customers should export via the APIs the FAQ links, then move to Clarity, Hotjar, PostHog, or another live vendor above. Splunk says historical Smartlook data will **not** migrate automatically into Digital Experience Analytics."
+    },
+    {
+      "id": "when-hotjar-still-fits",
+      "title": "When Hotjar itself is still the right pick",
+      "content": "Switching has a cost: a new snippet, a new privacy review, and a new review ritual. Stay on Hotjar when most of these are true:\n\n1. A marketing or UX owner already watches recordings on a schedule.\n2. You need **surveys and feedback widgets** next to heatmaps without buying a second VoC product.\n3. You are fine on Contentsquare **Experience Analytics** Free or Growth, not an RFP for Platform Enterprise.\n4. Traffic analytics already lives in [GA4](/tools/google-analytics-4/), [Fathom](/tools/fathom/), or [Plausible](/tools/plausible/).\n\nLeave Hotjar when the blocker is **price at high session volume** (try Clarity or PostHog’s free replay cap), **product-event context** (PostHog), **live chat bundled with recordings** (Lucky Orange), or **self-hosted web analytics plus overlays** (Matomo).\n\n[DataFast](https://datafa.st/?via=analyticsvs) does not include heatmaps. Pair it with Hotjar or Clarity only if a checkout URL needs a click map. Run expected volume through the [pricing calculator](/calculators/pricing/) for directory tools."
+    },
+    {
+      "id": "privacy-and-performance",
+      "title": "Privacy, consent, and script weight",
+      "content": "Every tool in this roundup captures on-page behavior. Recordings can include DOM content. Configure masking, exclude admin URLs, and honor consent where required. Clarity, Hotjar, FullStory, Mouseflow, and PostHog all document privacy or masking controls — read the vendor legal pages before you enable replay on logged-in apps.\n\nA [cookieless](/learn/cookieless-analytics/) traffic tag (Fathom, Plausible) does **not** make a heatmap script “fine.” That is two reviews.\n\nScript cost: we have a **recorded** PostHog fixture on [analytics script performance](/learn/analytics-script-performance/). We do **not** have recorded transfer sizes for Hotjar, Clarity, Mouseflow, Lucky Orange, FullStory, or Crazy Egg. Measure Core Web Vitals after install instead of quoting a blog number."
+    },
+    {
+      "id": "sources-checked",
+      "title": "Sources checked for this article",
+      "content": "Feature flags for directory tools come from AnalyticsVS JSON (`heatmaps`, `session_recordings`). Prices and packaging below were checked on **9 November 2026**:\n\n- [Hotjar / Contentsquare Experience Analytics pricing](https://www.hotjar.com/pricing/)\n- [Contentsquare pricing](https://www.contentsquare.com/pricing/)\n- [Microsoft Clarity](https://clarity.microsoft.com/) and [Clarity docs](https://learn.microsoft.com/en-us/clarity/)\n- [Mouseflow pricing](https://mouseflow.com/pricing/)\n- [Lucky Orange](https://www.luckyorange.com/) and [Lucky Orange pricing](https://www.luckyorange.com/pricing)\n- [Fullstory pricing](https://www.fullstory.com/pricing/) and [Fullstory session replay](https://www.fullstory.com/platform/session-replay/)\n- [PostHog pricing](https://posthog.com/pricing), [session replay](https://posthog.com/session-replay), [heatmap docs](https://posthog.com/docs/toolbar/heatmaps)\n- [Crazy Egg pricing](https://www.crazyegg.com/pricing)\n- [Matomo pricing](https://matomo.org/pricing/)\n- [Smartlook transition FAQ](https://www.smartlook.com/pricing)\n- Directory: [Hotjar](/tools/hotjar/), [PostHog](/tools/posthog/), [Matomo](/tools/matomo/)\n- Comparisons: [PostHog vs Hotjar](/compare/posthog-vs-hotjar/), [Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/)\n\nWhere an AnalyticsVS snapshot disagrees with a vendor page checked today, this article follows the vendor page and says so. We do not invent Pro/Enterprise prices the vendor left off the public page."
+    }
+  ]
+}

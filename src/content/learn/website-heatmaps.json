@@ -88,6 +88,10 @@
       "label": "Analytics script performance"
     },
     {
+      "href": "/learn/hotjar-alternatives/",
+      "label": "Hotjar alternatives"
+    },
+    {
       "href": "/calculators/pricing/",
       "label": "Pricing calculator"
     }
@@ -136,7 +140,7 @@
     {
       "id": "how-to-choose",
       "title": "How to choose among heatmap and replay tools",
-      "content": "1. **Marketing page UX** — start with [Hotjar](https://invite.contentsquare.com/analyticsvs). Keep [Fathom](https://usefathom.com/ref/U4V5UE) or GA4 for traffic.\n2. **Already on Matomo** — turn on Cloud heatmaps, or budget the On-Premise Team bundle, instead of adding a second overlay vendor.\n3. **Product funnels and flags** — [PostHog](/tools/posthog/) replay. Do not expect our directory to treat it as a heatmap replacement.\n4. **Stripe revenue, no overlay** — [DataFast](https://datafa.st/?via=analyticsvs) does not include heatmaps; pair it with Hotjar only if a checkout URL needs a click map.\n\nRun expected volume through the [pricing calculator](/calculators/pricing/). Then compare the pair you actually need, not a twelve-tool roundup we do not have data for.\n\n### Put the next step on the calendar\nA heatmap tool earns its fee when someone reviews the top five URLs every week. If that ritual will not happen, stay on Fathom or GA4 and fix copy with qualitative support tickets instead."
+      "content": "1. **Marketing page UX** — start with [Hotjar](https://invite.contentsquare.com/analyticsvs). Keep [Fathom](https://usefathom.com/ref/U4V5UE) or GA4 for traffic.\n2. **Already on Matomo** — turn on Cloud heatmaps, or budget the On-Premise Team bundle, instead of adding a second overlay vendor.\n3. **Product funnels and flags** — [PostHog](/tools/posthog/) replay. Do not expect our directory to treat it as a heatmap replacement.\n4. **Stripe revenue, no overlay** — [DataFast](https://datafa.st/?via=analyticsvs) does not include heatmaps; pair it with Hotjar only if a checkout URL needs a click map.\n\nRun expected volume through the [pricing calculator](/calculators/pricing/). For a wider heatmap and session-recording roundup — Clarity, Mouseflow, Lucky Orange, FullStory, Crazy Egg, Contentsquare, and when to stay on Hotjar — see [Hotjar alternatives](/learn/hotjar-alternatives/).\n\n### Put the next step on the calendar\nA heatmap tool earns its fee when someone reviews the top five URLs every week. If that ritual will not happen, stay on Fathom or GA4 and fix copy with qualitative support tickets instead."
     },
     {
       "id": "sources-checked",

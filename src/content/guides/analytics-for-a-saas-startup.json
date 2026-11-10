@@ -31,7 +31,7 @@
     {
       "id": "revenue",
       "title": "Connect revenue when Stripe is the scoreboard",
-      "content": "If the question is \"which blog post or ad led to a paid customer,\" look at **DataFast**'s payment attribution or a deliberate ecommerce setup in GA4. DataFast is not a replacement for in-app funnels. Compare [Plausible vs DataFast](/compare/plausible-vs-datafast/) and [DataFast vs PostHog](/compare/datafast-vs-posthog/).\n\nPrice the shortlist at your traffic in the [pricing calculator](/calculators/pricing/) before you add a second subscription."
+      "content": "If the question is \"which blog post or ad led to a paid customer,\" look at **DataFast**'s payment attribution or a deliberate ecommerce setup in GA4. DataFast is not a replacement for in-app funnels. The primer is [Stripe attribution](/learn/stripe-revenue-attribution/). Compare [Plausible vs DataFast](/compare/plausible-vs-datafast/) and [DataFast vs PostHog](/compare/datafast-vs-posthog/).\n\nPrice the shortlist at your traffic in the [pricing calculator](/calculators/pricing/) before you add a second subscription."
     },
     {
       "id": "default-stack",

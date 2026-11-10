@@ -18,6 +18,12 @@
     "google-analytics-4"
   ],
   "relatedGuides": [],
+  "relatedLinks": [
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    }
+  ],
   "sections": [
     {
       "id": "script-first",
@@ -32,7 +38,7 @@
     {
       "id": "revenue",
       "title": "Connect revenue attribution",
-      "content": "For Stripe-style flows: connect the provider, then pass DataFast visitor/session identifiers into checkout or payment metadata so paid conversions inherit channel and referrer context.\n\nQA with a test payment and confirm the sale appears with traffic source attached. Missing metadata is the usual failure mode."
+      "content": "For Stripe-style flows: connect the provider, then pass DataFast visitor/session identifiers into checkout or payment metadata so paid conversions inherit channel and referrer context.\n\nQA with a test payment and confirm the sale appears with traffic source attached. Missing metadata is the usual failure mode.\n\nFor the vocabulary and how DataFast compares with Fathom, Plausible, PostHog, and GA4 on this job, see [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/)."
     },
     {
       "id": "when-not",

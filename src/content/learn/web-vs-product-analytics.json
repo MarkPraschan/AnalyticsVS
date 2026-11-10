@@ -23,6 +23,10 @@
     {
       "href": "/learn/website-heatmaps/",
       "label": "Website heatmaps and session recordings"
+    },
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution"
     }
   ],
   "sections": [

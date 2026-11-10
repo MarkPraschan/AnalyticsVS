@@ -32,6 +32,17 @@
       "answer": "Plausible offers an open-source self-hosted edition. DataFast is cloud-only SaaS."
     }
   ],
+  "afterVerdict": "If you are choosing tools because you need **stripe attribution** or revenue-per-channel reports — not only cookieless pageviews — start with [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/). Affiliate visit links for DataFast use our partner URL; see [disclosure](/disclosure/).",
+  "relatedLinks": [
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    },
+    {
+      "href": "/learn/setup-events-datafast/",
+      "label": "Set up DataFast events and revenue"
+    }
+  ],
   "editorialNotes": [
     {
       "title": "Different primary questions",

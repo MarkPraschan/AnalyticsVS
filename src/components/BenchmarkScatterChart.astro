@@ -67,12 +67,11 @@ const hasPoints = points.length > 0;
       <div class="benchmark-scatter__header">
         <div>
           <h2 id="benchmark-scatter-heading" class="font-heading text-xl font-semibold text-fg">
-            Overhead vs transfer size
+            What each script adds to your page
           </h2>
           <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-            Each point is a recorded install. Both axes use a log scale and are flipped so the
-            top-right is best: lower load overhead and smaller transfer size. Hover a mark for
-            details, or click through to the full report.
+            Every analytics install costs visitors a little wait and a little download. Tools closer
+            to the top-right add less of both, so pages feel snappier.
           </p>
         </div>
       </div>
@@ -113,8 +112,7 @@ const hasPoints = points.length > 0;
 
   function bootBenchmarkScatter() {
     const root = document.getElementById('benchmark-scatter');
-    if (!(root instanceof HTMLElement) || root.dataset.scatterBound === 'true') return;
-    root.dataset.scatterBound = 'true';
+    if (!(root instanceof HTMLElement)) return;
     initBenchmarkScatter(root);
   }
 

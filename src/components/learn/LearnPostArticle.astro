@@ -159,7 +159,7 @@ const hasAffiliateCtas =
   fullTitle={post.data.seoTitle}
   description={post.data.description}
   lastUpdated={post.data.featuredImage ? undefined : updatedDate}
-  ogImage={post.data.featuredImage}
+  ogImage={post.data.ogImage ?? post.data.featuredImage}
   schema={schema}
 >
   {

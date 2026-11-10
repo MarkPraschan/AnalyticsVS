@@ -7,6 +7,9 @@
   "publishedOn": "2026-11-10",
   "category": "primers",
   "status": "published",
+  "featuredImage": "/learn/stripe-revenue-attribution.webp",
+  "featuredImageAlt": "Pixel-art illustration of website traffic flowing into a Stripe building and coming out as revenue",
+  "ogImage": "/learn/stripe-revenue-attribution-og.jpg",
   "quickAnswer": "**Stripe attribution** (a common form of **revenue attribution analytics**) answers which channel produced *paid* customers, not which channel produced visits. [DataFast](/tools/datafast/) connects Stripe (and similar processors) and matches payments to traffic. [Fathom](/tools/fathom/) and [Plausible](/tools/plausible/) can show revenue *if you send an event value*. [PostHog](/tools/posthog/) can sync Stripe into its warehouse. [GA4](/tools/google-analytics-4/) can measure ecommerce purchases you instrument.",
   "keyTakeaways": [
     "Stripe attribution is a join: a payment record plus the visit that led to it. Traffic reports without that join are not revenue attribution.",

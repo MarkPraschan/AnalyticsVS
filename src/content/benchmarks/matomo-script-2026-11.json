@@ -1,0 +1,86 @@
+{
+  "tool": "matomo",
+  "testDate": "2026-11-10",
+  "slug": "matomo-script-2026-11",
+  "title": "Matomo Script Performance",
+  "status": "recorded",
+  "environment": {
+    "connection": "Slow 4G (Simulated)",
+    "device": "Desktop (Chromium)",
+    "runs": 7
+  },
+  "install": {
+    "loading": "async",
+    "renderBlocking": false
+  },
+  "baseline": {
+    "pageLoadMs": 185,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 185,
+        "min": 174,
+        "max": 188
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "overhead": {
+    "pageLoadMs": 882,
+    "mainThreadBlockingMs": 0,
+    "runStats": {
+      "runs": 7,
+      "pageLoadMs": {
+        "mean": 882,
+        "min": 424,
+        "max": 3529
+      },
+      "mainThreadBlockingMs": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      }
+    }
+  },
+  "metrics": {
+    "transferSizeBytes": 45191,
+    "decodedBodySizeBytes": 156566,
+    "mainThreadBlockingMs": 0,
+    "pageLoadMs": 1067,
+    "scriptLoadMs": 1050
+  },
+  "runStats": {
+    "runs": 7,
+    "transferSizeBytes": {
+      "mean": 45191,
+      "min": 45170,
+      "max": 45274
+    },
+    "decodedBodySizeBytes": {
+      "mean": 156566,
+      "min": 156566,
+      "max": 156566
+    },
+    "pageLoadMs": {
+      "mean": 1067,
+      "min": 611,
+      "max": 3717
+    },
+    "scriptLoadMs": {
+      "mean": 1050,
+      "min": 600,
+      "max": 3679
+    },
+    "mainThreadBlockingMs": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "rawResultsUrl": null
+}

@@ -381,6 +381,126 @@
     @apply text-indigo;
   }
 
+  .benchmark-scatter {
+    @apply relative p-5 sm:p-6;
+  }
+
+  .benchmark-scatter__header {
+    @apply flex flex-col gap-4;
+  }
+
+  .benchmark-scatter__frame {
+    @apply relative mt-6 w-full overflow-visible;
+  }
+
+  .benchmark-scatter__svg {
+    @apply block h-auto w-full max-w-full;
+  }
+
+  .benchmark-scatter__plot {
+    fill: color-mix(in oklab, var(--color-surface-raised) 88%, white);
+  }
+
+  .benchmark-scatter__grid {
+    stroke: var(--color-border);
+    stroke-width: 1;
+    stroke-dasharray: 3 4;
+  }
+
+  .benchmark-scatter__axis {
+    stroke: var(--color-border-bright);
+    stroke-width: 1.25;
+  }
+
+  .benchmark-scatter__tick,
+  .benchmark-scatter__axis-label,
+  .benchmark-scatter__corner,
+  .benchmark-scatter__label,
+  .benchmark-scatter__initial {
+    fill: var(--color-muted);
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  }
+
+  .benchmark-scatter__tick {
+    font-size: 11px;
+  }
+
+  .benchmark-scatter__axis-label {
+    font-size: 12px;
+  }
+
+  .benchmark-scatter__corner {
+    fill: var(--color-bench-good);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .benchmark-scatter__label {
+    fill: var(--color-fg);
+    font-family: var(--font-heading, inherit);
+    font-size: 11px;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+
+  .benchmark-scatter__point {
+    outline: none;
+  }
+
+  .benchmark-scatter__point:hover .benchmark-scatter__label,
+  .benchmark-scatter__point:focus-visible .benchmark-scatter__label {
+    opacity: 1;
+  }
+
+  .benchmark-scatter__point:focus-visible .benchmark-scatter__halo {
+    stroke: var(--color-indigo);
+    stroke-width: 2.5;
+  }
+
+  .benchmark-scatter__halo {
+    fill: var(--color-base);
+    stroke: var(--color-border-bright);
+    stroke-width: 1.5;
+  }
+
+  .benchmark-scatter__dot {
+    fill: var(--color-surface-raised);
+  }
+
+  .benchmark-scatter__point--good .benchmark-scatter__halo {
+    stroke: color-mix(in oklab, var(--color-bench-good) 55%, var(--color-border));
+  }
+
+  .benchmark-scatter__point--mid .benchmark-scatter__halo {
+    stroke: color-mix(in oklab, var(--color-bench-mid) 55%, var(--color-border));
+  }
+
+  .benchmark-scatter__point--bad .benchmark-scatter__halo {
+    stroke: color-mix(in oklab, var(--color-bench-bad) 55%, var(--color-border));
+  }
+
+  .benchmark-scatter__initial {
+    fill: var(--color-fg);
+    font-family: var(--font-heading, inherit);
+    font-size: 12px;
+    font-weight: 700;
+    pointer-events: none;
+  }
+
+  .benchmark-scatter__tooltip {
+    @apply pointer-events-none absolute left-0 top-0 z-10 max-w-[16rem] rounded-lg border border-border bg-base px-3 py-2 text-xs shadow-md;
+  }
+
+  .benchmark-scatter__tooltip strong {
+    @apply block font-heading text-sm font-semibold text-fg;
+  }
+
+  .benchmark-scatter__tooltip span {
+    @apply mt-0.5 block text-muted;
+  }
+
   .glow-orb-primary {
     background: linear-gradient(to bottom right in oklab, var(--color-indigo), var(--color-cyan));
   }
@@ -872,6 +992,23 @@
 
   .comparison-filter__status,
   .comparison-filter__empty {
+    @apply mt-3 text-sm text-muted;
+  }
+
+  .tools-directory-search__row {
+    @apply flex flex-col gap-2 sm:flex-row sm:items-center;
+  }
+
+  .tools-directory-search__input {
+    @apply w-full min-w-0 sm:flex-1;
+  }
+
+  .tools-directory-search__clear {
+    @apply min-h-11 shrink-0 rounded-lg px-3 py-2 text-sm font-medium text-indigo-dark transition hover:bg-surface-raised sm:self-auto;
+  }
+
+  .tools-directory-search__status,
+  .tools-directory-search__empty {
     @apply mt-3 text-sm text-muted;
   }
 

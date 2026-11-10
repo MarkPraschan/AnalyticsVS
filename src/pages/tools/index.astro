@@ -19,6 +19,18 @@ const itemListSchema = buildItemListSchema({
     url: new URL(`/tools/${tool.data.slug}/`, SITE.url).href,
   })),
 });
+
+function searchText(tool: (typeof tools)[number]): string {
+  return [
+    tool.data.name,
+    tool.data.slug,
+    tool.data.id,
+    tool.data.category,
+    tool.data.tagline,
+  ]
+    .join(' ')
+    .toLowerCase();
+}
 ---
 
 <BaseLayout
@@ -44,13 +56,40 @@ const itemListSchema = buildItemListSchema({
           <code class="font-mono text-fg">npm run dev</code> again to refresh the content cache.
         </p>
       ) : (
-        <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {tools.map((tool) => (
-            <li class="col-span-1 h-full">
-              <ToolDirectoryCard tool={tool} />
-            </li>
-          ))}
-        </ul>
+        <div data-tools-directory>
+          <div class="tools-directory-search mb-6">
+            <label for="tools-directory-query" class="label-mono">Search tools</label>
+            <div class="tools-directory-search__row">
+              <input
+                id="tools-directory-query"
+                type="search"
+                class="input-field tools-directory-search__input"
+                placeholder="Search by name, category, or keyword…"
+                autocomplete="off"
+                spellcheck="false"
+                data-tools-search
+              />
+              <button type="button" class="tools-directory-search__clear" data-tools-clear hidden>
+                Clear
+              </button>
+            </div>
+            <p class="tools-directory-search__status" data-tools-status aria-live="polite">
+              Showing all {tools.length} tools
+            </p>
+          </div>
+
+          <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2" data-tools-list>
+            {tools.map((tool) => (
+              <li class="col-span-1 h-full" data-tools-item data-search={searchText(tool)}>
+                <ToolDirectoryCard tool={tool} />
+              </li>
+            ))}
+          </ul>
+
+          <p class="tools-directory-search__empty mt-8" data-tools-empty hidden role="status">
+            No tools match that search. Try another name or clear the query.
+          </p>
+        </div>
       )
     }
 
@@ -59,3 +98,86 @@ const itemListSchema = buildItemListSchema({
     )}
   </div>
 </BaseLayout>
+
+<script>
+  function initToolsDirectorySearch() {
+    const root = document.querySelector('[data-tools-directory]');
+    if (!(root instanceof HTMLElement)) return;
+
+    const input = root.querySelector<HTMLInputElement>('[data-tools-search]');
+    const clearButton = root.querySelector<HTMLButtonElement>('[data-tools-clear]');
+    const status = root.querySelector<HTMLElement>('[data-tools-status]');
+    const empty = root.querySelector<HTMLElement>('[data-tools-empty]');
+    const items = [...root.querySelectorAll<HTMLElement>('[data-tools-item]')];
+    if (!input) return;
+
+    const total = items.length;
+
+    const readQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      return (params.get('q') ?? '').trim();
+    };
+
+    const writeQuery = (query: string) => {
+      const url = new URL(window.location.href);
+      if (query) {
+        url.searchParams.set('q', query);
+      } else {
+        url.searchParams.delete('q');
+      }
+      window.history.replaceState({}, '', url);
+    };
+
+    const apply = () => {
+      const query = input.value.trim().toLowerCase();
+      const tokens = query.split(/\s+/).filter(Boolean);
+
+      let visible = 0;
+      items.forEach((item) => {
+        const haystack = item.dataset.search ?? '';
+        const matches = tokens.length === 0 || tokens.every((token) => haystack.includes(token));
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+
+      if (clearButton) {
+        clearButton.hidden = query.length === 0;
+      }
+
+      if (status) {
+        if (tokens.length === 0) {
+          status.textContent = `Showing all ${total} tools`;
+        } else if (visible === 1) {
+          status.textContent = 'Showing 1 tool';
+        } else {
+          status.textContent = `Showing ${visible} tools`;
+        }
+      }
+
+      if (empty) {
+        empty.hidden = visible !== 0;
+      }
+
+      writeQuery(input.value.trim());
+    };
+
+    if (!input.dataset.bound) {
+      input.dataset.bound = 'true';
+      input.addEventListener('input', apply);
+      clearButton?.addEventListener('click', () => {
+        input.value = '';
+        input.focus();
+        apply();
+      });
+    }
+
+    const initial = readQuery();
+    if (input.value !== initial) {
+      input.value = initial;
+    }
+    apply();
+  }
+
+  initToolsDirectorySearch();
+  document.addEventListener('astro:page-load', initToolsDirectorySearch);
+</script>

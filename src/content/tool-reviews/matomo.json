@@ -41,7 +41,7 @@
     "UI and onboarding are less modern than Fathom/Plausible for casual users.",
     "Product analytics, flags, and replay are not native core strengths.",
     "Plugin ecosystem quality varies — vet before production dependency.",
-    "Script performance benchmark pending on AnalyticsVS."
+    "See the recorded Matomo script benchmark for transfer size and Slow 4G load overhead."
   ],
   "faq": [
     {

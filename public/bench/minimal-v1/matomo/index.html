@@ -4,13 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>AnalyticsVS benchmark fixture — Matomo (pending)</title>
+  <title>AnalyticsVS benchmark fixture — Matomo</title>
+  <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analyticsvs.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/analyticsvs.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </head>
 <body>
   <main>
-    <h1>Snippet not configured</h1>
-    <p>Add <code>matomo</code> to <code>benchmarks/config/snippets.json</code> and rebuild fixtures.</p>
-    <p>Expected host: <code>bench.analyticsvs.com</code></p>
+    <h1>AnalyticsVS script lab</h1>
+    <p>Fixture <code>minimal-v1</code> for <strong>Matomo</strong>.</p>
+    <p>Host: <code>bench.analyticsvs.com</code>. Not indexed. Used only for controlled script benchmarks.</p>
   </main>
 </body>
 </html>

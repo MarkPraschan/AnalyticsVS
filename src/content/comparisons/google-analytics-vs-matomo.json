@@ -39,7 +39,7 @@
     },
     {
       "title": "Performance",
-      "content": "We publish recorded script benchmarks on our [benchmarks hub](/benchmarks/) — never estimated numbers. GA4’s default gtag install is measured; Matomo’s script weight depends on cloud vs self-host and plugins, so compare implementations carefully."
+      "content": "We publish recorded script benchmarks on our [benchmarks hub](/benchmarks/) — never estimated numbers. Both GA4’s default gtag install and Matomo Cloud’s default snippet are measured; self-hosted Matomo and plugin bundles can weigh differently, so compare the install you will actually ship."
     }
   ],
   "seoTitle": "Matomo vs Google Analytics 4 (2026): Data Ownership & Cost",

@@ -32,7 +32,7 @@
     {
       "id": "what-you-give-up",
       "title": "What you give up",
-      "content": "Lightweight alternatives do not include BigQuery export, Google Ads native attribution, or GA4's exploration depth. Matomo gets closer on reporting and still will not be a Google Ads product.\n\nScript weight is a separate decision. Our recorded numbers, including Umami, are in the [script performance matrix](/learn/analytics-script-performance/). Matomo is not in that matrix until we record it."
+      "content": "Lightweight alternatives do not include BigQuery export, Google Ads native attribution, or GA4's exploration depth. Matomo gets closer on reporting and still will not be a Google Ads product.\n\nScript weight is a separate decision. Our recorded numbers, including Umami and Matomo Cloud, are in the [script performance matrix](/learn/analytics-script-performance/)."
     }
   ]
 }

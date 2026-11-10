@@ -154,6 +154,13 @@ const pricingData = tools.map((tool) => ({
 <script>
   import { initPricingCalculator } from '../scripts/pricing-calculator.client';
 
-  const root = document.getElementById('pricing-calculator');
-  if (root) initPricingCalculator(root);
+  function bootPricingCalculator() {
+    const root = document.getElementById('pricing-calculator');
+    if (!(root instanceof HTMLElement) || root.dataset.pricingBound === 'true') return;
+    root.dataset.pricingBound = 'true';
+    initPricingCalculator(root);
+  }
+
+  bootPricingCalculator();
+  document.addEventListener('astro:page-load', bootPricingCalculator);
 </script>

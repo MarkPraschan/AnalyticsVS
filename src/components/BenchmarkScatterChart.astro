@@ -1,0 +1,123 @@
+---
+import {
+  formatAddedMs,
+  formatKib,
+  rateOverheadMs,
+  rateTransferBytes,
+  type BenchRating,
+  type BenchmarkEntry,
+} from '../lib/benchmarks';
+import { getBrandLogoUrl } from '../lib/brand-logos';
+import { getToolById, getToolInitial } from '../lib/tools';
+import type { ScatterPoint } from '../scripts/benchmark-scatter.client';
+
+interface Props {
+  benchmarks: BenchmarkEntry[];
+}
+
+const { benchmarks } = Astro.props;
+
+function chartLabel(title: string, toolName: string): string {
+  const stripped = title.replace(/\s*Script Performance\s*$/i, '').trim() || toolName;
+  return stripped
+    .replace(/^Fathom Analytics$/i, 'Fathom')
+    .replace(/^Plausible Analytics$/i, 'Plausible')
+    .replace(/^Google Analytics 4$/i, 'GA4')
+    .replace(/^DataFast \(cookieless\)$/i, 'DataFast cookieless');
+}
+
+function worseRating(a: BenchRating | null, b: BenchRating | null): BenchRating {
+  const rank = { good: 0, mid: 1, bad: 2 } as const;
+  if (!a) return b ?? 'mid';
+  if (!b) return a;
+  return rank[a] >= rank[b] ? a : b;
+}
+
+const points: ScatterPoint[] = [];
+
+for (const benchmark of benchmarks) {
+  const transferBytes = benchmark.data.metrics?.transferSizeBytes;
+  const overheadMs = benchmark.data.overhead?.pageLoadMs;
+  if (transferBytes == null || overheadMs == null) continue;
+
+  const tool = await getToolById(benchmark.data.tool);
+  const toolName = tool?.data.name ?? benchmark.data.tool;
+  const label = chartLabel(benchmark.data.title, toolName);
+
+  points.push({
+    id: benchmark.id,
+    label,
+    href: `/benchmarks/${benchmark.data.slug}/`,
+    transferBytes,
+    overheadMs,
+    transferLabel: formatKib(transferBytes),
+    overheadLabel: formatAddedMs(overheadMs),
+    rating: worseRating(rateOverheadMs(overheadMs), rateTransferBytes(transferBytes)),
+    logoUrl: getBrandLogoUrl(benchmark.data.tool),
+    initial: getToolInitial(toolName),
+  });
+}
+
+const hasPoints = points.length > 0;
+---
+
+{
+  hasPoints && (
+    <section class="benchmark-scatter card" aria-labelledby="benchmark-scatter-heading" id="benchmark-scatter" data-points={JSON.stringify(points)}>
+      <div class="benchmark-scatter__header">
+        <div>
+          <h2 id="benchmark-scatter-heading" class="font-heading text-xl font-semibold text-fg">
+            Overhead vs transfer size
+          </h2>
+          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+            Each point is a recorded install. Both axes use a log scale and are flipped so the
+            top-right is best: lower load overhead and smaller transfer size. Hover a mark for
+            details, or click through to the full report.
+          </p>
+        </div>
+      </div>
+
+      <div class="benchmark-scatter__frame" data-scatter-frame>
+        <div class="benchmark-scatter__tooltip" data-scatter-tooltip hidden></div>
+      </div>
+
+      <table class="sr-only">
+        <caption>Recorded analytics script benchmarks by load overhead and transfer size</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Load overhead</th>
+            <th scope="col">Transfer size</th>
+            <th scope="col">Report</th>
+          </tr>
+        </thead>
+        <tbody>
+          {points.map((point) => (
+            <tr>
+              <th scope="row">{point.label}</th>
+              <td>{point.overheadLabel}</td>
+              <td>{point.transferLabel}</td>
+              <td>
+                <a href={point.href}>Full report</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )
+}
+
+<script>
+  import { initBenchmarkScatter } from '../scripts/benchmark-scatter.client';
+
+  function bootBenchmarkScatter() {
+    const root = document.getElementById('benchmark-scatter');
+    if (!(root instanceof HTMLElement) || root.dataset.scatterBound === 'true') return;
+    root.dataset.scatterBound = 'true';
+    initBenchmarkScatter(root);
+  }
+
+  bootBenchmarkScatter();
+  document.addEventListener('astro:page-load', bootBenchmarkScatter);
+</script>

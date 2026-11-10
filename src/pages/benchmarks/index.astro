@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BenchmarkCard from '../../components/BenchmarkCard.astro';
+import BenchmarkScatterChart from '../../components/BenchmarkScatterChart.astro';
 import { getPublishedBenchmarks } from '../../lib/benchmarks';
 
 const recorded = await getPublishedBenchmarks();
@@ -57,19 +58,25 @@ const hasRecorded = recorded.length > 0;
 
     {
       hasRecorded && (
-        <section aria-labelledby="recorded-benchmarks-heading">
-          <h2 id="recorded-benchmarks-heading" class="sr-only">Recorded benchmarks</h2>
-          <ul class="grid gap-4">
-            {recorded.map((benchmark) => (
-              <li>
-                <BenchmarkCard
-                  benchmark={benchmark}
-                  href={`/benchmarks/${benchmark.data.slug}/`}
-                />
-              </li>
-            ))}
-          </ul>
-        </section>
+        <>
+          <div class="mb-10">
+            <BenchmarkScatterChart benchmarks={recorded} />
+          </div>
+
+          <section aria-labelledby="recorded-benchmarks-heading">
+            <h2 id="recorded-benchmarks-heading" class="sr-only">Recorded benchmarks</h2>
+            <ul class="grid gap-4">
+              {recorded.map((benchmark) => (
+                <li>
+                  <BenchmarkCard
+                    benchmark={benchmark}
+                    href={`/benchmarks/${benchmark.data.slug}/`}
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
       )
     }
   </div>

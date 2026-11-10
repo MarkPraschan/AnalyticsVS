@@ -94,6 +94,10 @@
     {
       "href": "/calculators/pricing/",
       "label": "Pricing calculator"
+    },
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution"
     }
   ],
   "toolShortlistHeading": "Behavior analytics shortlist",

@@ -32,6 +32,17 @@
       "answer": "On our recorded benches, DataFast is in the lightweight cluster (~6&nbsp;KiB transfer, ~+260&nbsp;ms overhead). GA4 is heavy (~171&nbsp;KiB, ~+1.16&nbsp;s). See [benchmarks](/benchmarks/)."
     }
   ],
+  "afterVerdict": "For the broader **stripe attribution** / revenue attribution analytics job — DataFast’s processor join vs GA4 ecommerce events vs Fathom/Plausible valued events — see [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/). Affiliate visit links for DataFast use our partner URL; see [disclosure](/disclosure/).",
+  "relatedLinks": [
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    },
+    {
+      "href": "/learn/setup-events-datafast/",
+      "label": "Set up DataFast events and revenue"
+    }
+  ],
   "editorialNotes": [
     {
       "title": "Instrumentation tax",

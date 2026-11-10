@@ -1,0 +1,181 @@
+{
+  "title": "Stripe Attribution: See Which Traffic Sources Make Money",
+  "slug": "stripe-revenue-attribution",
+  "description": "Stripe attribution shows which traffic sources make money. Compare DataFast, Fathom, Plausible, PostHog, and GA4 for revenue attribution analytics.",
+  "seoTitle": "Stripe Attribution: Which Traffic Sources Make Money",
+  "answerUnderTitle": "Stripe attribution joins a paid Stripe (or similar) checkout back to the referrer, campaign, or landing page that sent the visitor. Pageviews are not enough. DataFast is the AnalyticsVS tool built for that join. Fathom and Plausible can report event values by source if you send the amount yourself. PostHog and GA4 can model revenue with more instrumentation.",
+  "publishedOn": "2026-11-10",
+  "category": "primers",
+  "status": "published",
+  "quickAnswer": "**Stripe attribution** (a common form of **revenue attribution analytics**) answers which channel produced *paid* customers, not which channel produced visits. [DataFast](/tools/datafast/) connects Stripe (and similar processors) and matches payments to traffic. [Fathom](/tools/fathom/) and [Plausible](/tools/plausible/) can show revenue *if you send an event value*. [PostHog](/tools/posthog/) can sync Stripe into its warehouse. [GA4](/tools/google-analytics-4/) can measure ecommerce purchases you instrument.",
+  "keyTakeaways": [
+    "Stripe attribution is a join: a payment record plus the visit that led to it. Traffic reports without that join are not revenue attribution.",
+    "DataFast’s product is payment-processor revenue attribution: connect Stripe, then pass visitor and session IDs into Checkout or PaymentIntent metadata.",
+    "Fathom’s pricing page includes “Event and revenue tracking.” Its docs show sending a cent value on trackEvent and first-touch session referrer/UTM — not a Stripe restricted-key connection.",
+    "Plausible documents ecommerce revenue on custom events, filterable by source and campaign. Its docs say payment-provider webhooks cannot be linked to the originating visit.",
+    "PostHog can connect Stripe as a data-warehouse source. It also states the dedicated Revenue analytics dashboard has been removed.",
+    "GA4 ecommerce can record purchases you send as events. Matching indie Stripe Checkout to channels is instrumentation work, not a one-click processor join.",
+    "Cookieless DataFast tracking rotates visitor IDs about every 24 hours and weakens multi-day revenue matching — stay on the default cookie script if channel-to-revenue is the job."
+  ],
+  "heroCta": {
+    "toolId": "datafast",
+    "headline": "See which channel actually paid",
+    "note": "If the question is which blog post, ad, or referrer produced Stripe revenue — not just visits — DataFast is the directory tool built for that join. Connect Stripe, pass visitor IDs into checkout metadata, then confirm a test payment. Keep Fathom or Plausible when you only need traffic plus a valued event.",
+    "label": "Try DataFast"
+  },
+  "faq": [
+    {
+      "question": "What is Stripe attribution?",
+      "answer": "Stripe attribution means matching a Stripe payment back to the marketing visit that led to it — referrer, UTM campaign, landing page, device. It is revenue attribution analytics for teams that bill through Stripe. A pageview dashboard without a payment join is not Stripe attribution."
+    },
+    {
+      "question": "What is revenue attribution analytics?",
+      "answer": "Revenue attribution analytics reports which traffic sources produced money, not only sessions. Tools differ: DataFast pulls processor payments and matches them to visits; Fathom and Plausible total event values you send; PostHog can sync Stripe tables into its warehouse; GA4 records ecommerce purchase events you implement."
+    },
+    {
+      "question": "Does DataFast do Stripe revenue attribution?",
+      "answer": "Yes. DataFast documents connecting Stripe (restricted API key) under Site Settings → Revenue, then passing datafast_visitor_id and datafast_session_id into Stripe Checkout or PaymentIntent metadata so the sale inherits channel data. Shopify and WooCommerce integrations can handle more of that link automatically. Step-by-step setup lives in our DataFast events guide."
+    },
+    {
+      "question": "Does Fathom have native Stripe revenue attribution?",
+      "answer": "Fathom’s pricing page (checked 10 November 2026) lists “Event and revenue tracking” on every plan. Fathom’s ecommerce docs show sending a value in cents on trackEvent. A 2024 changelog notes first-touch UTM/referrer for events so Stripe checkout pages do not overwrite campaign data. Fathom’s public docs we opened today do not describe connecting a Stripe API key the way DataFast does."
+    },
+    {
+      "question": "Can Plausible attribute Stripe revenue to traffic sources?",
+      "answer": "Plausible documents ecommerce revenue on custom events, with totals filterable by referral source, campaign, and entry page. It also says payment processors such as Stripe should not replace the original source when the visitor returns within 30 minutes, and that payment-provider webhooks cannot be linked to the visit. That is event-value attribution, not a Stripe API connection."
+    },
+    {
+      "question": "Is PostHog enough for Stripe channel reports?",
+      "answer": "PostHog documents connecting Stripe as a data-warehouse source (restricted API key or OAuth) and building revenue metrics from managed views. The same docs say the dedicated Revenue analytics dashboard has been removed. PostHog is stronger for product events, replay, and flags. For a small Stripe SaaS whose weekly question is “which landing page made money?”, DataFast vs PostHog is the pair review."
+    },
+    {
+      "question": "Do I still need Fathom or GA4 if I use DataFast?",
+      "answer": "Often no for marketing traffic plus Stripe channel revenue on one site. Keep GA4 when Google Ads or BigQuery is a weekly decision. Keep Fathom when you want cookieless pageviews and are willing to send purchase values as events instead of connecting Stripe. Heatmaps are a different job — see website heatmaps."
+    }
+  ],
+  "relatedComparisons": [
+    "datafast-vs-posthog",
+    "plausible-vs-datafast",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": [
+    "datafast",
+    "fathom",
+    "plausible",
+    "posthog",
+    "google-analytics-4"
+  ],
+  "relatedGuides": [
+    "analytics-for-a-saas-startup"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/datafast-vs-posthog/",
+      "label": "DataFast vs PostHog"
+    },
+    {
+      "href": "/compare/plausible-vs-datafast/",
+      "label": "Plausible vs DataFast"
+    },
+    {
+      "href": "/compare/google-analytics-vs-datafast/",
+      "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/learn/setup-events-datafast/",
+      "label": "Set up DataFast events and revenue"
+    },
+    {
+      "href": "/tools/datafast/",
+      "label": "DataFast profile"
+    },
+    {
+      "href": "/tools/fathom/",
+      "label": "Fathom profile"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web analytics vs product analytics"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Pricing calculator"
+    }
+  ],
+  "toolShortlistHeading": "Directory tools to shortlist",
+  "toolShortlist": [
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS and Stripe (or similar) checkouts that need channel-to-revenue reports without building a warehouse join."
+    },
+    {
+      "toolId": "fathom",
+      "bestFor": "Cookieless traffic analytics with event values you send yourself — contrast when you do not want to connect a payment API key."
+    },
+    {
+      "toolId": "posthog",
+      "bestFor": "Product teams that already need events, replay, and flags, and can sync Stripe into PostHog’s warehouse for revenue metrics."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-stripe-attribution-means",
+      "title": "What people mean by Stripe attribution",
+      "content": "The query **stripe attribution** is a revenue question. Searchers want to know which blog post, ad, or referrer produced a **paid** customer — not which URL got the click.\n\n**Revenue attribution analytics** is the same job with a broader name. The payment processor might be Stripe, Lemon Squeezy, Polar, Paddle, Shopify, or WooCommerce. The report is still: traffic source → money.\n\nThat is not [web analytics vs product analytics](/learn/web-vs-product-analytics/) in the pageview sense, and it is not a [website heatmap](/learn/website-heatmaps/). Visits, on-page clicks, and cash are three different artifacts.\n\nAnalyticsVS already has a DataFast how-to: [set up events and revenue tracking in DataFast](/learn/setup-events-datafast/). This primer is the buying and vocabulary page for the query. Pair reviews live at [DataFast vs PostHog](/compare/datafast-vs-posthog/), [Plausible vs DataFast](/compare/plausible-vs-datafast/), and [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/)."
+    },
+    {
+      "id": "the-join",
+      "title": "The join you actually need",
+      "content": "A channel report without payments tells you where people arrived. A Stripe dashboard without visits tells you what you charged. Attribution is the **join**.\n\nThree pieces have to exist:\n\n1. A visit with a source (referrer, UTM, landing page).\n2. A stable-enough visitor or session identifier through checkout.\n3. A payment record from the processor (or an event you fire with the amount).\n\nSkip step 3 and you have traffic analytics. Skip step 2 and you may see revenue totals with “direct / unknown” sources.\n\n### Two common implementations\n**Processor pull.** The analytics tool connects Stripe (API key or OAuth), reads charges, and matches metadata you attached at Checkout. That is DataFast’s documented path. PostHog’s warehouse Stripe source is a heavier version of “pull Stripe into our database.”\n\n**Event push.** Your site fires `Purchase` with a dollar value when the thank-you page loads. Fathom and Plausible document that. GA4 documents `purchase` ecommerce events. The tool never logs into Stripe; it trusts the event you sent."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "How to choose a Stripe attribution approach",
+      "content": "Pick the weekly question first.\n\n### If the question is “which landing page made money this week?”\nStart with [DataFast](https://datafa.st/?via=analyticsvs). Connect Stripe, pass visitor IDs into checkout metadata, QA one test payment. See [DataFast vs PostHog](/compare/datafast-vs-posthog/) if you also need replay and flags.\n\n### If you already love cookieless traffic stats\nStay on [Fathom](https://usefathom.com/ref/U4V5UE) or [Plausible](/tools/plausible/) and **send a valued event** on purchase. Read what those vendors actually document below — do not assume a Stripe API connection.\n\n### If Google Ads or BigQuery is the weekly ritual\nKeep [GA4](/tools/google-analytics-4/) and implement ecommerce `purchase` events. DataFast does not replace Ads linking. Compare [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/).\n\n### If Stripe metrics belong next to product funnels\nUse [PostHog](/tools/posthog/)’s Stripe warehouse source plus product events. Budget taxonomy work.\n\n### If there is no online checkout\nSkip revenue attribution. Use Fathom or Plausible for traffic. A SaaS choosing the first stack should still read [analytics for a SaaS startup](/learn/analytics-for-a-saas-startup/).\n\nRun expected volume through the [pricing calculator](/calculators/pricing/) for directory tools. Calculator bands follow our JSON snapshots; live vendor prices below were checked **10 November 2026** and some directory rows are stale."
+    },
+    {
+      "id": "comparison-snapshot",
+      "title": "Snapshot of revenue attribution approaches",
+      "content": "Prices below are from vendor pages or the live pricing widget checked **10 November 2026**. Directory JSON still snapshots older DataFast and Fathom bands in places — this table follows the vendor.\n\n| Tool | How revenue gets in | Stripe processor connection? | Public starting price (checked 10 Nov 2026) | In directory? |\n|---|---|---|---|---|\n| DataFast | Pull payments; match visitor/session metadata | Yes — [connect provider](https://datafa.st/docs/connect-payment-provider) + [Checkout metadata](https://datafa.st/docs/stripe-checkout-api) | Starter **$9/month** at 10k events; Growth **$19/month** at 10k events; 14-day trial, no card | Yes — [DataFast](/tools/datafast/) |\n| Fathom | You send `trackEvent` with `_value` in cents | Not described as an API-key connect in docs we opened | From **$15/month** at 100k pageviews; all plans list “Event and revenue tracking” | Yes — [Fathom](/tools/fathom/) |\n| Plausible | Custom event + `revenue` amount/currency | No — webhooks “can't be linked to the visit” per [Plausible ecommerce docs](https://plausible.io/docs/ecommerce-revenue-tracking) | Starter **$9/month** at 10k pageviews (homepage widget) | Yes — [Plausible](/tools/plausible/) |\n| PostHog | Stripe warehouse source and/or revenue event properties | Yes — [Stripe payment platform](https://posthog.com/docs/revenue-analytics/payment-platforms/stripe) | Cloud **1M analytics events**/month free | Yes — [PostHog](/tools/posthog/) |\n| GA4 | Ecommerce `purchase` (and related) events you implement | No native “paste Stripe secret key” product in the [ecommerce events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce) guide | Standard property **$0** | Yes — [GA4](/tools/google-analytics-4/) |\n\nOur [DataFast profile](/tools/datafast/) still snapshots Starter **$29** at 100k events (Aug 2026). The live [DataFast homepage pricing](https://datafa.st/#pricing) widget lists Starter **$19/month** at 100k events. Follow the vendor widget. Fathom’s directory 500k band is **$39**; the [Fathom pricing](https://usefathom.com/pricing) page lists **$45/month** at 500k pageviews."
+    },
+    {
+      "id": "datafast",
+      "title": "DataFast — processor-native Stripe attribution",
+      "content": "[DataFast](/tools/datafast/) markets **revenue-first analytics**: install the script, connect a payment processor, then see which channels bring customers. Affiliate visit links use the configured DataFast URL — see [disclosure](/disclosure/).\n\n[Connect your payment provider](https://datafa.st/docs/connect-payment-provider) (checked 10 November 2026) lists Stripe, Lemon Squeezy, Polar, Shopify, and similar. The homepage FAQ says native integration with **Stripe, LemonSqueezy, Polar, and Shopify**, and that you can connect more than one. Shopify and WooCommerce guides say those integrations can attribute revenue without a manual script install.\n\nFor Stripe Checkout, DataFast’s [Checkout API guide](https://datafa.st/docs/stripe-checkout-api) says: connect Stripe first, then pass `datafast_visitor_id` and `datafast_session_id` in session **metadata**. “No webhook setup is required” on that path. Missing metadata is the usual failure mode — you may see revenue without a clean channel.\n\n[DataFast homepage pricing](https://datafa.st/#pricing) (checked 10 November 2026):\n\n- **14-day free trial**, no card (`$0.00 due today` on the widget).\n- **Starter** — 1 website, 1 team member, 3 years retention. **$9/month** at **10k** monthly events; **$19** at 100k; **$29** at 200k; **$49** at 500k; **$69** at 1M.\n- **Growth** — 30 websites, 30 team members, 5+ years retention, plus social mentions and link attribution. **$19/month** at 10k events, then higher bands.\n- Events are **pageviews, payments, and goals**, counted across sites.\n\nThe same homepage FAQ: the **default** script uses cookies for returning visitors and “the most accurate analytics and revenue attribution.” The **cookieless** script does not use cookies for visitor IDs; identifiers “rotate about every 24 hours,” which is “less accurate … especially for revenue attribution over weeks or months.” If channel-to-revenue is the job, stay on default mode. Primer: [cookieless analytics](/learn/cookieless-analytics/).\n\nInstall details: [DataFast events and revenue setup](/learn/setup-events-datafast/). DataFast does not list heatmaps — pair with Hotjar only if a checkout URL needs a click map."
+    },
+    {
+      "id": "fathom",
+      "title": "Fathom — valued events, not a Stripe key",
+      "content": "[Fathom](/tools/fathom/) is the cookieless traffic contrast in this roundup. Affiliate visit links use the configured Fathom URL.\n\n[Fathom pricing](https://usefathom.com/pricing) (checked 10 November 2026) starts at **$15/month** for **100,000** monthly pageviews. Every plan includes the same features, a **7-day** trial (card required), and at least **50 sites**. The feature list on that page includes **“Event and revenue tracking.”** Custom events count toward the pageview allowance.\n\nWhat “revenue tracking” means in Fathom’s own docs:\n\n- [Track ecommerce conversions](https://usefathom.com/docs/events/ecommerce-conversions) — send `_value` in **cents** on `fathom.trackEvent` (example: `_value: 1000` for $10). Shopify Liquid examples are on that page; they can be adapted to other carts.\n- [How Fathom measures analytics](https://usefathom.com/docs/start/measurement) — referrer and UTM use a **session-level first-touch** model. Conversions are attributed to the **entry page** even when the event fires later in the session.\n- [Better attribution for event completions](https://usefathom.com/changelog/sept2024-attribution-improvements) (Aug 2024 changelog, still published) — event completions use the **first** referrer/UTM seen, “so things like Stripe’s ecommerce aren’t overwriting ad campaign data.”\n\nWe did **not** find a Fathom doc today that says “paste a Stripe restricted API key and we pull charges.” State that limit as a documentation fact, not as a missing-feature smear: Fathom documents event values plus first-touch session attribution, and it names Stripe checkout as a source of events that used to steal campaign credit.\n\n**Choose Fathom** when cookieless traffic is the product and you can fire a valued event on purchase. **Choose DataFast** when you want Stripe’s payment record to drive the report. Event setup notes: [Plausible and Fathom events](/learn/setup-events-plausible-fathom/)."
+    },
+    {
+      "id": "plausible",
+      "title": "Plausible — custom-event revenue, filterable by source",
+      "content": "[Plausible](/tools/plausible/) is cookieless web analytics with optional revenue on goals. There is no AnalyticsVS affiliate program for Plausible.\n\nThe [Plausible homepage](https://plausible.io/) (checked 10 November 2026) lists **“Codeless goals and revenue tracking.”** The pricing widget on that page shows **Starter $9/month** at **10k** monthly pageviews, **Growth $14/month**, **Business $19/month** (site counts rise on higher plans).\n\n[Ecommerce revenue and attribution tracking](https://plausible.io/docs/ecommerce-revenue-tracking) (checked 10 November 2026) says you assign a monetary value to a custom event, then see unique conversions, conversion rate, **total revenue**, and **average revenue**, filterable by referral source, campaign, entry page, country, or device.\n\nThe same page is explicit about Stripe as a **gateway**, not as a connected account:\n\n- Payment processors such as PayPal, **Stripe**, and Paddle “don't replace the original source of a purchase” when the visitor returns within **30 minutes**.\n- “Payment provider webhooks can't be linked to the visit that led to the payment.”\n\nYou send `plausible(\"goal name\", {revenue: {currency: \"USD\", amount: 10.29}})` (or CSS classes / Events API). That is honest event-value attribution. It is not DataFast’s processor pull.\n\n**Choose Plausible** for privacy-first traffic plus a purchase goal you control. Compare [Plausible vs DataFast](/compare/plausible-vs-datafast/) when the north star is paid customers."
+    },
+    {
+      "id": "posthog",
+      "title": "PostHog — Stripe in the warehouse, product analytics first",
+      "content": "[PostHog](/tools/posthog/) is product analytics. Channel-to-cash is possible; it is not the one-screen indie report DataFast sells.\n\n[PostHog revenue analytics](https://posthog.com/docs/revenue-analytics) (checked 10 November 2026) states: **“The Revenue analytics dashboard has been removed.”** PostHog says it still exposes revenue properties on persons and groups for insights, SQL, and managed views.\n\n[Stripe as a payment platform](https://posthog.com/docs/revenue-analytics/payment-platforms/stripe) documents connecting Stripe with a **restricted API key** or **OAuth**, syncing charges, customers, invoices, products, and subscriptions, preferably via **webhooks**. [Connect to payment platforms](https://posthog.com/docs/revenue-analytics/payment-platforms) says revenue analytics data from billing platforms is **Stripe today** (Chargebee, Polar, RevenueCat “coming soon”).\n\n[PostHog pricing](https://posthog.com/pricing) (checked 10 November 2026) includes **1 million analytics events** and **5,000 session recordings** on the monthly free allowance. Warehouse **sources** list **1M rows** plus free historical on that free tier — read the vendor calculator before you sync a large Stripe account.\n\n**Choose PostHog** when activation, replay, and flags are the weekly meeting, and Stripe metrics should sit next to those events. **Do not** treat the removed dashboard as a reason to skip the warehouse source — the vendor still documents Stripe sync. Pair review: [DataFast vs PostHog](/compare/datafast-vs-posthog/)."
+    },
+    {
+      "id": "ga4",
+      "title": "GA4 — ecommerce events you implement",
+      "content": "[GA4](/tools/google-analytics-4/) can report revenue. Google’s [Measure ecommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce) guide (checked 10 November 2026) is an **event** implementation: add the Google tag, then send recommended events such as view item, add to cart, begin checkout, and **purchase**, with an `items` array and a `value` / `currency`.\n\nThat is powerful if you already live in Google Ads, Search Console, and Looker Studio. It is not a paste-your-Stripe-key wizard. Indie Stripe Checkout still needs you (or GTM) to fire `purchase` with the right parameters, plus consent mode where required.\n\n**Stay on GA4** when ads attribution or BigQuery is non-negotiable. **Add or switch to DataFast** when the painful question is revenue-per-channel for a short online checkout and you do not want to maintain that join in GA4. Details: [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/)."
+    },
+    {
+      "id": "privacy-and-when-not",
+      "title": "Privacy, cookieless mode, and when to skip this",
+      "content": "Connecting Stripe means payment metadata and often emails in the processor. Treat that as financial and personal data. Follow each vendor’s DPA. DataFast’s homepage FAQ (checked 10 November 2026) says the default cookie script may need a banner “depending on your jurisdiction”; the cookieless script is “designed so you typically do not need a cookie banner for DataFast out of the box,” with weaker multi-day attribution. That is vendor copy, not legal advice.\n\nFathom and Plausible position events as cookieless. Valued purchase events are still conversion measurement — keep the privacy policy honest.\n\nSkip dedicated Stripe attribution when:\n\n1. You do not take online payments.\n2. Sales close on a six-month B2B cycle the tag never sees.\n3. Nobody will look at channel revenue weekly.\n\nIn those cases, Fathom or Plausible for traffic is enough. Add Hotjar later only if a specific URL is failing — not because “attribution” sounded like a heatmap."
+    },
+    {
+      "id": "sources-checked",
+      "title": "Sources checked for this article",
+      "content": "Feature flags come from AnalyticsVS tool JSON (`revenue_tracking`, `cookieless`). Prices and packaging below were checked on **10 November 2026**:\n\n- [DataFast homepage / pricing widget](https://datafa.st/#pricing) and [DataFast llms.txt](https://datafa.st/llms.txt)\n- [Connect your payment provider](https://datafa.st/docs/connect-payment-provider)\n- [Revenue attribution guide](https://datafa.st/docs/revenue-attribution-guide)\n- [Stripe Checkout API attribution](https://datafa.st/docs/stripe-checkout-api)\n- [Fathom pricing](https://usefathom.com/pricing)\n- [Fathom ecommerce conversions](https://usefathom.com/docs/events/ecommerce-conversions)\n- [Fathom measurement (referrer/UTM)](https://usefathom.com/docs/start/measurement)\n- [Fathom event-attribution changelog](https://usefathom.com/changelog/sept2024-attribution-improvements)\n- [Plausible homepage pricing widget](https://plausible.io/)\n- [Plausible ecommerce revenue tracking](https://plausible.io/docs/ecommerce-revenue-tracking)\n- [PostHog revenue analytics](https://posthog.com/docs/revenue-analytics) (dashboard removal note)\n- [PostHog Stripe payment platform](https://posthog.com/docs/revenue-analytics/payment-platforms/stripe)\n- [PostHog payment platforms](https://posthog.com/docs/revenue-analytics/payment-platforms)\n- [PostHog pricing](https://posthog.com/pricing)\n- [GA4 ecommerce events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce)\n- Directory: [DataFast](/tools/datafast/), [Fathom](/tools/fathom/), [Plausible](/tools/plausible/), [PostHog](/tools/posthog/), [GA4](/tools/google-analytics-4/)\n- Comparisons: [DataFast vs PostHog](/compare/datafast-vs-posthog/), [Plausible vs DataFast](/compare/plausible-vs-datafast/), [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/)\n- How-to: [DataFast events and revenue](/learn/setup-events-datafast/)\n\nWhere an AnalyticsVS snapshot disagrees with a vendor page checked today, this article follows the vendor page and says so. We do not invent a Fathom Stripe API-key product the docs do not describe, and we do not ignore Fathom’s published “Event and revenue tracking” line."
+    }
+  ]
+}

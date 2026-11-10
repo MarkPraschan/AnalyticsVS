@@ -32,6 +32,17 @@
       "answer": "Yes. PostHog offers open-source self-hosting for teams that want full data control. DataFast is cloud-only SaaS with no self-hosted edition."
     }
   ],
+  "afterVerdict": "Need the vocabulary and tool split for **stripe attribution** / revenue-per-channel reports — DataFast’s processor join vs Fathom/Plausible event values vs PostHog’s warehouse Stripe source vs GA4 ecommerce? See [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/). Affiliate visit links for DataFast use our partner URL; see [disclosure](/disclosure/).",
+  "relatedLinks": [
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    },
+    {
+      "href": "/learn/setup-events-datafast/",
+      "label": "Set up DataFast events and revenue"
+    }
+  ],
   "editorialNotes": [
     {
       "title": "Different instrumentation tax",

@@ -55,6 +55,10 @@
       "label": "Website heatmaps and session recordings"
     },
     {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution"
+    },
+    {
       "href": "/learn/best-privacy-first-analytics-tools/",
       "label": "Best privacy-first web analytics tools"
     },
@@ -129,7 +133,7 @@
     {
       "id": "how-to-choose",
       "title": "How to choose among cookieless tools",
-      "content": "1. **Hosted vs self-hosted** — Fathom and Plausible Cloud minimize ops; Umami and Matomo shine when you want the database on your servers (Matomo is not always cookieless by default — configure carefully).\n2. **Traffic vs revenue** — Plausible/Fathom/Umami/Ahrefs answer traffic questions; DataFast adds payment-linked revenue attribution.\n3. **Script weight** — Prefer tools with **recorded** AnalyticsVS benchmarks when page speed matters.\n4. **Compare pairs, not vibes** — start with [Plausible vs Fathom](/compare/plausible-vs-fathom/), [Plausible vs Matomo](/compare/matomo-vs-plausible/), or [Google Analytics vs Plausible](/compare/google-analytics-vs-plausible/).\n\nThen read the [privacy-first tools guide](/learn/best-privacy-first-analytics-tools/) for the evaluation framework."
+      "content": "1. **Hosted vs self-hosted** — Fathom and Plausible Cloud minimize ops; Umami and Matomo shine when you want the database on your servers (Matomo is not always cookieless by default — configure carefully).\n2. **Traffic vs revenue** — Plausible/Fathom/Umami/Ahrefs answer traffic questions; DataFast adds payment-linked revenue attribution. Primer: [Stripe attribution](/learn/stripe-revenue-attribution/).\n3. **Script weight** — Prefer tools with **recorded** AnalyticsVS benchmarks when page speed matters.\n4. **Compare pairs, not vibes** — start with [Plausible vs Fathom](/compare/plausible-vs-fathom/), [Plausible vs Matomo](/compare/matomo-vs-plausible/), or [Google Analytics vs Plausible](/compare/google-analytics-vs-plausible/).\n\nThen read the [privacy-first tools guide](/learn/best-privacy-first-analytics-tools/) for the evaluation framework."
     }
   ]
 }

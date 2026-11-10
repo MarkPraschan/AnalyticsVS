@@ -390,7 +390,7 @@
   }
 
   .benchmark-scatter__frame {
-    @apply relative mt-6 w-full overflow-visible;
+    @apply relative mt-2 w-full overflow-visible;
   }
 
   .benchmark-scatter__svg {
@@ -415,18 +415,24 @@
   .benchmark-scatter__tick,
   .benchmark-scatter__axis-label,
   .benchmark-scatter__corner,
-  .benchmark-scatter__label,
   .benchmark-scatter__initial {
-    fill: var(--color-muted);
     font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
   }
 
   .benchmark-scatter__tick {
     font-size: 11px;
+    font-weight: 400;
   }
 
   .benchmark-scatter__axis-label {
+    fill: var(--color-fg);
+    font-family: var(--font-heading, inherit);
     font-size: 12px;
+    font-weight: 700;
+  }
+
+  .benchmark-scatter__initial {
+    fill: var(--color-muted);
   }
 
   .benchmark-scatter__corner {
@@ -435,23 +441,8 @@
     font-weight: 600;
   }
 
-  .benchmark-scatter__label {
-    fill: var(--color-fg);
-    font-family: var(--font-heading, inherit);
-    font-size: 11px;
-    font-weight: 600;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 120ms ease;
-  }
-
   .benchmark-scatter__point {
     outline: none;
-  }
-
-  .benchmark-scatter__point:hover .benchmark-scatter__label,
-  .benchmark-scatter__point:focus-visible .benchmark-scatter__label {
-    opacity: 1;
   }
 
   .benchmark-scatter__point:focus-visible .benchmark-scatter__halo {

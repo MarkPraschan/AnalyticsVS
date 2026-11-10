@@ -5,6 +5,9 @@ import BenchmarkScatterChart from '../../components/BenchmarkScatterChart.astro'
 import { getPublishedBenchmarks } from '../../lib/benchmarks';
 
 const recorded = await getPublishedBenchmarks();
+const recordedByOverhead = [...recorded].sort(
+  (a, b) => (a.data.overhead?.pageLoadMs ?? Number.POSITIVE_INFINITY) - (b.data.overhead?.pageLoadMs ?? Number.POSITIVE_INFINITY),
+);
 const hasRecorded = recorded.length > 0;
 ---
 
@@ -66,7 +69,7 @@ const hasRecorded = recorded.length > 0;
           <section aria-labelledby="recorded-benchmarks-heading">
             <h2 id="recorded-benchmarks-heading" class="sr-only">Recorded benchmarks</h2>
             <ul class="grid gap-4">
-              {recorded.map((benchmark) => (
+              {recordedByOverhead.map((benchmark) => (
                 <li>
                   <BenchmarkCard
                     benchmark={benchmark}

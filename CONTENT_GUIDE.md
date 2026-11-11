@@ -93,7 +93,11 @@ Rules:
 
 - Set `affiliate.enabled` + `url` only in the tool JSON. Resolve URLs with `getToolVisitUrl` / `isAffiliateTool` (`src/lib/affiliate.ts`). Optional env override: `AFFILIATE_URL_<TOOL_ID>`.
 - **Never** paste a guessed referral code. If `enabled` is false, link the vendor `website` without `sponsored`.
-- Markdown in Learn/compare bodies may use those three URLs; `src/lib/markdown.ts` stamps `rel="noopener noreferrer sponsored"`.
+- **Every outbound link** to an affiliate vendor is rewritten at render time by `tagAffiliateOutboundUrl` (`src/lib/affiliate.ts`):
+  - **DataFast** (`datafa.st`): keep path, add `?via=analyticsvs`
+  - **Fathom** (`usefathom.com`): replace with `https://usefathom.com/ref/U4V5UE` (program is not deep-linkable)
+  - **Hotjar** (`hotjar.com`, `help.hotjar.com`, …): replace with `https://invite.contentsquare.com/analyticsvs`
+- You can write bare vendor paths in content; do not invent referral codes. Markdown + source lists + variant links all go through the helper and get `rel="sponsored"` when rewritten.
 - **Disclosure is required** on any page that includes an affiliate link. Reuse `src/components/AffiliateDisclosure.astro` (links to `/disclosure/`). It already appears on:
   - `VisitCTA` (inline, when `affiliate` is true)
   - `ToolShortlist`, `TryTheseToolsSection`, `AlsoConsiderBox`

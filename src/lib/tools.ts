@@ -42,8 +42,10 @@ export {
   getAffiliatePartners,
   getToolVisitRel,
   getToolVisitUrl,
+  isAffiliateOutboundUrl,
   isAffiliateTool,
   resolveAffiliateUrl,
+  tagAffiliateOutboundUrl,
 } from './affiliate';
 export type { AffiliatePartner } from './affiliate';
 

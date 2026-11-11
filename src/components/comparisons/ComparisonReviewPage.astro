@@ -20,7 +20,7 @@ import type { ComparisonPageContext } from '../../lib/comparisons';
 import { getBenchmarksForComparison } from '../../lib/comparisons';
 import { getEntryUpdatedDate, getComparisonPageUpdatedDate } from '../../lib/contentDates';
 import { getToolReviewEntry } from '../../lib/reviews';
-import { renderReviewMarkdown } from '../../lib/markdown';
+import { markdownHasAffiliateLinks, renderReviewMarkdown } from '../../lib/markdown';
 import { getToolsByIds } from '../../lib/tools';
 import { SITE } from '../../lib/site';
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
@@ -195,9 +195,9 @@ const schema = [
               class="prose-content review-prose"
               set:html={renderReviewMarkdown(comparison.data.afterVerdict)}
             />
-            {/usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i.test(
-              comparison.data.afterVerdict,
-            ) && <AffiliateDisclosure class="mt-2" />}
+            {markdownHasAffiliateLinks(comparison.data.afterVerdict) && (
+              <AffiliateDisclosure class="mt-2" />
+            )}
           </div>
         )
       }

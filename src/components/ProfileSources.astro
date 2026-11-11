@@ -1,4 +1,5 @@
 ---
+import { isAffiliateOutboundUrl, tagAffiliateOutboundUrl } from '../lib/affiliate';
 import { formatDate } from '../lib/site';
 
 interface Props {
@@ -8,6 +9,12 @@ interface Props {
 }
 
 const { updatedDate, websiteUrl, websiteLabel } = Astro.props;
+const resolvedWebsiteUrl = websiteUrl ? tagAffiliateOutboundUrl(websiteUrl) : undefined;
+const websiteRel = resolvedWebsiteUrl
+  ? isAffiliateOutboundUrl(resolvedWebsiteUrl)
+    ? 'noopener noreferrer sponsored'
+    : 'noopener noreferrer'
+  : undefined;
 ---
 
 <section id="sources" class="mt-10">
@@ -16,11 +23,11 @@ const { updatedDate, websiteUrl, websiteLabel } = Astro.props;
     <p class="text-sm text-muted">
       Profile updated {formatDate(updatedDate)}
       {
-        websiteUrl && websiteLabel && (
+        resolvedWebsiteUrl && websiteLabel && (
           <>
             {' '}
             · Pricing sourced from{' '}
-            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+            <a href={resolvedWebsiteUrl} target="_blank" rel={websiteRel}>
               {websiteLabel}
             </a>
           </>

@@ -2,6 +2,7 @@
 import RelatedLinks from '../RelatedLinks.astro';
 import type { ToolReviewFaq } from '../../lib/reviews';
 import type { ToolReviewSource } from '../../lib/reviews/types';
+import { isAffiliateOutboundUrl, tagAffiliateOutboundUrl } from '../../lib/affiliate';
 import { formatDate } from '../../lib/site';
 
 interface Props {
@@ -43,15 +44,21 @@ const { faq, sources, latestReviewedOn, comparisonUpdated, relatedLinks = [] } =
     </p>
     <ul class="mt-4 space-y-2 text-sm">
       {
-        sources.map((source) => (
+        sources.map((source) => {
+          const href = tagAffiliateOutboundUrl(source.url);
+          const rel = isAffiliateOutboundUrl(href)
+            ? 'noopener noreferrer sponsored'
+            : 'noopener noreferrer';
+          return (
           <li>
             <span class="text-muted">{source.toolName}: </span>
-            <a href={source.url} target="_blank" rel="noopener noreferrer">
+            <a href={href} target="_blank" rel={rel}>
               {source.label}
             </a>
             <span class="text-muted"> — checked {formatDate(source.checkedOn)}</span>
           </li>
-        ))
+          );
+        })
       }
     </ul>
   </div>

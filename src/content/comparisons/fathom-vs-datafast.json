@@ -6,6 +6,9 @@
     "datafast"
   ],
   "category": "privacy-analytics",
+  "featuredImage": "/compare/fathom-vs-datafast.webp",
+  "ogImage": "/compare/fathom-vs-datafast-og.jpg",
+  "featuredImageAlt": "Pixel-art department store where a Fathom doorman counts visitors and a DataFast cashier traces each paying shopper back to Google, X or newsletter",
   "winner": null,
   "verdict": "Fathom is the better fit when you want cookieless, banner-light traffic reports and can send a purchase value as an event. DataFast is the better fit when the weekly question is which marketing channel produced Stripe (or similar) revenue, and you can connect a payment provider plus checkout metadata.",
   "quickAnswer": "**Fathom vs DataFast** is a traffic-vs-revenue choice, not two versions of the same dashboard. **Fathom** is the better fit if you need **cookieless pageviews, referrers, and valued events** without connecting Stripe. **DataFast** is the better fit if you need **channel-to-revenue reports** from a payment processor and can pass visitor IDs into checkout.",

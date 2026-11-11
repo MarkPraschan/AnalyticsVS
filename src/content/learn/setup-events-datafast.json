@@ -9,7 +9,8 @@
   "relatedComparisons": [
     "plausible-vs-datafast",
     "datafast-vs-posthog",
-    "google-analytics-vs-datafast"
+    "google-analytics-vs-datafast",
+    "fathom-vs-datafast"
   ],
   "relatedTools": [
     "datafast",

@@ -155,6 +155,12 @@ const comparisons = defineCollection({
     afterVerdict: z.string().optional(),
     alsoConsider: z.array(alsoConsiderSchema).default([]),
     relatedLinks: z.array(relatedLinkSchema).default([]),
+    /** Public path to featured/hero image (also used for og:image when ogImage is omitted). */
+    featuredImage: z.string().optional(),
+    /** Accessible description for featuredImage. Required in practice whenever a unique illustration is used. */
+    featuredImageAlt: z.string().optional(),
+    /** Optional social-card image (JPG/PNG). Falls back to featuredImage for og:image. */
+    ogImage: z.string().optional(),
   }),
 });
 

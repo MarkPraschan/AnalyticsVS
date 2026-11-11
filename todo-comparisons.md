@@ -9,6 +9,7 @@
 - [x] Google Analytics vs Umami — open-source alternative angle
 - [x] PostHog vs Plausible — product analytics vs simple web analytics
 - [x] Plausible vs DataFast — privacy vs revenue attribution
+- [x] Fathom vs DataFast — cookieless traffic vs Stripe revenue attribution
 - [x] Fathom vs Umami — direct privacy-tool rivalry
 
 ## Tier 2 — category expansion

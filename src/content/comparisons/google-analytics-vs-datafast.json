@@ -41,6 +41,14 @@
     {
       "href": "/learn/setup-events-datafast/",
       "label": "Set up DataFast events and revenue"
+    },
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
     }
   ],
   "editorialNotes": [

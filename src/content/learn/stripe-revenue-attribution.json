@@ -59,7 +59,8 @@
   "relatedComparisons": [
     "datafast-vs-posthog",
     "plausible-vs-datafast",
-    "google-analytics-vs-datafast"
+    "google-analytics-vs-datafast",
+    "fathom-vs-datafast"
   ],
   "relatedTools": [
     "datafast",
@@ -83,6 +84,10 @@
     {
       "href": "/compare/google-analytics-vs-datafast/",
       "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
     },
     {
       "href": "/learn/setup-events-datafast/",

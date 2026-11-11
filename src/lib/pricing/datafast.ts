@@ -4,24 +4,24 @@ import { applyProjectPricing, projectCount, TOOL_PROJECT_CONFIGS } from './proje
 
 const STARTER_TIERS = [
   { limit: 10_000, price: 9 },
-  { limit: 100_000, price: 29 },
-  { limit: 200_000, price: 49 },
-  { limit: 500_000, price: 79 },
-  { limit: 1_000_000, price: 99 },
-  { limit: 2_000_000, price: 149 },
-  { limit: 5_000_000, price: 199 },
-  { limit: 10_000_000, price: 299 },
+  { limit: 100_000, price: 19 },
+  { limit: 200_000, price: 29 },
+  { limit: 500_000, price: 49 },
+  { limit: 1_000_000, price: 69 },
+  { limit: 2_000_000, price: 89 },
+  { limit: 5_000_000, price: 129 },
+  { limit: 10_000_000, price: 169 },
 ];
 
 const GROWTH_TIERS = [
   { limit: 10_000, price: 19 },
   { limit: 100_000, price: 39 },
   { limit: 200_000, price: 59 },
-  { limit: 500_000, price: 89 },
-  { limit: 1_000_000, price: 109 },
-  { limit: 2_000_000, price: 159 },
-  { limit: 5_000_000, price: 209 },
-  { limit: 10_000_000, price: 309 },
+  { limit: 500_000, price: 99 },
+  { limit: 1_000_000, price: 139 },
+  { limit: 2_000_000, price: 179 },
+  { limit: 5_000_000, price: 259 },
+  { limit: 10_000_000, price: 339 },
 ];
 
 export function calculateDataFastPricing(input: PricingInput): PricingResult {

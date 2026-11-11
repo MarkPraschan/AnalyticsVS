@@ -42,6 +42,20 @@
       "content": "We publish recorded script benchmarks for both tools. Color bands on those pages use absolute thresholds documented on [methodology](/methodology/)."
     }
   ],
+  "relatedLinks": [
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/compare/google-analytics-vs-datafast/",
+      "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    }
+  ],
   "seoTitle": "Fathom vs Google Analytics 4 (2026): Privacy, Cost, Features",
   "seoDescription": "Fathom vs Google Analytics 4 compared: cookie-free tracking vs Google's free platform. Privacy, consent banners, pricing and features side by side."
 }

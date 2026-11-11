@@ -8,86 +8,41 @@ interface Props {
   description: string;
   updatedDate: Date | string;
   tools: ToolEntry[];
-  featuredImage?: string;
-  featuredImageAlt?: string;
 }
 
-const { title, description, updatedDate, tools, featuredImage, featuredImageAlt } = Astro.props;
+const { title, description, updatedDate, tools } = Astro.props;
 const [leftTool, rightTool] = tools;
 ---
 
-{
-  featuredImage ? (
-    <header class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
-      <img
-        src={featuredImage}
-        alt={featuredImageAlt ?? ''}
-        width="1600"
-        height="900"
-        class="absolute inset-0 size-full object-cover blur-xs "
-        decoding="async"
-        fetchpriority="high"
-      />
-      <div class="learn-hero__scrim rounded-none absolute inset-0" aria-hidden="true" />
-      <div class="relative max-w-xl px-5 py-8 sm:px-10 sm:py-12">
-        <div class="rounded-xl bg-base/95 p-5 shadow-sm sm:bg-transparent sm:p-0 sm:shadow-none">
-          <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:gap-5">
-            <div class="shrink-0 pt-0.5">
-              <ComparisonPairMarks tools={tools} size="hero" />
-            </div>
-            <div class="min-w-0">
-              <h1 class="heading-lg">
-                {leftTool && rightTool ? (
-                  <>
-                    <a href={`/tools/${leftTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
-                      {leftTool.data.name}
-                    </a>{' '}
-                    <span class="comparison-title__vs">vs</span>{' '}
-                    <a href={`/tools/${rightTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
-                      {rightTool.data.name}
-                    </a>
-                  </>
-                ) : (
-                  <span class="text-gradient-primary">{title}</span>
-                )}
-              </h1>
-              <p class="page-intro mt-2">{description}</p>
-              <div class="profile-header__meta">
-                <LastUpdated date={updatedDate} />
-              </div>
-            </div>
-          </div>
-        </div>
+<header class="profile-header">
+  <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:gap-5">
+    <div class="shrink-0 pt-0.5">
+      <ComparisonPairMarks tools={tools} size="hero" />
+    </div>
+    <div class="min-w-0">
+      <h1 class="heading-lg">
+        {
+          leftTool && rightTool ? (
+            <>
+              <a href={`/tools/${leftTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
+                {leftTool.data.name}
+              </a>
+              {' '}
+              <span class="comparison-title__vs">vs</span>
+              {' '}
+              <a href={`/tools/${rightTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
+                {rightTool.data.name}
+              </a>
+            </>
+          ) : (
+            <span class="text-gradient-primary">{title}</span>
+          )
+        }
+      </h1>
+      <p class="page-intro mt-2">{description}</p>
+      <div class="profile-header__meta">
+        <LastUpdated date={updatedDate} />
       </div>
-    </header>
-  ) : (
-    <header class="profile-header">
-      <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:gap-5">
-        <div class="shrink-0 pt-0.5">
-          <ComparisonPairMarks tools={tools} size="hero" />
-        </div>
-        <div class="min-w-0">
-          <h1 class="heading-lg">
-            {leftTool && rightTool ? (
-              <>
-                <a href={`/tools/${leftTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
-                  {leftTool.data.name}
-                </a>{' '}
-                <span class="comparison-title__vs">vs</span>{' '}
-                <a href={`/tools/${rightTool.data.slug}/`} class="comparison-title__brand text-gradient-primary">
-                  {rightTool.data.name}
-                </a>
-              </>
-            ) : (
-              <span class="text-gradient-primary">{title}</span>
-            )}
-          </h1>
-          <p class="page-intro mt-2">{description}</p>
-          <div class="profile-header__meta">
-            <LastUpdated date={updatedDate} />
-          </div>
-        </div>
-      </div>
-    </header>
-  )
-}
+    </div>
+  </div>
+</header>

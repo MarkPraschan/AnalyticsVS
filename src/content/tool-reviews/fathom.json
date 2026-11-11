@@ -42,14 +42,14 @@
     }
   ],
   "setupNotes": "**Typical setup (hosted Fathom Analytics):**\n\n1. Add your site in the Fathom dashboard.\n2. Paste the tracking script into your site header (or use a CMS integration).\n3. Configure **goals** for conversions you care about.\n4. Share the dashboard with teammates as needed.\n\n**Fathom Lite** requires server provisioning, install, and ongoing maintenance — separate from hosted Fathom Analytics.\n\n**Common pitfalls:** staging domains inflating counts, not tagging campaigns with UTMs, and comparing hosted Fathom numbers directly to GA4 without aligning definitions.",
-  "pricingNotes": "**Fathom Analytics** bills on **monthly pageviews** with entry at **$15/month for 100K pageviews** in our directory — higher floor than Plausible's $9/10K tier but more headroom per dollar at moderate traffic. Top published tier is **$169/month at 10M pageviews**.\n\n**Fathom Lite** is **free** (self-hosted); your cost is infrastructure and engineer time. A 7-day trial exists for hosted Fathom Analytics per vendor site.\n\nOur [pricing calculator](/calculators/pricing/) reflects **hosted Fathom Analytics** tiers only, not Lite hosting costs.",
+  "pricingNotes": "**Fathom Analytics** bills on **monthly pageviews**. [Fathom pricing](https://usefathom.com/pricing) (checked **11 November 2026**) starts at **$15/month for 100,000 pageviews**. Same-feature bands then go **$25 / 200k**, **$45 / 500k**, **$60 / 1M**, **$100 / 2M**, **$140 / 5M**, **$200 / 10M**. Every plan includes at least **50 sites** (extra packs of 50 for **$10/month**) and a **7-day** trial with a card. Custom events count toward the pageview allowance.\n\n**Fathom Lite** is **free** (self-hosted); your cost is infrastructure and engineer time.\n\nOur [pricing calculator](/calculators/pricing/) reflects **hosted Fathom Analytics** tiers only, not Lite hosting costs.",
   "limitations": [
     "Hosted Fathom Analytics is cloud-only — self-hosting requires the separate Fathom Lite product.",
     "Fathom Lite has fewer metrics, no vendor support, and less feature velocity than hosted Fathom Analytics.",
     "Higher entry price than Plausible Cloud for very small sites on the hosted product.",
     "No session replay, heatmaps, or product analytics on either edition.",
     "Fathom Lite is not open source (vendor distributes binaries; community maintains install docs).",
-    "Script performance benchmark pending on AnalyticsVS."
+    "Recorded script weight is small versus GA4; see the Fathom benchmark card on this profile."
   ],
   "faq": [
     {
@@ -73,22 +73,37 @@
     {
       "label": "Fathom Analytics pricing",
       "url": "https://usefathom.com/pricing",
-      "checkedOn": "2026-09-01"
+      "checkedOn": "2026-11-11"
     },
     {
       "label": "Fathom Lite (self-hosted)",
       "url": "https://usefathom.com/pricing/lite",
-      "checkedOn": "2026-09-01"
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "label": "Fathom features",
+      "url": "https://usefathom.com/features",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "label": "Fathom ecommerce conversions",
+      "url": "https://usefathom.com/docs/events/ecommerce-conversions",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "label": "How Fathom measures analytics",
+      "url": "https://usefathom.com/docs/start/measurement",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "label": "Does Fathom have X feature?",
+      "url": "https://usefathom.com/docs/troubleshooting/features",
+      "checkedOn": "2026-11-11"
     },
     {
       "label": "Fathom privacy policy",
       "url": "https://usefathom.com/privacy",
-      "checkedOn": "2026-09-01"
-    },
-    {
-      "label": "Fathom help docs",
-      "url": "https://usefathom.com/docs",
-      "checkedOn": "2026-09-01"
+      "checkedOn": "2026-11-11"
     }
   ]
 }

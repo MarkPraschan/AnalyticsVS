@@ -1,0 +1,110 @@
+{
+  "title": "Fathom vs DataFast",
+  "description": "Fathom vs DataFast — compare cookieless hosted web analytics (Fathom) with Stripe revenue-attribution analytics (DataFast) for indie SaaS and marketing sites.",
+  "tools": [
+    "fathom",
+    "datafast"
+  ],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Fathom is the better fit when you want cookieless, banner-light traffic reports and can send a purchase value as an event. DataFast is the better fit when the weekly question is which marketing channel produced Stripe (or similar) revenue, and you can connect a payment provider plus checkout metadata.",
+  "quickAnswer": "**Fathom vs DataFast** is a traffic-vs-revenue choice, not two versions of the same dashboard. **Fathom** is the better fit if you need **cookieless pageviews, referrers, and valued events** without connecting Stripe. **DataFast** is the better fit if you need **channel-to-revenue reports** from a payment processor and can pass visitor IDs into checkout.",
+  "bottomLine": "Pick **Fathom** for a polished, cookie-free marketing dashboard: hosted plans start at **$15/month** for **100,000** pageviews, every plan includes the same features, and you send `_value` in cents when you want revenue totals. Pick **DataFast** when “which landing page made money?” is the job: **Starter $9/month** at **10k** events (pageviews, payments, and goals), connect Stripe, then pass `datafast_visitor_id` and `datafast_session_id` into Checkout metadata. Content sites with no checkout should default to Fathom (or Plausible). Paid indie SaaS with a short online path should start with DataFast. Neither tool does heatmaps or session replay.",
+  "faq": [
+    {
+      "question": "Fathom vs DataFast: which should I pick?",
+      "answer": "Pick Fathom if you want cookieless traffic analytics and are willing to fire a valued event on purchase. Pick DataFast if you sell online and need the payment record itself joined to referrer, campaign, and landing page. If you need both Google Ads depth and this pair, see Google Analytics vs Fathom and Google Analytics vs DataFast."
+    },
+    {
+      "question": "Does Fathom do Stripe revenue attribution like DataFast?",
+      "answer": "Not as a processor connection. Fathom’s pricing page lists “Event and revenue tracking” on every plan. Fathom’s ecommerce docs show sending a cent value on trackEvent. Public Fathom docs we opened on 11 November 2026 do not describe pasting a Stripe restricted API key the way DataFast does."
+    },
+    {
+      "question": "Does DataFast work without cookies?",
+      "answer": "Yes, optionally. The default DataFast script uses first-party cookies for returning visitors and the strongest revenue matching. The cookieless script does not use cookies for visitor IDs; identifiers rotate about every 24 hours, which weakens multi-day journeys and revenue attribution. Fathom is cookieless by design."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "It depends on volume and sites. DataFast Starter starts at $9/month for 10k events. Fathom starts at $15/month for 100k pageviews and includes at least 50 sites on every plan. Compare your pageviews plus custom events in the pricing calculator, then confirm on each vendor’s pricing page."
+    },
+    {
+      "question": "Do Fathom or DataFast have heatmaps or session replay?",
+      "answer": "No. Both directory profiles list heatmaps and session recordings as false, and neither vendor’s feature docs we opened describe those products. Add Hotjar (now Contentsquare) or another behavior tool if a specific URL needs a click map or recording."
+    },
+    {
+      "question": "Can I self-host Fathom or DataFast?",
+      "answer": "Hosted Fathom Analytics is cloud-only. Fathom Lite is a separate free self-hosted product with fewer features and no vendor support. DataFast is cloud-only SaaS with no self-hosted edition."
+    }
+  ],
+  "afterVerdict": "If the real question is **stripe attribution** — payment record plus the visit that produced it — read [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/). Try [Fathom](https://usefathom.com/ref/U4V5UE) for cookieless traffic plus event values, or [DataFast](https://datafa.st/?via=analyticsvs) for processor-native channel revenue. Neither records heatmaps or session replay; for that, [Hotjar](https://invite.contentsquare.com/analyticsvs) (now Contentsquare) is the directory behavior tool. Affiliate visit links use our partner URLs; see [disclosure](/disclosure/).",
+  "alsoConsider": [
+    {
+      "toolId": "hotjar",
+      "note": "Neither Fathom nor DataFast ships heatmaps or session replay. Hotjar (Contentsquare) is the directory tool for click maps and recordings on a known URL — a different job from traffic or Stripe channel reports.",
+      "compareHref": "/learn/website-heatmaps/",
+      "compareLabel": "Website heatmaps primer"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    },
+    {
+      "href": "/compare/google-analytics-vs-datafast/",
+      "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/compare/plausible-vs-datafast/",
+      "label": "Plausible vs DataFast"
+    },
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/setup-events-datafast/",
+      "label": "Set up DataFast events and revenue"
+    },
+    {
+      "href": "/learn/setup-events-plausible-fathom/",
+      "label": "Set up events in Plausible and Fathom"
+    },
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps"
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "What Fathom vs DataFast actually decides",
+      "content": "Searchers typing **fathom vs datafast** are usually choosing a GA4 alternative. The products overlap on pageviews, referrers, UTMs, and custom events. They split on **how money enters the report**.\n\n[Fathom](/tools/fathom/) is privacy-first **web analytics**. You install a small script, read traffic, and optionally send events. [DataFast](/tools/datafast/) is **revenue-first analytics**: traffic plus an optional payment-processor join so the dashboard can answer which channel produced paying customers.\n\nIf there is no online checkout, DataFast’s differentiator is unused. Use Fathom (or [Plausible vs DataFast](/compare/plausible-vs-datafast/) if you want the Plausible shape instead). If Google Ads or BigQuery is the weekly ritual, keep GA4 in the mix — [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/) and [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/)."
+    },
+    {
+      "title": "Revenue attribution: event value vs Stripe join",
+      "content": "Fathom’s [pricing page](https://usefathom.com/pricing) (checked 11 November 2026) lists **“Event and revenue tracking”** on every plan. That is not marketing fluff with no docs behind it. [Track ecommerce conversions](https://usefathom.com/docs/events/ecommerce-conversions) shows `fathom.trackEvent('widget purchase', { _value: 1000 })` — value in **cents**. [How Fathom measures analytics](https://usefathom.com/docs/start/measurement) attributes conversions to the **session entry page** even when the event fires later.\n\nWe did **not** find a Fathom document today that says connect a Stripe restricted API key and pull charges. Treat Fathom as **event-value revenue**, not a processor pull.\n\nDataFast’s product is the pull. [Connect your payment provider](https://datafa.st/docs/connect-payment-provider) (checked 11 November 2026) is a prerequisite for revenue attribution: Stripe, Lemon Squeezy, Polar, Shopify, WooCommerce, and similar. [Attribute revenue with Stripe Checkout API](https://datafa.st/docs/stripe-checkout-api) says pass `datafast_visitor_id` and `datafast_session_id` in Checkout **metadata**. “No webhook setup is required” on that path.\n\nThe vocabulary for that join lives in [Stripe attribution: which traffic sources make money](/learn/stripe-revenue-attribution/). Setup steps: [DataFast events and revenue](/learn/setup-events-datafast/). Fathom events: [Plausible and Fathom events](/learn/setup-events-plausible-fathom/)."
+    },
+    {
+      "title": "Privacy and cookieless tracking",
+      "content": "Fathom’s [features](https://usefathom.com/features) page (checked 11 November 2026) states it **does not use cookies**, so you “don’t need a consent banner for analytics.” It also claims GDPR, ePrivacy, PECR, and CCPA positioning, with EU visitor data processed in the EU. That is vendor copy, not legal advice — confirm with counsel.\n\nDataFast is different on purpose. The [homepage FAQ](https://datafa.st/#pricing) and [GDPR and cookieless tracking](https://datafa.st/docs/gdpr-cookieless-tracking) docs (checked 11 November 2026) describe two scripts:\n\n- **Default** (`/js/script.js`) — cookies for visitor identification; strongest multi-day journeys and revenue matching; you may need a banner depending on jurisdiction.\n- **Cookieless** (`/js/script.cookieless.js`) — no cookies for visitor IDs; salt rotates about every **24 hours** UTC; weaker long-range attribution; User/Journey-style returning-visitor reports are unavailable or less reliable.\n\nIf channel-to-revenue is why you picked DataFast, stay on the default script. If you want Fathom-like cookieless traffic stats, Fathom is the simpler default. Primer: [cookieless analytics](/learn/cookieless-analytics/)."
+    },
+    {
+      "title": "Pricing, sites, and trials",
+      "content": "Prices below follow vendor pages checked **11 November 2026**. Directory snapshots on this site were updated to the same numbers so the table under Pricing comparison matches.\n\n[Fathom pricing](https://usefathom.com/pricing):\n\n- **$15/month** up to **100,000** monthly pageviews (entry plan).\n- Then **$25** / 200k, **$45** / 500k, **$60** / 1M, **$100** / 2M, **$140** / 5M, **$200** / 10M (higher bands and custom exist on that page).\n- Every plan includes the **same features**, a **7-day** trial (card required), and at least **50 sites**. Extra site packs: **50 sites for $10/month**.\n- Custom events **count toward** the pageview allowance.\n\n[DataFast homepage pricing widget](https://datafa.st/#pricing):\n\n- **14-day** free trial, **no card** (`$0.00 due today` on the widget).\n- **Starter** — 1 website, 1 team member, 3 years retention. **$9/month** at **10k** events; **$19** at 100k; **$29** at 200k; **$49** at 500k; **$69** at 1M; **$89** at 2M; **$129** at 5M; **$169** at 10M.\n- **Growth** — 30 websites, 30 team members, 5+ years retention, plus social mentions and link attribution. **$19/month** at 10k events, then higher bands.\n- Events are **pageviews, payments, and goals**, counted across sites.\n\nA tiny marketing site often pays less on DataFast Starter. A 100k-pageview agency book with many properties can be cheaper on Fathom’s 50-site floor. Run both through the [pricing calculator](/calculators/pricing/)."
+    },
+    {
+      "title": "Features Fathom and DataFast both skip",
+      "content": "Fathom’s own [“Does Fathom have X?”](https://usefathom.com/docs/troubleshooting/features) page says if a feature is not on the website or in the help centre, **it does not exist**. The [features list](https://usefathom.com/features) covers cookieless tracking, events with values, UTMs, API, email reports, GA import, and Search Console — not heatmaps, not session replay, not a funnel builder.\n\nDataFast documents [conversion funnels](https://datafa.st/docs/conversion-funnels) (including revenue at funnel steps) and [custom goals](https://datafa.st/docs/custom-goals). It still does not list heatmaps or session recordings. Our directory flags match: `heatmaps` and `session_recordings` are false for both tools.\n\nIf the unsolved problem is “why did people abandon this URL?”, that is a [website heatmap](/learn/website-heatmaps/) job. [Hotjar](/tools/hotjar/) (now Contentsquare) is the affiliate behavior tool on AnalyticsVS for heatmaps and recordings. Mixing Fathom or DataFast with Hotjar is two privacy reviews, not one."
+    },
+    {
+      "title": "Affiliate disclosure",
+      "content": "AnalyticsVS may earn a commission from [Fathom](https://usefathom.com/ref/U4V5UE), [DataFast](https://datafa.st/?via=analyticsvs), and [Hotjar](https://invite.contentsquare.com/analyticsvs) visit links. Referred Fathom customers get $10 off their first invoice per our directory notes. Verdicts are independent — see [disclosure](/disclosure/)."
+    }
+  ],
+  "seoTitle": "Fathom vs DataFast 2026: Privacy vs Stripe Revenue",
+  "seoDescription": "Fathom vs DataFast compared: cookieless web analytics vs Stripe revenue attribution. Pricing, privacy, features, and which teams should pick each."
+}

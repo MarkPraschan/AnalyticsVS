@@ -21,34 +21,34 @@
       },
       {
         "limit": 100000,
-        "price": 29
+        "price": 19
       },
       {
         "limit": 200000,
-        "price": 49
+        "price": 29
       },
       {
         "limit": 500000,
-        "price": 79
+        "price": 49
       },
       {
         "limit": 1000000,
-        "price": 99
+        "price": 69
       },
       {
         "limit": 2000000,
-        "price": 149
+        "price": 89
       },
       {
         "limit": 5000000,
-        "price": 199
+        "price": 129
       },
       {
         "limit": 10000000,
-        "price": 299
+        "price": 169
       }
     ],
-    "notes": "Starter plan pricing as of Aug 2026 — verify on vendor site. Growth tier adds multi-site and team features at higher base price.",
+    "notes": "Starter monthly prices from the DataFast homepage widget (https://datafa.st/#pricing), checked 11 Nov 2026. Events are pageviews, payments, and goals. Growth is a higher base ($19 at 10k events) with 30 sites.",
     "hasFreeTrial": true,
     "projectLimits": {
       "included": 1,
@@ -74,6 +74,24 @@
     "self_hosted": false,
     "revenue_tracking": true
   },
+  "relatedLinks": [
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/compare/plausible-vs-datafast/",
+      "label": "Plausible vs DataFast"
+    },
+    {
+      "href": "/compare/google-analytics-vs-datafast/",
+      "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/learn/stripe-revenue-attribution/",
+      "label": "Stripe revenue attribution primer"
+    }
+  ],
   "seoTitle": "DataFast Review 2026: Revenue Analytics, Pricing & Limits",
   "seoDescription": "DataFast reviewed: revenue-first web analytics with Stripe attribution. See pricing, script benchmarks, limits, and how it compares to PostHog, Plausible."
 }

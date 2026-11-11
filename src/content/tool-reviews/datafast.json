@@ -58,7 +58,7 @@
   ],
   "benchmarkNotes": "DataFast offers two tracking scripts — the default version and a cookieless version — so we measured both under the same conditions.\n\nThe noteworthy result is how close they are. Cookieless is a little smaller to download, and neither script blocked the page in our tests. If you are choosing between them for speed alone, there is not much to gain. The real difference is the privacy and reporting trade-off covered in Privacy & compliance. Exact sizes and timings are in the cards below.",
   "benchmarkFigures": [],
-  "pricingNotes": "Plans combine a **base subscription** with **event-volume tiers**. Starter is **$9/month** (10K events, 1 site, 1 seat); Growth is **$19/month** (10K events, up to 30 sites, 30 seats, extended retention). Higher event bands scale to **$299/month at 10M events** per our directory data.\n\nEvents include pageviews and tracked custom events — heavy event instrumentation increases cost faster than pageview-only analytics. A **14-day free trial** (no card required per vendor) lowers evaluation risk.\n\nUse our [pricing calculator](/calculators/pricing/) with pageviews + custom events to estimate your band.",
+  "pricingNotes": "Plans combine a **base subscription** with **event-volume tiers**. The [DataFast homepage widget](https://datafa.st/#pricing) (checked **11 November 2026**) shows **Starter $9/month** at **10k** events (1 site, 1 seat, 3 years retention) and **Growth $19/month** at **10k** events (30 sites, 30 seats, 5+ years). Starter then scales **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**.\n\nEvents are **pageviews, payments, and goals** across sites. A **14-day free trial** with **no card** (`$0.00 due today` on the widget) lowers evaluation risk.\n\nUse our [pricing calculator](/calculators/pricing/) with pageviews + custom events to estimate your band.",
   "limitations": [
     "Revenue attribution is optional for traffic analytics, but connecting a payment provider and linking checkout metadata (or using Shopify/WooCommerce integrations) is required if you want channel-to-revenue reports.",
     "Cookieless mode weakens multi-day journeys and revenue attribution (visitor IDs rotate about every 24 hours) and removes User/Journey tabs and related filters.",
@@ -88,11 +88,12 @@
     }
   ],
   "sources": [
-    { "label": "DataFast pricing", "url": "https://datafa.st/pricing", "checkedOn": "2026-08-28" },
-    { "label": "Connect your payment provider", "url": "https://datafa.st/docs/connect-payment-provider", "checkedOn": "2026-09-08" },
-    { "label": "Revenue attribution guide", "url": "https://datafa.st/docs/revenue-attribution-guide", "checkedOn": "2026-09-08" },
-    { "label": "Stripe PaymentIntent attribution docs", "url": "https://datafa.st/docs/stripe-payment-intent-api", "checkedOn": "2026-08-28" },
-    { "label": "Payment API docs", "url": "https://datafa.st/docs/payments-api", "checkedOn": "2026-08-28" },
+    { "label": "DataFast homepage pricing widget", "url": "https://datafa.st/#pricing", "checkedOn": "2026-11-11" },
+    { "label": "Connect your payment provider", "url": "https://datafa.st/docs/connect-payment-provider", "checkedOn": "2026-11-11" },
+    { "label": "Revenue attribution guide", "url": "https://datafa.st/docs/revenue-attribution-guide", "checkedOn": "2026-11-11" },
+    { "label": "Stripe Checkout API attribution", "url": "https://datafa.st/docs/stripe-checkout-api", "checkedOn": "2026-11-11" },
+    { "label": "GDPR and cookieless tracking", "url": "https://datafa.st/docs/gdpr-cookieless-tracking", "checkedOn": "2026-11-11" },
+    { "label": "Conversion funnels", "url": "https://datafa.st/docs/conversion-funnels", "checkedOn": "2026-11-11" },
     { "label": "DataFast default script benchmark", "url": "https://www.analyticsvs.com/benchmarks/datafast-script-2026-09/", "checkedOn": "2026-09-08" },
     { "label": "DataFast cookieless script benchmark", "url": "https://www.analyticsvs.com/benchmarks/datafast-cookieless-script-2026-09/", "checkedOn": "2026-09-08" }
   ]

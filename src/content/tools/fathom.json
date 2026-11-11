@@ -26,30 +26,31 @@
       },
       {
         "limit": 500000,
-        "price": 39
+        "price": 45
       },
       {
         "limit": 1000000,
-        "price": 59
+        "price": 60
       },
       {
         "limit": 2000000,
-        "price": 79
+        "price": 100
       },
       {
         "limit": 5000000,
-        "price": 119
+        "price": 140
       },
       {
         "limit": 10000000,
-        "price": 169
+        "price": 200
       }
     ],
-    "notes": "Pricing as of Aug 2026 — verify on vendor site.",
+    "hasFreeTrial": true,
+    "notes": "Vendor pricing checked 11 Nov 2026 (https://usefathom.com/pricing). Custom events count toward the pageview allowance. Extra sites in packs of 50 for $10/month.",
     "projectLimits": {
-      "included": 1,
-      "billingModel": "per_site",
-      "notes": "Each site typically needs its own Fathom subscription."
+      "included": 50,
+      "billingModel": "tiered",
+      "notes": "Every hosted plan includes at least 50 sites. Extra packs of 50 sites are $10/month per Fathom pricing (checked 11 Nov 2026)."
     }
   },
   "features": {
@@ -62,8 +63,27 @@
     "session_recordings": false,
     "ab_testing": false,
     "product_analytics": false,
-    "self_hosted": false
+    "self_hosted": false,
+    "revenue_tracking": true
   },
+  "relatedLinks": [
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    },
+    {
+      "href": "/compare/plausible-vs-fathom/",
+      "label": "Plausible vs Fathom"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    }
+  ],
   "variants": [
     {
       "id": "fathom-lite",

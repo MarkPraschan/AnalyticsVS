@@ -22,7 +22,8 @@
   "relatedComparisons": [
     "matomo-vs-plausible",
     "plausible-vs-fathom",
-    "google-analytics-vs-plausible"
+    "google-analytics-vs-plausible",
+    "fathom-vs-datafast"
   ],
   "relatedTools": [
     "fathom",

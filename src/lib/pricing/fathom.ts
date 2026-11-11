@@ -5,11 +5,11 @@ import { applyProjectPricing, TOOL_PROJECT_CONFIGS } from './projects';
 const TIERS = [
   { limit: 100_000, price: 15 },
   { limit: 200_000, price: 25 },
-  { limit: 500_000, price: 39 },
-  { limit: 1_000_000, price: 59 },
-  { limit: 2_000_000, price: 79 },
-  { limit: 5_000_000, price: 119 },
-  { limit: 10_000_000, price: 169 },
+  { limit: 500_000, price: 45 },
+  { limit: 1_000_000, price: 60 },
+  { limit: 2_000_000, price: 100 },
+  { limit: 5_000_000, price: 140 },
+  { limit: 10_000_000, price: 200 },
 ];
 
 export function calculateFathomPricing(input: PricingInput): PricingResult {

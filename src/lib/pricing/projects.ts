@@ -23,8 +23,7 @@ export const TOOL_PROJECT_CONFIGS: Record<string, ToolProjectConfig> = {
     plans: [{ name: 'Growth', maxProjects: 3 }],
   },
   fathom: {
-    includedProjects: 1,
-    perSiteMultiplier: true,
+    includedProjects: 50,
   },
   hotjar: {
     includedProjects: 1,

@@ -1,3 +1,9 @@
+import {
+  AFFILIATE_CONTENT_HOST_PATTERN,
+  isAffiliateOutboundUrl,
+  tagAffiliateOutboundUrl,
+} from './affiliate';
+
 export function slugifyHeading(title: string): string {
   return title
     .toLowerCase()
@@ -5,8 +11,8 @@ export function slugifyHeading(title: string): string {
     .replace(/^-|-$/g, '');
 }
 
-export const AFFILIATE_HREF_PATTERN =
-  /usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i;
+/** True when markdown contains a host we rewrite onto an affiliate destination. */
+export const AFFILIATE_HREF_PATTERN = AFFILIATE_CONTENT_HOST_PATTERN;
 
 export function markdownHasAffiliateLinks(source: string | undefined | null): boolean {
   return Boolean(source && AFFILIATE_HREF_PATTERN.test(source));
@@ -15,7 +21,7 @@ export function markdownHasAffiliateLinks(source: string | undefined | null): bo
 function linkAttributes(href: string): string {
   const isExternal = /^https?:\/\//i.test(href);
   if (!isExternal) return '';
-  const affiliate = AFFILIATE_HREF_PATTERN.test(href);
+  const affiliate = isAffiliateOutboundUrl(href);
   const rel = affiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
   return ` target="_blank" rel="${rel}"`;
 }
@@ -25,7 +31,8 @@ function inlineMarkdown(text: string): string {
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/`([^`]+)`/g, '<code class="review-inline-code">$1</code>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
-      return `<a href="${href}"${linkAttributes(href)}>${label}</a>`;
+      const resolved = /^https?:\/\//i.test(href) ? tagAffiliateOutboundUrl(href) : href;
+      return `<a href="${resolved}"${linkAttributes(resolved)}>${label}</a>`;
     });
 }
 

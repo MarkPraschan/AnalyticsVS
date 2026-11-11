@@ -2,6 +2,7 @@
 import AlsoConsiderBox, { type AlsoConsiderItem } from './AlsoConsiderBox.astro';
 import RelatedLinks from './RelatedLinks.astro';
 import type { ToolReview } from '../lib/reviews';
+import { isAffiliateOutboundUrl, tagAffiliateOutboundUrl } from '../lib/affiliate';
 import { renderReviewMarkdown } from '../lib/markdown';
 import { formatDate } from '../lib/site';
 
@@ -64,9 +65,14 @@ function renderListItem(item: string) {
     </p>
     <ul class="mt-4 space-y-2 text-sm">
       {
-        review.sources.map((source) => (
+        review.sources.map((source) => {
+          const href = tagAffiliateOutboundUrl(source.url);
+          const rel = isAffiliateOutboundUrl(href)
+            ? 'noopener noreferrer sponsored'
+            : 'noopener noreferrer';
+          return (
           <li>
-            <a href={source.url} target="_blank" rel="noopener noreferrer">
+            <a href={href} target="_blank" rel={rel}>
               {source.label}
             </a>
             <span class="text-muted">
@@ -74,7 +80,8 @@ function renderListItem(item: string) {
               — checked {formatDate(source.checkedOn)}
             </span>
           </li>
-        ))
+          );
+        })
       }
     </ul>
   </div>

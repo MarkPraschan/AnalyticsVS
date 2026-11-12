@@ -37,6 +37,10 @@
     {
       "href": "/tools/ahrefs/",
       "label": "Ahrefs Web Analytics"
+    },
+    {
+      "href": "/learn/best-analytics-for-a-blog/",
+      "label": "Best analytics for a blog"
     }
   ],
   "toolShortlist": [
@@ -89,7 +93,7 @@
     {
       "id": "next-steps",
       "title": "Next steps: comparisons beat roundups",
-      "content": "Roundup posts age quickly because pricing and features change. After you know your traffic tier and hosting preference, move to **head-to-head comparisons** for the two or three tools still on your shortlist — especially [Plausible vs Matomo](/compare/matomo-vs-plausible/) and [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\nUse the pricing calculator on AnalyticsVS to estimate monthly cost at your traffic — results are interactive and stay on-site. For script weight, check benchmark pages marked **recorded** (we do not publish estimated performance numbers). For the cookieless method, keep [cookieless analytics](/learn/cookieless-analytics/) open beside your shortlist."
+      "content": "Roundup posts age quickly because pricing and features change. After you know your traffic tier and hosting preference, move to **head-to-head comparisons** for the two or three tools still on your shortlist — especially [Plausible vs Matomo](/compare/matomo-vs-plausible/) and [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\nIf the site is a **blog or content site**, and the job is top posts plus newsletter, social, and affiliate clicks rather than a privacy-tool shortlist, use [best analytics for a blog](/learn/best-analytics-for-a-blog/) instead of this page.\n\nUse the pricing calculator on AnalyticsVS to estimate monthly cost at your traffic — results are interactive and stay on-site. For script weight, check benchmark pages marked **recorded** (we do not publish estimated performance numbers). For the cookieless method, keep [cookieless analytics](/learn/cookieless-analytics/) open beside your shortlist."
     }
   ]
 }

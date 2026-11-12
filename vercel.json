@@ -55,6 +55,16 @@
       "permanent": true
     },
     {
+      "source": "/guides/best-analytics-for-a-blog",
+      "destination": "/learn/best-analytics-for-a-blog/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/best-analytics-for-a-blog/",
+      "destination": "/learn/best-analytics-for-a-blog/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "destination": "https://www.analyticsvs.com/$1",
       "permanent": true,

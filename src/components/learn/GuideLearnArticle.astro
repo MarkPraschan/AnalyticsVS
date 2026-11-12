@@ -7,10 +7,11 @@ import ToolMark from '../ToolMark.astro';
 import ToolShortlist from '../ToolShortlist.astro';
 import RelatedLinks from '../RelatedLinks.astro';
 import TableOfContents from '../TableOfContents.astro';
+import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import { getCollection } from 'astro:content';
 import { getEntryUpdatedDate } from '../../lib/contentDates';
-import { renderReviewMarkdown } from '../../lib/markdown';
-import { getToolsByIds } from '../../lib/tools';
+import { markdownHasAffiliateLinks, renderReviewMarkdown } from '../../lib/markdown';
+import { getToolsByIds, isAffiliateTool } from '../../lib/tools';
 import { SITE, formatDate } from '../../lib/site';
 import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
@@ -24,6 +25,7 @@ const pageUrl = new URL(`/learn/${guide.data.slug}/`, SITE.url).href;
 const featuredImageUrl = guide.data.featuredImage
   ? new URL(guide.data.featuredImage, SITE.url).href
   : undefined;
+const ogImage = guide.data.ogImage ?? guide.data.featuredImage;
 
 const comparisons = await getCollection('comparisons');
 const relatedComparisons = guide.data.relatedComparisons.flatMap((id) => {
@@ -63,6 +65,12 @@ const tocHeadings = [
   { depth: 2, slug: 'sources', text: 'Sources & review status' },
 ];
 
+const markdownAffiliate = guide.data.sections.some((section) =>
+  markdownHasAffiliateLinks(section.content),
+);
+const hasAffiliateCtas =
+  markdownAffiliate || toolShortlistItems.some(({ tool }) => isAffiliateTool(tool.data));
+
 const schema = [
   buildArticleSchema({
     title: guide.data.seoTitle ?? guide.data.title,
@@ -86,7 +94,7 @@ const schema = [
   fullTitle={guide.data.seoTitle}
   description={guide.data.description}
   lastUpdated={guide.data.featuredImage ? undefined : updatedDate}
-  ogImage={guide.data.featuredImage}
+  ogImage={ogImage}
   schema={schema}
 >
   {
@@ -94,9 +102,9 @@ const schema = [
       <header slot="header" class="learn-hero relative mb-10 overflow-hidden rounded-2xl border-4 border-white shadow-sm">
         <img
           src={guide.data.featuredImage}
-          alt=""
-          width="1024"
-          height="571"
+          alt={guide.data.featuredImageAlt ?? ''}
+          width="1600"
+          height="900"
           class="absolute inset-0 size-full object-cover blur-xs "
           decoding="async"
           fetchpriority="high"
@@ -104,7 +112,7 @@ const schema = [
         <div class="learn-hero__scrim rounded-none absolute inset-0" aria-hidden="true" />
         <div class="relative max-w-xl px-5 py-8 sm:px-10 sm:py-12">
           <div class="rounded-xl bg-base/95 p-5 shadow-sm sm:bg-transparent sm:p-0 sm:shadow-none">
-            <p class="label-mono text-gradient-secondary">Guides</p>
+            <p class="label-mono text-gradient-secondary">Guides · Written by {SITE.author}</p>
             <h1 class="heading-lg mt-3 text-gradient-primary">{guide.data.title}</h1>
             <p class="page-intro mt-4">{guide.data.description}</p>
             <div class="mt-4">
@@ -113,11 +121,16 @@ const schema = [
           </div>
         </div>
       </header>
-    ) : null
+    ) : (
+      <p class="label-mono text-gradient-secondary" slot="lead-meta">
+        Guides · Written by {SITE.author}
+      </p>
+    )
   }
 
   <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
     <div class="min-w-0">
+      {hasAffiliateCtas && <AffiliateDisclosure class="mt-0 mb-6" />}
       {
         guide.data.sections.map((section) => (
           <section id={section.id} class="mt-10 first:mt-0">

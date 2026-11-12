@@ -3,6 +3,9 @@
   "slug": "best-analytics-for-a-blog",
   "description": "Best analytics for a blog in 2026: track traffic sources, top posts, and affiliate clicks. Compare Fathom, DataFast, Hotjar, GA4, and Plausible.",
   "seoTitle": "Best Analytics for a Blog (2026)",
+  "featuredImage": "/learn/best-analytics-for-a-blog.webp",
+  "ogImage": "/learn/best-analytics-for-a-blog-og.jpg",
+  "featuredImageAlt": "Pixel art of a MY BLOG bookshop-cafe where readers arrive from Google, Newsletter and Pinterest signposts while the shopkeeper tracks readers beside Fathom and DataFast counter displays",
   "category": "web-analytics",
   "relatedComparisons": [
     "google-analytics-vs-fathom",

@@ -1,0 +1,113 @@
+{
+  "title": "Best Analytics for a Blog",
+  "slug": "best-analytics-for-a-blog",
+  "description": "Best analytics for a blog in 2026: track traffic sources, top posts, and affiliate clicks. Compare Fathom, DataFast, Hotjar, GA4, and Plausible.",
+  "seoTitle": "Best Analytics for a Blog (2026)",
+  "featuredImage": "/learn/best-analytics-for-a-blog.webp",
+  "ogImage": "/learn/best-analytics-for-a-blog-og.jpg",
+  "featuredImageAlt": "Pixel art of a MY BLOG bookshop-cafe where readers arrive from Google, Newsletter and Pinterest signposts while the shopkeeper tracks readers beside Fathom and DataFast counter displays",
+  "category": "web-analytics",
+  "relatedComparisons": [
+    "google-analytics-vs-fathom",
+    "fathom-vs-datafast",
+    "plausible-vs-fathom",
+    "google-analytics-vs-hotjar",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": [
+    "fathom",
+    "datafast",
+    "hotjar",
+    "google-analytics-4",
+    "plausible",
+    "ahrefs"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/best-privacy-first-analytics-tools/",
+      "label": "Best privacy-first analytics tools"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
+    },
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "fathom",
+      "bestFor": "Most content blogs that want cookieless traffic, top pages, UTMs, and a light script — add a small trackEvent snippet for affiliate/outbound clicks."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Blogs that sell something (courses, SaaS, digital products) and need exit-click reports plus payment attribution, not only pageviews."
+    },
+    {
+      "toolId": "hotjar",
+      "bestFor": "A second tool when a high-traffic post already has visits but the layout, sidebar, or CTA is the question — heatmaps and replays, not channel reports."
+    }
+  ],
+  "sections": [
+    {
+      "id": "verdict",
+      "title": "The short verdict",
+      "content": "The best analytics for a blog is a **light pageview tool** that answers traffic sources, top posts, newsletter/social referrers, and **outbound/affiliate clicks** — without a 170 KB tag or a heatmap suite as the only dashboard.\n\n**Default for a typical independent blog:** [Fathom Analytics](https://usefathom.com/ref/U4V5UE) if you want hosted, cookie-free traffic stats and will accept a small `trackEvent` snippet for affiliate links. [Plausible](/tools/plausible/) is the more honest pick when automatic outbound-link tracking and a **$9 / 10k pageview** entry price matter more than Fathom’s 50-site, $15 floor. Keep **GA4** only when Search Console, Google Ads, or Looker Studio is weekly work.\n\n**If the blog is a revenue funnel** (Stripe, courses, a product): [DataFast](https://datafa.st/?via=analyticsvs) — it records `external_link` exit clicks and can join payments to channels. **If a post already ranks but nobody clicks:** add [Hotjar](https://invite.contentsquare.com/analyticsvs) (now sold as Contentsquare Experience Analytics) for heatmaps. That is a layout tool, not a replacement for traffic analytics.\n\nThis page is for **blogs and content sites**. For a privacy-tool roundup (self-hosted vs hosted, GDPR shortlists), use [best privacy-first analytics tools](/learn/best-privacy-first-analytics-tools/)."
+    },
+    {
+      "id": "key-takeaways",
+      "title": "Key takeaways",
+      "content": "- A blog needs **sources, top URLs, campaign/UTM referrers, and outbound clicks**. Heatmaps answer a different question.\n- **Outbound tracking is not equal:** Plausible and GA4 can turn it on in settings; DataFast records `external_link` events on the tracker; Fathom’s docs show a **manual** `fathom.trackEvent()` click listener.\n- **[Fathom](https://usefathom.com/ref/U4V5UE)** is cookieless, includes UTM and events on every plan, and starts at **$15/month for 100k pageviews** ([pricing](https://usefathom.com/pricing), checked 12 Nov 2026). Custom events share that allowance.\n- **[DataFast](https://datafa.st/?via=analyticsvs)** starts at **$9/month / 10k events** on Starter (directory snapshot of the [homepage widget](https://datafa.st/#pricing), checked 11–12 Nov 2026) and is the fit when the blog should show **which post made money**.\n- **[Hotjar](https://invite.contentsquare.com/analyticsvs)** is not blog analytics. New pricing lives on [Contentsquare](https://contentsquare.com/pricing/) (checked 12 Nov 2026): Experience Analytics **Free** is **$0** with heatmaps/replays up to **200k monthly sessions** (replays sampled). Our [Hotjar tool JSON](/tools/hotjar/) still snapshots an older daily-session ladder — treat that as stale.\n- **GA4 is free** and auto-tracks outbound clicks via [enhanced measurement](https://support.google.com/analytics/answer/9216061). Our recorded gtag is in a much heavier band than Fathom or DataFast.\n- Price the shortlist at your pageviews in the [pricing calculator](/calculators/pricing/) before you stack a second subscription."
+    },
+    {
+      "id": "what-blogs-need",
+      "title": "What a blog actually has to measure",
+      "content": "Ignore product-analytics checklists. A content site usually has five recurring questions:\n\n1. **Which channels send visits?** Search, email, social, RSS, “Direct.”\n2. **Which posts earn the traffic?** Top pages / entry pages, not a user journey warehouse.\n3. **Did the newsletter or a social post work?** UTM or `ref` / `source` on campaign links.\n4. **Did anyone click the affiliate / sponsor / outbound link?** That is the conversion for many blogs.\n5. **Did the script or a consent wall slow the page?** Blogs live on Core Web Vitals and often on a cookie banner already stuffed with ads or comments.\n\nIf you also need in-app funnels, flags, or a warehouse, that is a different job — see [how to choose analytics for a SaaS startup](/learn/analytics-for-a-saas-startup/) and [web vs product analytics](/learn/web-vs-product-analytics/)."
+    },
+    {
+      "id": "traffic-and-referrers",
+      "title": "Traffic sources, top posts, newsletter and social",
+      "content": "### Fathom\n\n[Fathom’s measurement docs](https://usefathom.com/docs/start/measurement) (checked 12 Nov 2026) describe a **Pages** box (including entry/exit tabs), **referrers**, and session-level **first-touch** referrer plus `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term`. Filtering a page keeps the rest of the dashboard on that same visitor set. That is the weekly blog dashboard: top posts, where they came from, whether the email UTM stuck.\n\nTag newsletter and social links with UTMs. Fathom will carry those parameters across the session’s pageviews and events.\n\n### DataFast\n\nDataFast’s [getting started](https://datafa.st/docs/getting-started) path is install → optional revenue → goals. The [Breakdowns API](https://datafa.st/docs/api/website/breakdowns) lists **pages**, **referrers**, and **campaigns** (UTM, `ref`, `source`, `via`). For a blog that already sells through Stripe, that is how you see which post produced money, not only visits — details in [Stripe revenue attribution](/learn/stripe-revenue-attribution/) and [Fathom vs DataFast](/compare/fathom-vs-datafast/).\n\n### GA4, Plausible, Ahrefs\n\n[GA4](/tools/google-analytics-4/) will show acquisition and landing pages if you live in the Google reports. It is capable and noisy. [Plausible](/tools/plausible/) is the simpler hosted alternative with the same page/referrer/UTM shape; compare [Plausible vs Fathom](/compare/plausible-vs-fathom/). [Ahrefs Web Analytics](https://ahrefs.com/web-analytics) (checked 12 Nov 2026) is cookie-free, included with Ahrefs Free, lists **UTM breakdowns** and **outbound links**, and is free up to **1 million events per verified project per month**. Use it if you already verify the site in Ahrefs; do not buy Ahrefs only for this."
+    },
+    {
+      "id": "affiliate-and-outbound-clicks",
+      "title": "Affiliate and outbound click tracking",
+      "content": "This is where “best analytics for a blog” usually splits. Count **clicks on Amazon, sponsor, or newsletter-host links**, ideally by destination and by the post they sat on.\n\n### Automatic (settings or the tracker)\n\n- **Plausible** — [Outbound link tracking](https://plausible.io/docs/outbound-link-click-tracking) (updated 11 Nov 2026): toggle **Outbound links** in site settings. It adds a goal named `Outbound Link: Click`, shows which pages and sources produce clicks, and **counts those events toward billable pageviews**. Cloaked affiliate links have a separate Plausible note on that page.\n- **GA4** — [Enhanced measurement](https://support.google.com/analytics/answer/9216061) fires a `click` event when a link leaves the current domain (`outbound` = true), with `link_url` / `link_domain`. No extra code if the option is on. Cross-domain links you configured as the same measurement do **not** count as outbound.\n- **DataFast** — the tracker records `external_link` events. The [exit-clicks API](https://datafa.st/docs/api/website/breakdowns/exit-clicks) returns destination URL, unique visitors, and clicks, filterable by page, referrer, UTM, or a completed goal. For named CTAs (newsletter submit), use [custom goals](https://datafa.st/docs/custom-goals) (`data-fast-goal` or the `datafast()` JavaScript helper).\n- **Ahrefs** — the product page lists **Capture outbound links**: which external URLs are clicked and from which pages ([Ahrefs Web Analytics](https://ahrefs.com/web-analytics)).\n\n### Manual (you add a listener)\n\n- **Fathom** — there is **no auto outbound toggle** in the docs we opened. [Track external link clicks](https://usefathom.com/docs/events/external-clicks) shows adding a class such as `sponsored` and calling `fathom.trackEvent()` with a name like “Sponsor clicked: amazon”, or looping all outbound anchor tags whose hostname differs. [Events overview](https://usefathom.com/docs/events/overview) uses `trackEvent`; an optional `_value` is for revenue-style events. Those events **share the pageview allowance** ([pricing FAQ](https://usefathom.com/pricing)).\n\nFor an affiliate blog, Plausible or DataFast is less glue code. Fathom is still fine if you will paste one listener and name events after sponsors.\n\n[Hotjar](https://invite.contentsquare.com/analyticsvs) click maps show where on a post people click, including rage clicks on a button that looks like a link. That does not replace an outbound-click report with destination URLs. Pair it with Fathom, Plausible, DataFast, or GA4 — see [website heatmaps](/learn/website-heatmaps/) and [Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/)."
+    },
+    {
+      "id": "privacy-banners-and-script-weight",
+      "title": "Privacy, cookie banners, and script weight",
+      "content": "Blogs often already load comments, ads, fonts, and a consent CMP. Adding a heavy analytics tag on top is a real cost. Cookieless collection can reduce **analytics-specific** banner pressure; it is not legal advice. Primer: [cookieless analytics](/learn/cookieless-analytics/). GDPR-motivated GA4 exits: [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/).\n\n- **Fathom** — [Does Fathom use cookies?](https://usefathom.com/docs/troubleshooting/cookies): the embed script does not use cookies or similar for analytics. [Pricing](https://usefathom.com/pricing) lists “No cookie banners required” on every plan. Fathom also says it is **not legal advice** and that **other scripts** on the page may still need a banner.\n- **DataFast** — default `script.js` **uses cookies** for returning visitors; the vendor says you may need a banner depending on jurisdiction. The [cookieless script](https://datafa.st/docs/gdpr-cookieless-tracking) (`script.cookieless.js`) is designed so you typically do not need a banner **for DataFast**, with visitor IDs rotating ~every 24 hours and weaker multi-day revenue matching. Keep cookies if the blog’s job is delayed-purchase attribution.\n- **GA4** — cookies / similar storage and Google’s advertising stack. Plan for Consent Mode where you operate. Pair: [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/).\n- **Hotjar / Contentsquare** — session replay and heatmaps are not a cookieless traffic tool. Expect a consent conversation; do not install this as your only tag “to avoid GA4.”\n\n**Recorded script weight** (AnalyticsVS fixtures, Slow 4G; not estimates):\n\n| Tool | Transfer size | Report |\n|---|---|---|\n| Fathom (Oct 2026) | 2,757 bytes | [Fathom script](/benchmarks/fathom-script-2026-10/) |\n| DataFast (Sep 2026) | 6,579 bytes | [DataFast script](/benchmarks/datafast-script-2026-09/) |\n| GA4 gtag (Sep 2026) | 174,602 bytes | [GA4 script](/benchmarks/google-analytics-4-script-2026-09/) |\n\nAhrefs claims a **2 KB** script on [its product page](https://ahrefs.com/web-analytics); we do not have a recorded AnalyticsVS benchmark for it. More context: [analytics script performance](/learn/analytics-script-performance/)."
+    },
+    {
+      "id": "price-at-blog-scale",
+      "title": "Price at blog-scale traffic",
+      "content": "Run your own pageviews through the [pricing calculator](/calculators/pricing/). Vendor numbers below were opened **12 November 2026** unless noted. Feature flags such as `cookieless` still come from directory JSON.\n\n| Tool | Public starting price | What the meter is | Blog note |\n|---|---|---|---|\n| [Fathom](https://usefathom.com/pricing) | **$15/month** at 100k pageviews (7-day trial, card required) | Pageviews **and** custom events, all sites | Floor is high for a tiny blog; **50 sites** included; extra 50-site packs **$10/month** |\n| [DataFast](https://datafa.st/#pricing) | Starter **$9/month** at 10k events (14-day trial, no card — homepage) | Events = pageviews, payments, goals | Starter is **1 site**; Growth is for more sites / team (homepage FAQ) |\n| [Plausible](https://plausible.io/) | Starter **$9/month** at 10k pageviews; 30-day trial, no card ([plans](https://plausible.io/docs/subscription-plans)) | Pageviews **and** custom events (including outbound clicks) | Cheaper entry than Fathom; outbound toggle bills as events |\n| [GA4](https://analytics.google.com) | **$0** for standard | Not pageview-priced | Cost is implementation, consent, and script weight |\n| [Ahrefs Web Analytics](https://ahrefs.com/web-analytics) | **$0** up to 1M events/project/month | Events per verified project | Only “free” if the site is already in Ahrefs |\n| [Contentsquare / Hotjar](https://contentsquare.com/pricing/) | Experience Analytics **Free $0** (200k monthly sessions); **Growth from $49/month** | Sessions (and sampled replays on Free) | Not a traffic-analytics price; directory Hotjar tiers are **stale** |\n\nFathom is expensive *relative to Plausible* under ~100k pageviews and cheap *relative to GA4 ops* once you value cookieless + 50 sites. DataFast is priced like an indie SaaS tool; on a display-ads-only blog with no checkout, you are paying for revenue features you may not use."
+    },
+    {
+      "id": "who-should-use-what",
+      "title": "Who should use which tool",
+      "content": "### Fathom — default hosted privacy dashboard\n\nChoose [Fathom](https://usefathom.com/ref/U4V5UE) when you want one script, UTM + pages + referrers, and you will add the [external-click snippet](https://usefathom.com/docs/events/external-clicks). Best for writers who run several sites (50 included) and do not want a cookie banner for analytics. Not automatic outbound. Not heatmaps. Compare [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/).\n\n### DataFast — when the blog is supposed to sell\n\nChoose [DataFast](https://datafa.st/?via=analyticsvs) when “which post paid” matters: exit clicks plus Stripe (or similar) attribution. Use the default cookie script if multi-day attribution is the point; use cookieless if you are avoiding a banner and will accept daily ID rotation. WordPress/Ghost plugins exist ([homepage](https://datafa.st/)). Compare [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/).\n\n### Hotjar — second install, not the first\n\nChoose [Hotjar](https://invite.contentsquare.com/analyticsvs) after you already know a URL has traffic. Contentsquare’s [pricing page](https://contentsquare.com/pricing/) (checked 12 Nov 2026) puts heatmaps and replays on Experience Analytics, including a forever **Free** plan. Use it to see if people miss the affiliate button or bounce at the subscribe form. Details: [website heatmaps](/learn/website-heatmaps/).\n\n### GA4 — keep it for Google work\n\nKeep GA4 when Ads, Search Console, or BigQuery is a weekly habit. Enhanced measurement covers outbound clicks without code. Do not keep it as the *only* blog dashboard if you will not open Explorations. Pair: [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/).\n\n### Plausible and Ahrefs — honest non-affiliate options\n\n**Plausible** wins on automatic outbound clicks and a $9 / 10k rung. We do not have a Plausible affiliate link; visit [plausible.io](https://plausible.io/) or the [directory profile](/tools/plausible/). **Ahrefs Web Analytics** is the free cookie-free add-on if the domain is already verified there ([product page](https://ahrefs.com/web-analytics))."
+    },
+    {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "content": "**What is the best analytics for a blog in 2026?** A light web-analytics tool that reports sources, top posts, campaigns, and outbound clicks. For most independent blogs that is Fathom or Plausible. Add DataFast if the blog sells. Add Hotjar only for layout. Keep GA4 if you already depend on Google Ads or Search Console.\n\n**Can I track affiliate clicks without GA4?** Yes. Plausible’s outbound-links toggle, DataFast `external_link` / exit-clicks, Ahrefs outbound reports, or a Fathom `trackEvent` listener all cover it. GA4’s enhanced measurement `click` event is the zero-code Google path.\n\n**Do I need a cookie banner for blog analytics?** Fathom’s docs say its embed does not use cookies. DataFast’s default script does; its cookieless script is the banner-light option with worse long-horizon attribution. GA4 and Hotjar/Contentsquare generally imply a consent design. This is not legal advice — read [cookieless analytics](/learn/cookieless-analytics/).\n\n**Is Hotjar enough as the only analytics on a blog?** No. Heatmaps do not replace channel and top-post reports. Use Hotjar beside Fathom, Plausible, DataFast, or GA4.\n\n**Should I use the privacy-first tools guide instead?** Use [best privacy-first analytics tools](/learn/best-privacy-first-analytics-tools/) when the question is cookieless vs self-hosted vs Matomo. Use **this** page when the question is a **blog**: posts, email/social referrers, and affiliate clicks."
+    },
+    {
+      "id": "sources-checked",
+      "title": "Sources checked 12 November 2026",
+      "content": "Vendor pages opened for this guide (12 Nov 2026 unless noted):\n\n- [Fathom pricing](https://usefathom.com/pricing)\n- [Fathom cookies / consent](https://usefathom.com/docs/troubleshooting/cookies)\n- [Fathom measurement (pages, referrers, UTM)](https://usefathom.com/docs/start/measurement)\n- [Fathom external clicks](https://usefathom.com/docs/events/external-clicks)\n- [Fathom events overview](https://usefathom.com/docs/events/overview)\n- [DataFast homepage (trial, GDPR FAQ, pricing widget)](https://datafa.st/)\n- [DataFast getting started](https://datafa.st/docs/getting-started)\n- [DataFast exit clicks](https://datafa.st/docs/api/website/breakdowns/exit-clicks)\n- [DataFast custom goals](https://datafa.st/docs/custom-goals)\n- [DataFast GDPR cookieless tracking](https://datafa.st/docs/gdpr-cookieless-tracking)\n- [Plausible outbound links](https://plausible.io/docs/outbound-link-click-tracking)\n- [Plausible subscription plans](https://plausible.io/docs/subscription-plans)\n- [Plausible homepage pricing](https://plausible.io/)\n- [GA4 enhanced measurement](https://support.google.com/analytics/answer/9216061)\n- [Contentsquare / Hotjar pricing](https://contentsquare.com/pricing/)\n- [Ahrefs Web Analytics](https://ahrefs.com/web-analytics)\n\nDirectory snapshots: Fathom and DataFast pricing notes dated **11 Nov 2026**. Hotjar JSON still lists daily-session Plus **$39** bands from **Aug 2026** — the vendor page above replaces that for this article."
+    }
+  ]
+}

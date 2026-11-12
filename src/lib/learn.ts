@@ -62,6 +62,7 @@ export async function getLearnFeedItems(): Promise<LearnFeedItem[]> {
     category: 'guides',
     date: getEntryUpdatedDate(guide),
     featuredImage: guide.data.featuredImage,
+    featuredImageAlt: guide.data.featuredImageAlt,
   }));
 
   return [...learnItems, ...guideItems].sort((a, b) => b.date.localeCompare(a.date));

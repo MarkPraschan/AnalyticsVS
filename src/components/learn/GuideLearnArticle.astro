@@ -7,11 +7,10 @@ import ToolMark from '../ToolMark.astro';
 import ToolShortlist from '../ToolShortlist.astro';
 import RelatedLinks from '../RelatedLinks.astro';
 import TableOfContents from '../TableOfContents.astro';
-import AffiliateDisclosure from '../AffiliateDisclosure.astro';
 import { getCollection } from 'astro:content';
 import { getEntryUpdatedDate } from '../../lib/contentDates';
-import { markdownHasAffiliateLinks, renderReviewMarkdown } from '../../lib/markdown';
-import { getToolsByIds, isAffiliateTool } from '../../lib/tools';
+import { renderReviewMarkdown } from '../../lib/markdown';
+import { getToolsByIds } from '../../lib/tools';
 import { SITE, formatDate } from '../../lib/site';
 import { buildArticleSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
@@ -64,12 +63,6 @@ const tocHeadings = [
     : []),
   { depth: 2, slug: 'sources', text: 'Sources & review status' },
 ];
-
-const markdownAffiliate = guide.data.sections.some((section) =>
-  markdownHasAffiliateLinks(section.content),
-);
-const hasAffiliateCtas =
-  markdownAffiliate || toolShortlistItems.some(({ tool }) => isAffiliateTool(tool.data));
 
 const schema = [
   buildArticleSchema({
@@ -130,7 +123,6 @@ const schema = [
 
   <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
     <div class="min-w-0">
-      {hasAffiliateCtas && <AffiliateDisclosure class="mt-0 mb-6" />}
       {
         guide.data.sections.map((section) => (
           <section id={section.id} class="mt-10 first:mt-0">

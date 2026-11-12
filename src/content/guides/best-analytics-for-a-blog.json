@@ -42,10 +42,6 @@
     {
       "href": "/compare/google-analytics-vs-fathom/",
       "label": "Google Analytics vs Fathom"
-    },
-    {
-      "href": "/disclosure/",
-      "label": "Affiliate disclosure"
     }
   ],
   "toolShortlist": [
@@ -66,7 +62,7 @@
     {
       "id": "verdict",
       "title": "The short verdict",
-      "content": "The best analytics for a blog is a **light pageview tool** that answers traffic sources, top posts, newsletter/social referrers, and **outbound/affiliate clicks** — without a 170 KB tag or a heatmap suite as the only dashboard.\n\n**Default for a typical independent blog:** [Fathom Analytics](https://usefathom.com/ref/U4V5UE) if you want hosted, cookie-free traffic stats and will accept a small `trackEvent` snippet for affiliate links. [Plausible](/tools/plausible/) is the more honest pick when automatic outbound-link tracking and a **$9 / 10k pageview** entry price matter more than Fathom’s 50-site, $15 floor. Keep **GA4** only when Search Console, Google Ads, or Looker Studio is weekly work.\n\n**If the blog is a revenue funnel** (Stripe, courses, a product): [DataFast](https://datafa.st/?via=analyticsvs) — it records `external_link` exit clicks and can join payments to channels. **If a post already ranks but nobody clicks:** add [Hotjar](https://invite.contentsquare.com/analyticsvs) (now sold as Contentsquare Experience Analytics) for heatmaps. That is a layout tool, not a replacement for traffic analytics.\n\nThis page is for **blogs and content sites**. For a privacy-tool roundup (self-hosted vs hosted, GDPR shortlists), use [best privacy-first analytics tools](/learn/best-privacy-first-analytics-tools/). We may earn a commission on Fathom, DataFast, and Hotjar visit links — see [disclosure](/disclosure/)."
+      "content": "The best analytics for a blog is a **light pageview tool** that answers traffic sources, top posts, newsletter/social referrers, and **outbound/affiliate clicks** — without a 170 KB tag or a heatmap suite as the only dashboard.\n\n**Default for a typical independent blog:** [Fathom Analytics](https://usefathom.com/ref/U4V5UE) if you want hosted, cookie-free traffic stats and will accept a small `trackEvent` snippet for affiliate links. [Plausible](/tools/plausible/) is the more honest pick when automatic outbound-link tracking and a **$9 / 10k pageview** entry price matter more than Fathom’s 50-site, $15 floor. Keep **GA4** only when Search Console, Google Ads, or Looker Studio is weekly work.\n\n**If the blog is a revenue funnel** (Stripe, courses, a product): [DataFast](https://datafa.st/?via=analyticsvs) — it records `external_link` exit clicks and can join payments to channels. **If a post already ranks but nobody clicks:** add [Hotjar](https://invite.contentsquare.com/analyticsvs) (now sold as Contentsquare Experience Analytics) for heatmaps. That is a layout tool, not a replacement for traffic analytics.\n\nThis page is for **blogs and content sites**. For a privacy-tool roundup (self-hosted vs hosted, GDPR shortlists), use [best privacy-first analytics tools](/learn/best-privacy-first-analytics-tools/)."
     },
     {
       "id": "key-takeaways",

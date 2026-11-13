@@ -10,18 +10,34 @@ Mirror Jake Ward’s “Anatomy of the Perfect Blog Post”:
 
 1. **Keyword-focused H1 and metadata.** `title` is the H1. `seoTitle` (max 70 chars) is the document `<title>` when set. `description` is the meta description (aim ~140–160 chars). Put the target query in the H1 and in the first sentence of the description.
 2. **Published and updated dates.** Set `publishedOn` (`YYYY-MM-DD`). The Learn template shows published + updated (file mtime via `getEntryUpdatedDate`). Do not hide dates.
-3. **Author byline.** Keep it generic: `Written by AnalyticsVS` (`SITE.author` in `src/lib/site.ts`). Do **not** add a human author, reviewer, co-founder, or “Personally tested” badge — Learn posts are often agent-written and no named person should be credited unless a human actually wrote the article.
+3. **Author byline.** Follow **Layout rules** (generic `Written by AnalyticsVS` only).
 4. **Solution + CTA above the fold.** Use optional `heroCta` (`toolId`, `headline`, `note`, `label`). `LearnPostArticle` renders `ArticleSolutionCta` immediately after key takeaways, and a compact copy in the desktop sidebar. The TOC and compact CTA share one `sticky top-28` column (`max-h-[calc(100vh-8rem)]`); the TOC scrolls if needed so the CTA stays fully visible. Mobile is unchanged (sidebar is `hidden lg:block`).
 5. **Key takeaways box.** Fill `keyTakeaways` (string array). Rendered by `src/components/KeyTakeaways.astro` (`#key-takeaways`).
 6. **H1–H3 structure.** One H1 (`title`). Each `sections[]` item is an H2. Use `###` inside `content` markdown for H3s (`renderReviewMarkdown` supports that).
 7. **Short paragraphs.** Split on blank lines. Avoid walls of text.
 8. **Contextual internal links.** Link to existing `/compare/`, `/learn/`, `/tools/`, `/calculators/pricing/`, and `/benchmarks/` pages in the body — not only in a related-links dump.
 9. **FAQ + schema.** If the page answers distinct questions, add `faq[]`. `LearnPostArticle` outputs FAQPage JSON-LD via `buildFaqSchema`.
-10. **Closing CTA.** `toolShortlist` + `toolShortlistHeading` (defaults to “Tools to consider”). Affiliate visit buttons already use `rel="sponsored"` and `AffiliateDisclosure`.
-11. **Original visual.** Add `featuredImage` under `public/learn/` (prefer ~1600px-wide 16:9 WebP or JPG under ~300KB) and set `featuredImageAlt` to a real description — never a blank alt on a unique illustration. Tables in markdown are supported.
+10. **Closing CTA.** `toolShortlist` + `toolShortlistHeading` (defaults to “Tools to consider”). Affiliate visit buttons use `rel="sponsored"`; do not add an in-article disclosure (see **Affiliate rules**).
+11. **Feature image.** Required for every Learn and Guide article — follow **Feature images**. Tables in markdown are supported.
 12. **Evidence.** Every pricing or feature claim must link to a directory profile, comparison, benchmark, or a vendor URL **checked the day you write**. If you cannot verify it, leave it out.
 
 Quick-answer box: `quickAnswer` (also used as speakable schema). Optional `answerUnderTitle` sits under the H1 so the meta description can stay keyword-tight.
+
+## Layout rules
+
+- **No box inside a box.** Do not nest a card, callout, or bordered panel inside another. Key takeaways, CTAs, FAQ items, and related cards sit on the page background, not inside a wrapping card.
+- **One footer divider.** The site footer already has a single top border. Do not add extra `border-t` rules, `<hr>` elements, or divider lines above related links, sources, or the byline.
+- **Generic byline.** Keep it generic: `Written by AnalyticsVS` (`SITE.author` in `src/lib/site.ts`). Do **not** add a human author, reviewer, co-founder, or “Personally tested” badge — Learn posts are often agent-written and no named person should be credited unless a human actually wrote the article.
+
+## Feature images
+
+- **Scope.** Learn and Guide articles only — every one needs a feature image. Comparison pages under `/compare/` **never** get a feature image (hero support broke the comparison layout on Nov 11 2026 and was reverted). Never change shared comparison components.
+- **Files.** Ship a 1280×720 `.webp` hero named after the article slug, plus a 1200-wide `<slug>-og.jpg`. Put both in `public/learn/` (or `public/guides/` for a guide that still uses that folder). Wire them with `featuredImage`, `featuredImageAlt`, and `ogImage` the same way the [Stripe revenue attribution](src/content/learn/stripe-revenue-attribution.json) article does (`/learn/<slug>.webp`, `/learn/<slug>-og.jpg`).
+- **Metaphor.** Build the image on **one** metaphor that speaks directly to the article’s actual main point or verdict, so a glance conveys the takeaway.
+- **Brands.** Every brand or tool named in the title appears prominently — big signs, landmarks, mascots, or branded props with the logo and name in large letters, readable at thumbnail size. Use **real** logos and brand colors fetched from the brands’ own sites; never invent them. Known marks: Fathom is the lowercase `fathom/` wordmark (icon `fa/`) in lavender `#A299FF` on charcoal `#333740`; DataFast is three rounded vertical bars, tall coral `#E78468` center bar with pale peach side bars, bright yellow `#FACC15` accents.
+- **Color.** Always bright and saturated, sunny or vividly lit. No dark or muted palettes.
+- **Variety.** Vary setting and composition every time. Do not repeat the last three article images (used so far: outdoor villages and castles in wide shots, a department store cutaway, a bookshop-cafe storefront cutaway). Rotate settings (lab, kitchen, office, factory, train station, space station, library, stadium, underwater, city street) and compositions (cutaway side view, isometric, close-up, top-down, single hero character, left-to-right flow). A one-scene split only fits head-to-head “X vs Y” topics, and not every time.
+- **House style.** Detailed 16-bit SNES-era pixel art, 16:9, crisp pixels, tiny characters at work (generic cartoon people unless a brand’s own mascot belongs), short legible labels, a few sparkles, no real people, no extra text. Style reference is **only** the Fathom vs DataFast department store image; never use other feature images as references (that caused the PostHog hedgehog to leak into an unrelated image).
 
 ## `/learn/` articles
 
@@ -39,7 +55,7 @@ Schema: `src/content.config.ts` (`learn` and `guides`).
 - `title`, `slug`, `description`, `seoTitle?`, `answerUnderTitle?`
 - `publishedOn`, `category` (`primers` / `how-to` / `concepts` / `performance` — labels in `src/lib/site.ts`)
 - `status`: `published` or `draft` (drafts are omitted from `getPublishedLearnPosts` and the sitemap)
-- `featuredImage?`, `quickAnswer?`, `faq[]`, `keyTakeaways[]`, `heroCta?`
+- `featuredImage`, `featuredImageAlt`, `ogImage` (required in practice — see **Feature images**), `quickAnswer?`, `faq[]`, `keyTakeaways[]`, `heroCta?`
 - `sections[]`: `{ id, title, content }` — `id` is the heading slug
 - `relatedComparisons` (comparison **ids** / filenames), `relatedGuides` (guide slugs), `relatedTools` (tool ids)
 - `relatedLinks[]` `{ href, label }`, `relatedBenchmarks[]` (optional recorded matrix)
@@ -52,7 +68,7 @@ Markdown in `content` supports paragraphs, `**bold**`, `` `code` ``, links, unor
 You usually **do not** edit nav or the sitemap plugin.
 
 1. Add `src/content/learn/<slug>.json` with `status: "published"` and `publishedOn` ≤ today (America/New_York).
-2. Add `public/learn/<slug>.jpg` if you set `featuredImage`.
+2. Add the hero `.webp` and `<slug>-og.jpg` under `public/learn/` and set `featuredImage`, `featuredImageAlt`, and `ogImage` (see **Feature images**).
 3. `/learn/` index (`src/pages/learn/index.astro`) lists every published post + every guide via `getLearnFeedItems()`.
 4. Header nav already has **Learn** → `/learn/` (`src/components/SiteHeader.astro`). Do not add per-article nav items.
 5. Sitemap: `@astrojs/sitemap` in `astro.config.ts` plus lastmod from `src/lib/sitemapLastmod.ts` (walks `src/content/learn`). New published slugs appear after `npm run build`.
@@ -68,6 +84,7 @@ Guides use the same URL space. Prefer a **Learn post** for primers/how-tos with 
 - Index: `/compare/` auto-lists every comparison. Header nav already includes Comparisons.
 - Sitemap lastmod uses the comparison file plus its tool + review JSON.
 - Do not duplicate an existing pair (check `src/content/comparisons/` and `todo-comparisons.md`).
+- **No feature image** on comparison pages (see **Feature images**). Do not change shared comparison components to add a hero.
 
 Tool profiles: `src/content/tools/*.json` + optional `src/content/tool-reviews/*.json` → `/tools/[slug]/`.
 
@@ -94,13 +111,12 @@ Rules:
 - Set `affiliate.enabled` + `url` only in the tool JSON. Resolve URLs with `getToolVisitUrl` / `isAffiliateTool` (`src/lib/affiliate.ts`). Optional env override: `AFFILIATE_URL_<TOOL_ID>`.
 - **Never** paste a guessed referral code. If `enabled` is false, link the vendor `website` without `sponsored`.
 - Markdown in Learn/compare bodies may use those three URLs; `src/lib/markdown.ts` stamps `rel="noopener noreferrer sponsored"`.
-- **Disclosure is required** on any page that includes an affiliate link. Reuse `src/components/AffiliateDisclosure.astro` (links to `/disclosure/`). It already appears on:
-  - `VisitCTA` (inline, when `affiliate` is true)
-  - `ToolShortlist`, `TryTheseToolsSection`, `AlsoConsiderBox`
-  - Comparison `afterVerdict` when the markdown contains an affiliate URL
-  - Learn posts with `heroCta` / shortlist / markdown affiliate URLs (`LearnPostArticle`)
-  - Tools index, site footer
-- Site-wide policy copy lives at `/disclosure/` (`src/pages/disclosure/index.astro`). Do not duplicate a second disclosure component.
+
+### Disclosure
+
+Affiliate disclosure: the site footer covers it. Do NOT add in-article affiliate or commission disclosure notes, boxes or sentences. Affiliate links still use the configured affiliate URLs with `rel="sponsored"`. (Mark's decision, Nov 12 2026.)
+
+Site-wide policy copy lives at `/disclosure/` (`src/pages/disclosure/index.astro`). Do not mention it in article body, FAQ, or `afterVerdict` copy.
 
 ## Source-checking (prices and features)
 

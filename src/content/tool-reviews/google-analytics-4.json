@@ -31,7 +31,7 @@
       "id": "cost",
       "dimension": "other",
       "title": "How much does Google Analytics cost?",
-      "content": "**Standard Google Analytics 4 is free.** Google Analytics 360 is the paid enterprise tier, sold as an annual contract through Google or a Google Sales Partner; Google doesn't publish a list price.\n\nWhat 360 buys you is higher limits and SLAs:\n\n| Limit | GA4 (free) | GA4 360 |\n|---|---|---|\n| Event data retention (explorations) | 2 or 14 months | Up to 50 months |\n| Event-scoped custom dimensions | 50 per property | 125 per property |\n| Key events | 30 | 50 |\n| Audiences | 100 | 400 |\n| Explore sampling limit | 10M events per query | 1B events per query |\n| BigQuery daily export | 1M events | Billions of events |\n| Data API quota | 200,000 tokens/day | 2M tokens/day |\n| Service level agreement | No | Yes |\n\n**Hidden costs of \"free\" GA4:** consent-banner and legal work in GDPR regions, Tag Manager setup and maintenance, and BigQuery storage and query charges billed by Google Cloud if you use the export. Large properties on the free tier are limited to 2 months of event-data retention.\n\nMost sites never need 360. If you are paying for GA4 mainly to avoid consent banners or data-transfer concerns, compare cookie-free tools like [Plausible](/tools/plausible/), [Fathom](/tools/fathom/) or [Ahrefs Web Analytics](/tools/ahrefs/), or use our [pricing calculator](/calculators/pricing/)."
+      "content": "Cost-intent readers (is Google Analytics free, GA4 vs 360 pricing, hidden costs): [Is Google Analytics free? What GA4 and GA 360 actually cost](/learn/google-analytics-cost/). This profile stays on product fit and setup.\n\n**Standard Google Analytics 4 is free.** Google Analytics 360 is the paid enterprise tier, sold as an annual contract through Google or a Google Sales Partner; Google doesn't publish a list price.\n\nWhat 360 buys you is higher limits and SLAs:\n\n| Limit | GA4 (free) | GA4 360 |\n|---|---|---|\n| Event data retention (explorations) | 2 or 14 months | Up to 50 months |\n| Event-scoped custom dimensions | 50 per property | 125 per property |\n| Key events | 30 | 50 |\n| Audiences | 100 | 400 |\n| Explore sampling limit | 10M events per query | 1B events per query |\n| BigQuery daily export | 1M events | Billions of events |\n| Data API quota | 200,000 tokens/day | 2M tokens/day |\n| Service level agreement | No | Yes |\n\n**Hidden costs of \"free\" GA4:** consent-banner and legal work in GDPR regions, Tag Manager setup and maintenance, and BigQuery storage and query charges billed by Google Cloud if you use the export. Large properties on the free tier are limited to 2 months of event-data retention.\n\nMost sites never need 360. If you are paying for GA4 mainly to avoid consent banners or data-transfer concerns, compare cookie-free tools like [Plausible](/tools/plausible/), [Fathom](/tools/fathom/) or [Ahrefs Web Analytics](/tools/ahrefs/), or use our [pricing calculator](/calculators/pricing/)."
     },
     {
       "id": "privacy-compliance",
@@ -84,22 +84,22 @@
     {
       "label": "Consent Mode",
       "url": "https://developers.google.com/tag-platform/security/guides/consent",
-      "checkedOn": "2026-08-27"
+      "checkedOn": "2026-11-17"
     },
     {
       "label": "BigQuery export",
       "url": "https://support.google.com/analytics/answer/9358801",
-      "checkedOn": "2026-08-27"
+      "checkedOn": "2026-11-17"
     },
     {
       "label": "GA4 360 feature limits",
       "url": "https://support.google.com/analytics/answer/11202874",
-      "checkedOn": "2026-10-19"
+      "checkedOn": "2026-11-17"
     },
     {
       "label": "GA4 data retention",
       "url": "https://support.google.com/analytics/answer/7667196",
-      "checkedOn": "2026-10-19"
+      "checkedOn": "2026-11-17"
     }
   ]
 }

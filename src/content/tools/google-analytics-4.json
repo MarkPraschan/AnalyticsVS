@@ -31,6 +31,12 @@
     "product_analytics": true,
     "self_hosted": false
   },
+  "relatedLinks": [
+    {
+      "href": "/learn/google-analytics-cost/",
+      "label": "Is Google Analytics free? GA4 and 360 cost"
+    }
+  ],
   "seoTitle": "Google Analytics 4 Pricing 2026: Free GA4 vs GA4 360 Cost",
   "seoDescription": "How much does Google Analytics cost? GA4 standard is free; GA4 360 is a sales contract. See the limits, hidden costs and when paying actually makes sense."
 }

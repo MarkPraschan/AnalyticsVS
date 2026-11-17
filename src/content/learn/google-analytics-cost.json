@@ -1,0 +1,149 @@
+{
+  "title": "Is Google Analytics free? What GA4 and GA 360 actually cost",
+  "slug": "google-analytics-cost",
+  "description": "Is Google Analytics free? Standard GA4 is $0; Google Analytics 360 is a custom contract. Hidden costs, limits, and cheaper paid alternatives.",
+  "seoTitle": "Is Google Analytics Free? GA4 and GA 360 Pricing (2026)",
+  "answerUnderTitle": "Yes: standard Google Analytics 4 has no subscription fee. Google Analytics 360 is a custom annual contract with no public list price. “Free” still costs setup time, consent work, and optional BigQuery bills — and cheaper paid tools exist if you do not need Google’s ads stack.",
+  "publishedOn": "2026-11-17",
+  "category": "primers",
+  "status": "published",
+  "quickAnswer": "**Yes — standard Google Analytics 4 is free.** There is no GA4 SaaS invoice. **Google Analytics 360** is the paid enterprise tier of the same product: a custom annual contract through Google or a Sales Partner. Google does **not** publish a dollar list price. 360 billing is a **base fee that includes the first 25 million monthly events**, then a **tiered per-event fee**. The real cost of “free” GA4 is **setup time**, **consent banners**, **optional BigQuery storage and query charges**, and **sampling / export / retention ceilings** — not a monthly analytics bill.",
+  "keyTakeaways": [
+    "Standard GA4 is $0. Google does not publish a list price for Google Analytics 360.",
+    "360 billing is a base fee covering the first 25 million monthly events, then a falling per-event rate — quote-only, and preview rates are not contractual.",
+    "Free GA4 still costs implementation time, cookie-consent work in many GDPR setups, and BigQuery bills if you export events.",
+    "The upgrade triggers are sampling (10M events per exploration query), 1M events/day BigQuery daily export, Data API quota, short exploration retention, and the need for an SLA — not “better reports.”",
+    "Fathom and DataFast are simpler paid alternatives when you want a readable dashboard or Stripe revenue attribution instead of Google’s ads and warehouse stack."
+  ],
+  "heroCta": {
+    "toolId": "fathom",
+    "headline": "Want analytics without a Google invoice or a 360 quote?",
+    "note": "If the job is pages, referrers, and goals — not Google Ads or BigQuery — Fathom is a cookieless paid dashboard from $15/month at 100k pageviews. Need channel-to-Stripe revenue instead? DataFast starts lower on small event volumes. Referred Fathom customers get $10 off their first invoice.",
+    "label": "Try Fathom"
+  },
+  "toolShortlistHeading": "Cheaper (or simpler) than a 360 contract",
+  "faq": [
+    {
+      "question": "Is Google Analytics free?",
+      "answer": "Yes. Standard Google Analytics 4 has no subscription fee. You create a property, add the tag, and collect within Google’s published standard-property limits. Google Analytics 360 is a separate paid enterprise contract."
+    },
+    {
+      "question": "How much does Google Analytics 360 cost?",
+      "answer": "Google does not publish a list price. Official billing docs describe a fixed base fee that includes the first 25 million monthly events, then a variable per-event fee that falls as volume rises. Preview rates in Google Marketing Platform are not contractual and can vary by market. Get a quote from Google or a Sales Partner."
+    },
+    {
+      "question": "What is Google Analytics 360 pricing based on?",
+      "answer": "Billable events on 360 properties. Google bills all collected events except user engagement, spam, and hidden system events. Roll-up properties add extra processing charges: Google documents roll-up events at half the source-event cost, subject to your contract."
+    },
+    {
+      "question": "Does free GA4 start charging after a traffic limit?",
+      "answer": "Google does not publish a pageview cap that turns standard GA4 into a paid plan. Standard properties have $0 billable volume. Pain shows up as sampling, export, API, and retention ceilings — or as a 360 sales conversation — not as an automatic GA4 invoice."
+    },
+    {
+      "question": "What are the hidden costs of free Google Analytics?",
+      "answer": "Implementation and Tag Manager time, cookie-consent and Consent Mode work in many GDPR regions, analyst time to keep reports trustworthy, and Google Cloud BigQuery storage plus query charges if you export raw events. Streaming BigQuery export adds $0.05 per gigabyte on the Google Cloud side."
+    },
+    {
+      "question": "When should I buy Google Analytics 360 instead of staying on free GA4?",
+      "answer": "When explorations are regularly sampled above 10 million events per query, you need more than 1 million events per day in daily BigQuery export, you hit Data API quotas, you need longer event-level retention for explorations (up to 50 months), or leadership requires a contractual SLA. If the pain is privacy, simplicity, or Stripe revenue, switch tools instead of upgrading."
+    },
+    {
+      "question": "Are Fathom or DataFast cheaper than Google Analytics?",
+      "answer": "They have a SaaS invoice; standard GA4 does not. They can still be cheaper in total cost when you would otherwise pay for consent tooling, implementation, or a 360 contract. Hosted Fathom starts at $15/month for 100,000 pageviews. DataFast Starter is $9/month at 10,000 events on our directory snapshot of the homepage widget."
+    }
+  ],
+  "relatedComparisons": [
+    "google-analytics-4-vs-google-analytics-360",
+    "google-analytics-vs-fathom",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": [
+    "google-analytics-4",
+    "google-analytics-360",
+    "fathom",
+    "datafast"
+  ],
+  "relatedGuides": [
+    "ga4-alternatives-gdpr"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-4-vs-google-analytics-360/",
+      "label": "GA4 vs Google Analytics 360 (limits and when to upgrade)"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
+    },
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    },
+    {
+      "href": "/compare/google-analytics-vs-datafast/",
+      "label": "Google Analytics vs DataFast"
+    },
+    {
+      "href": "/tools/google-analytics-4/",
+      "label": "Google Analytics 4 profile"
+    },
+    {
+      "href": "/tools/google-analytics-360/",
+      "label": "Google Analytics 360 profile"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/setup-events-ga4/",
+      "label": "How to set up events in GA4"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "fathom",
+      "bestFor": "Marketing sites that want cookieless traffic stats and a readable dashboard — $15/month at 100k pageviews, 50 sites included. Referred customers get $10 off their first invoice."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS that would rather pay a small event-based bill than instrument GA4 ecommerce for Stripe channel revenue."
+    },
+    {
+      "toolId": "google-analytics-4",
+      "bestFor": "Teams that need Google Ads, Search Console, Looker Studio, or BigQuery and can live inside free-tier ceilings."
+    }
+  ],
+  "sections": [
+    {
+      "id": "is-google-analytics-free",
+      "title": "Is Google Analytics free?",
+      "content": "**Yes.** The product almost everyone means by “Google Analytics” is **Google Analytics 4 (standard)**. Google’s own 360 documentation calls these **standard properties**. They have **zero billable hit volume** in Google Marketing Platform usage reports.\n\nYou can use GA4 on a business site without buying [Google Analytics 360](/tools/google-analytics-360/). Growing traffic does **not** automatically open a GA4 invoice.\n\nThat is the subscription answer. It is also incomplete. Standard GA4 is free **software**. It is not free **operations**, and it is not unlimited **capacity**.\n\n### What “free” includes\n\nA standard GA4 property still includes event-based web (and app) measurement, Google Ads linking, Search Console, Looker Studio, and [BigQuery export](https://support.google.com/analytics/answer/9358801) inside standard ceilings. Those capabilities are why so many teams keep GA4 even when they dislike the UI.\n\n### What “free” does not include\n\nIt does not include a **service level agreement**. It does not include unsampled explorations at huge volume. Daily BigQuery export is capped at **1 million events per day** on standard properties. Event-level data used in Explorations is retained for **2 or 14 months** (Large standard properties are forced to **2 months**).\n\nFeature-by-feature upgrade rules belong on [GA4 vs Google Analytics 360](/compare/google-analytics-4-vs-google-analytics-360/). This page stays on **cost**.\n\nSources checked **17 November 2026**: [Analytics 360 product page](https://marketingplatform.google.com/about/analytics-360/) (no prices), [360 feature limits](https://support.google.com/analytics/answer/11202874), [Manage billing and monitor usage](https://support.google.com/marketingplatform/answer/9013858)."
+    },
+    {
+      "id": "google-analytics-360-pricing",
+      "title": "What Google Analytics 360 actually costs",
+      "content": "**Google does not publish a list price** for Analytics 360. The [Analytics 360 product page](https://marketingplatform.google.com/about/analytics-360/) (opened 17 November 2026) sells enterprise measurement, unsampled results, and SLAs. It does not show a dollar amount.\n\n360 is sold as an **annual contract** through Google or a Google Sales Partner (Google’s 360 docs describe both paths). You cannot self-serve a public plan toggle the way you can on Fathom or DataFast.\n\n### The billing shape Google does publish\n\nGoogle’s [Manage billing and monitor usage](https://support.google.com/marketingplatform/answer/9013858) page (checked 17 November 2026) is the best official source:\n\n- Analytics 360 for GA4 properties carries a **fixed base fee**.\n- That base fee **includes the first 25 million monthly events**.\n- Events **beyond 25 million** are billed at a **variable per-event fee**.\n- Those variable fees sit in **volume tiers**; **cost per event falls as monthly volume rises**.\n- Eligible admins can preview usage and “sample pricing” in Google Marketing Platform. Google states those preview rates are **standard rates, not contractual**, and **may vary by market**.\n- You are billed for collected events **except** `user_engagement`, spam, and hidden system events while a property is set to 360.\n- **Standard properties show billable volume of zero.**\n\nGoogle also documents extra processing on [roll-up properties](https://support.google.com/analytics/answer/11539651): events in a roll-up cost **one half** the source-event cost, “per the terms of your 360 contract.”\n\n### Numbers Google does *not* publish\n\nGoogle does **not** publish the base-fee dollars, the per-event rates, or a public rate card. Partner blogs and resellers often cite a **suggested starting price around $50,000 per year**. That figure is **not** on Google’s site. Treat it as a historical rumor until your quote arrives.\n\nDo **not** budget using the old **Universal Analytics 360** “about $150,000 a year” talking point. UA 360 is a different, retired product.\n\n### What the contract is buying\n\nYou are not buying a different measurement philosophy. You are buying **higher limits**, **unsampled explorations**, **larger BigQuery daily export**, **enterprise support**, and **SLAs** on the same GA4 event model. Details stay on the [GA4 vs 360 comparison](/compare/google-analytics-4-vs-google-analytics-360/).\n\nBudget **separately** for BigQuery (below). 360 does not make warehouse queries free."
+    },
+    {
+      "id": "hidden-costs-of-free-ga4",
+      "title": "The hidden costs of “free” GA4",
+      "content": "The SaaS line item is $0. The total cost is not.\n\n| Cost you actually pay | Shows up on a Google Analytics invoice? | Who bills it |\n|---|---|---|\n| Standard GA4 property | No — $0 | Nobody |\n| Google Analytics 360 contract | Yes, if you buy 360 | Google / Sales Partner |\n| Implementation, GTM, event taxonomy | No | Your team or an agency |\n| Cookie consent + Consent Mode | No | CMP vendor + legal + engineering |\n| BigQuery storage and queries | No | Google Cloud |\n| Streaming BigQuery export ingest | No | Google Cloud ($0.05/GB on top of storage/query) |\n| Analyst time to trust the reports | No | Payroll |\n\n### Setup and maintenance time\n\nGA4 is event-based. A usable property needs a data stream, a tag ([gtag.js](https://developers.google.com/tag-platform/gtagjs) or [Google Tag Manager](https://tagmanager.google.com/)), key events, internal-traffic filters, and DebugView QA. That is a project, not a one-line script. Our [GA4 events primer](/learn/setup-events-ga4/) covers the tagging sequence.\n\nTeams that “just added the snippet” often pay later in duplicate tags, missing conversions, and explorations nobody trusts.\n\n### Consent banners\n\nGA4 is **not** cookieless. Google’s [Consent Mode](https://developers.google.com/tag-platform/security/guides/consent) (checked 17 November 2026) is how tags behave when a user grants or denies consent for analytics and ads storage. In many GDPR setups you still need a banner, a CMP, and legal review.\n\n360 does **not** remove that work. If consent UX is why you are shopping, read [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/) and [cookieless analytics](/learn/cookieless-analytics/) rather than requesting a 360 quote.\n\n### BigQuery: free export, paid warehouse\n\n[BigQuery Export](https://support.google.com/analytics/answer/9358801) (checked 17 November 2026) lets standard **and** 360 properties send raw events to Google Cloud. The Analytics product does not charge for the export itself. **BigQuery does.**\n\nGoogle’s export help page states:\n\n- Each export incurs **BigQuery storage and processing** costs.\n- **Streaming export** adds **$0.05 per gigabyte** (~600,000 GA events per GB, varying with event size).\n- You can export into the **BigQuery sandbox**, but exceeding sandbox limits incurs charges.\n\n[BigQuery pricing](https://cloud.google.com/bigquery/pricing) (checked 17 November 2026, US on-demand): the first **1 TiB** of query processing per month is free, then **$6.25 per TiB**. Active logical storage’s first **10 GiB** per month is free; above that you pay per GiB-hour.\n\nFree GA4 with a busy warehouse can cost more than a small privacy SaaS bill.\n\n### Sampling, retention, and data you cannot keep\n\nStandard aggregated reports are **not** gated by the retention control. Explorations and funnel reports **are**. [Data retention](https://support.google.com/analytics/answer/7667196) (checked 17 November 2026):\n\n- Standard: **2 or 14 months** of event-level data.\n- 360: up to **50 months** (2 / 14 / 26 / 38 / 50).\n- **Large** standard properties and **XL** 360 properties are forced to **2 months**.\n\n[Explore sampling](https://support.google.com/analytics/answer/11202874) starts above **10 million events per query** on standard properties versus **1 billion** on 360. Unsampled explorations exist only on 360.\n\nDaily BigQuery export: **1 million events/day** (standard) vs **up to 20 billion events/day** on 360 daily export ([export types table](https://support.google.com/analytics/answer/9358801)).\n\nThose ceilings are the “price” of staying free when volume is high: **sampled or truncated analysis**, not a GA4 invoice."
+    },
+    {
+      "id": "ga4-vs-360-limits",
+      "title": "Free vs 360 limits that actually change the bill",
+      "content": "Use this table when someone asks for **Google Analytics 360 pricing** but really needs to know **whether 360 is even the right purchase**. Limits from Google’s [360 feature comparison](https://support.google.com/analytics/answer/11202874), checked **17 November 2026**.\n\n| Limit | GA4 (standard / free) | Google Analytics 360 |\n|---|---|---|\n| Subscription | $0 (billable volume = 0) | Custom annual contract; no public list price |\n| 360 billing unit | n/a | Base fee includes first **25M events/month**, then tiered per-event fees |\n| Event data retention (explorations) | 2 or 14 months; Large properties: 2 months | Up to 50 months; XL: 2 months |\n| Explore sampling | 10M events per query | 1B events per query |\n| Unsampled explorations | Not available | 20K daily unsampled tokens; 5K max per query |\n| BigQuery daily export | 1M events/day | Up to 20B events/day |\n| BigQuery streaming export | Unlimited volume; Cloud ingest fees apply | Same |\n| Data API quota | 200,000 tokens/day | 2M tokens/day |\n| Key events | 30 | 50 |\n| Event-scoped custom dimensions | 50 per property | 125 per property |\n| Audiences | 100 | 400 |\n| Service level agreement | No | Yes, once the account is on a 360 contract |\n\n[Property size](https://support.google.com/analytics/answer/14207402) (checked 17 November 2026): **Large** means **25 billion or more** events in the prior 31 days; **XL** means **250 billion** (or an average of 15 billion events/day over 7 days). Most sites never approach those numbers. If you do, retention collapses to 2 months unless you are on an appropriate 360 size class.\n\nIf you rarely hit the table above, **stay on free GA4**. If you hit it weekly, **get a 360 quote** — do not guess the dollars from a blog.\n\nRun paid alternatives against $0 GA4 in the [pricing calculator](/calculators/pricing/). The calculator is directional; it still uses a **10 million pageview** heuristic for GA4 that Google does **not** publish as a GA4 subscription trigger. Treat that row as a planning aid, not Google’s price list."
+    },
+    {
+      "id": "cheaper-paid-alternatives",
+      "title": "Cheaper paid alternatives: Fathom and DataFast",
+      "content": "A **small, published SaaS bill** is often easier to budget than “free” GA4 plus consent, tagging, and a possible 360 RFP. Two AnalyticsVS affiliates sit in that gap.\n\nThey do **not** replace Google Ads attribution, app+web properties, or warehouse-scale GA4. They replace a lot of **marketing-site** reporting.\n\n### Fathom — simple, cookieless web analytics\n\n[Fathom Analytics](https://usefathom.com/ref/U4V5UE) is hosted, cookie-free traffic analytics. [Fathom pricing](https://usefathom.com/pricing) (checked **17 November 2026**):\n\n- **$15/month** up to **100,000** monthly pageviews\n- **$25** / 200k · **$45** / 500k · **$60** / 1M · **$100** / 2M · **$140** / 5M · **$200** / 10M (USD)\n- Higher published steps up to **25M**, then custom\n- **Every plan includes the same features** and **at least 50 sites**\n- Extra sites in packs of 50 for **$10/month**\n- Custom events **count toward** the pageview allowance\n- **7-day free trial** (card required)\n- Fathom states **no cookie banners required** for its product; confirm with counsel for your jurisdiction\n\nHead-to-head: [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/).\n\n### DataFast — paid because revenue attribution is the product\n\n[DataFast](https://datafa.st/?via=analyticsvs) is revenue-first web analytics: connect Stripe (or similar), then see which channels produced **paying** customers. That join is expensive to recreate in GA4 ecommerce events.\n\nDataFast’s dollar tiers live in a **homepage pricing widget** ([datafa.st/#pricing](https://datafa.st/#pricing)), not a static table. Opened **17 November 2026**, the homepage still lists **Starter vs Growth** and event bands (**10k, 100k, 200k, 1M+**). Starter is **1 website / 1 seat / 3 years retention**; Growth is **30 websites / 30 seats / 5+ years**. Trial: **14 days, no card**.\n\nOur [directory snapshot](/tools/datafast/) of that widget (**11 November 2026**) lists Starter **$9/month at 10k events**, then **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**. Growth starts **$19/month at 10k events**. Events are **pageviews, payments, and goals**. Confirm the widget before you buy — we could not read a static public rate card today.\n\nHead-to-head: [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/). Primer: [Stripe attribution](/learn/stripe-revenue-attribution/).\n\n### Which bill is actually smaller?\n\n| Situation | Usually cheaper in total |\n|---|---|\n| Google Ads + Search Console every week | Stay on **free GA4** |\n| Blog or marketing site, no ads stack | **Fathom** (or another cookieless SaaS) |\n| Indie SaaS asking “which channel made money?” | **DataFast** |\n| Explorations sampled or BigQuery export truncated | **360 quote** — or a warehouse tool, not Fathom |\n| Consent banners are the pain | Privacy-first tool, **not** 360 |\n\nPlug your pageviews into the [pricing calculator](/calculators/pricing/) for a same-traffic comparison. 360 will still show as contact-sales."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "Stay free, buy 360, or pay for something simpler",
+      "content": "1. **Stay on free GA4** if Google Ads, Search Console, or Looker Studio is weekly work and you are under sampling, export, and API ceilings. Profile: [Google Analytics 4](/tools/google-analytics-4/).\n2. **Get a 360 quote** only after you can name the ceiling you hit (10M exploration events, 1M daily BigQuery export, API quota, retention, or SLA). Feature detail: [GA4 vs 360](/compare/google-analytics-4-vs-google-analytics-360/).\n3. **Pay Fathom** if you want a cookieless marketing dashboard and will accept a public pageview price instead of Google depth. Compare: [GA4 vs Fathom](/compare/google-analytics-vs-fathom/).\n4. **Pay DataFast** if the question is Stripe (or similar) revenue by channel and you do not want to build that join in GA4. Compare: [GA4 vs DataFast](/compare/google-analytics-vs-datafast/).\n5. **Do not buy 360 to fix privacy.** 360 is still Google Analytics with cookies and Google infrastructure.\n\n### Sources checked today\n\nEvery pricing and limit claim above links to a page opened **17 November 2026**:\n\n- [Analytics 360 product page](https://marketingplatform.google.com/about/analytics-360/) — no list price; SLAs mentioned\n- [Manage billing and monitor usage](https://support.google.com/marketingplatform/answer/9013858) — 25M-event base fee, tiered per-event fees, preview rates not contractual\n- [GA4 360 feature limits](https://support.google.com/analytics/answer/11202874)\n- [Data retention](https://support.google.com/analytics/answer/7667196)\n- [BigQuery Export](https://support.google.com/analytics/answer/9358801) — 1M vs up to 20B daily export; streaming $0.05/GB\n- [BigQuery pricing](https://cloud.google.com/bigquery/pricing) — 1 TiB query free, then $6.25/TiB; 10 GiB storage free\n- [Property size classifications](https://support.google.com/analytics/answer/14207402)\n- [Roll-up properties](https://support.google.com/analytics/answer/11539651)\n- [Consent Mode](https://developers.google.com/tag-platform/security/guides/consent)\n- [Fathom pricing](https://usefathom.com/pricing)\n- [DataFast homepage pricing widget](https://datafa.st/#pricing) plus AnalyticsVS directory snapshot from 11 November 2026"
+    }
+  ]
+}

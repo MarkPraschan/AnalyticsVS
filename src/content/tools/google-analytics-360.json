@@ -32,5 +32,11 @@
   },
   "seoTitle": "Google Analytics 360 Review 2026: Pricing, Limits, SLAs",
   "seoDescription": "Google Analytics 360 reviewed: custom enterprise pricing, higher GA4 limits, SLAs, BigQuery export, and when upgrading from free GA4 is actually worth it.",
-  "fallbackRelated": ["google-analytics-4", "posthog", "matomo"]
+  "fallbackRelated": ["google-analytics-4", "posthog", "matomo"],
+  "relatedLinks": [
+    {
+      "href": "/learn/google-analytics-cost/",
+      "label": "Is Google Analytics free? GA4 and 360 cost"
+    }
+  ]
 }

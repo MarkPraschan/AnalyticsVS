@@ -31,7 +31,7 @@
   "editorialNotes": [
     {
       "title": "Pricing and cost",
-      "content": "**Standard Google Analytics 4 is free.** **Google Analytics 360** is a custom-priced annual contract sold through Google or a Google Sales Partner — Google does not publish a list price.\n\nWhat you are buying with 360 is capacity and support, not a new analytics philosophy. Free GA4 still covers Google Ads linking, Search Console, Looker Studio, and BigQuery export within standard ceilings.\n\n**Hidden costs on both tiers:** consent and legal work in GDPR regions, Tag Manager maintenance, and BigQuery storage/query bills if you export. Those do not disappear when you upgrade.\n\nUse the [pricing calculator](/calculators/pricing/) to compare free GA4 ($0) against paid alternatives at your traffic level, then treat 360 as a quote-only step when free limits force it."
+      "content": "If you landed here on **is Google Analytics free** or **Google Analytics 360 pricing**, the dedicated cost article is [Is Google Analytics free? What GA4 and GA 360 actually cost](/learn/google-analytics-cost/). This comparison keeps the limit, SLA, and upgrade detail.\n\n**Standard Google Analytics 4 is free.** **Google Analytics 360** is a custom-priced annual contract sold through Google or a Google Sales Partner — Google does not publish a list price.\n\nWhat you are buying with 360 is capacity and support, not a new analytics philosophy. Free GA4 still covers Google Ads linking, Search Console, Looker Studio, and BigQuery export within standard ceilings.\n\n**Hidden costs on both tiers:** consent and legal work in GDPR regions, Tag Manager maintenance, and BigQuery storage/query bills if you export. Those do not disappear when you upgrade.\n\nUse the [pricing calculator](/calculators/pricing/) to compare free GA4 ($0) against paid alternatives at your traffic level, then treat 360 as a quote-only step when free limits force it."
     },
     {
       "title": "Data limits: events, retention, sampling, BigQuery",
@@ -44,6 +44,12 @@
     {
       "title": "When to upgrade",
       "content": "Upgrade to **GA4 360** when at least one of these is true:\n\n- Explorations are regularly **sampled** past free thresholds and that skews decisions\n- You need more than **1M events/day** in BigQuery export\n- You are hitting **Data API** quotas for production reporting\n- You need **longer event-level retention** for explorations (toward 50 months)\n- Leadership requires a **contractual SLA** for analytics\n\nStay on **free GA4** when traffic and query volume fit standard limits, you do not need an SLA, and your open questions are about privacy, simplicity, or product analytics — those problems need a different tool, not a 360 contract.\n\nNext step: confirm which free-tier ceiling you are actually hitting, get a 360 quote if needed, or compare [GA4 vs Plausible](/compare/google-analytics-vs-plausible/) / [GA4 vs PostHog](/compare/google-analytics-vs-posthog/) if the fit is wrong."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/google-analytics-cost/",
+      "label": "Is Google Analytics free? GA4 and 360 cost"
     }
   ],
   "seoTitle": "GA4 vs GA4 360: Pricing, Limits and When to Upgrade",

@@ -7,6 +7,9 @@
   "publishedOn": "2026-11-17",
   "category": "primers",
   "status": "published",
+  "featuredImage": "/learn/google-analytics-cost.webp",
+  "featuredImageAlt": "Pixel-art indoor carnival: a free Google Analytics GA4 bumper-car ride with hidden SETUP, CONSENT, BIGQUERY and TIME booths, next to a velvet-rope GA 360 entrance marked no list price.",
+  "ogImage": "/learn/google-analytics-cost-og.jpg",
   "quickAnswer": "**Yes — standard Google Analytics 4 is free.** There is no GA4 SaaS invoice. **Google Analytics 360** is the paid enterprise tier of the same product: a custom annual contract through Google or a Sales Partner. Google does **not** publish a dollar list price. 360 billing is a **base fee that includes the first 25 million monthly events**, then a **tiered per-event fee**. The real cost of “free” GA4 is **setup time**, **consent banners**, **optional BigQuery storage and query charges**, and **sampling / export / retention ceilings** — not a monthly analytics bill.",
   "keyTakeaways": [
     "Standard GA4 is $0. Google does not publish a list price for Google Analytics 360.",

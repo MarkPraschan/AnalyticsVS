@@ -17,7 +17,7 @@ export interface ComparisonPageContext {
   tools: ComparisonToolContext[];
   dimensions: AlignedDimension[];
   mergedFaq: ToolReviewFaq[];
-  sources: Array<ToolReviewSource & { toolName: string }>;
+  sources: Array<ToolReviewSource & { toolName: string; toolId: string }>;
   latestReviewedOn: string;
 }
 
@@ -71,6 +71,7 @@ export async function buildComparisonContext(
     review.sources.map((source) => ({
       ...source,
       toolName: tool.data.name,
+      toolId: tool.data.id,
     })),
   );
 

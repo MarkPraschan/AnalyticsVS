@@ -31,7 +31,9 @@ const isAffiliate = isAffiliateTool(tool);
         </div>
       </div>
 
-      {visitUrl && <VisitCTA url={visitUrl} affiliate={isAffiliate} />}
+      {visitUrl && (
+        <VisitCTA url={visitUrl} affiliate={isAffiliate} tool={tool.slug} placement="tool_page_cta" />
+      )}
     </div>
   </div>
 </header>

@@ -45,6 +45,8 @@ const isAffiliate = isAffiliateTool(tool.data);
         class="directory-card__action"
         target="_blank"
         rel={visitRel}
+        data-tool={tool.data.slug}
+        data-placement="tool_card"
         title={isAffiliate ? 'Affiliate link — we may earn a commission' : undefined}
       >
         <Reicon name="square-top-down" />

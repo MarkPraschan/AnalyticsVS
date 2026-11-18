@@ -42,7 +42,13 @@ const editions = getProductEditions(tool.data);
                 </div>
                 <p class="mt-2 text-sm leading-relaxed text-muted">{edition.summary}</p>
                 <p class="mt-3 text-sm">
-                  <a href={href} target="_blank" rel={rel}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel={rel}
+                    data-tool={tool.data.slug}
+                    data-placement="tool_variants"
+                  >
                     {edition.isPrimary ? 'Product website' : `${edition.name} details`}
                   </a>
                 </p>

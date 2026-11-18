@@ -12,6 +12,10 @@ export interface ToolAffiliateData {
 
 type AffiliateConfig = ToolAffiliateData['affiliate'];
 
+/** Known partner referral URL shapes used in markdown and outbound click classification. */
+export const AFFILIATE_HREF_PATTERN =
+  /usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i;
+
 /** Env override: AFFILIATE_URL_<TOOL_ID> e.g. AFFILIATE_URL_PLAUSIBLE */
 function getAffiliateEnvOverride(toolId: string): string | undefined {
   const key = `AFFILIATE_URL_${toolId.toUpperCase().replace(/-/g, '_')}`;

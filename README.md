@@ -42,6 +42,15 @@ Create `src/content/comparisons/tool-a-vs-tool-b.json` with required fields (`ti
 
 Create `src/content/benchmarks/your-benchmark.json` with `status: "pending"` until you record real data. Never publish estimated metrics.
 
+## Analytics events
+
+Outbound clicks to directory tool vendors (including affiliate links) send a PostHog custom event:
+
+- **Name:** `tool_outbound_click`
+- **Properties:** `tool`, `affiliate`, `destination_url`, `destination_host`, `placement`, `page_type`
+
+See [CONTENT_GUIDE.md](./CONTENT_GUIDE.md#posthog-tool_outbound_click) for placement values and how to tag new CTAs. Unit tests: `npm test`.
+
 ## Deployment (Vercel)
 
 1. Push this repo to GitHub

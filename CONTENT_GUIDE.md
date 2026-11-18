@@ -132,14 +132,12 @@ npm run preview
 
 ## Suggested next article ideas
 
-Already shipped (do not rewrite as “new”): cookieless analytics, script performance, events primers + per-tool setup, pageviews vs events, web vs product analytics, privacy-first tools, GA4 GDPR alternatives, SaaS startup chooser, website heatmaps, Hotjar alternatives, Stripe revenue attribution, best analytics for a blog, and the comparison pairs under `src/content/comparisons/`.
+Already shipped (do not rewrite as “new”): cookieless analytics, script performance, events primers + per-tool setup, pageviews vs events, web vs product analytics, privacy-first tools, GA4 GDPR alternatives, SaaS startup chooser, website heatmaps, Hotjar alternatives, Stripe revenue attribution, best analytics for a blog, Google Analytics cost, self-hosted web analytics (also covers open-source web analytics intent), and the comparison pairs under `src/content/comparisons/`.
 
 Ranked by likely value; none of these have a dedicated page yet.
 
-1. **Self-hosted web analytics** — `self hosted analytics` (Matomo, Umami, PostHog, Fathom Lite).
-2. **Open-source web analytics** — `open source web analytics`.
-3. **Cookie consent vs cookieless tags** — `analytics cookie consent`.
-4. **Ahrefs Web Analytics vs GA4** — `ahrefs web analytics`.
-5. **What web analytics costs** — `web analytics pricing` (calculator landing).
-6. **Umami vs Matomo** — `umami vs matomo` (missing comparison pair).
-7. **Server-side tagging** — `server side tagging` (only if we can source claims without inventing GTM setup).
+1. **Cookie consent vs cookieless tags** — `analytics cookie consent`.
+2. **Ahrefs Web Analytics vs GA4** — `ahrefs web analytics`.
+3. **What web analytics costs** — `web analytics pricing` (calculator landing).
+4. **Umami vs Matomo** — `umami vs matomo` (missing comparison pair).
+5. **Server-side tagging** — `server side tagging` (only if we can source claims without inventing GTM setup).

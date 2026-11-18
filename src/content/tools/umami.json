@@ -36,6 +36,10 @@
       "label": "Google Analytics vs Umami"
     },
     {
+      "href": "/learn/self-hosted-web-analytics/",
+      "label": "Self-hosted web analytics (Matomo, Umami, Plausible CE)"
+    },
+    {
       "href": "/learn/cookieless-analytics/",
       "label": "Cookieless analytics primer"
     },

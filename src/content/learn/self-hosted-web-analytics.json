@@ -8,7 +8,7 @@
   "category": "primers",
   "status": "published",
   "featuredImage": "/learn/self-hosted-web-analytics.webp",
-  "featuredImageAlt": "Pixel-art marina: Matomo, Umami and Plausible CE sailboats whose owners handle updates, backups and the server themselves, beside a big HOSTED cruise ship where the crew does the work.",
+  "featuredImageAlt": "Pixel-art neighbors: a happy DIY builder constructing his own house with Matomo, Umami and Plausible branded tools, next door to a homeowner relaxing while a hired contractor crew does the work.",
   "ogImage": "/learn/self-hosted-web-analytics-og.jpg",
   "quickAnswer": "**Self hosted analytics** is web analytics you install and operate yourself — usually [Matomo](/tools/matomo/) On-Premise, [Umami](/tools/umami/), or [Plausible](/tools/plausible/) Community Edition — instead of paying a vendor to host the database. Open-source web analytics is the license and auditability of that code; it is not free operations. Hosted Matomo Cloud, Umami Cloud, and Plausible Cloud still exist if you want the same products without on-call. If you do not want a server at all, [Fathom](https://usefathom.com/ref/U4V5UE) and [DataFast](https://datafa.st/?via=analyticsvs) are hosted privacy-friendly options.",
   "keyTakeaways": [

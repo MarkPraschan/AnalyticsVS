@@ -102,6 +102,23 @@ Rules:
   - Tools index, site footer
 - Site-wide policy copy lives at `/disclosure/` (`src/pages/disclosure/index.astro`). Do not duplicate a second disclosure component.
 
+## PostHog: `tool_outbound_click`
+
+Clicks that leave analyticsvs.com for a **directory tool vendor** (affiliate CTAs and plain vendor/homepage/pricing/docs links) fire `posthog.capture('tool_outbound_click', { ... })`. Implementation: hostname map from `src/content/tools/` plus `data-tool` / `data-placement` on shared CTAs, with a single capture-phase document listener (`src/scripts/tool-outbound-click.client.ts`). Do not add extra capture calls on individual links. Classification helper: `src/lib/toolOutbound.ts` (`npm test`).
+
+Event properties:
+
+| Property | Notes |
+|---|---|
+| `tool` | Tool slug (`fathom`, `datafast`, `hotjar`, …) from `data-tool` or destination host |
+| `affiliate` | `true` if `rel` contains `sponsored` or the href matches `AFFILIATE_HREF_PATTERN` |
+| `destination_url` | The link `href` |
+| `destination_host` | Hostname without `www.` |
+| `placement` | `data-placement` on the `<a>`, else `inline`. Shared values: `tool_page_cta`, `article_cta`, `tool_shortlist`, `try_these_tools`, `also_consider`, `tool_card`, `tool_variants`, `tool_sources`, `compare_sources`, `calculator`, `inline_article` |
+| `page_type` | From the path: `tool` / `compare` / `learn` / `guide` / `calculator` / `other` |
+
+Internal links, `mailto:`, and non-tool externals (social, GitHub, Better Launch, etc.) are ignored. Do not change `rel="sponsored"`, disclosure copy, or affiliate URLs when adding components — set `data-tool` and `data-placement` on vendor `<a>` tags.
+
 ## Source-checking (prices and features)
 
 - Feature presence (`heatmaps`, `cookieless`, …) must match `src/content/tools/<id>.json` **or** a vendor page you opened **today**. If they disagree, say so, follow the vendor page for the article, and flag the JSON snapshot as stale — do not silently pick the more convenient number.

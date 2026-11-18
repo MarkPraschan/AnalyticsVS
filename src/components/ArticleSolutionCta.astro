@@ -49,6 +49,7 @@ const ctaLabel = label ?? `Get started with ${tool.data.name}`;
     label={ctaLabel}
     tool={tool.data}
     flush
+    placement="article_cta"
   />
   {affiliate && <AffiliateDisclosure class={compact ? 'mt-2' : 'sm:col-span-2'} />}
 </section>

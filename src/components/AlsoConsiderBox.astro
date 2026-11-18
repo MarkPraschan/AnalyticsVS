@@ -60,9 +60,8 @@ const hasAffiliate = items.some(({ tool }) => isAffiliateTool(tool.data));
                   target="_blank"
                   rel={visitRel}
                   class="btn-secondary inline-flex"
-                  data-posthog-vendor-website
-                  data-posthog-cta-label={`Visit ${tool.data.name}`}
-                  data-posthog-affiliate={String(affiliate)}
+                  data-tool={tool.data.slug}
+                  data-placement="also_consider"
                 >
                   Visit {tool.data.name} →
                 </a>

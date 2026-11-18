@@ -1,7 +1,21 @@
 ---
 // Browser PostHog initialization shared by the root layout.
 // Guarded for Astro ClientRouter soft navigations.
+import { getAllTools } from '../lib/tools';
+import { buildToolHostMap } from '../lib/toolOutbound';
+
+const tools = await getAllTools();
+const toolHostMap = buildToolHostMap(
+  tools.map((tool) => ({
+    id: tool.data.id,
+    slug: tool.data.slug,
+    website: tool.data.website,
+    affiliateUrl: tool.data.affiliate.url,
+    variantWebsites: tool.data.variants?.map((variant) => variant.website),
+  })),
+);
 ---
+<script id="avs-tool-host-map" type="application/json" set:html={JSON.stringify(toolHostMap)} />
 <script
   is:inline
   define:vars={{
@@ -28,4 +42,8 @@
       capture_pageview: 'history_change',
     });
   }
+</script>
+<script>
+  import { installToolOutboundClickTracking } from '../scripts/tool-outbound-click.client';
+  installToolOutboundClickTracking();
 </script>

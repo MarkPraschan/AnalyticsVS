@@ -5,9 +5,10 @@ interface Props {
   updatedDate: string;
   websiteUrl?: string;
   websiteLabel?: string;
+  tool?: string;
 }
 
-const { updatedDate, websiteUrl, websiteLabel } = Astro.props;
+const { updatedDate, websiteUrl, websiteLabel, tool } = Astro.props;
 ---
 
 <section id="sources" class="mt-10">
@@ -20,7 +21,13 @@ const { updatedDate, websiteUrl, websiteLabel } = Astro.props;
           <>
             {' '}
             · Pricing sourced from{' '}
-            <a href={websiteUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tool={tool}
+              data-placement="tool_sources"
+            >
               {websiteLabel}
             </a>
           </>

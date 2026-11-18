@@ -11,9 +11,18 @@ interface Props {
   tool?: ToolEntry['data'];
   /** Drop the inner card chrome when a parent already provides the container. */
   flush?: boolean;
+  placement?: string;
 }
 
-const { name, url, affiliate = false, label = 'Visit website', tool, flush = false } = Astro.props;
+const {
+  name,
+  url,
+  affiliate = false,
+  label = 'Visit website',
+  tool,
+  flush = false,
+  placement = 'affiliate_cta',
+} = Astro.props;
 ---
 
 {
@@ -23,7 +32,15 @@ const { name, url, affiliate = false, label = 'Visit website', tool, flush = fal
         {tool && <ToolMark tool={tool} size="sm" href={false} />}
         <p class="font-heading font-semibold text-fg">{name}</p>
       </div>
-      <VisitCTA url={url} affiliate={affiliate} label={label} variant="card" class="mt-auto" />
+      <VisitCTA
+        url={url}
+        affiliate={affiliate}
+        label={label}
+        variant="card"
+        class="mt-auto"
+        tool={tool?.slug ?? tool?.id}
+        placement={placement}
+      />
     </div>
   ) : null
 }

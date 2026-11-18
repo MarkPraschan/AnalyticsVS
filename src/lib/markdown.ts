@@ -1,12 +1,13 @@
+import { AFFILIATE_HREF_PATTERN } from './affiliate';
+
+export { AFFILIATE_HREF_PATTERN };
+
 export function slugifyHeading(title: string): string {
   return title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
-
-export const AFFILIATE_HREF_PATTERN =
-  /usefathom\.com\/ref\/|datafa\.st\/\?via=|invite\.contentsquare\.com\//i;
 
 export function markdownHasAffiliateLinks(source: string | undefined | null): boolean {
   return Boolean(source && AFFILIATE_HREF_PATTERN.test(source));
@@ -17,7 +18,7 @@ function linkAttributes(href: string): string {
   if (!isExternal) return '';
   const affiliate = AFFILIATE_HREF_PATTERN.test(href);
   const rel = affiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
-  return ` target="_blank" rel="${rel}"`;
+  return ` target="_blank" rel="${rel}" data-placement="inline_article"`;
 }
 
 function inlineMarkdown(text: string): string {

@@ -6,7 +6,7 @@ import { formatDate } from '../../lib/site';
 
 interface Props {
   faq: ToolReviewFaq[];
-  sources: Array<ToolReviewSource & { toolName: string }>;
+  sources: Array<ToolReviewSource & { toolName: string; toolId: string }>;
   latestReviewedOn: string;
   comparisonUpdated: string;
   relatedLinks?: Array<{ href: string; label: string }>;
@@ -46,7 +46,13 @@ const { faq, sources, latestReviewedOn, comparisonUpdated, relatedLinks = [] } =
         sources.map((source) => (
           <li>
             <span class="text-muted">{source.toolName}: </span>
-            <a href={source.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tool={source.toolId}
+              data-placement="compare_sources"
+            >
               {source.label}
             </a>
             <span class="text-muted"> — checked {formatDate(source.checkedOn)}</span>

@@ -193,7 +193,7 @@ export function initPricingCalculator(root: HTMLElement) {
             <div class="pricing-table__plan">${r.label}</div>
           </td>
           <td>
-            <a href="${r.visitUrl}" target="_blank" rel="${r.isAffiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer'}" class="pricing-table__action" data-posthog-pricing-vendor="${r.id}" data-posthog-affiliate="${r.isAffiliate}">Visit site →</a>
+            <a href="${r.visitUrl}" target="_blank" rel="${r.isAffiliate ? 'noopener noreferrer sponsored' : 'noopener noreferrer'}" class="pricing-table__action" data-tool="${r.slug}" data-placement="calculator">Visit site →</a>
           </td>
         </tr>
       `,
@@ -213,18 +213,6 @@ export function initPricingCalculator(root: HTMLElement) {
   pageviewsInput.addEventListener('change', capturePricingCalculatorUpdated);
   eventsInput.addEventListener('change', capturePricingCalculatorUpdated);
   projectsInput.addEventListener('change', capturePricingCalculatorUpdated);
-
-  tbody.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof Element)) return;
-    const link = target.closest('[data-posthog-pricing-vendor]');
-    if (!link || !(link instanceof HTMLAnchorElement)) return;
-
-    window.posthog?.capture('pricing_calculator_vendor_visited', {
-      vendor_id: link.dataset.posthogPricingVendor,
-      is_affiliate: link.dataset.posthogAffiliate === 'true',
-    });
-  });
 
   updateResults();
 }

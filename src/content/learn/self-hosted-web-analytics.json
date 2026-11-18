@@ -1,0 +1,196 @@
+{
+  "title": "Self-Hosted Analytics: Matomo, Umami, and Plausible CE vs Hosted",
+  "slug": "self-hosted-web-analytics",
+  "description": "Self hosted analytics compared: Matomo, Umami, and Plausible CE vs hosted — server, maintenance, backups, and privacy cost. Fathom and DataFast skip the ops.",
+  "seoTitle": "Self-Hosted Analytics: Matomo, Umami, Plausible CE (2026)",
+  "answerUnderTitle": "Self-hosted analytics means you run Matomo, Umami, or Plausible Community Edition on infrastructure you control. The software license can be $0. You still pay for a server, updates, backups, scaling, and the privacy/compliance work that a hosted vendor otherwise does. If you do not want to run a server, hosted Fathom and DataFast are the no-ops path.",
+  "publishedOn": "2026-11-18",
+  "category": "primers",
+  "status": "published",
+  "featuredImage": "/learn/self-hosted-web-analytics.webp",
+  "featuredImageAlt": "Pixel-art comparison of a self-hosted analytics rack labeled Matomo, Umami, and Plausible CE versus hosted Fathom and DataFast dashboards with no server to maintain.",
+  "ogImage": "/learn/self-hosted-web-analytics-og.jpg",
+  "quickAnswer": "**Self hosted analytics** is web analytics you install and operate yourself — usually [Matomo](/tools/matomo/) On-Premise, [Umami](/tools/umami/), or [Plausible](/tools/plausible/) Community Edition — instead of paying a vendor to host the database. Open-source web analytics is the license and auditability of that code; it is not free operations. Hosted Matomo Cloud, Umami Cloud, and Plausible Cloud still exist if you want the same products without on-call. If you do not want a server at all, [Fathom](https://usefathom.com/ref/U4V5UE) and [DataFast](https://datafa.st/?via=analyticsvs) are hosted privacy-friendly options.",
+  "keyTakeaways": [
+    "Self-hosting moves the invoice from a SaaS pageview plan to a server, backups, upgrades, and the person who keeps them working.",
+    "Matomo On-Premise Community, Umami (MIT), and Plausible CE (AGPLv3) are the main open-source web analytics options on this directory; Cloud editions of the same brands are not the same product as CE.",
+    "Matomo Cloud starts at USD $26/month for 50,000 hits (vendor USD table, 18 Nov 2026). Umami Cloud Hobby is $0 up to 100k events. Plausible Cloud Starter is $9/month at 10k pageviews.",
+    "Self-hosting does not outsource GDPR, backups, or security patches. You become the processor for visitor data on your stack.",
+    "If nobody on the team wants to run a server, skip CE: hosted Fathom and DataFast are the no-server options."
+  ],
+  "heroCta": {
+    "toolId": "fathom",
+    "headline": "Skip the server: hosted privacy analytics",
+    "note": "Fathom is hosted, cookieless web analytics with vendor-run infrastructure. Referred customers get $10 off their first invoice. Need Stripe revenue on the same dashboard instead of a self-hosted database? Look at DataFast next.",
+    "label": "Try Fathom"
+  },
+  "toolShortlistHeading": "Hosted if you do not want a server — or self-host if you do",
+  "faq": [
+    {
+      "question": "What is self hosted analytics?",
+      "answer": "Self hosted analytics (also written self-hosted analytics) is a web analytics app you install on your own server, VPS, or cluster. You own the database and the upgrade calendar. Matomo On-Premise, Umami, and Plausible Community Edition are the usual open-source choices. Hosted Cloud plans from those same vendors are a different product: they still collect stats, but the vendor runs the stack."
+    },
+    {
+      "question": "Is self-hosted Matomo free?",
+      "answer": "The Matomo On-Premise Community software is free (GNU GPL v3 or later) with unlimited websites, users, and hits. You pay for hosting, SSL, backups, and engineer time. Premium features such as funnels, heatmaps, and A/B testing are sold as plugins or bundles. Matomo Cloud is a paid hosted plan, not the free Community edition."
+    },
+    {
+      "question": "Matomo hosting vs Matomo self hosted — which should I pick?",
+      "answer": "Pick Matomo Cloud if you want Matomo without operating PHP and MySQL: the vendor includes hosting, automatic updates, security monitoring, and daily backups, with data in Frankfurt, Germany. Pick On-Premise (self-hosted) if you must choose the country or network the database lives on, or if your hit volume makes Cloud tiers expensive and you already have ops capacity."
+    },
+    {
+      "question": "What does Umami hosting cost?",
+      "answer": "Umami Cloud Hobby is $0/month up to 100,000 events, one website, and six months of retention. Pro is $20/month for 1 million events (then $0.00003 per extra event) and up to 20 websites. Business is $200/month for 10 million events. Self-hosted Umami has no license fee; you pay for the machine and the time to update it. Prices from umami.is/pricing on 18 November 2026."
+    },
+    {
+      "question": "What is Plausible hosting vs Plausible CE?",
+      "answer": "Plausible Cloud is the managed EU-hosted product with a subscription, continuous releases, and premium features such as marketing funnels, user journeys, ecommerce revenue goals, SSO, and the Sites API. Plausible Community Edition is the free AGPLv3 self-hosted release: twice-yearly long-term releases, basic bot filtering, community support only, and those premium features omitted. You still pay for the server, CDN, and backups."
+    },
+    {
+      "question": "Is open source web analytics the same as self-hosted analytics?",
+      "answer": "No. Open source web analytics means you can read (and usually run) the code: Matomo is GPL, Umami is MIT, Plausible CE is AGPLv3. You can still buy hosted Cloud for those products. Self-hosting is the operations choice. Fathom Analytics is hosted and not open source; Fathom Lite is a separate free self-hosted download."
+    },
+    {
+      "question": "Who should not self-host web analytics?",
+      "answer": "Teams with no one on-call for security updates, database backups, and disk growth. Also skip self-hosting when a $9–$20 hosted plan is cheaper than an engineer hour, when you need vendor SLA and email support, or when the feature you want exists only on Cloud (Plausible funnels; Umami email reports)."
+    },
+    {
+      "question": "What if I do not want to run a server?",
+      "answer": "Use a hosted privacy-friendly product. Fathom Analytics starts at $15/month for 100,000 pageviews with at least 50 sites included. DataFast is hosted revenue analytics (Stripe and similar) with a 14-day trial and no self-hosted edition. Plausible Cloud, Umami Cloud, and Matomo Cloud are the managed versions of the open-source stacks."
+    }
+  ],
+  "relatedBenchmarks": [
+    "matomo-script-2026-11",
+    "umami-script-2026-10",
+    "plausible-script-2026-10",
+    "fathom-script-2026-10"
+  ],
+  "relatedComparisons": [
+    "matomo-vs-plausible",
+    "plausible-vs-umami",
+    "fathom-vs-umami",
+    "plausible-vs-fathom",
+    "fathom-vs-datafast"
+  ],
+  "relatedTools": [
+    "matomo",
+    "umami",
+    "plausible",
+    "fathom",
+    "datafast",
+    "posthog"
+  ],
+  "relatedGuides": [
+    "best-privacy-first-analytics-tools",
+    "ga4-alternatives-gdpr"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/tools/matomo/",
+      "label": "Matomo tool profile"
+    },
+    {
+      "href": "/tools/umami/",
+      "label": "Umami tool profile"
+    },
+    {
+      "href": "/tools/plausible/",
+      "label": "Plausible tool profile"
+    },
+    {
+      "href": "/tools/fathom/",
+      "label": "Fathom Analytics profile"
+    },
+    {
+      "href": "/tools/datafast/",
+      "label": "DataFast profile"
+    },
+    {
+      "href": "/compare/matomo-vs-plausible/",
+      "label": "Plausible vs Matomo"
+    },
+    {
+      "href": "/compare/plausible-vs-umami/",
+      "label": "Plausible vs Umami"
+    },
+    {
+      "href": "/compare/fathom-vs-umami/",
+      "label": "Fathom vs Umami"
+    },
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web vs product analytics"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "fathom",
+      "bestFor": "Teams that want hosted, cookieless web analytics and will not run a server — $15/month at 100k pageviews, 50 sites included. Referred customers get $10 off their first invoice."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS that needs hosted traffic stats plus Stripe (or similar) revenue attribution, with no self-hosted edition."
+    },
+    {
+      "toolId": "plausible",
+      "bestFor": "EU-hosted Cloud if you want Plausible without ops; Community Edition only if you accept twice-yearly releases and missing Cloud-only features."
+    },
+    {
+      "toolId": "umami",
+      "bestFor": "Developers who want MIT-licensed self-hosting, or Umami Cloud Hobby ($0 / 100k events) if a free hosted plan is enough."
+    },
+    {
+      "toolId": "matomo",
+      "bestFor": "Organizations that need GA-like depth and data residency — Cloud if you want Matomo without PHP ops, On-Premise if you will own the stack."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-self-hosted-analytics-is",
+      "title": "What self hosted analytics actually means",
+      "content": "**Self hosted analytics** is a tracking and reporting app whose database, application server, and upgrade job sit on infrastructure you control. The usual names on this directory are [Matomo](/tools/matomo/) On-Premise, [Umami](/tools/umami/), and [Plausible Community Edition](/tools/plausible/).\n\nIt is **not** the same as “the tool is open source,” and it is **not** the same as “the tool is free.” You can buy [Matomo Cloud](https://matomo.org/pricing/), [Umami Cloud](https://umami.is/pricing), or [Plausible Cloud](https://plausible.io/) and never SSH into a box. You can also run GPL/MIT/AGPL code and still owe a VPS bill plus on-call time.\n\nThis page is the **hosting and total-cost** primer. Cookie and consent trade-offs stay on [cookieless analytics](/learn/cookieless-analytics/). Pair-wise product fit stays on [Plausible vs Matomo](/compare/matomo-vs-plausible/) and [Plausible vs Umami](/compare/plausible-vs-umami/). Open-source web analytics intent is covered here so it does not need a second URL.\n\nIf the weekly job is product events, flags, and replay rather than marketing pageviews, that is a different category — start with [web vs product analytics](/learn/web-vs-product-analytics/) and the [PostHog profile](/tools/posthog/). PostHog can be self-hosted, but it is not a Matomo/Umami substitute."
+    },
+    {
+      "id": "what-self-hosting-really-costs",
+      "title": "What self-hosting really costs",
+      "content": "The license line can be $0. The operating cost is not. Treat self-hosting as owning a small production service, not as installing a WordPress plugin.\n\n### Server\n\nYou need compute, RAM, disk, and TLS in front of a database. [Matomo’s On-Premise requirements](https://matomo.org/faq/on-premise/matomo-requirements/) (opened **18 November 2026**) publish sizing by traffic, not a VPS SKU price:\n\n- **≤100,000 pageviews/month:** one server can run app + database; minimum they recommend is **2 CPU, 2 GB RAM, 50 GB SSD**.\n- **≤1 million:** still one server is possible; they recommend **4 CPU, 8 GB RAM, 250 GB SSD**.\n- **≤10 million:** **two servers** (app + database), with the database at least **8 CPU, 16 GB RAM, 400 GB SSD**.\n- **≤100 million:** multiple app servers, a larger database (they cite **16 CPU, 32 GB RAM, 1 TB SSD**), load balancer, CDN.\n\nMatomo also wants **PHP 8.1+** and **MySQL 8.0+ / MariaDB 10.6+** for current Matomo 6 guidance on that page, plus write access for `tmp/` and config. Medium/high traffic installs should run the [auto-archiving cron](https://matomo.org/docs/installation/) or the UI waits on report processing.\n\nUmami and Plausible CE do **not** publish an equivalent official CPU/RAM table that we could verify today. Budget at least a persistent database, disk growth as events accumulate, and a restore test — do not guess a dollar VPS rate from a blog.\n\n### Maintenance and updates\n\n[Plausible’s self-hosting docs](https://plausible.io/docs/self-hosting) (checked **18 November 2026**) say the work Cloud customers do not see becomes yours: installation, capacity, uptime, backup, security, stability, and loading time. Cloud ships multiple times per week; **CE is a long-term release twice per year**, so fixes and features lag until you apply a release.\n\nSecurity is the sharp edge. Plausible writes that Cloud gets a fix immediately; a self-hosted instance is unprotected until **you** apply the release. Matomo’s install guide tells you to review [security hardening](https://matomo.org/docs/installation/) before production and to verify builds (GPG), not third-party zips.\n\nUmami Cloud’s docs list **hosting, updates, backups, and scaling** as managed by Umami; on self-hosted those rows are **managed by you** ([Cloud vs self-hosted](https://docs.umami.is/docs/cloud), 18 November 2026).\n\n### Backups\n\nA lost volume is lost history. Matomo Cloud’s pricing FAQ states Cloud includes **daily backups**. On-Premise you back up the MySQL/MariaDB data and config yourself and **test a restore**. Umami and Plausible CE follow the same rule: snapshot the database, not only the container image.\n\n### Scaling\n\nSaaS plans raise a pageview or event cap. Self-hosting raises disk, IOPS, CPU for archiving, and sometimes a second box. Matomo’s own table jumps from a small single VM at 100k pageviews to split app/database roles at 10M. If your traffic is spiky, you still need headroom **before** the dashboard times out — there is no vendor overage email to save you.\n\n### Privacy and compliance responsibility\n\nSelf-hosting can help **data residency** (you pick the region or keep the DB on a network you already assess). It does **not** make GDPR, ePrivacy, or a privacy policy go away. You become the organisation that stores visitor data, patches the box, and answers “where does this live?” Umami’s docs are explicit: data you choose to send (distinct IDs, event properties) is **your** responsibility.\n\nHosted Cloud products usually publish a DPA, a region, and a support path. Self-hosting replaces that packet with **your** policies.\n\nRun expected volume through the [pricing calculator](/calculators/pricing/) for the **hosted** invoice. Then add server plus hours. If the hours dominate, you do not have a cheaper Matomo — you have unpaid ops."
+    },
+    {
+      "id": "matomo-umami-plausible-ce",
+      "title": "Matomo, Umami, and Plausible CE vs their hosted plans",
+      "content": "Same brand, two products: a Cloud subscription and a self-hosted edition. Do not mix their feature lists.\n\n| Topic | Matomo On-Premise | Umami self-hosted | Plausible CE |\n|---|---|---|---|\n| License | GNU GPL v3 or later ([LEGALNOTICE](https://github.com/matomo-org/matomo/blob/master/LEGALNOTICE)) | MIT ([LICENSE](https://github.com/umami-software/umami/blob/master/LICENSE)) | AGPLv3 ([self-hosting docs](https://plausible.io/docs/self-hosting)) |\n| Hosted twin | Matomo Cloud | Umami Cloud | Plausible Cloud |\n| Hosted entry price (18 Nov 2026) | USD **$26**/month at **50k hits** ([USD table](https://matomo.org/pricingforai/)) | Hobby **$0** / 100k events; Pro **$20** / 1M ([pricing](https://umami.is/pricing)) | Starter **$9**/month at **10k pageviews** (homepage widget) |\n| Cloud extras you lose on CE/self-host | Vendor hosting, auto-updates, daily backups, security monitoring; premium plugins unless you pay bundles | Email reports are **Cloud only**; hosting/updates/backups are yours | Funnels, user journeys, ecommerce revenue goals, SSO, Sites API; advanced bot filtering; human support |\n| Release cadence | You apply Matomo releases | You apply Umami releases | CE **twice per year**; Cloud continuous |\n\nHead-to-head product pages: [Plausible vs Matomo](/compare/matomo-vs-plausible/), [Plausible vs Umami](/compare/plausible-vs-umami/). Script weight (hosted snippets we measured) is in the performance matrix above — that is **tag size**, not server TCO.\n\n### Matomo hosting (Cloud vs self-hosted)\n\n[Matomo pricing](https://matomo.org/pricing/) (opened **18 November 2026**) sells **Cloud** and **On-Premise**.\n\n**Matomo Cloud** (USD table on [pricingforai](https://matomo.org/pricingforai/), same day):\n\n- **$26** / 50,000 hits per month\n- **$42** / 100,000\n- **$85** / 300,000\n- **$139** / 600,000\n- **$204** / 1 million\n- **$399** / 2 million\n- **$975** / 5 million\n- **10 million+** is contact\n\nThe public pricing widget also rendered a **29 / month** headline in our scrape. That figure had no currency in the HTML we read. Use the **USD $26** row for 50k hits, and confirm the widget for your locale and tax before you buy. Our [directory snapshot](/tools/matomo/) still lists the same USD ladder (last stored as “as of Oct 2026”).\n\nCloud includes, per Matomo’s pricing FAQ: **hosting, maintenance, automatic updates, security monitoring, daily backups**, and access to Matomo features. Allowances on the published Business Cloud plan: **30 websites**, **30 team members**, **24 months** raw data retention, reports kept forever. Data is stored in **Frankfurt, Germany**. You can move later: Matomo says it can import On-Premise data into Cloud or export Cloud data for self-hosting.\n\n**Matomo On-Premise Community** is **$0** software, **unlimited** hits and users, forum support, and you host it. Premium plugins (funnels, heatmaps, session recording, A/B testing, and others) are sold separately or as bundles. On-Premise bundles on the same pricing page (**18 November 2026**):\n\n- **Team** from **€230/month** — up to 4 users, 5M hits\n- **Business** from **€1,209/month** — up to 20 users, 30M hits\n- **Enterprise** from **€2,834/month** — up to 50 users, 100M hits\n- **VIP** custom\n\nSelf-host Matomo when residency or hit volume beats Cloud. Buy Cloud when nobody wants to run PHP. Profile: [Matomo](/tools/matomo/).\n\n### Umami hosting\n\n[Umami Cloud pricing](https://umami.is/pricing) (checked **18 November 2026**), USD:\n\n- **Hobby $0** — 100k events/month, 1 website, 6-month retention, community support\n- **Pro $20** — 1 million events included, then **$0.00003** per extra event, up to **20 websites**, 10 team members, 2-year retention, 14-day trial\n- **Business $200** — 10 million events included, then **$0.00002** per extra event, unlimited websites, 5-year retention, session replays (5,000 included, then $0.005 each), heatmaps\n- **Enterprise** custom (SSO, SLA, invoice billing)\n\nUsage: each pageview is one event; stored event properties also count. Servers: Umami says Cloud runs in the **US and EU**. Self-hosted Umami is **free and MIT-licensed**.\n\n[Umami Cloud vs self-hosted](https://docs.umami.is/docs/cloud) (18 November 2026): analytics features (funnels, goals, journeys, retention, revenue, heatmaps, session replays from the listed versions) are in the open-source app. **Email reports are Cloud only.** Hosting, updates, backups, and scaling are managed on Cloud and **yours** on self-host.\n\nOur [Umami directory](/tools/umami/) still says Pro includes 10 sites and `heatmaps: false`. Vendor pages today say Pro is **20 websites** and heatmaps exist on **Cloud Business** and in **self-hosted v3.2+**. Follow the vendor; treat that JSON snapshot as stale.\n\n### Plausible hosting (Cloud vs CE)\n\n[Plausible’s homepage](https://plausible.io/) widget (opened **18 November 2026**) prices three Cloud plans on the **same pageview steps**. At the **10k monthly pageviews** stop:\n\n- **Starter $9/month**\n- **Growth $14/month** (up to 3 sites, team features)\n- **Business $19/month**\n\nThe slider continues through **10M+**. [Subscription-plan docs](https://plausible.io/docs/subscription-plans) (updated 29 October 2026) say all plans share pageview tiers; the difference is features and team size. Trial: **30 days, no credit card**, with Business features during the trial. Custom events count toward usage; a pageview **goal** does not.\n\nPlausible’s own comparison page (last checked October 2026) lists **Starter $19/month at 100k pageviews**. Confirm the live widget for the tier you need. Our directory still stores an August 2026 **single-plan** ladder ($9 / 10k, $19 / 100k, …) and does not yet split Starter / Growth / Business — stale shape, not a second price list.\n\n**Plausible Community Edition** ([self-hosting](https://plausible.io/docs/self-hosting), 18 November 2026):\n\n- Free to run; you pay infrastructure, not Plausible\n- **AGPLv3** (or later)\n- **Two releases per year**\n- **Not included:** marketing funnels, user journeys, ecommerce revenue goals, SSO, Sites API\n- Bot filtering is **basic** (User-Agent + referrer spam); Cloud excludes a large set of data-center IP ranges\n- Support is **community only**\n- Install path: [community-edition](https://github.com/plausible/community-edition) Docker Compose example\n\nChoose Cloud if you want Plausible the product. Choose CE only if you will operate it and can live without those Cloud-only features."
+    },
+    {
+      "id": "open-source-web-analytics",
+      "title": "Open source web analytics (same article, different query)",
+      "content": "People searching **open source web analytics** usually want three things: readable code, no Google tag, and a path to self-host. Those are related, not identical.\n\n**What “open source” guarantees**\n\n- You can inspect how pageviews are stored. Matomo ([GPL v3+](https://github.com/matomo-org/matomo)), Umami ([MIT](https://github.com/umami-software/umami)), Plausible CE ([AGPLv3](https://plausible.io/docs/self-hosting)).\n- You can run a copy without a SaaS invoice — **if** you bring a server.\n- Licenses differ. MIT is permissive. GPL and AGPL are copyleft; AGPL is the one that bites if you modify Plausible CE and offer it as a network service.\n\n**What it does not guarantee**\n\n- Feature parity with Cloud. Plausible is explicit that some features stay on Cloud so subscriptions fund development. Umami keeps email reports on Cloud. Matomo Community omits premium plugins until you pay.\n- A vendor SLA. Forum or GitHub is not a 12-hour email response.\n- Automatic GDPR compliance. Cookieless defaults help consent UX; you still configure retention, access control, and a privacy policy. Primer: [cookieless analytics](/learn/cookieless-analytics/) and [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/).\n\n**What is not open-source web analytics**\n\n- [Fathom Analytics](/tools/fathom/) is hosted SaaS. [Fathom Lite](https://usefathom.com/pricing/lite) is a **free self-hosted** download with fewer metrics and **no vendor support**. It is a separate product, not Fathom Cloud in a container.\n- [DataFast](/tools/datafast/) is **cloud-only** (directory `self_hosted: false`). There is no CE.\n- [Ahrefs Web Analytics](/tools/ahrefs/) is cloud-only.\n\nFor a privacy-first shortlist that mixes hosted and self-hosted, use the [privacy-first tools guide](/learn/best-privacy-first-analytics-tools/). This page stays on **who runs the server**."
+    },
+    {
+      "id": "hosted-without-a-server",
+      "title": "No server: hosted Fathom and DataFast",
+      "content": "If the constraint is “we will not run MySQL,” stop shopping CE. Use a hosted privacy-friendly product and spend the engineering time on the site.\n\n### Fathom Analytics (hosted)\n\n[Fathom](https://usefathom.com/ref/U4V5UE) is cookieless web analytics on Fathom’s infrastructure. [Fathom pricing](https://usefathom.com/pricing) (checked **18 November 2026**):\n\n- **$15/month** up to **100,000** monthly pageviews\n- Then **$25** / 200k · **$45** / 500k · **$60** / 1M · **$100** / 2M · **$140** / 5M · **$200** / 10M (USD), with published steps through 25M and custom after that\n- Every plan includes the **same features** and **at least 50 sites**\n- Extra sites in packs of 50 for **$10/month**\n- Custom events **count toward** the pageview allowance\n- **7-day free trial** (card required)\n- Fathom states **no cookie banners required** for the hosted product; confirm with counsel\n\n[Fathom Lite](https://usefathom.com/pricing/lite) is the self-hosted fork of the old product: you install it, you maintain it, fewer metrics, no email support. It is **not** the no-server option. Hosted vs Umami: [Fathom vs Umami](/compare/fathom-vs-umami/). Hosted vs Plausible: [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n### DataFast (hosted revenue analytics)\n\n[DataFast](https://datafa.st/?via=analyticsvs) is for “which channel produced **paying** customers,” not for running your own tracker. There is **no self-hosted edition**.\n\nDollar amounts live in a **homepage pricing widget**, not a static table. Opened **18 November 2026**, the page still describes **Starter vs Growth** and event bands (**10k, 100k, 200k, 1M+**). Starter is **1 website / 1 seat / 3 years retention**. Growth is **30 websites / 30 seats / 5+ years**. Trial: **14 days, no card**. GDPR FAQ: default script uses cookies; a cookieless script exists with weaker multi-day identity.\n\nWe could not read a static public rate card from the widget HTML today. Our [directory snapshot](/tools/datafast/) of that widget (**11 November 2026**) lists Starter **$9/month at 10k events**, then **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**. Growth starts **$19/month at 10k events**. Events are **pageviews, payments, and goals**. Confirm the widget before you buy.\n\nCompare: [Fathom vs DataFast](/compare/fathom-vs-datafast/). Primer: [Stripe revenue attribution](/learn/stripe-revenue-attribution/)."
+    },
+    {
+      "id": "who-should-self-host",
+      "title": "Who should self-host — and who should not",
+      "content": "**Self-host when most of these are true**\n\n- A named person already patches Linux, Docker, or PHP and **tests backups**.\n- You must keep the analytics database in a **specific country, VPC, or air-gapped** network. Matomo On-Premise and Umami/Plausible CE let you pick the metal; Matomo Cloud is Frankfurt; Plausible Cloud is EU-owned infrastructure in Germany (visitor data, per Plausible).\n- Hit or event volume would push **Matomo Cloud** into high published tiers or a sales call, and you can staff the box instead.\n- You need to **audit or fork** the tracker (open-source web analytics), not only export CSVs.\n- You accept **feature lag** (Plausible CE twice yearly; Matomo plugins extra).\n\n**Do not self-host when most of these are true**\n\n- Nobody is on-call for a failed upgrade or a full disk.\n- The alternative is a **$9–$20** hosted plan and your engineer time is the scarce resource.\n- You need **email support, SLA, or SSO** the CE/Community edition does not include.\n- You need **Cloud-only** features (Plausible funnels/journeys/SSO; Umami email reports; Matomo Cloud’s bundled premium set without plugin shopping).\n- You wanted “privacy” but not “I am the processor now.”\n\n**Middle path:** use **Matomo Cloud, Umami Cloud, or Plausible Cloud**. You still get the brand and much of the data-ownership story (Matomo Cloud still claims 100% data ownership; Plausible Cloud keeps data in the EU) without running MySQL. That is **hosted**, not self-hosted — which is the correct label if the search was “matomo hosting” and you do not have a sysadmin.\n\n**No-server path:** [Fathom](/tools/fathom/) or [DataFast](/tools/datafast/)."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "How to choose in one pass",
+      "content": "1. **If you will not run a server** — [Fathom](https://usefathom.com/ref/U4V5UE) for cookieless traffic and many sites on one plan; [DataFast](https://datafa.st/?via=analyticsvs) if Stripe (or similar) revenue by channel is the question; Plausible Cloud or Umami Cloud if you already prefer those dashboards.\n2. **If you need Matomo-depth reporting** (ecommerce, goals, tag manager, GA-like dimensions) — [Matomo Cloud](/tools/matomo/) unless residency or hit economics force On-Premise. Compare [Plausible vs Matomo](/compare/matomo-vs-plausible/).\n3. **If you want MIT, Docker, and a lean UI** — self-host [Umami](/tools/umami/) or start on **Umami Cloud Hobby** ($0 / 100k events). Compare [Plausible vs Umami](/compare/plausible-vs-umami/).\n4. **If you want Plausible’s dashboard in the EU without ops** — Plausible Cloud. Self-host **CE** only after you read the Cloud-vs-CE table on [Plausible’s self-hosting page](https://plausible.io/docs/self-hosting).\n5. **If the job is product analytics** — not this page. See [PostHog](/tools/posthog/).\n\n### Sources checked 18 November 2026\n\nEvery pricing, license, or hosting claim above links a page opened **today**:\n\n- [Matomo pricing](https://matomo.org/pricing/) — Cloud vs On-Premise, Cloud includes hosting/updates/backups, Frankfurt, bundle EUR prices\n- [Matomo USD Cloud table](https://matomo.org/pricingforai/) — $26 at 50k hits through $975 at 5M\n- [Matomo On-Premise requirements](https://matomo.org/faq/on-premise/matomo-requirements/) — CPU/RAM/disk by traffic; PHP/MySQL versions\n- [Matomo installation](https://matomo.org/docs/installation/)\n- [Matomo LEGALNOTICE](https://github.com/matomo-org/matomo/blob/master/LEGALNOTICE) — GPL v3 or later\n- [Umami Cloud pricing](https://umami.is/pricing) — Hobby/Pro/Business; MIT self-host; extra-event rates\n- [Umami Cloud vs self-hosted](https://docs.umami.is/docs/cloud) — email reports Cloud-only; heatmaps/replays in OSS at listed versions\n- [Umami MIT LICENSE](https://github.com/umami-software/umami/blob/master/LICENSE)\n- [Plausible homepage](https://plausible.io/) — Starter $9 / Growth $14 / Business $19 at 10k pageviews\n- [Plausible subscription plans](https://plausible.io/docs/subscription-plans)\n- [Plausible self-hosting / CE](https://plausible.io/docs/self-hosting) — AGPLv3, twice-yearly CE, Cloud-only features\n- [Fathom pricing](https://usefathom.com/pricing) and [Fathom Lite](https://usefathom.com/pricing/lite)\n- [DataFast homepage](https://datafa.st/#pricing) — Starter/Growth shape; dollars from AnalyticsVS directory snapshot 11 November 2026"
+    }
+  ]
+}

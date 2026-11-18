@@ -75,6 +75,12 @@
     "self_hosted": true,
     "open_source": true
   },
+  "relatedLinks": [
+    {
+      "href": "/learn/self-hosted-web-analytics/",
+      "label": "Self-hosted web analytics (Matomo, Umami, Plausible CE)"
+    }
+  ],
   "seoTitle": "Matomo Review 2026: Cloud vs Self-Hosted, Hosting & Pricing",
   "seoDescription": "Matomo Cloud vs On-Premise compared: hosting options, real costs, backups, GDPR controls and when self-hosting Matomo is worth the ops work in 2026."
 }

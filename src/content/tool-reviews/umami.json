@@ -25,7 +25,7 @@
       "id": "open-source",
       "title": "Open source & self-hosting",
       "dimension": "deployment",
-      "content": "Umami is **MIT-licensed** and widely deployed via Docker, cloud templates, and Umami Cloud (managed offering). Self-hosting means your analytics DB lives where you put it — useful for side projects avoiding recurring SaaS fees.\n\nCommunity support is strong; enterprise support is not the model. Plan for upgrades, database backups, and monitoring yourself on self-hosted.\n\nUmami Cloud provides a middle path if you like the product but not the ops."
+      "content": "Umami is **MIT-licensed** and widely deployed via Docker, cloud templates, and Umami Cloud (managed offering). Self-hosting means your analytics DB lives where you put it — useful for side projects avoiding recurring SaaS fees.\n\nCommunity support is strong; enterprise support is not the model. Plan for upgrades, database backups, and monitoring yourself on self-hosted.\n\nUmami Cloud provides a middle path if you like the product but not the ops. For the real cost of self-hosting versus Umami Cloud, Matomo, and Plausible CE, see [self-hosted web analytics](/learn/self-hosted-web-analytics/)."
     },
     {
       "id": "privacy",

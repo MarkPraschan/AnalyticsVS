@@ -1,0 +1,151 @@
+{
+  "title": "Hotjar pricing explained: plans, session limits, and cheaper pairings",
+  "slug": "hotjar-pricing",
+  "description": "Hotjar pricing explained: Free is $0; Growth starts at $39/month billed annually. Session vs recording limits, and cheaper Fathom or DataFast pairings.",
+  "seoTitle": "Hotjar Pricing 2026: Plans, Session Limits & Real Cost",
+  "answerUnderTitle": "Hotjar no longer publishes Plus/Business daily-session prices. Public Hotjar pricing is Contentsquare Experience Analytics: Free is $0; Growth starts at $39/month billed annually ($49/month monthly) for 7,000 sessions. Pro and Enterprise are custom. Buy heatmaps on a small Hotjar tier and put traffic analytics on Fathom or DataFast instead of treating Hotjar as your whole stack.",
+  "publishedOn": "2026-11-19",
+  "category": "primers",
+  "status": "published",
+  "quickAnswer": "**Hotjar pricing** is **Contentsquare Experience Analytics** pricing. **Free** is **$0** with up to **200,000 monthly sessions** and **5% replay capture (max 10,000)**. **Growth** starts at **$39/month** billed annually (**$49/month** monthly) for **7,000 sessions**. Higher Growth bands are session packs with a replay cap that plateaus around **20,000** recordings until the top published steps. **Experience Platform Pro and Enterprise have no public dollar amount.** Hotjar does not replace [web analytics](/learn/web-vs-product-analytics/). Pair [Fathom](/tools/fathom/) or [DataFast](/tools/datafast/) for traffic, and keep Hotjar Free or a small Growth band for [heatmaps](/learn/website-heatmaps/) and recordings.",
+  "keyTakeaways": [
+    "hotjar.com/pricing redirects to Contentsquare. Quote Experience Analytics Free and Growth, not the old Plus/Business names.",
+    "Free is $0 with 200k monthly sessions, but replay is sampled (5%, max 10k) and data access is 1 month.",
+    "Growth’s advertised start is $39/month billed annually ($49/month monthly) at 7k sessions — not more sessions than Free. You pay for features, retention, and a higher replay share.",
+    "Sessions and recordings are different meters. Growth replay stays at 20k for most published bands above 20k sessions.",
+    "Do not buy Hotjar as channel analytics. Fathom or DataFast cover traffic cheaper; Hotjar covers behavior.",
+    "Our Hotjar directory JSON still snapshots Plus/Business daily-session bands from August 2026. This article follows the vendor page checked 19 November 2026."
+  ],
+  "heroCta": {
+    "toolId": "hotjar",
+    "headline": "Need heatmaps — not a bigger analytics invoice?",
+    "note": "Start on Experience Analytics Free if sampled recordings are enough. Move to Growth when you need 13-month access, zone-based heatmaps, or a higher replay share. Keep Fathom or DataFast for traffic so you are not paying Hotjar session packs for pageviews.",
+    "label": "Try Hotjar"
+  },
+  "toolShortlistHeading": "Stack this instead of one expensive overlay",
+  "faq": [
+    {
+      "question": "How much does Hotjar cost?",
+      "answer": "Public self-serve Hotjar pricing is Contentsquare Experience Analytics. Free is $0. Growth starts at $39/month when billed annually ($49/month billed monthly) for 7,000 monthly sessions. Higher Growth session packs list from $69 to $739 per month on the vendor page. Pro and Enterprise are custom quotes."
+    },
+    {
+      "question": "Is there a free Hotjar plan?",
+      "answer": "Yes. Experience Analytics Free is $0 forever, with up to 200,000 monthly sessions, 1 project, 1 month of analytics data access, heatmaps, funnels, basic surveys, and session replay sampled at 5% of sessions (max 10,000). New accounts also get a 15-day Growth trial without a card."
+    },
+    {
+      "question": "What is the difference between Hotjar sessions and recordings?",
+      "answer": "A session is a visit Contentsquare uses for heatmaps, funnels, and other analysis (it ends after 30 minutes of inactivity). A recording (session replay) is a reconstructed playback of a visit. Free captures 5% of sessions as replays, max 10,000. Growth lists a matching replay count at 7k–15k sessions, then a 20,000 replay floor on most larger published packs. Hitting the session cap on Free or Growth stops new heatmap and funnel data until the next monthly reset."
+    },
+    {
+      "question": "Why does Hotjar Free include more sessions than Growth?",
+      "answer": "Growth’s cheapest published pack is 7,000 sessions — fewer than Free’s 200,000. You are not buying more raw sessions at the entry price. You are buying 13-month data access, 3 projects, zone-based heatmaps, journey analysis, a higher replay share, and Growth AI features. If you only need sampled recordings, Free can be the cheaper fit."
+    },
+    {
+      "question": "Does Hotjar pricing include website analytics like Google Analytics?",
+      "answer": "No. Hotjar is behavior analytics: heatmaps, session recordings, and surveys. It does not replace channel, campaign, or Stripe revenue reports. Keep GA4, Fathom, or DataFast for traffic. See Google Analytics vs Hotjar and the pricing calculator for stack cost."
+    },
+    {
+      "question": "Is Fathom or DataFast cheaper than Hotjar Growth?",
+      "answer": "For traffic analytics, usually yes — and they are a different product. Hosted Fathom starts at $15/month for 100,000 pageviews. DataFast Starter snapshots at $9/month for 10,000 events. Neither includes heatmaps. A common cheaper pairing is Fathom or DataFast plus Hotjar Free (or a small Growth band) instead of scaling Hotjar session packs to cover all traffic."
+    }
+  ],
+  "relatedComparisons": [
+    "posthog-vs-hotjar",
+    "google-analytics-vs-hotjar",
+    "fathom-vs-datafast"
+  ],
+  "relatedTools": [
+    "hotjar",
+    "fathom",
+    "datafast",
+    "posthog",
+    "google-analytics-4"
+  ],
+  "relatedGuides": [
+    "analytics-for-a-saas-startup"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/tools/hotjar/",
+      "label": "Hotjar tool profile"
+    },
+    {
+      "href": "/learn/hotjar-alternatives/",
+      "label": "Hotjar alternatives"
+    },
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/compare/google-analytics-vs-hotjar/",
+      "label": "Google Analytics vs Hotjar"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
+    },
+    {
+      "href": "/tools/fathom/",
+      "label": "Fathom Analytics profile"
+    },
+    {
+      "href": "/tools/datafast/",
+      "label": "DataFast profile"
+    },
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
+    },
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps primer"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "hotjar",
+      "bestFor": "Marketing and UX teams that need heatmaps, sampled or Growth-tier recordings, and on-page surveys — not channel reports."
+    },
+    {
+      "toolId": "fathom",
+      "bestFor": "Cookieless traffic analytics next to Hotjar. $15/month at 100k pageviews; every hosted plan includes the same features. Referred customers get $10 off their first invoice."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS that wants Stripe (or similar) revenue by channel, then Hotjar Free only on checkout or pricing URLs that need a click map."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-hotjar-pricing-is",
+      "title": "What “Hotjar pricing” actually means in 2026",
+      "content": "**Hotjar is sold as Contentsquare Experience Analytics.** On **19 November 2026**, [hotjar.com/pricing](https://www.hotjar.com/pricing/) **301-redirects** to [contentsquare.com/pricing](https://www.contentsquare.com/pricing/) (`utm_source=hotjar-pricing`). The public plan names are **Free**, **Growth**, **Pro**, and **Enterprise** — not Plus or Business.\n\nOur [Hotjar profile](/tools/hotjar/) still snapshots older **Plus / Business** daily-session bands from **August 2026**. That JSON disagrees with the vendor page. **This article follows the vendor page** and flags the directory table as stale. Do not budget from the snapshot.\n\nHotjar remains a **behavior** product: [heatmaps](/learn/website-heatmaps/), session replays, funnels, and surveys. It is not web analytics. [Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/) is the job split. [PostHog vs Hotjar](/compare/posthog-vs-hotjar/) is the product-analytics split.\n\nAffiliate visit links on AnalyticsVS use the configured Contentsquare partner URL — see [disclosure](/disclosure/).\n\n### The four public tiers\n\n- **Experience Analytics Free** — self-serve, **$0**, sampled replay.\n- **Experience Analytics Growth** — self-serve session packs with a published USD (or EUR in Europe) price.\n- **Experience Platform Pro** — **Custom**; the page lists “From 1m monthly sessions,” no dollar amount.\n- **Experience Platform Enterprise** — **Custom**; unlimited projects, SLAs, no public list price.\n\nNew accounts get a **15-day Growth trial** with **no payment details** and **no auto-charge**. After the trial you pick Free or a paid plan. Growth also advertises a **30-day money-back** window."
+    },
+    {
+      "id": "free-vs-growth-at-a-glance",
+      "title": "Free vs Growth vs Platform, at a glance",
+      "content": "Figures below are from the [Contentsquare pricing](https://www.contentsquare.com/pricing/) page opened **19 November 2026** (the same page [Hotjar pricing](https://www.hotjar.com/pricing/) redirects to). Currency: Growth plans bill **USD** outside Europe and **EUR** for the European continent (the UK is billed in EUR, per the vendor FAQ).\n\n| Plan | Public price (checked 19 Nov 2026) | Monthly sessions | Replay capture | Analytics data access | Projects |\n|---|---|---|---|---|---|\n| Experience Analytics **Free** | **$0** | Up to **200k** | **5%** of sessions, **max 10k** | **1 month** | **1** |\n| Experience Analytics **Growth** | From **$39/mo** annual / **$49/mo** monthly | Published packs **7k–200k**; comparison table lists **7k–10m**; **+240k** is “Let’s talk” | Matching replays at 7k–15k sessions; then **20k** on most packs (150k → **22k**, 200k → **30k**). Feature table: **15% captured, min 20k** | **13 months** | **3** |\n| Experience Platform **Pro** | **Custom** (no list price) | From **1m** | Up to **100%** | **13 months** | Up to **6** |\n| Experience Platform **Enterprise** | **Custom** (no list price) | Custom | Up to **100%** | **13 months** | Unlimited |\n\nGrowth also adds **zone-based heatmaps**, **journey analysis**, **impact quantification**, Sense chat, and replay/heatmap summaries. Free includes replays, heatmaps, funnels, error and performance monitoring, and **basic surveys**.\n\nPrices are **per account in one region**, not per site. Multiple domains can share one project; session and response allowances are **account-wide**. Free cannot add a second project.\n\nAnnual billing: **20% off before VAT** when you pay **in-app by card or PayPal**. Invoice payments do **not** get that 20%. There is a further **10%** off the lowest selected plan if you buy **two** paid Growth products (Experience Analytics Growth **and** Voice of Customer Growth).\n\nVoice of Customer is a **separate** product. Its Free tier is **100 monthly responses**. Paid VoC Growth is advertised **from $79/month**; the page’s SKU list starts at **$99/month** for **500 responses** (the $79 figure matches **20%** off that $99 list). Do not mix VoC response packs into Experience Analytics session math."
+    },
+    {
+      "id": "sessions-vs-recordings",
+      "title": "Session limits vs recording limits",
+      "content": "This is where Hotjar invoices surprise people. **Sessions** and **recordings** are not the same quota.\n\nContentsquare’s FAQ (same pricing page, checked **19 November 2026**): a **session** is a visitor’s journey on the site (or app). It ends after **30 minutes of inactivity**. Sessions feed heatmaps, funnels, replays, charts, and dashboards. **Session replay** reconstructs one visit so you can watch clicks, hovers, and swipes.\n\n### What happens when you hit the cap\n\nOn **Free and Growth**, if you reach the **session** limit: **you will not get new heatmap or funnel data** until the next monthly reset. The vendor says to pick a plan that can capture every session you care about — or you wait.\n\nThat is not the same as “recordings ran out.” You can still be inside a replay cap while heatmap ingest has already stopped, or the reverse, depending on the pack.\n\n### Free: lots of sessions, few recordings\n\nFree advertises **200,000 monthly sessions** at **$0**, with **100% analytics collection** of those sessions. Replay is **5% of sessions, max 10,000**. The packaging data on that page also labels Free with **10k replays**. You can analyze a large slice of traffic as heatmaps and still only **watch** a sample.\n\n### Growth: you often pay for features, not more sessions\n\nEntry Growth is **7,000 sessions** — **fewer sessions than Free**. The packaging data pairs that pack with **7,000 replays** (full capture of the purchased 7k). At **20,000 sessions and above**, listed replay counts sit at **20,000** until **150k / 200k**. The comparison table’s **15% (min 20k)** rule is the high-level capture claim; the SKU secondary values are the concrete replay numbers on the same page.\n\nFilter recordings to conversion URLs. Paying for a 100k session pack so you can *watch* 20k replays is a different decision from paying so heatmaps include every visit.\n\nReplay **access** (how long you can open old recordings) is **1 month** on Free, **2 months** on Growth (Platform lists longer windows). Analytics **data access** is the 1-month vs 13-month row in the table above — that is not the same as replay storage."
+    },
+    {
+      "id": "what-growth-really-costs",
+      "title": "What each Growth session pack actually lists",
+      "content": "The Growth card on [Contentsquare pricing](https://www.contentsquare.com/pricing/) (checked **19 November 2026**) advertises **$39/month** with yearly billing selected and **$49/month** as the monthly counterpart. That $49 is the **7,000 session** SKU.\n\nThe same page’s plan data lists these **monthly list prices in USD** (Pay monthly). Annual card/PayPal is **20% off before VAT**; we only quote the rounded **$39** the page shows for the 7k pack. We do **not** invent rounded annual prices for the other SKUs.\n\n| Monthly sessions | Monthly list (USD) | Listed replays |\n|---|---|---|\n| 7k | **$49** (annual advertised **$39**) | 7k |\n| 10k | **$69** | 10k |\n| 15k | **$99** | 15k |\n| 20k | **$119** | 20k |\n| 25k | **$139** | 20k |\n| 30k | **$159** | 20k |\n| 35k | **$179** | 20k |\n| 45k | **$219** | 20k |\n| 60k | **$279** | 20k |\n| 75k | **$339** | 20k |\n| 85k | **$369** | 20k |\n| 100k | **$409** | 20k |\n| 120k | **$469** | 20k |\n| 150k | **$569** | 22k |\n| 200k | **$739** | 30k |\n| +240k | **Let’s talk** | not listed |\n\nRead the replay column before you “just pick 100k sessions.” At **100k sessions / $409/month**, the listed replay count is still **20k**.\n\nPro and Enterprise stay **Custom**. We did not find a public dollar amount for them on **19 November 2026**, so this article does not guess.\n\nThe [pricing calculator](/calculators/pricing/) still uses the **stale Plus/Business directory snapshot**. Use it to compare **Fathom / DataFast / other directory tools**. Do not treat its Hotjar row as this table."
+    },
+    {
+      "id": "cheaper-pairings",
+      "title": "Cheaper pairings: Fathom or DataFast + Hotjar Free/low Growth",
+      "content": "The expensive mistake is using Hotjar as **both** traffic analytics and UX overlay. Heatmaps do not answer “which campaign sent this visit?” [Web vs product analytics](/learn/web-vs-product-analytics/) is the framing. Two AnalyticsVS affiliates cover the traffic side with **published SaaS prices**.\n\n### Fathom — cookieless pageviews next to Hotjar\n\n[Fathom Analytics](https://usefathom.com/ref/U4V5UE) is hosted, cookie-free traffic analytics. [Fathom pricing](https://usefathom.com/pricing) (checked **19 November 2026**):\n\n- **$15/month** up to **100,000** monthly pageviews\n- **$25** / 200k · **$45** / 500k · **$60** / 1M · **$100** / 2M · **$140** / 5M · **$200** / 10M (USD)\n- Higher published steps up to **25M**, then custom\n- **Every plan includes the same features** and **at least 50 sites**\n- Extra sites in packs of 50 for **$10/month**\n- Custom events **count toward** the pageview allowance\n- **7-day free trial** (card required)\n- Fathom states **no cookie banners required** for its product; confirm with counsel\n\nFathom has **no heatmaps and no session replay**. That is the point of the pairing: [Fathom](/tools/fathom/) for channels, Hotjar for a few URLs. Head-to-head with revenue analytics: [Fathom vs DataFast](/compare/fathom-vs-datafast/).\n\n### DataFast — revenue by channel, overlay only where checkout breaks\n\n[DataFast](https://datafa.st/?via=analyticsvs) joins traffic to **payments**. It is the fit when the weekly question is which channel produced **paying** customers.\n\nThe [homepage pricing widget](https://datafa.st/#pricing) (opened **19 November 2026**) still lists **Starter vs Growth** and event bands (**10k, 100k, 200k, 1M+**). Starter is **1 website / 1 seat / 3 years retention**; Growth is **30 websites / 30 seats / 5+ years**. Trial: **14 days, no card**.\n\nDollar amounts are not a static HTML table. Our [directory snapshot](/tools/datafast/) of that widget (**11 November 2026**) lists Starter **$9/month at 10k events**, then **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**. Growth starts **$19/month at 10k events**. Events are **pageviews, payments, and goals**. Confirm the widget before you buy.\n\nDataFast does **not** include heatmaps. Primer: [Stripe revenue attribution](/learn/stripe-revenue-attribution/).\n\n### Example stacks (illustrative, not a quote)\n\n| Job | Typical stack | Why it is usually cheaper |\n|---|---|---|\n| Blog or marketing site + occasional UX pass | **Fathom** + **Hotjar Free** | Fathom bills pageviews; Hotjar Free already includes sampled replays |\n| Same site, weekly recording review on key URLs | **Fathom** + **Hotjar Growth 7k–15k** | You pay Hotjar for replay share and 13-month access, not for channel reports |\n| Indie SaaS asking which ads made money | **DataFast** + **Hotjar Free** on pricing/checkout | DataFast owns revenue; overlay only on the URLs a recording would change |\n| Product funnels, flags, experiments | **[PostHog](/tools/posthog/)** (see [PostHog vs Hotjar](/compare/posthog-vs-hotjar/)) | Different product — do not scale Hotjar sessions to fake product analytics |\n| Leaving Hotjar entirely | [Hotjar alternatives](/learn/hotjar-alternatives/) | Clarity, Mouseflow, Lucky Orange, etc. — different vendors, different meters |\n\nRun directory tools through the [pricing calculator](/calculators/pricing/). Remember the Hotjar calculator row is the **old snapshot** until we refresh the JSON."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "Stay on Free, buy Growth, or pair a traffic tool",
+      "content": "1. **Stay on Hotjar Free** if sampled recordings (5%, max 10k) and 1-month access are enough, and someone actually watches them. Profile: [Hotjar](/tools/hotjar/).\n2. **Buy Growth** when you can name the Free ceiling you hit: replay sample too thin, 1-month retention too short, you need a second/third project, or you want zone-based heatmaps. Start at the **7k** pack unless heatmap coverage of every session is the requirement.\n3. **Do not climb session packs to replace GA4/Fathom.** Add [Fathom](https://usefathom.com/ref/U4V5UE) or [DataFast](https://datafa.st/?via=analyticsvs) for traffic or Stripe revenue.\n4. **Get a Platform quote** only if you need Pro/Enterprise features the public page lists (up to 100% capture, more projects, RUM/error analysis as packaged). There is **no list price** to plug into a spreadsheet.\n5. **Switch tools** when the problem is “I want a free overlay” or “replay must follow product events.” That is [Hotjar alternatives](/learn/hotjar-alternatives/) and [PostHog vs Hotjar](/compare/posthog-vs-hotjar/), not a larger Growth SKU.\n\n### Sources checked today\n\nEvery Hotjar/Contentsquare price, session cap, and replay figure above was taken from pages opened **19 November 2026**:\n\n- [Hotjar pricing](https://www.hotjar.com/pricing/) — **301** to Contentsquare with `utm_source=hotjar-pricing`\n- [Contentsquare pricing](https://www.contentsquare.com/pricing/) — Free/Growth/Pro/Enterprise, session packs, replay capture, billing FAQ\n- [Fathom pricing](https://usefathom.com/pricing) — hosted pageview bands\n- [DataFast homepage pricing widget](https://datafa.st/#pricing) — Starter vs Growth packaging; dollar bands from the AnalyticsVS directory snapshot dated **11 November 2026**\n- Directory (stale Hotjar snapshot, flagged above): [Hotjar](/tools/hotjar/), [Fathom](/tools/fathom/), [DataFast](/tools/datafast/)\n- Comparisons: [PostHog vs Hotjar](/compare/posthog-vs-hotjar/), [Google Analytics vs Hotjar](/compare/google-analytics-vs-hotjar/), [Fathom vs DataFast](/compare/fathom-vs-datafast/)\n\nUnverifiable, so omitted: Pro/Enterprise dollars; rounded annual prices for Growth SKUs above 7k; live DataFast widget dollars beyond the 11 November snapshot; any Plus/Business daily-session price as current."
+    }
+  ]
+}

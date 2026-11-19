@@ -1,0 +1,82 @@
+{
+  "title": "Matomo vs Fathom",
+  "description": "Matomo vs Fathom — compare deep, self-hostable web analytics and data ownership against cookieless hosted privacy analytics for marketing sites.",
+  "tools": ["fathom", "matomo"],
+  "category": "privacy-analytics",
+  "winner": null,
+  "verdict": "Choose Fathom when you want cookieless, hosted web analytics with a short setup and a dashboard people will actually open. Choose Matomo when you need GA-like reporting depth, ecommerce and heatmaps/session tools, EU-hosted Cloud data, or a self-hosted install you control.",
+  "quickAnswer": "This page answers both **Matomo vs Fathom** and **Fathom vs Matomo**. **Fathom** is the better fit for a marketing site that needs simple traffic, UTMs, and goals without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites on one Cloud plan, heatmaps/session recording, or data on infrastructure you own.",
+  "bottomLine": "Most small marketing sites should start with **Fathom** (hosted plans start at $15/month for 100K pageviews on [Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. **Matomo Cloud** starts at €29/month excl. tax for 50K hits on [Matomo pricing](https://matomo.org/pricing/) (checked 2026-11-19); On-Premise Community core is free, with paid premium plugins/bundles.",
+  "faq": [
+    {
+      "question": "Matomo vs Fathom: which should I pick?",
+      "answer": "Pick Fathom if you want hosted, cookieless traffic analytics with a short setup. Pick Matomo if you need deeper reporting, ecommerce, heatmaps/session recording, many sites, or a self-hosted install. For another hosted privacy peer, see Plausible vs Fathom; for Matomo against a lighter privacy SaaS, see Matomo vs Plausible."
+    },
+    {
+      "question": "Is Fathom more private than Matomo?",
+      "answer": "Fathom is designed as cookieless privacy-first analytics and states no cookie banner is required for its tracking ([Fathom](https://usefathom.com/), checked 2026-11-19). Matomo can be configured for strict privacy (IP anonymization, cookieless options, opt-out) and Cloud data is stored in Frankfurt; On-Premise lets you choose the server location ([Matomo privacy](https://matomo.org/privacy/), [Matomo pricing](https://matomo.org/pricing/), checked 2026-11-19). Privacy depends on configuration — get legal advice for your case."
+    },
+    {
+      "question": "Which is cheaper?",
+      "answer": "At low marketing-site traffic, hosted Fathom often looks simpler: $15/month for 100K pageviews ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Matomo Cloud starts at €29/month excl. tax for 50K hits and includes up to 30 websites ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-19). Self-hosted Matomo Community has no license fee for core features; you pay for the server and ops. Compare your volume on our pricing calculator, then confirm on each vendor page."
+    },
+    {
+      "question": "Can I self-host both?",
+      "answer": "Hosted Fathom Analytics is cloud-only. Fathom Lite is a separate free self-hosted product with fewer features and no vendor support ([Fathom Lite](https://usefathom.com/pricing/lite), checked 2026-11-19). Matomo On-Premise is the full self-hosted path; Matomo Cloud is the managed alternative ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-19)."
+    },
+    {
+      "question": "Which replaces Google Analytics more completely?",
+      "answer": "Matomo. Cloud plans include deeper web analytics features such as funnels, heatmaps and session recording, and A/B testing among others ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-19). Fathom covers pageviews, referrers, UTMs, events, and revenue tracking for marketing sites ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19) — not a GA-style suite."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "What you are actually choosing",
+      "content": "This is not two skins of the same dashboard. Fathom is a lightweight hosted privacy analytics product. Matomo is a full web analytics suite you can run yourself or buy as Cloud. If the weekly question is which pages and channels brought traffic, Fathom is enough. If the weekly question is ecommerce, custom dimensions, heatmaps, or data that never leaves your servers, look at Matomo."
+    },
+    {
+      "title": "Pricing checked today",
+      "content": "Entry prices quoted above were checked on 2026-11-19 against [Fathom pricing](https://usefathom.com/pricing) and [Matomo pricing](https://matomo.org/pricing/). Mid-tier amounts change; verify the band that matches your hits or pageviews before you buy. Our [pricing calculator](/calculators/pricing/) uses directory snapshots that may lag the vendor page."
+    }
+  ],
+  "alsoConsider": [
+    {
+      "toolId": "plausible",
+      "note": "Another cookieless hosted privacy analytics option if you are weighing Fathom against a peer SaaS — or Matomo against a lighter cloud tool.",
+      "compareHref": "/compare/plausible-vs-fathom/",
+      "compareLabel": "Plausible vs Fathom"
+    },
+    {
+      "toolId": "datafast",
+      "note": "Best when the question is which marketing channel drove paid customers (Stripe and similar), not only which pages got traffic."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-vs-matomo/",
+      "label": "Google Analytics vs Matomo"
+    },
+    {
+      "href": "/compare/matomo-vs-plausible/",
+      "label": "Matomo vs Plausible"
+    },
+    {
+      "href": "/compare/plausible-vs-fathom/",
+      "label": "Plausible vs Fathom"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/best-privacy-first-analytics-tools/",
+      "label": "Best privacy-first web analytics tools"
+    },
+    {
+      "href": "/learn/ga4-alternatives-gdpr/",
+      "label": "GA4 alternatives for GDPR"
+    }
+  ],
+  "seoTitle": "Matomo vs Fathom (2026): Privacy, Hosting, Price",
+  "seoDescription": "Matomo vs Fathom compared: self-hosting and deep web analytics versus cookieless hosted privacy analytics, with pricing and when each tool wins."
+}

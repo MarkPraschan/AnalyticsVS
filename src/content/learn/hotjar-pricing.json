@@ -7,6 +7,9 @@
   "publishedOn": "2026-11-19",
   "category": "primers",
   "status": "published",
+  "featuredImage": "/learn/hotjar-pricing.webp",
+  "featuredImageAlt": "Pixel-art Hotjar market stall selling firefly jars that get pricier as they get bigger",
+  "ogImage": "/learn/hotjar-pricing-og.jpg",
   "quickAnswer": "**Hotjar pricing** is **Contentsquare Experience Analytics** pricing. **Free** is **$0** with up to **200,000 monthly sessions** and **5% replay capture (max 10,000)**. **Growth** starts at **$39/month** billed annually (**$49/month** monthly) for **7,000 sessions**. Higher Growth bands are session packs with a replay cap that plateaus around **20,000** recordings until the top published steps. **Experience Platform Pro and Enterprise have no public dollar amount.** Hotjar does not replace [web analytics](/learn/web-vs-product-analytics/). Pair [Fathom](/tools/fathom/) or [DataFast](/tools/datafast/) for traffic, and keep Hotjar Free or a small Growth band for [heatmaps](/learn/website-heatmaps/) and recordings.",
   "keyTakeaways": [
     "hotjar.com/pricing redirects to Contentsquare. Quote Experience Analytics Free and Growth, not the old Plus/Business names.",

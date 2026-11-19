@@ -67,6 +67,10 @@
   ],
   "relatedLinks": [
     {
+      "href": "/learn/hotjar-pricing/",
+      "label": "Hotjar pricing explained"
+    },
+    {
       "href": "/learn/website-heatmaps/",
       "label": "Website heatmaps primer"
     },
@@ -163,7 +167,7 @@
     {
       "id": "contentsquare",
       "title": "Contentsquare — the platform behind Hotjar",
-      "content": "Hotjar sits inside Contentsquare. The [Hotjar pricing](https://www.hotjar.com/pricing/) and [Contentsquare pricing](https://www.contentsquare.com/pricing/) pages (both checked 9 November 2026) show the same **Experience Analytics** Free and Growth plans, then **Experience Platform** Pro and Enterprise without a public dollar amount.\n\nExperience Analytics **Free**: **$0**, up to **200k** monthly sessions, 1 project, 1 month data access, heatmaps and replays. Replay capture on Free is **5% of sessions (max 10k)**. **Growth**: **$39/month** billed annually (**$49/month** monthly), 13 months data access, 3 projects, zone-based heatmaps. New accounts get a **15-day** Growth trial. Annual card/PayPal billing is advertised as **20%** off vs monthly.\n\nAffiliate visit links on AnalyticsVS use the configured Contentsquare partner URL — see [disclosure](/disclosure/).\n\n**Choose Contentsquare Platform** when a company already needs journey analysis, RUM, and sales-led packaging beyond Growth. **Choose Hotjar/Experience Analytics Growth** when a marketing team still wants self-serve heatmaps. Do not treat “Contentsquare” as a secretly cheaper Hotjar clone — it is the parent catalog."
+      "content": "Hotjar sits inside Contentsquare. For current session packs, replay caps, and cheaper Fathom/DataFast pairings, use [Hotjar pricing explained](/learn/hotjar-pricing/). The [Hotjar pricing](https://www.hotjar.com/pricing/) and [Contentsquare pricing](https://www.contentsquare.com/pricing/) pages (both checked 9 November 2026; Hotjar dollars re-checked 19 November 2026 on the dedicated pricing article) show the same **Experience Analytics** Free and Growth plans, then **Experience Platform** Pro and Enterprise without a public dollar amount.\n\nExperience Analytics **Free**: **$0**, up to **200k** monthly sessions, 1 project, 1 month data access, heatmaps and replays. Replay capture on Free is **5% of sessions (max 10k)**. **Growth**: **$39/month** billed annually (**$49/month** monthly), 13 months data access, 3 projects, zone-based heatmaps. New accounts get a **15-day** Growth trial. Annual card/PayPal billing is advertised as **20%** off vs monthly.\n\nAffiliate visit links on AnalyticsVS use the configured Contentsquare partner URL — see [disclosure](/disclosure/).\n\n**Choose Contentsquare Platform** when a company already needs journey analysis, RUM, and sales-led packaging beyond Growth. **Choose Hotjar/Experience Analytics Growth** when a marketing team still wants self-serve heatmaps. Do not treat “Contentsquare” as a secretly cheaper Hotjar clone — it is the parent catalog."
     },
     {
       "id": "matomo",

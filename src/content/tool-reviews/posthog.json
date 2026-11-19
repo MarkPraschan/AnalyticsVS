@@ -62,8 +62,8 @@
     }
   ],
   "sources": [
-    { "label": "PostHog pricing", "url": "https://posthog.com/pricing", "checkedOn": "2026-08-27" },
+    { "label": "PostHog pricing", "url": "https://posthog.com/pricing", "checkedOn": "2026-11-19" },
     { "label": "PostHog docs", "url": "https://posthog.com/docs", "checkedOn": "2026-08-27" },
-    { "label": "Self-host docs", "url": "https://posthog.com/docs/self-host", "checkedOn": "2026-08-27" }
+    { "label": "Self-host docs", "url": "https://posthog.com/docs/self-host", "checkedOn": "2026-11-19" }
   ]
 }

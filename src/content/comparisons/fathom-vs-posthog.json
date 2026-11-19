@@ -1,0 +1,94 @@
+{
+  "title": "Fathom vs PostHog",
+  "description": "Fathom vs PostHog — compare cookieless hosted web analytics for marketing sites against product analytics with session replay, feature flags, and experiments.",
+  "tools": ["fathom", "posthog"],
+  "category": "product-analytics",
+  "winner": null,
+  "verdict": "Fathom is a privacy-first web analytics product for marketing sites that need clean traffic and goal reports. PostHog is a product analytics suite for teams that need events, funnels, retention, session replay, feature flags, and experiments.",
+  "quickAnswer": "**Fathom** is the better fit if you need **simple, privacy-respecting website analytics**. **PostHog** is the better fit if you need **in-product behavior, flags, experiments, and session replay** — and you are willing to invest in event instrumentation.",
+  "bottomLine": "Do not treat these as peers unless you only need pageviews. For blogs and marketing sites, Fathom wins on simplicity, cookieless posture, and a light script. For product-led SaaS, PostHog wins on capability. Hosted Fathom starts at $15/month for 100K pageviews ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). PostHog Cloud includes 1M analytics events and 5K session recordings free every month, then usage-based pricing ([PostHog pricing](https://posthog.com/pricing), checked 2026-11-19).",
+  "faq": [
+    {
+      "question": "Can Fathom replace PostHog?",
+      "answer": "No for product teams. Fathom does not offer feature flags, experiments, session replay, or deep retention/cohort product analytics. It covers marketing-site traffic, UTMs, events, and revenue tracking ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19)."
+    },
+    {
+      "question": "Can PostHog replace Fathom?",
+      "answer": "For basic website traffic, yes — but it is usually overkill. If you only need referrers and pageviews, Fathom is simpler and designed as cookieless privacy analytics ([Fathom](https://usefathom.com/), checked 2026-11-19). PostHog’s free Cloud tier can cover light event volume, but autocapture, identified users, and replay increase privacy review surface."
+    },
+    {
+      "question": "Which is better for a SaaS marketing site plus app?",
+      "answer": "Common pattern: Fathom (or similar) on the marketing site and PostHog in the product. Some teams run PostHog everywhere; weigh script weight, event taxonomy cost, and privacy review. See also Google Analytics vs PostHog and PostHog vs Plausible."
+    },
+    {
+      "question": "Which is more privacy-friendly?",
+      "answer": "Fathom is designed as cookieless privacy-first web analytics and states no cookie banner is required for its tracking ([Fathom](https://usefathom.com/), checked 2026-11-19). PostHog can be configured carefully and offers US/EU Cloud regions, but product analytics features (identified users, session replay) expand what you collect ([PostHog pricing](https://posthog.com/pricing), checked 2026-11-19)."
+    },
+    {
+      "question": "Can either be self-hosted?",
+      "answer": "Hosted Fathom Analytics is cloud-only; Fathom Lite is a separate free self-hosted option with fewer features and no vendor support ([Fathom Lite](https://usefathom.com/pricing/lite), checked 2026-11-19). PostHog offers an MIT open-source self-host path; PostHog’s docs note self-hosted deployments are unsupported and paid-plan features are Cloud-only ([PostHog self-host docs](https://posthog.com/docs/self-host), checked 2026-11-19)."
+    },
+    {
+      "question": "I mainly need session replay — is PostHog enough?",
+      "answer": "PostHog includes session replay on Cloud (5K recordings/month on the free allowance, then usage-based) ([PostHog pricing](https://posthog.com/pricing), checked 2026-11-19). If your primary job is heatmaps and replay on a marketing site rather than product analytics, also look at Hotjar — see our Hotjar tool profile and PostHog vs Hotjar. Fathom does not offer session replay."
+    }
+  ],
+  "editorialNotes": [
+    {
+      "title": "Category mismatch is the point",
+      "content": "Founders often search **Fathom vs PostHog** when deciding whether a simple analytics tool is enough. If your questions are product questions (activation, retention, flags), Fathom will feel empty quickly. If your questions are traffic questions, PostHog will feel heavy."
+    },
+    {
+      "title": "Pricing checked today",
+      "content": "Fathom entry pricing and PostHog free-tier allowances were checked on 2026-11-19 against [Fathom pricing](https://usefathom.com/pricing) and [PostHog pricing](https://posthog.com/pricing/). Usage-based PostHog costs depend on events, recordings, and flags — use each vendor’s calculator before you commit."
+    }
+  ],
+  "alsoConsider": [
+    {
+      "toolId": "hotjar",
+      "note": "Heatmaps and session replay focused on understanding on-page behavior — useful if replay is the main gap and you do not need PostHog’s full product suite.",
+      "compareHref": "/compare/posthog-vs-hotjar/",
+      "compareLabel": "PostHog vs Hotjar"
+    },
+    {
+      "toolId": "plausible",
+      "note": "Another cookieless hosted web analytics option if you want a Fathom peer instead of product analytics.",
+      "compareHref": "/compare/posthog-vs-plausible/",
+      "compareLabel": "PostHog vs Plausible"
+    },
+    {
+      "toolId": "datafast",
+      "note": "Choose DataFast when the question is which channel drove paid customers (Stripe and similar), not in-product funnels.",
+      "compareHref": "/compare/datafast-vs-posthog/",
+      "compareLabel": "DataFast vs PostHog"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-vs-posthog/",
+      "label": "Google Analytics vs PostHog"
+    },
+    {
+      "href": "/compare/posthog-vs-plausible/",
+      "label": "PostHog vs Plausible"
+    },
+    {
+      "href": "/compare/datafast-vs-posthog/",
+      "label": "DataFast vs PostHog"
+    },
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/learn/web-vs-product-analytics/",
+      "label": "Web vs product analytics"
+    },
+    {
+      "href": "/tools/hotjar/",
+      "label": "Hotjar tool profile"
+    }
+  ],
+  "seoTitle": "Fathom vs PostHog 2026: Web vs Product Analytics",
+  "seoDescription": "Fathom vs PostHog compared: cookieless web analytics versus product analytics with replay and flags. Pricing, privacy, and when to use each."
+}

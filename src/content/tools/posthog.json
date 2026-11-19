@@ -9,6 +9,28 @@
   "affiliate": {
     "enabled": false
   },
+  "relatedLinks": [
+    {
+      "href": "/compare/fathom-vs-posthog/",
+      "label": "Fathom vs PostHog"
+    },
+    {
+      "href": "/compare/google-analytics-vs-posthog/",
+      "label": "Google Analytics vs PostHog"
+    },
+    {
+      "href": "/compare/posthog-vs-plausible/",
+      "label": "PostHog vs Plausible"
+    },
+    {
+      "href": "/compare/datafast-vs-posthog/",
+      "label": "DataFast vs PostHog"
+    },
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    }
+  ],
   "pricing": {
     "model": "monthly_events",
     "currency": "USD",
@@ -25,7 +47,7 @@
         "label": "Usage-based above free"
       }
     ],
-    "notes": "1M events/month free on cloud. Above that, usage-based pricing applies. Self-hosting available.",
+    "notes": "PostHog Cloud free monthly allowances checked 19 Nov 2026: 1M analytics events, 5K session recordings, 1M feature-flag requests, then usage-based pricing (https://posthog.com/pricing). Self-hosting available; paid-plan features are Cloud-only per PostHog self-host docs.",
     "projectLimits": {
       "included": 1,
       "billingModel": "tiered",

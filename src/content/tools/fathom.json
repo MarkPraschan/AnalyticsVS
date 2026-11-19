@@ -46,11 +46,11 @@
       }
     ],
     "hasFreeTrial": true,
-    "notes": "Vendor pricing checked 11 Nov 2026 (https://usefathom.com/pricing). Custom events count toward the pageview allowance. Extra sites in packs of 50 for $10/month.",
+    "notes": "Vendor pricing checked 19 Nov 2026 (https://usefathom.com/pricing). Custom events count toward the pageview allowance. Extra sites in packs of 50 for $10/month. Higher tiers above 10M pageviews also listed on the vendor page.",
     "projectLimits": {
       "included": 50,
       "billingModel": "tiered",
-      "notes": "Every hosted plan includes at least 50 sites. Extra packs of 50 sites are $10/month per Fathom pricing (checked 11 Nov 2026)."
+      "notes": "Every hosted plan includes at least 50 sites. Extra packs of 50 sites are $10/month per Fathom pricing (checked 19 Nov 2026)."
     }
   },
   "features": {
@@ -67,6 +67,14 @@
     "revenue_tracking": true
   },
   "relatedLinks": [
+    {
+      "href": "/compare/fathom-vs-matomo/",
+      "label": "Matomo vs Fathom"
+    },
+    {
+      "href": "/compare/fathom-vs-posthog/",
+      "label": "Fathom vs PostHog"
+    },
     {
       "href": "/compare/fathom-vs-datafast/",
       "label": "Fathom vs DataFast"

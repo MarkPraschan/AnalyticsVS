@@ -90,6 +90,10 @@
     {
       "href": "/learn/cookieless-analytics/",
       "label": "Cookieless analytics primer"
+    },
+    {
+      "href": "/learn/best-privacy-first-analytics-tools/",
+      "label": "Privacy-first web analytics tools"
     }
   ],
   "variants": [

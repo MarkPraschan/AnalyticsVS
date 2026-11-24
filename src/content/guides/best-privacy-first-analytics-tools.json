@@ -1,16 +1,17 @@
 {
-  "title": "Best Privacy-First Web Analytics Tools (2026)",
+  "title": "Privacy-First Web Analytics: Best Tools Without Cookies (2026)",
   "slug": "best-privacy-first-analytics-tools",
-  "description": "Best privacy-first web analytics tools for 2026: cookieless hosted options, self-hosted ownership, and when Fathom, DataFast, Plausible, Umami, or Matomo fit.",
-  "seoTitle": "Best Privacy-First Web Analytics Tools (2026)",
+  "description": "Privacy-first web analytics compared: website analytics without cookies, privacy-friendly picks, and current prices for Fathom, DataFast, and Plausible.",
+  "seoTitle": "Privacy-First Web Analytics Without Cookies (2026)",
   "category": "privacy-analytics",
   "featuredImage": "/guides/best-privacy-first-analytics-tools.jpg",
+  "featuredImageAlt": "Pixel-art castle town under a Privacy-First Analytics banner, with Plausible, Fathom, Matomo, and Umami flags and a peace-sign shield",
   "relatedComparisons": [
-    "matomo-vs-plausible",
     "plausible-vs-fathom",
-    "google-analytics-vs-plausible",
-    "google-analytics-vs-matomo",
-    "plausible-vs-umami"
+    "fathom-vs-datafast",
+    "matomo-vs-plausible",
+    "plausible-vs-umami",
+    "google-analytics-vs-plausible"
   ],
   "relatedTools": [
     "fathom",
@@ -27,73 +28,87 @@
       "label": "Cookieless analytics primer"
     },
     {
-      "href": "/compare/matomo-vs-plausible/",
-      "label": "Plausible vs Matomo"
+      "href": "/compare/plausible-vs-fathom/",
+      "label": "Plausible vs Fathom"
+    },
+    {
+      "href": "/compare/fathom-vs-datafast/",
+      "label": "Fathom vs DataFast"
     },
     {
       "href": "/learn/ga4-alternatives-gdpr/",
       "label": "GA4 alternatives for GDPR"
     },
     {
-      "href": "/tools/ahrefs/",
-      "label": "Ahrefs Web Analytics"
+      "href": "/learn/self-hosted-web-analytics/",
+      "label": "Self-hosted web analytics"
     },
     {
-      "href": "/learn/best-analytics-for-a-blog/",
-      "label": "Best analytics for a blog"
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
     }
   ],
   "toolShortlist": [
     {
       "toolId": "fathom",
-      "bestFor": "Polished hosted privacy analytics when you want a simple dashboard and minimal ops — referred customers get $10 off their first invoice."
+      "bestFor": "Hosted website analytics without cookies when you want one dashboard and many sites — Standard starts at $15/month for 100k pageviews with 50 sites included."
     },
     {
       "toolId": "datafast",
-      "bestFor": "Indie SaaS that wants privacy-friendly web analytics plus optional Stripe / payment revenue attribution."
+      "bestFor": "Privacy-friendly analytics plus Stripe (or similar) revenue by channel. Default script uses cookies; cookieless mode is available with weaker multi-day attribution."
     },
     {
       "toolId": "plausible",
-      "bestFor": "Marketing sites that want cookieless SaaS analytics with transparent pageview pricing."
+      "bestFor": "Privacy-first web analytics with the lowest published hosted entry price ($9/month at 10k pageviews) and EU-hosted Cloud or AGPL Community Edition."
     },
     {
       "toolId": "umami",
-      "bestFor": "Developers who prefer open-source analytics they can self-host or run on Umami Cloud."
+      "bestFor": "Open-source analytics you can self-host, or Umami Cloud Hobby at $0 up to 100k events and one website."
     },
     {
       "toolId": "matomo",
-      "bestFor": "Teams that need GA-like depth, data ownership, or a self-hosted / EU-friendly analytics suite."
+      "bestFor": "GA-like depth, data ownership, and optional self-hosting. Not cookieless by default — configure cookies and consent separately."
     },
     {
       "toolId": "ahrefs",
-      "bestFor": "SEO teams already on Ahrefs that want free cookie-free web analytics on verified projects."
+      "bestFor": "SEO teams already verifying sites in Ahrefs who want cookie-free web analytics free up to 1 million events per project per month."
     }
   ],
   "sections": [
     {
       "id": "what-privacy-first-means",
-      "title": "What \"privacy-first\" actually means",
-      "content": "Privacy-first web analytics tools aim to measure **aggregate site usage** without building individual visitor profiles. In practice that usually means:\n\n- **Cookieless** or minimal-cookie tracking by default (see [cookieless analytics](/learn/cookieless-analytics/))\n- **No cross-site ad retargeting** built into the product\n- **Simpler data collection** — pageviews, referrers, goals — rather than full identity graphs\n\nThat is different from \"GDPR-compliant GA4.\" A privacy-first stack often reduces consent-banner friction because you collect less personal data in the first place. If EU transfers or consent banners are why you are leaving GA4, also read [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/)."
+      "title": "What privacy-first web analytics actually means",
+      "content": "**Privacy-first web analytics** measures aggregate site usage — pages, referrers, campaigns, simple goals — without building an ad-tech identity graph. **Website analytics without cookies** is the implementation most buyers mean: no long-lived analytics cookie on the visitor’s device. **Privacy-friendly analytics** is the broader marketing phrase. It can mean cookieless by default (Fathom, Plausible, Umami, Ahrefs Web Analytics) or a lighter product that still uses first-party cookies unless you opt out (DataFast’s default script).\n\nThat is different from “GDPR-compliant GA4.” A privacy-first stack often reduces consent-banner friction because you collect less persistent identity in the first place. It does not replace a privacy policy, a DPA, or legal review. For the method itself — including accuracy trade-offs on returning visitors — read [cookieless analytics](/learn/cookieless-analytics/). If EU transfers or banners are why you are leaving Google Analytics, also read [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/).\n\nVendor copy that says “no cookie banner required” is **not legal advice**. Other scripts on the same page can still set cookies. [Fathom’s cookie FAQ](https://usefathom.com/docs/troubleshooting/cookies) (opened **24 November 2026**) says its embed does not use cookies or similar, and that other scripts may still need a banner."
     },
     {
-      "id": "evaluation-framework",
-      "title": "A five-question evaluation framework",
-      "content": "Before comparing vendors, answer these questions for your site:\n\n1. **Traffic scale** — Monthly pageviews drive hosted pricing tiers.\n2. **Hosting model** — Managed SaaS vs self-hosted open source vs hybrid (e.g. Fathom Lite).\n3. **Compliance context** — EU visitors, healthcare, or strict internal policies?\n4. **Feature depth** — Marketing stats only, or product funnels and revenue attribution too?\n5. **Ops appetite** — Can your team patch, back up, and monitor a self-hosted stack?\n\nOur comparisons apply this framework to specific pairs — they include verdicts, pricing context, and feature matrices you should read on-site rather than in an AI summary. A common fork is [Plausible vs Matomo](/compare/matomo-vs-plausible/)."
+      "id": "comparison-table",
+      "title": "Privacy-first tools compared (sourced 24 November 2026)",
+      "content": "This table is the shortlist on this directory. Every price or cookie claim links a page opened **today**. Where our tool JSON disagrees with the vendor, this article follows the vendor and notes the snapshot as stale.\n\n| Tool | Cookies for visitor IDs | Hosted entry (checked 24 Nov 2026) | Sites on that entry | Honest fit |\n|---|---|---|---|---|\n| [Fathom](/tools/fathom/) | None in the embed ([cookie FAQ](https://usefathom.com/docs/troubleshooting/cookies)) | [Standard $15/month](https://usefathom.com/pricing) at **100k** pageviews; Business **$39** at the same 100k stop | **50** included; extra packs of 50 for **$10/month** | Hosted cookieless traffic for many sites |\n| [DataFast](/tools/datafast/) | Default **uses cookies**; optional cookieless script ([GDPR docs](https://datafa.st/docs/gdpr-cookieless-tracking)) | Widget on [datafa.st](https://datafa.st/#pricing): Starter = 1 site / 1 seat / 3 years; Growth = 30 sites / 30 seats / 5+ years; 14-day trial, no card. Live HTML did **not** expose a static dollar card today. Our [directory snapshot](/tools/datafast/) (11 Nov 2026) still lists Starter **$9/month** at 10k events | 1 on Starter | Channel-to-revenue if you connect a processor |\n| [Plausible](/tools/plausible/) | No cookies / no persistent IDs ([privacy page](https://plausible.io/privacy-focused-web-analytics)) | [Homepage widget](https://plausible.io/): Starter **$9**, Growth **$14**, Business **$19** / month at **10k** pageviews; at **100k**: **$19 / $29 / $39** | Starter is one site; Growth up to **3** sites ([plan docs](https://plausible.io/docs/subscription-plans)) | Lowest hosted floor; EU-hosted Cloud |\n| [Umami](/tools/umami/) | Vendor FAQ: no cookies, no cross-site tracking ([pricing](https://umami.is/pricing)) | Cloud **Hobby $0** / **100k** events, 6-month retention | **1** website on Hobby; Pro up to **20** | Free hosted start or MIT self-host |\n| [Matomo](/tools/matomo/) | Cookies by default; cookieless is a config that **hurts** unique-visitor and delayed-conversion accuracy ([Matomo FAQ](https://matomo.org/faq/general/faq_156/)) | Cloud widget **29 / month excl. tax** at **50k hits** ([pricing](https://matomo.org/pricing/)); USD table **$26** at 50k ([pricingforai](https://matomo.org/pricingforai/)) | **30** websites on published Business Cloud | GA-like suite, Frankfurt Cloud or On-Premise |\n| [Ahrefs Web Analytics](/tools/ahrefs/) | Cookie-free; no IP stored with analytics data ([product page](https://ahrefs.com/web-analytics)) | **Free** up to **1 million events** per verified project per month | Per verified project | Already on Ahrefs for SEO |\n\n**Not in this table on purpose:** Google Analytics 4 (cookies, ad stack) and PostHog (product analytics). Pair-wise product fit stays on [Plausible vs Fathom](/compare/plausible-vs-fathom/) and [Fathom vs DataFast](/compare/fathom-vs-datafast/). Run volume through the [pricing calculator](/calculators/pricing/) after you pick a hosting model — the calculator still uses directory bands, which lag Fathom’s Standard/Business split and Plausible’s three Cloud plans."
     },
     {
-      "id": "cookieless-vs-self-hosted",
+      "id": "pick-by-use-case",
+      "title": "A clear pick for each use case",
+      "content": "### Website analytics without cookies (hosted, no server)\n\n**Pick [Fathom Analytics](https://usefathom.com/ref/U4V5UE)** when you want cookieless pageviews, UTMs, and events on vendor infrastructure, especially if you run **many sites**. [Fathom pricing](https://usefathom.com/pricing) (24 November 2026) starts at **$15/month** for **100,000** pageviews on **Standard**, with **every analytics feature** and **50 sites**. **Business** is **$39/month** at the same 100k stop and adds 10 team seats plus you, roles, site access control, a team audit log, higher API limits, and priority email. Custom events **count toward** the pageview allowance. Trial: **7 days**, card required.\n\n**Pick [Plausible Cloud](/tools/plausible/)** when traffic is small enough that **$9/month at 10k pageviews** matters more than Fathom’s 100k floor, or when you want **EU-owned hosting** and an open-source path. At **100k** pageviews the widget is **Starter $19 / Growth $29 / Business $39** — so a **solo** site at 100k is **cheaper on Fathom Standard ($15)** than on Plausible Starter ($19). Plausible still wins the **10k** band and the **self-host / AGPL** fork. Head-to-head: [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n### Privacy-friendly analytics plus payments\n\n**Pick [DataFast](https://datafa.st/?via=analyticsvs)** when the weekly question is which channel produced **Stripe (or similar) revenue**, not only traffic. Connect a processor, then pass visitor/session IDs into checkout metadata. That path is documented on [Fathom vs DataFast](/compare/fathom-vs-datafast/) and [Stripe revenue attribution](/learn/stripe-revenue-attribution/).\n\nBe honest about cookies: DataFast’s [homepage FAQ](https://datafa.st/#pricing) and [GDPR / cookieless docs](https://datafa.st/docs/gdpr-cookieless-tracking) (both opened **24 November 2026**) say the **default** script uses cookies for returning visitors and the strongest revenue matching. The **cookieless** script (`script.cookieless.js`) does not use cookies for visitor IDs; identifiers rotate about every **24 hours** UTC, which weakens multi-day journeys and revenue attribution and drops User/Journey-style returning-visitor reports. If “website analytics without cookies” is a hard requirement **and** you sell online, Fathom plus a valued `trackEvent` is the stricter cookieless option; DataFast cookieless is the compromise.\n\n### Many sites on one invoice\n\n**Pick Fathom.** Fifty sites are included on Standard and Business at the 100k stop. Plausible Starter is **one site**; Growth is **up to three**. Umami Hobby is **one website**. DataFast Starter is **one website**.\n\n### Open source or self-hosted\n\n**Pick [Umami](/tools/umami/)** for MIT-licensed Docker-style ops, or **Umami Cloud Hobby** if **$0 / 100k events** is enough. **Pick [Plausible CE](https://plausible.io/docs/self-hosting)** only after you accept twice-yearly releases and Cloud-only features (funnels, user journeys, ecommerce revenue goals, SSO, Sites API). **Pick [Matomo On-Premise](/tools/matomo/)** when you need GA-like reports and will run PHP/MySQL. Primer: [self-hosted web analytics](/learn/self-hosted-web-analytics/).\n\n[Fathom Lite](https://usefathom.com/pricing/lite) is a **free self-hosted** download with fewer metrics and **no vendor support**. It is not hosted Fathom in a container. DataFast has **no** self-hosted edition.\n\n### Already paying for Ahrefs SEO\n\n**Pick [Ahrefs Web Analytics](/tools/ahrefs/)** for verified projects: the [product page](https://ahrefs.com/web-analytics) (24 November 2026) calls it cookie-free and **free up to 1 million events** per project per month. Paid add-on dollar amounts were **not** on that page today, so they are omitted here.\n\n### Leaving GA4 for GDPR, not for features\n\nStay on the [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/) shortlist (Plausible, Fathom, Umami, Matomo). This page is the pricing and cookie matrix around that shortlist. Keep GA4 if Google Ads or BigQuery is weekly work."
+    },
+    {
+      "id": "cookieless-hosted-vs-self-hosted",
       "title": "Cookieless hosted vs self-hosted privacy",
-      "content": "**Cookieless hosted SaaS** (Fathom, Plausible Cloud, Ahrefs Web Analytics, DataFast cookieless mode) minimizes ops: you paste a script, keep a privacy policy updated, and pay for traffic tiers. Best when your team does not want to run a database.\n\n**Self-hosted privacy** (Umami, Matomo On-Premise, Plausible self-hosted) keeps the analytics database on infrastructure you control. Best when data residency, air-gapped environments, or long-term cost at high volume matter more than setup time.\n\nThese are not mutually exclusive goals: Matomo Cloud and Umami Cloud sit in the middle. For the cookieless method itself — including accuracy trade-offs — read the [cookieless analytics primer](/learn/cookieless-analytics/)."
+      "content": "**Cookieless hosted SaaS** (Fathom, Plausible Cloud, Ahrefs Web Analytics, DataFast cookieless mode) minimizes ops: paste a script, update the privacy policy, pay a traffic tier. Best when nobody wants to run a database.\n\n**Self-hosted privacy** (Umami, Matomo On-Premise, Plausible CE, Fathom Lite) keeps the analytics database on infrastructure you control. Best when residency, air-gapped networks, or high-volume Cloud invoices beat setup time. You become the operator for patches, backups, and “where does this live?”\n\nThese goals are not exclusive. Matomo Cloud and Umami Cloud sit in the middle: same brand, vendor-run stack. Matomo Cloud data is stored in **Frankfurt, Germany** per [Matomo pricing FAQ](https://matomo.org/pricing/) (24 November 2026). Plausible Cloud visitor data stays on **EU-owned** infrastructure in Germany per [Plausible’s privacy page](https://plausible.io/privacy-focused-web-analytics). Fathom’s [data journey](https://usefathom.com/data) describes EU isolation for EU visitors, then anonymized processing; hosted Fathom is **not** something you install locally ([features FAQ](https://usefathom.com/features): “Can I host the data locally? No.”).\n\nUmami Cloud servers are in the **US and EU** per [Umami pricing FAQ](https://umami.is/pricing). That is a different residency story than Plausible Cloud.\n\nDirectory feature flags (`cookieless`, `self_hosted`) match this split except where noted: Matomo is `cookieless: false` in [our snapshot](/tools/matomo/) because cookies are the default; the vendor documents an optional cookieless mode with known accuracy loss. DataFast is `cookieless: true` in [our snapshot](/tools/datafast/) because a cookieless script exists — the **default** install still uses cookies. Follow the vendor docs above, not the convenient flag."
     },
     {
-      "id": "common-categories",
-      "title": "Three common privacy-first categories",
-      "content": "**Lightweight hosted SaaS** (Plausible, Fathom hosted) — fastest setup, predictable pageview billing, minimal script weight. Compare [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\n**Open-source self-hosted** (Umami, Plausible self-hosted) — more control and potentially lower cost at scale, but you own uptime and upgrades. Compare [Plausible vs Umami](/compare/plausible-vs-umami/).\n\n**Deeper ownership suites** (Matomo cloud/self-hosted) — ecommerce, custom dimensions, and data ownership, with more configuration overhead. Compare [Plausible vs Matomo](/compare/matomo-vs-plausible/) and [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/).\n\nGoogle Analytics 4 is often the default alternative: free and powerful, but heavier on compliance work and ad-ecosystem coupling. See [GA4 vs Plausible](/compare/google-analytics-vs-plausible/) for when each wins.\n\nAlready on Ahrefs for SEO? [Ahrefs Web Analytics](/tools/ahrefs/) is a free, cookie-free option for verified sites."
+      "id": "current-pricing",
+      "title": "Current pricing notes (do not trust a year-old roundup)",
+      "content": "Roundups rot because vendors ship new plan **shapes**, not only new dollar amounts. Two of those shape changes matter on this page.\n\n### Fathom: Standard vs Business, still billed by pageviews\n\n[Fathom pricing](https://usefathom.com/pricing) (slider JSON on the page, **24 November 2026**) still has pageview stops. **Standard** (“personal” in that JSON) at those stops: **$15 / 100k**, **$25 / 200k**, **$45 / 500k**, **$60 / 1M**, **$100 / 2M**, **$140 / 5M**, **$200 / 10M**, then **$290 / 15M**, **$380 / 20M**, **$470 / 25M**. **Business** at the same stops: **$39**, **$49**, **$89**, **$119**, **$199**, **$239**, **$299**, **$439**, **$569**, **$699**. Included sites scale from **50** (through 500k) to **75 / 100 / 150 / 200 / 250 / 300 / 350** at the higher stops. Yearly is **10×** monthly (two months free). Over 25M is Custom.\n\nThe FAQ line “Standard and Business both cover 100,000 to 25 million pageviews” means both **families** exist across that range — it does **not** mean $15 includes 25M. You still pick a pageview stop. Our [Fathom directory](/tools/fathom/) still stores only the old single-ladder **$15–$200** Standard amounts (checked 19 Nov 2026) and has **no Business column**. Treat that JSON as **stale on plan shape**; the dollars for Standard still match today’s slider.\n\n### Plausible: three Cloud plans, new 5M/10M Starter prices\n\n[Plausible’s homepage widget](https://plausible.io/) (24 November 2026) prices **Starter / Growth / Business** on the same pageview steps. Starter: **$9 / 10k**, **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**. Our [Plausible directory](/tools/plausible/) still stores an August 2026 **single** ladder and lists **$109 / 5M** and **$149 / 10M**. Follow the widget; that snapshot is stale on both shape and the top two Starter rungs.\n\n[Subscription-plan docs](https://plausible.io/docs/subscription-plans) (page last updated 29 October 2026; opened today): **30-day trial, no card**, Business features during the trial. Custom events count toward usage; a pageview **goal** does not.\n\n### DataFast, Umami, Matomo, Ahrefs\n\n**DataFast:** confirm [the homepage widget](https://datafa.st/#pricing) before you buy. FAQ copy we could read today: Starter vs Growth allowances above; event bands **10k, 100k, 200k, 1M+**; **14-day free trial, no card**. Dollar amounts in our directory (Starter **$9** at 10k events, then **$19 / 100k**, **$29 / 200k**, **$49 / 500k**, **$69 / 1M**, **$89 / 2M**, **$129 / 5M**, **$169 / 10M**; Growth **$19** at 10k) were last stored **11 November 2026**. We could not re-read those dollars from static HTML today.\n\n**Umami Cloud:** [pricing](https://umami.is/pricing) — Hobby **$0**, **100k** events, **1** website, **6 months** retention, community support. Pro: **1 million** events included then **$0.00003** per extra event, up to **20** websites, **2 years** retention. Business: **10 million** events then **$0.00002** extra, unlimited websites, **5 years** retention, **5,000** session replays included then **$0.005** each, heatmaps. Self-hosted is included as the open-source app; [Cloud vs self-hosted](https://docs.umami.is/docs/cloud) (opened today) says **email reports are Cloud only**. The public pricing page did not expose a Pro **list price** in the HTML we parsed today, so that dollar is omitted. Our [Umami directory](/tools/umami/) still says Pro includes **10** sites and `heatmaps: false` — vendor pages today say Pro is **20** websites and heatmaps sit on **Cloud Business** (and self-hosted v3.2+ per Umami’s Cloud docs). Follow the vendor.\n\n**Matomo Cloud:** use **USD $26** at 50k hits from [pricingforai](https://matomo.org/pricingforai/) (24 November 2026): then **$42 / 100k**, **$85 / 300k**, **$139 / 600k**, **$204 / 1M**, **$399 / 2M**, **$975 / 5M**, 10M+ contact. The marketing widget still showed a **29 / month excl. tax** headline without a currency in the HTML. On-Premise Community software is **free**; plugin bundles start at **€230 / €1,209 / €2,834** per month for Team / Business / Enterprise ([pricing](https://matomo.org/pricing/)).\n\n**Ahrefs:** free tier only, as quoted above. Higher “upgrade” prices were not on the public product page we opened."
     },
     {
       "id": "next-steps",
-      "title": "Next steps: comparisons beat roundups",
-      "content": "Roundup posts age quickly because pricing and features change. After you know your traffic tier and hosting preference, move to **head-to-head comparisons** for the two or three tools still on your shortlist — especially [Plausible vs Matomo](/compare/matomo-vs-plausible/) and [Plausible vs Fathom](/compare/plausible-vs-fathom/).\n\nIf the site is a **blog or content site**, and the job is top posts plus newsletter, social, and affiliate clicks rather than a privacy-tool shortlist, use [best analytics for a blog](/learn/best-analytics-for-a-blog/) instead of this page.\n\nUse the pricing calculator on AnalyticsVS to estimate monthly cost at your traffic — results are interactive and stay on-site. For script weight, check benchmark pages marked **recorded** (we do not publish estimated performance numbers). For the cookieless method, keep [cookieless analytics](/learn/cookieless-analytics/) open beside your shortlist."
+      "title": "Next steps",
+      "content": "1. Name the job: **traffic without cookies**, **revenue by channel**, **self-host**, or **GA-like depth**.\n2. Read the matching pair: [Plausible vs Fathom](/compare/plausible-vs-fathom/) or [Fathom vs DataFast](/compare/fathom-vs-datafast/). Deeper suite vs simple hosted: [Plausible vs Matomo](/compare/matomo-vs-plausible/). Open-source twins: [Plausible vs Umami](/compare/plausible-vs-umami/).\n3. Confirm today’s price on the vendor page linked in the table — then sanity-check volume in the [pricing calculator](/calculators/pricing/).\n4. If the site is a **blog** and the job is top posts plus newsletter and affiliate clicks, use [best analytics for a blog](/learn/best-analytics-for-a-blog/) instead of stretching this shortlist.\n\nThis page is not legal advice. “Privacy-first” and “privacy-friendly” describe product design, not a certificate that you can skip counsel."
+    },
+    {
+      "id": "sources-checked",
+      "title": "Sources checked 24 November 2026",
+      "content": "Every pricing, cookie, or hosting claim above links one of these pages opened **today**:\n\n- [Fathom pricing](https://usefathom.com/pricing) — Standard/Business slider JSON, site packs, events counting as pageviews, 7-day trial\n- [Fathom cookies / consent](https://usefathom.com/docs/troubleshooting/cookies)\n- [Fathom features](https://usefathom.com/features) — no cookies, hosted-only, events with value\n- [Fathom data journey](https://usefathom.com/data)\n- [Fathom Lite](https://usefathom.com/pricing/lite)\n- [DataFast homepage](https://datafa.st/#pricing) — Starter/Growth allowances, trial, GDPR FAQ\n- [DataFast GDPR and cookieless tracking](https://datafa.st/docs/gdpr-cookieless-tracking)\n- [Plausible homepage widget](https://plausible.io/)\n- [Plausible subscription plans](https://plausible.io/docs/subscription-plans)\n- [Plausible privacy-focused web analytics](https://plausible.io/privacy-focused-web-analytics)\n- [Plausible self-hosting / CE](https://plausible.io/docs/self-hosting)\n- [Umami Cloud pricing](https://umami.is/pricing)\n- [Umami Cloud vs self-hosted](https://docs.umami.is/docs/cloud)\n- [Matomo pricing](https://matomo.org/pricing/) and [USD Cloud table](https://matomo.org/pricingforai/)\n- [Matomo cookieless accuracy FAQ](https://matomo.org/faq/general/faq_156/)\n- [Ahrefs Web Analytics](https://ahrefs.com/web-analytics)\n- Directory snapshots: [Fathom](/tools/fathom/), [DataFast](/tools/datafast/), [Plausible](/tools/plausible/), [Umami](/tools/umami/), [Matomo](/tools/matomo/), [Ahrefs](/tools/ahrefs/)"
     }
   ]
 }

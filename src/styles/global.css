@@ -914,7 +914,23 @@
 
   .learn-sidebar {
     /* Keep TOC + compact CTA on screen (including ~768px-tall desktops) without covering the footer. */
-    max-height: calc(100vh - 8rem);
+    max-height: none;
+  }
+
+  @media (min-width: 1024px) {
+    .learn-sidebar {
+      max-height: calc(100vh - 8rem);
+    }
+  }
+
+  /* Article sidebars (TOC / CTA): never stick in the one-column layout (< lg). */
+  @media (width < 64rem) {
+    .learn-sidebar,
+    nav[data-toc] {
+      position: static;
+      top: auto;
+      max-height: none;
+    }
   }
 
   .learn-hero {

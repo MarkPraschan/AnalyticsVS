@@ -84,12 +84,27 @@
     {
       "label": "Consent Mode",
       "url": "https://developers.google.com/tag-platform/security/guides/consent",
-      "checkedOn": "2026-11-17"
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "label": "Obtain user consent (Google tag cookies)",
+      "url": "https://support.google.com/analytics/answer/14009343",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "label": "GA4 has replaced Universal Analytics",
+      "url": "https://support.google.com/analytics/answer/11583528",
+      "checkedOn": "2026-11-24"
+    },
+    {
+      "label": "Google Analytics Data Processing Terms",
+      "url": "https://support.google.com/analytics/answer/3379636",
+      "checkedOn": "2026-11-24"
     },
     {
       "label": "BigQuery export",
       "url": "https://support.google.com/analytics/answer/9358801",
-      "checkedOn": "2026-11-17"
+      "checkedOn": "2026-11-24"
     },
     {
       "label": "GA4 360 feature limits",

@@ -1,47 +1,113 @@
 {
-  "title": "Google Analytics vs Matomo",
-  "description": "Google Analytics 4 vs Matomo — compare data ownership, GDPR options, feature depth, pricing, and when to self-host instead of staying on Google.",
+  "title": "Matomo vs Google Analytics",
+  "description": "Matomo vs Google Analytics 4 — compare GA4 consent and cookies, data ownership, Cloud vs self-hosted Matomo cost, and when a simpler hosted option like Fathom is enough.",
   "tools": [
-    "google-analytics-4",
-    "matomo"
+    "matomo",
+    "google-analytics-4"
   ],
   "category": "privacy-analytics",
   "winner": null,
-  "verdict": "Choose Matomo when you need GA-like reporting with data ownership, EU hosting options, or self-hosting. Choose GA4 when Google Ads integration, zero SaaS cost, and ecosystem lock-in matter more than where the data lives.",
-  "quickAnswer": "**Matomo** is the better fit if data ownership, GDPR posture, or self-hosting matter — it can approach GA-like depth without sending hits to Google. **Google Analytics 4** is the better fit if you need free scale and deep Google Ads / Search Console / BigQuery workflows and can accept Google as the processor.",
-  "bottomLine": "These are the closest “same job, different trust model” pair in our directory. Matomo wins when legal, residency, or ownership requirements rule out Google. GA4 wins when marketing stack and cost (standard tier is free) outweigh those constraints. Lightweight tools like Plausible remain simpler if you only need traffic stats — Matomo is for teams that still want serious web analytics.",
+  "verdict": "Choose Matomo when you need GA4-like web reporting with data you own, EU Cloud hosting in Frankfurt, or a self-hosted install. Choose Google Analytics 4 when Google Ads, Search Console, BigQuery, and a $0 standard-property bill matter more than where hits are processed.",
+  "quickAnswer": "This page answers **Matomo vs Google Analytics** and **Matomo vs Google Analytics 4**. **Matomo** is the better fit if data ownership, EU hosting, or self-hosting matter — Cloud or On-Premise, without sending hits to Google. **Google Analytics 4** is the better fit if you need free scale and deep Google Ads / Search Console / BigQuery workflows and can accept Google as the processor. Universal Analytics is shut down; this comparison is GA4 only.",
+  "bottomLine": "Matomo vs Google Analytics 4 is the same reporting job under two trust models. Matomo wins when legal, residency, or ownership rules out Google. GA4 wins when the Google ads stack and a $0 standard tier outweigh those constraints. If you only need traffic stats without running Matomo or learning GA4, [Fathom](/tools/fathom/) is a simpler hosted option — see [Matomo vs Fathom](/compare/fathom-vs-matomo/).",
   "faq": [
     {
-      "question": "Is Matomo a drop-in replacement for Google Analytics?",
-      "answer": "For many marketing and ecommerce reporting needs, yes — goals, ecommerce, custom dimensions, and funnels are available. It does not match GA4’s Google Ads attribution depth or free BigQuery export path. Expect migration work for tags, goals, and historical data."
+      "question": "Matomo vs Google Analytics 4?",
+      "answer": "Pick Matomo if you need data ownership, Frankfurt Cloud hosting or self-hosting, and GA-like web reports (goals, ecommerce, funnels). Pick Google Analytics 4 if you need native Google Ads / Search Console / BigQuery workflows and a free standard property. This is Matomo vs Google Analytics 4, not Universal Analytics — UA standard properties stopped processing on 1 July 2023 ([Google](https://support.google.com/analytics/answer/11583528), checked 2026-11-24)."
     },
     {
-      "question": "Does Matomo avoid cookie consent banners?",
-      "answer": "Only when configured for cookieless / anonymized tracking that meets your counsel’s bar. Default Matomo setups often use first-party cookies and may still need consent. GA4 typically requires consent UX in GDPR jurisdictions."
+      "question": "Is Universal Analytics still part of this comparison?",
+      "answer": "No. Google Analytics 4 replaced Universal Analytics. Standard UA properties stopped processing data on 1 July 2023; remaining UA interface and API access ended around 1 July 2024 ([Google](https://support.google.com/analytics/answer/11583528), checked 2026-11-24). New measurement belongs in a GA4 property or in Matomo — not in a Universal Analytics property."
     },
     {
-      "question": "Is Matomo free like GA4?",
-      "answer": "Self-hosted Matomo software is free; you pay infrastructure and ops. Matomo Cloud is paid per hit tier. GA4 standard is free for most sites, with compliance and implementation time as the real cost."
+      "question": "Does Matomo avoid cookie consent banners like GA4 requires?",
+      "answer": "Not by default. Google’s own consent guide says you need to ask website visitors for consent so the Google tag can write and read cookies, then pass Consent Mode signals ([Obtain user consent](https://support.google.com/analytics/answer/14009343), [Consent Mode](https://developers.google.com/tag-platform/security/guides/consent), checked 2026-11-24). Matomo can be configured with IP anonymization, cookieless tracking, opt-out, and no PII ([Matomo privacy](https://matomo.org/privacy/), checked 2026-11-24). France’s CNIL says audience-measurement cookies can be exempt from consent only when they are strictly limited to anonymous stats for the site owner and do not enable cross-site tracking or sharing non-anonymous data with third parties ([CNIL](https://www.cnil.fr/fr/cookies-solutions-pour-les-outils-de-mesure-daudience), checked 2026-11-24). Heatmaps, session recording, ecommerce, and User-ID typically need a different legal basis — get counsel for your setup."
     },
     {
-      "question": "When should I pick Matomo over Plausible or Fathom?",
-      "answer": "When you need deeper reporting, ecommerce, or true self-hosting with GA-like flexibility. Pick Plausible or Fathom when you want cookieless simplicity and minimal ops."
+      "question": "Who owns the data in Matomo vs Google Analytics 4?",
+      "answer": "Matomo states that Cloud and On-Premise both give 100% data ownership; Cloud stores data in Frankfurt, Germany, and On-Premise lets you choose the server location ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-24). GA4 processes hits on Google infrastructure. Google Analytics customers can accept Google Ads Data Processing Terms in account settings ([Data Processing Terms](https://support.google.com/analytics/answer/3379636), checked 2026-11-24). You remain the controller; Google is still the processor, and hits leave your servers."
+    },
+    {
+      "question": "How much does Matomo Cloud cost vs self-hosted Matomo vs GA4?",
+      "answer": "Standard GA4 has no subscription fee; Google Analytics 360 is a custom contract with no public list price (see [Google Analytics cost](/learn/google-analytics-cost/)). Matomo Cloud starts at €22/month excl. tax for 50,000 hits (USD $26 in the same JSON-LD) and includes hosting, maintenance, automatic updates, security monitoring, daily backups, and Cloud features; data is stored in Frankfurt ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-24). On-Premise Community core is free (unlimited users and hits); you pay for the server, SSL, backups, and ops. Paid On-Premise bundles start at €230/month (Team), €1,209/month (Business), and €2,834/month (Enterprise) on that same pricing page (checked 2026-11-24). Server SKU prices are not published by Matomo — see [self-hosted web analytics](/learn/self-hosted-web-analytics/)."
+    },
+    {
+      "question": "Is Matomo a drop-in replacement for Google Analytics 4?",
+      "answer": "For many marketing and ecommerce reports (goals, ecommerce, custom dimensions, funnels), Matomo Cloud includes those features in the hosted plans ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-24). It does not match GA4’s Google Ads linking, Consent Mode ads signals, or BigQuery export path ([BigQuery export](https://support.google.com/analytics/answer/9358801), checked 2026-11-24). Expect new tags, goals, and no one-to-one metric match with old Universal Analytics dashboards."
+    },
+    {
+      "question": "When should I pick Fathom instead of Matomo or GA4?",
+      "answer": "Pick [Fathom](/tools/fathom/) when you want hosted, cookieless traffic analytics without running Matomo or learning GA4. Hosted Standard starts at $15/month for 100,000 pageviews and Fathom states no cookie banners are required for its tracking ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-24) — confirm with counsel. It is not a GA4-style suite. Head-to-head: [Matomo vs Fathom](/compare/fathom-vs-matomo/)."
     },
     {
       "question": "Can I run GA4 and Matomo together?",
-      "answer": "Yes — some teams keep GA4 for ads attribution while Matomo holds primary reporting or privacy-sensitive properties. That doubles script weight and maintenance, so treat it as a temporary bridge unless both are required."
+      "answer": "Yes. Some teams keep GA4 for ads attribution while Matomo holds primary reporting or privacy-sensitive properties. That doubles script weight and consent work, so treat it as a bridge unless both processors are required."
     }
   ],
   "editorialNotes": [
     {
-      "title": "Ownership vs ecosystem",
-      "content": "If your constraint is **where data lives**, Matomo (especially self-hosted or EU cloud) is the serious alternative. If your constraint is **paid search attribution inside Google**, GA4 remains hard to beat. Many EU public-sector and regulated teams choose Matomo for the first reason; growth marketers stay on GA4 for the second."
+      "title": "This is Matomo vs Google Analytics 4",
+      "content": "Searchers still type **Matomo vs Google Analytics**. The live Google product is **Google Analytics 4**. Universal Analytics (properties whose IDs started with `UA-`) stopped processing on **1 July 2023**, and Google removed remaining UA access around **1 July 2024** ([GA4 has replaced Universal Analytics](https://support.google.com/analytics/answer/11583528), checked 2026-11-24).\n\nGA4 is event-based (pageviews, scrolls, and purchases are events with parameters). Matomo still looks closer to classic web-analytics reports. Do not expect UA session metrics, GA4 events, and Matomo hits to match one-for-one after a migration."
+    },
+    {
+      "title": "Consent and cookies",
+      "content": "Google documents that when a user visits your website, you need to ask for consent so the Google tag can write and read cookies ([Obtain user consent](https://support.google.com/analytics/answer/14009343), checked 2026-11-24). For EEA traffic, Consent Mode v2 adds `ad_user_data` and `ad_personalization` on top of `ad_storage` and `analytics_storage` ([Consent Mode](https://developers.google.com/tag-platform/security/guides/consent), checked 2026-11-24). If `analytics_storage` is denied, Google says tags send cookieless pings instead of reading or writing analytics cookies.\n\nMatomo’s default JavaScript tracker can use first-party cookies. Cookieless mode (`disableCookies()`) exists, and Matomo documents that unique-visitor and some attribution reports get less accurate without cookies ([cookieless FAQ](https://matomo.org/faq/general/faq_156/), checked 2026-11-24). Privacy controls include opt-out, IP anonymization, Do Not Track, and disabling the visits log ([Matomo privacy](https://matomo.org/privacy/), checked 2026-11-24).\n\nCNIL’s public criteria for **consent-exempt** audience measurement: anonymous stats for the publisher only, no cross-site identifier, no sharing of non-anonymous data with third parties ([CNIL, 4 July 2025](https://www.cnil.fr/fr/cookies-solutions-pour-les-outils-de-mesure-daudience), checked 2026-11-24). CNIL also tells vendors not to call a tool “certified” or “validated by the CNIL.” A default Matomo Cloud install with heatmaps or ecommerce is not automatically exempt. Ask counsel; do not treat a logo as a legal opinion."
+    },
+    {
+      "title": "Data ownership",
+      "content": "Matomo’s pricing page states that **all hosting options give you 100% data ownership**. Cloud data is stored in **Frankfurt, Germany**. On-Premise lets you put the database wherever you run servers. You can migrate Cloud ↔ On-Premise because you own the data ([Matomo pricing FAQ](https://matomo.org/pricing/), checked 2026-11-24).\n\nGA4 hits are collected by Google. You can accept the **Google Ads Data Processing Terms** in Analytics account settings ([Data Processing Terms](https://support.google.com/analytics/answer/3379636), checked 2026-11-24). That is a processor contract, not the same as hosting the database yourself. If the constraint is **where the data lives**, Matomo (especially On-Premise) is the serious alternative. If the constraint is **paid-search attribution inside Google**, GA4 remains hard to replace."
+    },
+    {
+      "title": "Matomo Cloud vs self-hosted cost",
+      "content": "Prices below were checked on **2026-11-24** against [Matomo pricing](https://matomo.org/pricing/) **JSON-LD** (`UnitPriceSpecification`). The HTML traffic slider can render a different default than the structured offers; we quote the JSON-LD **50,000 hits/month** Cloud offer: **€22/month excl. tax** (USD **$26**).\n\n| | Matomo Cloud | Matomo On-Premise (self-hosted) | Google Analytics 4 |\n|---|---|---|---|\n| Software / SaaS | **€22/month excl. tax** (USD **$26**) at **50,000 hits** | Community core **free**; paid bundles from **€230/month** (Team), **€1,209/month** (Business), **€2,834/month** (Enterprise) | Standard property **$0**; [GA4 360](/compare/google-analytics-4-vs-google-analytics-360/) is a custom contract |\n| Who hosts | Matomo | You (server, SSL, backups, upgrades) | Google |\n| Data location | Frankfurt, Germany | Wherever you install it | Google infrastructure |\n| Included with the fee | Hosting, maintenance, automatic updates, security monitoring, daily backups, Cloud features | Community: base analytics. Bundles add premium plugins (funnels, heatmaps, A/B tests, and others by tier) | Collection and reporting inside standard [GA4 limits](/learn/google-analytics-cost/) |\n| Websites (published) | 30 on Cloud Business | Unlimited on Community | Unlimited properties on the free tier (directory snapshot) |\n\n**Choose Cloud** if nobody wants to run PHP and a database. **Choose On-Premise** if you must pick the country or network, or if hit volume makes per-hit Cloud pricing expensive and you already have ops. Matomo does not publish a VPS SKU price; treat self-hosting as a small production service. Detail: [self-hosted web analytics](/learn/self-hosted-web-analytics/).\n\nGA4’s invoice can still be $0 while consent banners, Tag Manager, and optional BigQuery storage/query charges add cost — see [Google Analytics cost](/learn/google-analytics-cost/)."
+    },
+    {
+      "title": "When Fathom is the simpler hosted option",
+      "content": "Matomo is for teams that still want **serious web analytics**. If the weekly question is only which pages and channels brought traffic, a lightweight hosted product is less work than Matomo Cloud, On-Premise, or GA4.\n\n[Fathom Analytics](/tools/fathom/) is that simpler hosted path: cookieless by design, no server to patch. [Fathom pricing](https://usefathom.com/pricing) (checked 2026-11-24) lists **Standard at $15/month** for **100,000 pageviews**, 50 sites included, same analytics features on every plan, and a 7-day trial. Fathom states **no cookie banners required**; that is the vendor’s claim, not a regulator letter — confirm with counsel. It will not replace GA4 Ads attribution or Matomo ecommerce/heatmaps.\n\nFair split: stay on **GA4** for Google ads; pick **Matomo** for ownership and depth; pick **Fathom** for a dashboard people will actually open. Pair-wise detail: [Matomo vs Fathom](/compare/fathom-vs-matomo/)."
     },
     {
       "title": "Performance",
       "content": "We publish recorded script benchmarks on our [benchmarks hub](/benchmarks/) — never estimated numbers. Both GA4’s default gtag install and Matomo Cloud’s default snippet are measured; self-hosted Matomo and plugin bundles can weigh differently, so compare the install you will actually ship."
     }
   ],
-  "seoTitle": "Matomo vs Google Analytics 4 (2026): Data Ownership & Cost",
-  "seoDescription": "Matomo vs Google Analytics 4 compared: data ownership, GDPR options, cloud vs self-hosted Matomo, pricing and feature depth. Know when to leave Google."
+  "alsoConsider": [
+    {
+      "toolId": "fathom",
+      "note": "Simpler hosted analytics when you want cookieless traffic stats without Matomo ops or GA4’s consent and ads stack. Not a replacement for ecommerce depth or Google Ads attribution.",
+      "compareHref": "/compare/fathom-vs-matomo/",
+      "compareLabel": "Matomo vs Fathom"
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/self-hosted-web-analytics/",
+      "label": "Self-hosted web analytics (Matomo Cloud vs On-Premise)"
+    },
+    {
+      "href": "/learn/google-analytics-cost/",
+      "label": "Is Google Analytics free? GA4 and 360 cost"
+    },
+    {
+      "href": "/compare/fathom-vs-matomo/",
+      "label": "Matomo vs Fathom"
+    },
+    {
+      "href": "/compare/matomo-vs-plausible/",
+      "label": "Matomo vs Plausible"
+    },
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    },
+    {
+      "href": "/learn/ga4-alternatives-gdpr/",
+      "label": "GA4 alternatives for GDPR"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    }
+  ],
+  "seoTitle": "Matomo vs Google Analytics 4 (2026): Ownership, Cost",
+  "seoDescription": "Matomo vs Google Analytics 4 compared: GA4 consent and cookies, data ownership, Matomo Cloud vs self-hosted cost, and when Fathom is simpler."
 }

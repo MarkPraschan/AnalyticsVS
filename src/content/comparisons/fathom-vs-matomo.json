@@ -6,7 +6,7 @@
   "winner": null,
   "verdict": "Choose Fathom when you want cookieless, hosted web analytics with a short setup and a dashboard people will actually open. Choose Matomo when you need GA-like reporting depth, ecommerce and heatmaps/session tools, EU-hosted Cloud data, or a self-hosted install you control.",
   "quickAnswer": "This page answers both **Matomo vs Fathom** and **Fathom vs Matomo**. **Fathom** is the better fit for a marketing site that needs simple traffic, UTMs, and goals without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites on one Cloud plan, heatmaps/session recording, or data on infrastructure you own.",
-  "bottomLine": "Most small marketing sites should start with **Fathom** (hosted plans start at $15/month for 100K pageviews on [Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. **Matomo Cloud** starts at €29/month excl. tax for 50K hits on [Matomo pricing](https://matomo.org/pricing/) (checked 2026-11-19); On-Premise Community core is free, with paid premium plugins/bundles.",
+  "bottomLine": "Most small marketing sites should start with **Fathom** (hosted plans start at $15/month for 100K pageviews on [Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. **Matomo Cloud** starts at **€22/month excl. tax** (USD **$26**) for **50,000 hits** on [Matomo pricing](https://matomo.org/pricing/) JSON-LD (checked 2026-11-24); On-Premise Community core is free, with paid premium plugins/bundles.",
   "faq": [
     {
       "question": "Matomo vs Fathom: which should I pick?",
@@ -18,7 +18,7 @@
     },
     {
       "question": "Which is cheaper?",
-      "answer": "At low marketing-site traffic, hosted Fathom often looks simpler: $15/month for 100K pageviews ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Matomo Cloud starts at €29/month excl. tax for 50K hits and includes up to 30 websites ([Matomo pricing](https://matomo.org/pricing/), checked 2026-11-19). Self-hosted Matomo Community has no license fee for core features; you pay for the server and ops. Compare your volume on our pricing calculator, then confirm on each vendor page."
+      "answer": "At low marketing-site traffic, hosted Fathom often looks simpler: $15/month for 100K pageviews ([Fathom pricing](https://usefathom.com/pricing), checked 2026-11-19). Matomo Cloud starts at **€22/month excl. tax** (USD **$26**) for **50,000 hits** and includes up to 30 websites ([Matomo pricing](https://matomo.org/pricing/) JSON-LD, checked 2026-11-24). Self-hosted Matomo Community has no license fee for core features; you pay for the server and ops. Compare your volume on our pricing calculator, then confirm on each vendor page."
     },
     {
       "question": "Can I self-host both?",
@@ -36,7 +36,7 @@
     },
     {
       "title": "Pricing checked today",
-      "content": "Entry prices quoted above were checked on 2026-11-19 against [Fathom pricing](https://usefathom.com/pricing) and [Matomo pricing](https://matomo.org/pricing/). Mid-tier amounts change; verify the band that matches your hits or pageviews before you buy. Our [pricing calculator](/calculators/pricing/) uses directory snapshots that may lag the vendor page."
+      "content": "Entry prices quoted above were checked on **2026-11-24** against [Fathom pricing](https://usefathom.com/pricing) and [Matomo pricing](https://matomo.org/pricing/) JSON-LD. Matomo Cloud’s **50,000 hits/month** offer is **€22/month excl. tax** (USD **$26**). Mid-tier amounts change; verify the band that matches your hits or pageviews before you buy. Our [pricing calculator](/calculators/pricing/) uses directory snapshots that may lag the vendor page."
     }
   ],
   "alsoConsider": [

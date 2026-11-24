@@ -172,7 +172,7 @@
     {
       "id": "matomo",
       "title": "Matomo — heatmaps inside web analytics",
-      "content": "[Matomo](/tools/matomo/) is web analytics first. Heatmaps and session recording ship with **Matomo Cloud**. On **On-Premise**, they sit in paid plugins or the **Team** bundle.\n\n[Matomo pricing](https://matomo.org/pricing/) (checked 9 November 2026) lists Cloud from **$29/month** at **50,000 hits** (our directory still snapshots **$26** at that band from Oct 2026 — follow the vendor page). On-Premise **Team** is **from €230/month** and includes Heatmaps & Session Recording.\n\n**Choose Matomo** when you already want GA-like reports plus an overlay and you accept Cloud cost or On-Premise ops. See [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/). It is a weaker “Hotjar alternative” if you only wanted recordings and already have Fathom."
+      "content": "[Matomo](/tools/matomo/) is web analytics first. Heatmaps and session recording ship with **Matomo Cloud**. On **On-Premise**, they sit in paid plugins or the **Team** bundle.\n\n[Matomo pricing](https://matomo.org/pricing/) JSON-LD (checked **24 November 2026**) lists Cloud at **€22/month excl. tax** (USD **$26**) for **50,000 hits**. On-Premise **Team** is **from €230/month** and includes Heatmaps & Session Recording.\n\n**Choose Matomo** when you already want GA-like reports plus an overlay and you accept Cloud cost or On-Premise ops. See [Google Analytics vs Matomo](/compare/google-analytics-vs-matomo/). It is a weaker “Hotjar alternative” if you only wanted recordings and already have Fathom."
     },
     {
       "id": "smartlook",

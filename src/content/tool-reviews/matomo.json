@@ -86,9 +86,19 @@
       "checkedOn": "2026-11-24"
     },
     {
+      "label": "CNIL audience-measurement cookies",
+      "url": "https://www.cnil.fr/fr/cookies-solutions-pour-les-outils-de-mesure-daudience",
+      "checkedOn": "2026-11-24"
+    },
+    {
       "label": "Self-hosting guide",
       "url": "https://matomo.org/docs/installation/",
       "checkedOn": "2026-08-27"
+    },
+    {
+      "label": "Matomo cookieless tracking accuracy",
+      "url": "https://matomo.org/faq/general/faq_156/",
+      "checkedOn": "2026-11-24"
     }
   ]
 }

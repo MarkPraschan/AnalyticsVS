@@ -1,46 +1,67 @@
 {
   "title": "Plausible vs Matomo",
-  "description": "Plausible vs Matomo — hosted, cookieless simplicity versus self-hosted depth and data ownership for privacy-first web analytics.",
+  "description": "Plausible vs Matomo — cookieless hosted analytics versus Matomo Cloud and On-Premise data ownership, with prices checked 24 Nov 2026.",
   "tools": ["plausible", "matomo"],
   "category": "privacy-analytics",
   "winner": null,
-  "verdict": "Choose Plausible when you want hosted, cookieless web analytics with a short setup and predictable pageview pricing. Choose Matomo when you need GA-like reporting depth, data residency, or a self-hosted install you control.",
-  "quickAnswer": "This page answers both **Plausible vs Matomo** and **Matomo vs Plausible** — same decision, either search phrasing. **Plausible** is the better fit for a marketing site that needs simple traffic reports without running servers. **Matomo** is the better fit when you need deeper web analytics, many sites, or the data on infrastructure you own.",
-  "bottomLine": "Most small sites should start with **Plausible**. Move to **Matomo** when ownership, ecommerce depth, or a self-hosted requirement outweighs the extra setup. Matomo Cloud starts at $26/month for 50K hits; Plausible starts at $9/month for 10K pageviews. Self-hosted Matomo software is free, plus hosting and maintenance.",
+  "verdict": "Choose Plausible Cloud when you want cookieless, hosted web analytics with a short setup and pageview pricing. Choose Matomo Cloud or On-Premise when you need GA-like reporting depth, ecommerce, heatmaps, or data on infrastructure you control. Fathom is the other hosted privacy option if you want many sites on one plan without Matomo’s suite.",
+  "quickAnswer": "Pick **Plausible Cloud** if you want cookieless hosted web analytics with a short setup. Pick **Matomo Cloud** or **On-Premise** if you need GA-like reporting depth, ecommerce, heatmaps, or data on infrastructure you own. This page answers both **Plausible vs Matomo** and **Matomo vs Plausible**.",
+  "bottomLine": "Most small marketing sites should start with **Plausible Cloud** (Starter **$9/month** at 10k pageviews, checked 24 Nov 2026). Move to **Matomo** when ownership, ecommerce depth, heatmaps, or a self-hosted requirement outweighs the extra setup. **Matomo Cloud** starts at **€22/month excl. tax** (USD **$26**) for 50k hits. **Plausible CE** and **Matomo On-Premise Community** are free software plus the server you run. **Fathom** is the hosted alternative if you want Plausible-like simplicity with 50 sites included from **$15/month** at 100k pageviews.",
   "faq": [
     {
       "question": "Plausible vs Matomo: which should I pick?",
-      "answer": "Pick Plausible if you want a hosted, cookieless dashboard with short setup and pageview pricing. Pick Matomo if you need deeper reporting, ecommerce, many sites on one plan, or a self-hosted install you control. For a polished hosted alternative to Plausible, also look at Fathom; for Stripe revenue attribution, look at DataFast."
+      "answer": "Pick Plausible Cloud if you want a cookieless hosted dashboard, a 30-day trial, and pageview pricing from $9/month at 10k pageviews. Pick Matomo if you need deeper web analytics, ecommerce, heatmaps and session recording, many sites on one Cloud plan, or a self-hosted install you control. Fathom is the other hosted privacy option if you like Plausible’s simplicity and want 50 sites included from $15/month at 100k pageviews."
+    },
+    {
+      "question": "What is Plausible Cloud vs Plausible Community Edition?",
+      "answer": "Plausible Cloud is the paid EU-hosted product with continuous releases, human support, and plan-gated features. Starter is $9/month at 10k pageviews for one site. Growth and Business cost more at the same pageview band; funnels, user journeys, and revenue tracking are on Business, not Starter. Plausible Community Edition (CE) is the free AGPLv3 self-hosted release: twice-yearly long-term releases, community support only, basic bot filtering, and those Cloud premium features omitted. You still pay for the server, CDN, and backups."
+    },
+    {
+      "question": "Matomo Cloud vs On-Premise: which should I pick?",
+      "answer": "Pick Matomo Cloud if you want Matomo without running PHP and a database: hosting, automatic updates, security monitoring, and daily backups are included, and visitor data is stored in Frankfurt, Germany. Cloud starts at €22/month excl. tax (USD $26) for 50,000 hits and includes up to 30 websites. Pick On-Premise if you must choose the country or network the database lives on, or if hit volume makes Cloud expensive and you already have ops capacity. On-Premise Community is free; premium plugins ship as paid bundles from €230/month for Team."
+    },
+    {
+      "question": "Which is cheaper, Plausible or Matomo?",
+      "answer": "For a single small site, Plausible Cloud Starter is usually cheaper: $9/month at 10k pageviews and $19/month at 100k (Starter prices on plausible.io, 24 Nov 2026). Matomo Cloud starts at €22/month excl. tax (USD $26) for 50k hits and includes up to 30 websites (matomo.org/pricing JSON-LD, 24 Nov 2026). Hits are not the same unit as pageviews, so do not compare those two numbers 1:1. Self-hosted Plausible CE and Matomo Community have no license fee; you pay hosting and maintenance. Fathom’s hosted floor is $15/month for 100k pageviews."
     },
     {
       "question": "Is Matomo more private than Plausible?",
-      "answer": "Both can be configured as privacy-friendly alternatives to GA4. Plausible is cookieless by default. Matomo supports cookieless and anonymization options, and self-hosting keeps the database on your servers. Privacy depends on the settings you turn on, not the brand name alone."
+      "answer": "Both can be configured as privacy-friendly alternatives to GA4. Plausible Cloud is cookieless by default, does not store raw IP addresses, and processes visitor data in the EU. Matomo is not cookieless by default, but you can disable cookies (disableCookies in the tracker, or Force tracking without cookies in Privacy settings on Matomo 5+) and anonymize IP addresses; Cloud data is stored in Frankfurt, and On-Premise lets you choose the server. Privacy depends on the settings you turn on. Get legal advice for your case."
     },
     {
-      "question": "Which is cheaper?",
-      "answer": "Plausible is usually cheaper for a single small site: $9/month for 10K pageviews and $19/month for 100K. Matomo Cloud starts at $26/month for 50K hits and includes up to 30 websites. Self-hosted Matomo has no license fee; you pay for the server and the time to keep it updated."
-    },
-    {
-      "question": "Can I self-host both?",
-      "answer": "Yes. Plausible has an open-source self-hosted edition. Matomo On-Premise is the product most teams mean by self-hosted analytics. Matomo Cloud is the managed alternative if you want ownership without operating PHP and a database."
+      "question": "Can I self-host both Plausible and Matomo?",
+      "answer": "Yes. Plausible Community Edition is the open-source self-hosted edition. Matomo On-Premise is the product most teams mean by self-hosted Matomo. Matomo Cloud and Plausible Cloud are the managed alternatives if you want those dashboards without operating a server. Fathom Analytics is hosted; Fathom Lite is a separate free self-hosted download with fewer features."
     },
     {
       "question": "Which replaces Google Analytics more completely?",
-      "answer": "Matomo. It covers ecommerce, goals, funnels, custom dimensions, and a tag manager. Plausible covers pageviews, referrers, campaigns, and a short list of goals. Use Plausible when that shorter list is the job."
+      "answer": "Matomo. Cloud plans include ecommerce tracking, goals, funnels, heatmaps and session recording, A/B testing, a tag manager, and a GA data importer among other reports. Plausible Cloud Starter covers pageviews, referrers, campaigns, and goals; Cloud Business adds funnels, user journeys, and revenue tracking. Use Plausible when that shorter list is the job."
+    },
+    {
+      "question": "How does Fathom compare as a hosted alternative?",
+      "answer": "Fathom Analytics is a hosted, cookieless privacy analytics product in the same job as Plausible Cloud, not a Matomo replacement. Hosted plans start at $15/month for 100,000 pageviews, include at least 50 sites, and list the same analytics features on every plan. It is a fair hosted pick if you want simple traffic, UTMs, events, and revenue values without running Matomo or Plausible CE. It does not match Matomo’s ecommerce suite, heatmaps, or On-Premise control."
     }
   ],
   "editorialNotes": [
     {
+      "title": "Verdict first",
+      "content": "**Plausible vs Matomo** is a hosting-and-depth choice, not a photo finish on the same dashboard.\n\n- **Start with Plausible Cloud** for a marketing site or blog that needs cookieless pageviews, referrers, UTMs, and goals without a server. Starter is **$9/month** at **10k** pageviews on the [Plausible homepage](https://plausible.io/) widget (checked **2026-11-24**; `plausible.io/pricing` currently 404s).\n- **Choose Matomo** when the weekly question is ecommerce, custom dimensions, heatmaps, a tag manager, or **data you host**. [Matomo Cloud](https://matomo.org/pricing/) starts at **€22/month excl. tax** (USD **$26**) for **50,000 hits** in the page’s JSON-LD (checked **2026-11-24**). On-Premise Community is free software.\n- **Fathom** is the other hosted privacy product if you want Plausible-like simplicity and **50 sites** on the entry plan (**$15/month** at 100k pageviews on [Fathom pricing](https://usefathom.com/pricing), checked **2026-11-24**). See [Fathom vs Matomo](/compare/fathom-vs-matomo/) for that pair. It is not a full Matomo substitute.\n\nOps cost for CE and On-Premise is covered in [self-hosted web analytics](/learn/self-hosted-web-analytics/)."
+    },
+    {
+      "title": "Pricing: Matomo Cloud vs On-Premise, Plausible Cloud vs CE",
+      "content": "Figures below were opened **2026-11-24**. Hits (Matomo) are not pageviews (Plausible/Fathom). Confirm the band that matches your traffic before you buy. Our [pricing calculator](/calculators/pricing/) uses directory snapshots that can lag the vendor page.\n\n| Product | What you pay | What you run | Source |\n|---|---|---|---|\n| **Plausible Cloud Starter** | **$9/month** at 10k pageviews; $19 at 100k; $29 at 200k; $49 at 500k; $69 at 1M; $89 at 2M; **$129 at 5M**; **$169 at 10M** | Vendor hosts it (EU). One site on Starter. | [plausible.io](https://plausible.io/) pricing widget |\n| **Plausible Cloud Growth / Business** | At 10k pageviews: Growth **$14/month**, Business **$19/month**. Same pageview slider as Starter. | Vendor hosts it. Growth: up to 3 sites. Funnels, user journeys, and revenue tracking are **Business** features. | Homepage widget + [subscription plans](https://plausible.io/docs/subscription-plans) |\n| **Plausible CE** | **$0** to Plausible. You pay server, CDN, backups, and upgrade time. | You host it. Twice-yearly CE releases; Cloud premium features omitted. | [Self-hosting docs](https://plausible.io/docs/self-hosting) |\n| **Matomo Cloud** | **€22/month excl. tax** (USD **$26**) at 50k hits; €38 / $42 at 100k; €75 / $85 at 300k; €118 / $139 at 600k; €172 / $204 at 1M; €334 / $399 at 2M; €822 / $975 at 5M; €1,600 / $1,900 at 10M. Up to **30 websites**. Data in **Frankfurt**. | Matomo hosts it (updates, monitoring, daily backups included). | [matomo.org/pricing](https://matomo.org/pricing/) JSON-LD + FAQ |\n| **Matomo On-Premise Community** | **€0** license. Unlimited users and hits. | You host PHP + database. | Same pricing page, JSON-LD “On-Premise – Free” |\n| **Matomo On-Premise bundles** | **Team from €230/month** (up to 4 users, 5M hits); **Business from €1,209/month** (20 users, 30M hits); **Enterprise from €2,834/month** (50 users, 100M hits). | You host it; bundles add premium plugins and email support. | Same pricing page On-Premise table |\n| **Fathom Analytics** (hosted alternative) | **$15/month** at 100k pageviews; 50 sites included. | Vendor hosts it. | [usefathom.com/pricing](https://usefathom.com/pricing) |\n\nThe directory pricing table later on this page now follows those **Starter** (Plausible) and **Cloud EUR** (Matomo) snapshots. Growth/Business and On-Premise bundles are not extra rows in that table — use this section for them."
+    },
+    {
       "title": "What you are actually choosing",
-      "content": "This is not two versions of the same dashboard. Plausible is a lightweight hosted analytics product. Matomo is a full web analytics suite you can run yourself or buy as cloud. If the weekly question is \"which pages and channels brought traffic,\" Plausible is enough. If the weekly question is \"ecommerce, custom dimensions, and data that never leaves our servers,\" look at Matomo."
+      "content": "Plausible is a lightweight privacy analytics product. Most teams buy **Cloud**. **CE** is the same brand with a different feature and ops contract — do not mix the two lists ([Cloud vs CE table](https://plausible.io/docs/self-hosting)).\n\nMatomo is a full web analytics suite. **Cloud** includes the premium feature set (funnels, heatmaps and session recording, A/B testing, and more on [Matomo pricing](https://matomo.org/pricing/)). **On-Premise Community** is the free core; those extras are plugins or bundles.\n\nIf the weekly question is which pages and channels brought traffic, Plausible Cloud or hosted Fathom is enough. If the weekly question is ecommerce, custom dimensions, heatmaps, or data that never leaves your servers, look at Matomo. For the server-and-backup version of that split, read [self-hosted web analytics](/learn/self-hosted-web-analytics/)."
     }
   ],
+  "afterVerdict": "For Cloud vs CE, On-Premise Community vs paid bundles, and what a self-hosted box actually costs, see [self-hosted web analytics](/learn/self-hosted-web-analytics/). If the live question is hosted privacy analytics versus Matomo’s suite, see [Fathom vs Matomo](/compare/fathom-vs-matomo/).",
   "alsoConsider": [
     {
       "toolId": "fathom",
-      "note": "A polished hosted privacy analytics alternative if you like Plausible’s simplicity but want to compare vendors — referred customers get $10 off their first invoice.",
-      "compareHref": "/compare/plausible-vs-fathom/",
-      "compareLabel": "Plausible vs Fathom"
+      "note": "Hosted, cookieless web analytics in the same job as Plausible Cloud — not a Matomo-depth suite. Entry hosted plan is $15/month for 100k pageviews with 50 sites included (Fathom pricing, checked 24 Nov 2026).",
+      "compareHref": "/compare/fathom-vs-matomo/",
+      "compareLabel": "Fathom vs Matomo"
     },
     {
       "toolId": "datafast",
@@ -48,6 +69,14 @@
     }
   ],
   "relatedLinks": [
+    {
+      "href": "/learn/self-hosted-web-analytics/",
+      "label": "Self-hosted web analytics (Matomo, Umami, Plausible CE)"
+    },
+    {
+      "href": "/compare/fathom-vs-matomo/",
+      "label": "Fathom vs Matomo"
+    },
     {
       "href": "/compare/google-analytics-vs-matomo/",
       "label": "Google Analytics vs Matomo"
@@ -73,6 +102,6 @@
       "label": "GA4 alternatives for GDPR"
     }
   ],
-  "seoTitle": "Plausible vs Matomo (2026): Hosting, Privacy, Price",
-  "seoDescription": "Plausible vs Matomo compared: cookieless hosted analytics versus self-hosting and data ownership, with pricing and when each privacy-first tool wins."
+  "seoTitle": "Plausible vs Matomo (2026): Price, Cloud vs Self-Host",
+  "seoDescription": "Plausible vs Matomo compared: cookieless Cloud vs CE, Matomo Cloud vs On-Premise, prices checked today, and when each privacy-first tool wins."
 }

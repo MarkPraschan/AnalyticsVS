@@ -39,21 +39,22 @@
       },
       {
         "limit": 5000000,
-        "price": 109
+        "price": 129
       },
       {
         "limit": 10000000,
-        "price": 149
+        "price": 169
       }
     ],
-    "notes": "Pricing as of Aug 2026 — verify on vendor site.",
+    "hasFreeTrial": true,
+    "notes": "Starter Cloud prices from the plausible.io homepage widget, checked 24 Nov 2026 (plausible.io/pricing 404s). At 10k pageviews Growth is $14/month and Business is $19/month. 30-day trial, no card. CE is free self-hosted software.",
     "projectLimits": {
       "included": 1,
       "plans": [
         {
           "name": "Growth",
           "maxProjects": 3,
-          "notes": "Team plan for up to 3 sites on one subscription."
+          "notes": "Homepage Growth plan: up to 3 sites on one subscription (checked 24 Nov 2026)."
         }
       ]
     }

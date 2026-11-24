@@ -7,6 +7,9 @@
   "publishedOn": "2026-11-24",
   "category": "primers",
   "status": "published",
+  "featuredImage": "/learn/session-replay-pricing.webp",
+  "featuredImageAlt": "Pixel-art drive-in theater with three screens showing the Hotjar, Microsoft Clarity and PostHog logos",
+  "ogImage": "/learn/session-replay-pricing-og.jpg",
   "quickAnswer": "**Session replay pricing** is not one invoice type. **[Hotjar](/tools/hotjar/)** is sold as Contentsquare Experience Analytics: **Free is $0** (up to **200k** monthly sessions, replay sampled at **5%**, max **10k**). **Growth** starts at **$39/month** billed annually (**$49/month** monthly) for **7,000 sessions**. **[Microsoft Clarity](https://clarity.microsoft.com/)** is **$0 forever** with **no paid upgrade**, but [Microsoft’s FAQ](https://learn.microsoft.com/en-us/clarity/faq) caps recordings at **100,000 sessions per project per day** and keeps most recordings **30 days**. **[PostHog](/tools/posthog/)** Cloud includes **5,000 web recordings/month** free, then **$0.0050** per extra recording on the first paid band. For **Hotjar vs Clarity**, Clarity wins on list price; Hotjar wins when you need Growth retention, zone-based heatmaps, or surveys. Full Hotjar SKUs: [Hotjar pricing](/learn/hotjar-pricing/). Feature roundup (not prices): [Hotjar alternatives](/learn/hotjar-alternatives/).",
   "keyTakeaways": [
     "Compare meters first: Hotjar bills monthly sessions (heatmaps/funnels) with a separate replay cap; Clarity is $0 with a daily session ceiling and short replay retention; PostHog bills recordings after a monthly free allowance.",

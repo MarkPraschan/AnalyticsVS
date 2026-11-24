@@ -7,6 +7,9 @@
   "publishedOn": "2026-11-24",
   "category": "guides",
   "status": "published",
+  "featuredImage": "/learn/switch-google-analytics-to-fathom.webp",
+  "featuredImageAlt": "Pixel-art movers carrying data crates across a rope bridge from a Google Analytics tower to a Fathom cottage",
+  "ogImage": "/learn/switch-google-analytics-to-fathom-og.jpg",
   "quickAnswer": "**To migrate Google Analytics to Fathom:** keep GA4 running, add the Fathom embed, import supported **GA4** history with Fathom’s Google Analytics importer, recreate events with `fathom.trackEvent`, compare both dashboards for a few days, then remove gtag/GTM tags that fire GA. The importer copies **daily** dashboard-shaped data, **not events**, and **cannot recover Universal Analytics** after Google deleted UA on 1 July 2024.",
   "keyTakeaways": [
     "Run Fathom beside GA4 first. Do not delete Google tags until live Fathom traffic and the import look right.",

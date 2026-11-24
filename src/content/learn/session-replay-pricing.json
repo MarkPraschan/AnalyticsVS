@@ -1,0 +1,163 @@
+{
+  "title": "Session replay and heatmap pricing: Hotjar vs Microsoft Clarity vs PostHog",
+  "slug": "session-replay-pricing",
+  "description": "Session replay pricing compared: Hotjar vs Microsoft Clarity vs PostHog — free tiers, session and recording limits, heatmap costs, and what you get.",
+  "seoTitle": "Session Replay Pricing: Hotjar vs Clarity vs PostHog (2026)",
+  "answerUnderTitle": "Session replay pricing is three different meters. Hotjar (Contentsquare Experience Analytics) bills monthly sessions with a separate replay cap — Free is $0; Growth starts at $39/month billed annually. Microsoft Clarity is $0 with no paid plan, but recordings expire fast and there is a 100,000 sessions-per-project-per-day ceiling. PostHog Cloud is $0 for the first 5,000 web recordings each month, then a published per-recording rate. None of them replace lightweight pageview analytics; pair Fathom or DataFast for traffic.",
+  "publishedOn": "2026-11-24",
+  "category": "primers",
+  "status": "published",
+  "featuredImage": "/learn/session-replay-pricing.webp",
+  "featuredImageAlt": "Pixel-art drive-in theater with three screens showing the Hotjar, Microsoft Clarity and PostHog logos",
+  "ogImage": "/learn/session-replay-pricing-og.jpg",
+  "quickAnswer": "**Session replay pricing** is not one invoice type. **[Hotjar](/tools/hotjar/)** is sold as Contentsquare Experience Analytics: **Free is $0** (up to **200k** monthly sessions, replay sampled at **5%**, max **10k**). **Growth** starts at **$39/month** billed annually (**$49/month** monthly) for **7,000 sessions**. **[Microsoft Clarity](https://clarity.microsoft.com/)** is **$0 forever** with **no paid upgrade**, but [Microsoft’s FAQ](https://learn.microsoft.com/en-us/clarity/faq) caps recordings at **100,000 sessions per project per day** and keeps most recordings **30 days**. **[PostHog](/tools/posthog/)** Cloud includes **5,000 web recordings/month** free, then **$0.0050** per extra recording on the first paid band. For **Hotjar vs Clarity**, Clarity wins on list price; Hotjar wins when you need Growth retention, zone-based heatmaps, or surveys. Full Hotjar SKUs: [Hotjar pricing](/learn/hotjar-pricing/). Feature roundup (not prices): [Hotjar alternatives](/learn/hotjar-alternatives/).",
+  "keyTakeaways": [
+    "Compare meters first: Hotjar bills monthly sessions (heatmaps/funnels) with a separate replay cap; Clarity is $0 with a daily session ceiling and short replay retention; PostHog bills recordings after a monthly free allowance.",
+    "Hotjar.com/pricing 301s to Contentsquare. Quote Experience Analytics Free and Growth, not the old Plus/Business names. Our Hotjar directory JSON is still a stale August 2026 snapshot.",
+    "Clarity’s marketing says free forever and no traffic limits. The same product’s FAQ still lists 100,000 recorded sessions per project per day, 100,000 page views per heatmap, and 30-day replay retention.",
+    "PostHog web replay is $0 through 5,000 recordings/month, then published volume rates down to $0.0015/recording. Heatmap ingest is free; the free plan only captures heatmaps on up to 3 pages.",
+    "At 20,000 recordings/month, Growth’s 20k Hotjar pack lists $119/month; PostHog’s published bands arithmetic to $67.50; Clarity is still $0 if you stay under the daily cap.",
+    "Do not buy replay session packs as channel analytics. Fathom or DataFast cover pageviews cheaper. This page is pricing only — [Hotjar alternatives](/learn/hotjar-alternatives/) is the vendor list."
+  ],
+  "heroCta": {
+    "toolId": "hotjar",
+    "headline": "Need heatmaps and recordings you will actually review?",
+    "note": "Start on Experience Analytics Free if a 5% replay sample is enough. Move to Growth when you need 13-month analytics access, zone-based heatmaps, or a matching replay count on a small session pack. Keep Fathom or DataFast for traffic so you are not paying Hotjar session packs for pageviews.",
+    "label": "Try Hotjar"
+  },
+  "toolShortlistHeading": "Price the overlay, then pick the traffic tag",
+  "faq": [
+    {
+      "question": "How much does session replay cost?",
+      "answer": "It depends on the meter. Hotjar (Contentsquare Experience Analytics) Free is $0; Growth starts at $39/month billed annually ($49/month monthly) for 7,000 sessions. Microsoft Clarity has no list price above $0. PostHog Cloud is $0 for the first 5,000 web recordings each month, then $0.0050 per recording on the first paid band, with lower rates at higher volume."
+    },
+    {
+      "question": "Is Microsoft Clarity cheaper than Hotjar?",
+      "answer": "On list price, yes: Clarity is $0 with no paid plan. Hotjar Free is also $0, but replay is sampled (5%, max 10,000) and analytics data access is 1 month. You pay Hotjar Growth for a higher replay share, 13-month analytics access, 3 projects, and zone-based heatmaps — not because Clarity charges more."
+    },
+    {
+      "question": "Does Microsoft Clarity have traffic limits?",
+      "answer": "Clarity’s homepage and pricing FAQ say the product is free forever and that you are not forced to upgrade for traffic. Microsoft’s Clarity FAQ still states Clarity records up to 100,000 sessions per project per day, heatmaps are limited to 100,000 page views each, and most recordings are kept 30 days (favorites and a small sample longer)."
+    },
+    {
+      "question": "How much is PostHog session replay after the free tier?",
+      "answer": "PostHog’s session replay pricing page lists 5,000 free web recordings per month, then $0.0050 per recording from 5k–15k, $0.0035 from 15k–50k, $0.0020 from 50k–150k, $0.0017 from 150k–500k, and $0.0015 above 500k. Mobile recordings are a separate meter (2,500 free, then from $0.0100). Recording retention is 1 month on the free plan and 3 months on pay-as-you-go."
+    },
+    {
+      "question": "Are Hotjar sessions the same as recordings?",
+      "answer": "No. A Contentsquare session is a visit that feeds heatmaps, funnels, and other analysis (it ends after 30 minutes of inactivity). A replay is a reconstructed playback of one visit. Free captures 5% of sessions as replays (max 10,000). Growth lists matching replays at 7k–15k sessions, then a 20,000 replay count on most larger published packs until 150k/200k."
+    },
+    {
+      "question": "Do I still need Fathom or DataFast if I use Hotjar, Clarity, or PostHog replay?",
+      "answer": "Yes for channel and volume questions. Replay and heatmap tools show on-page behavior. They do not replace cookieless pageview analytics (Fathom) or Stripe revenue-by-channel (DataFast). Pair a cheap traffic tag with a small overlay instead of scaling Hotjar session packs to cover all visits."
+    }
+  ],
+  "relatedComparisons": [
+    "posthog-vs-hotjar",
+    "google-analytics-vs-hotjar",
+    "fathom-vs-datafast"
+  ],
+  "relatedTools": [
+    "hotjar",
+    "posthog",
+    "fathom",
+    "datafast"
+  ],
+  "relatedGuides": [
+    "analytics-for-a-saas-startup"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/learn/hotjar-pricing/",
+      "label": "Hotjar pricing explained"
+    },
+    {
+      "href": "/learn/hotjar-alternatives/",
+      "label": "Hotjar alternatives"
+    },
+    {
+      "href": "/learn/website-heatmaps/",
+      "label": "Website heatmaps primer"
+    },
+    {
+      "href": "/compare/posthog-vs-hotjar/",
+      "label": "PostHog vs Hotjar"
+    },
+    {
+      "href": "/tools/hotjar/",
+      "label": "Hotjar tool profile"
+    },
+    {
+      "href": "/tools/posthog/",
+      "label": "PostHog tool profile"
+    },
+    {
+      "href": "/tools/fathom/",
+      "label": "Fathom Analytics profile"
+    },
+    {
+      "href": "/tools/datafast/",
+      "label": "DataFast profile"
+    },
+    {
+      "href": "/calculators/pricing/",
+      "label": "Analytics pricing calculator"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "hotjar",
+      "bestFor": "Marketing and UX teams that will pay for Growth retention, zone-based heatmaps, and surveys — or stay on Free if a 5% replay sample is enough."
+    },
+    {
+      "toolId": "posthog",
+      "bestFor": "Product teams that want replay billed per recording next to events and flags, with 5,000 web recordings/month free on Cloud."
+    },
+    {
+      "toolId": "fathom",
+      "bestFor": "Cookieless pageview analytics beside any of the three replay tools. Hosted Standard starts at $15/month for 100,000 pageviews. Referred customers get $10 off their first invoice."
+    }
+  ],
+  "sections": [
+    {
+      "id": "three-meters",
+      "title": "What session replay pricing actually bills",
+      "content": "Searchers typing **session replay pricing** usually want a monthly dollar number. Vendors do not share a meter.\n\n- **[Hotjar](/tools/hotjar/)** (Contentsquare Experience Analytics) sells **monthly sessions**. Sessions feed [website heatmaps](/learn/website-heatmaps/), funnels, and analysis. **Replays** are a second cap on the same page.\n- **Microsoft Clarity** publishes **$0**. Limits show up as **daily recorded sessions**, **heatmap page-view caps**, and **retention**, not a paid SKU.\n- **[PostHog](/tools/posthog/)** Cloud sells **recordings** (and separately **events** for product analytics). You can stay on replay without buying Hotjar-style session packs.\n\nA session is not a recording. A recording is not a pageview. Mixing those units is how a “cheap overlay” becomes a **$409/month** Hotjar pack that still lists only **20,000** replays.\n\nThis article is **pricing only**. For the wider vendor list (Mouseflow, Lucky Orange, FullStory, Crazy Egg), use [Hotjar alternatives](/learn/hotjar-alternatives/). For the product-analytics job split, use [PostHog vs Hotjar](/compare/posthog-vs-hotjar/). Plan-by-plan Hotjar SKUs live on [Hotjar pricing](/learn/hotjar-pricing/).\n\nFigures below were taken from vendor pages opened **24 November 2026**."
+    },
+    {
+      "id": "snapshot",
+      "title": "Hotjar vs Clarity vs PostHog at a glance",
+      "content": "| | [Hotjar](/tools/hotjar/) / Contentsquare Experience Analytics | [Microsoft Clarity](https://clarity.microsoft.com/) | [PostHog](/tools/posthog/) Cloud |\n|---|---|---|---|\n| Public starting price (24 Nov 2026) | **Free $0**; Growth from **$39/mo** annual / **$49/mo** monthly | **$0** — no paid plan | **$0** until you pass free allowances |\n| What you buy | Monthly **sessions** (account-wide, one region) | Nothing. Microsoft does not sell a Clarity SKU | **Recordings** (web and mobile are separate) |\n| Free replay | **5%** of sessions, **max 10k**/month | Included; not every tracked session has a playable recording | **5,000** web recordings/month (**2,500** mobile) |\n| Paid replay | Growth SKUs; most packs above 20k sessions still list **20k** replays | None | From **$0.0050**/web recording, falling with volume |\n| Heatmaps | Included on Free and Growth; **zone-based** on Growth | Included; **100k page views per heatmap** | Ingest is **free**; Free plan: up to **3 pages**; toolbar heatmaps need pay-as-you-go |\n| Replay access / retention | Free **1 month**; Growth **2 months** | **30 days**; favorites and a small sample up to **9 months** | Free **1 month**; pay-as-you-go **3 months** |\n| Analytics data access | Free **1 month**; Growth **13 months** | Heatmaps viewable up to **9 months** | Events: **1 year** free / **2 years** pay-as-you-go |\n| In AnalyticsVS directory? | Yes — snapshot is **stale** (Plus/Business daily sessions, Aug 2026) | No | Yes — [PostHog](/tools/posthog/) |\n\nHotjar remains a **behavior** product: heatmaps, recordings, funnels, basic surveys. It is not channel analytics. Clarity is the same job at **$0**, with different caps. PostHog replay sits next to **events and flags** — that is why [PostHog vs Hotjar](/compare/posthog-vs-hotjar/) exists."
+    },
+    {
+      "id": "hotjar-contentsquare",
+      "title": "Hotjar pricing: sessions vs recordings",
+      "content": "On **24 November 2026**, [hotjar.com/pricing](https://www.hotjar.com/pricing/) **301-redirects** to [contentsquare.com/pricing](https://www.contentsquare.com/pricing/?utm_source=hotjar-pricing). Public names are **Free**, **Growth**, **Pro**, and **Enterprise**.\n\nOur [Hotjar profile](/tools/hotjar/) still snapshots older **Plus / Business** daily-session bands from **August 2026**. That JSON disagrees with the vendor page. **This article follows the vendor page.** Do not budget from the directory table or the [pricing calculator](/calculators/pricing/) Hotjar row until that snapshot is refreshed. The full Growth SKU list is on [Hotjar pricing](/learn/hotjar-pricing/).\n\n### Free vs Growth (checked 24 Nov 2026)\n\n| Plan | Public price | Monthly sessions | Listed / stated replay | Analytics data access | Projects |\n|---|---|---|---|---|---|\n| Experience Analytics **Free** | **$0** | Up to **200k** | **5%** of sessions, **max 10k** (packaging also labels **10k replays**) | **1 month** | **1** |\n| Experience Analytics **Growth** | From **$39/mo** annual / **$49/mo** monthly | Published packs **7k–200k**; comparison table **7k–10m**; **+240k** is “Let’s talk” | Matching replays at 7k–15k; then **20k** on most packs (**150k → 22k**, **200k → 30k**). Feature table: **15% captured, min 20k** | **13 months** | **3** |\n| Experience Platform **Pro** / **Enterprise** | **Custom** (no list price) | From **1m** / custom | Up to **100%** | **13 months** | Up to **6** / unlimited |\n\nGrowth’s cheapest pack is **7,000 sessions** — **fewer sessions than Free**. You are buying **13-month** analytics access, **3 projects**, **zone-based heatmaps**, journey analysis, and a **higher replay share**, not more raw heatmap sessions than Free’s 200k.\n\n### Growth session packs (monthly list USD)\n\nSame [Contentsquare pricing](https://www.contentsquare.com/pricing/) packaging data, **24 November 2026**. These are **Pay monthly** list prices. Annual card/PayPal is **20% off before VAT**; the page’s rounded advertised annual price is **$39** on the **7k** pack only. We do **not** invent rounded annual prices for the other SKUs.\n\n| Monthly sessions | Monthly list | Listed replays |\n|---|---|---|\n| 7k | **$49** (annual advertised **$39**) | 7k |\n| 10k | **$69** | 10k |\n| 15k | **$99** | 15k |\n| 20k | **$119** | 20k |\n| 25k–120k | **$139–$469** | **20k** on every listed pack |\n| 100k | **$409** | **20k** |\n| 150k | **$569** | 22k |\n| 200k | **$739** | 30k |\n| +240k | Let’s talk | not listed |\n\nHitting the **session** cap on Free or Growth stops **new heatmap and funnel data** until the next monthly reset. That is a different meter from “recordings ran out.”\n\nReplay **access** is **1 month** on Free and **2 months** on Growth. Voice of Customer is a **separate** product (Free **100** monthly responses; Growth advertised **from $79/month**). Do not fold VoC response packs into session math.\n\nNew accounts get a **15-day Growth trial** with **no payment details** and **no auto-charge**. Growth advertises a **30-day money-back** window. Prices are **per account in one region**, not per site.\n\nAffiliate visit links on AnalyticsVS use the configured Contentsquare partner URL."
+    },
+    {
+      "id": "microsoft-clarity",
+      "title": "Microsoft Clarity: $0, with daily and retention limits",
+      "content": "[Microsoft Clarity](https://clarity.microsoft.com/) is the usual **Hotjar vs Clarity** price answer: **there is no invoice**.\n\nThe [Clarity homepage](https://clarity.microsoft.com/) (opened **24 November 2026**) states **free forever**, **no limits on traffic**, and includes session recordings, heatmaps, and AI summaries. The [Clarity FAQ](https://learn.microsoft.com/en-us/clarity/faq) (same day) says Clarity is **a free service forever**, you **never encounter traffic limits** or a forced paid upgrade, and there are **no limits on the number of sites per account**. It also says **no sampling** in the sense of tracking only a portion of traffic.\n\nThose marketing lines are not the whole meter. The same FAQ, checked **24 November 2026**:\n\n- Clarity **records up to 100,000 sessions per project per day**.\n- Heatmaps are limited to **up to 100,000 page views per heatmap** and are kept **up to 9 months**.\n- **Not every tracked session has a playable recording.**\n- Recordings are retained **30 days**. **Favorite** recordings and a **randomly selected sample** are kept **up to 9 months**.\n\n[Recordings overview](https://learn.microsoft.com/en-us/clarity/session-recordings/recordings-overview) (same day) is more specific on the long tail: after 30 days Clarity keeps **1% of recordings or 10 recordings per day, whichever is higher**, for up to 9 months. A session ends after **30 minutes of inactivity** — the same inactivity rule Contentsquare uses for Hotjar sessions.\n\nClarity is **not** in the AnalyticsVS directory. There is **no affiliate link**. It is not cookieless pageview analytics; treat it as behavior capture, same family as Hotjar.\n\n**Choose Clarity on price** when $0 is the requirement and 30-day replay review is a real weekly ritual. **Pay Hotjar instead** when you need Growth’s replay share, 13-month analytics access, zone-based heatmaps, or surveys in the same product — details on [Hotjar pricing](/learn/hotjar-pricing/)."
+    },
+    {
+      "id": "posthog",
+      "title": "PostHog Cloud: free recordings, then per-recording rates",
+      "content": "[PostHog pricing](https://posthog.com/pricing) and [session replay pricing](https://posthog.com/session-replay/pricing) (both opened **24 November 2026**) bill **usage**, not a Hotjar-style session pack.\n\nEvery month, Cloud includes **5,000 web recordings** and **2,500 mobile recordings** free, whether or not a card is on file. Unused free units **do not roll over**. The [directory snapshot](/tools/posthog/) matches the 5,000 web-recording allowance (checked there **19 November 2026**).\n\n### Published web recording rates\n\nFrom [PostHog session replay pricing](https://posthog.com/session-replay/pricing), **24 November 2026** (USD, excluding tax):\n\n| Monthly web recordings | Price |\n|---|---|\n| First **5,000** | **$0** |\n| 5k–15k | **$0.0050**/recording |\n| 15k–50k | **$0.0035**/recording |\n| 50k–150k | **$0.0020**/recording |\n| 150k–500k | **$0.0017**/recording |\n| 500k+ | **$0.0015**/recording |\n\nMobile recordings are billed separately: **2,500** free, then **$0.0100** (2.5k–15k), **$0.0070**, **$0.0040**, **$0.0034**, **$0.0030** at the same volume steps.\n\nWorked **web** totals using only those bands (not a quote — arithmetic):\n\n| Web recordings / month | Estimated replay-only bill |\n|---|---|\n| 5,000 | **$0** |\n| 10,000 | **$25** (5k × $0.0050) |\n| 15,000 | **$50** |\n| 20,000 | **$67.50** (10k × $0.0050 + 5k × $0.0035) |\n| 50,000 | **$172.50** |\n| 100,000 | **$272.50** |\n\nOn the free plan, usage **stops** at the free cap (recordings are not billed by surprise). Pay-as-you-go charges the overage and raises **projects** from **1 to 6**. Replay **retention**: **1 month** free, **3 months** pay-as-you-go on the replay pricing page (the main pricing FAQ says **90 days** on paid — the same window). Downloading recording files is listed on the **paid** column.\n\nProduct analytics is a **different meter**: **1 million events**/month free, then usage-based. Do not treat a PostHog event invoice as a replay invoice.\n\n### Heatmaps on PostHog\n\nPostHog [heatmap docs](https://posthog.com/docs/toolbar/heatmaps) (checked **24 November 2026**) say heatmap data is **free to ingest**. On the **free** plan, PostHog collects heatmap data for **up to 3 pages**. Viewing heatmaps from the **toolbar** requires **pay-as-you-go**. Our directory still marks PostHog `heatmaps` as **false** from an older snapshot — follow the vendor docs for capability, and treat the JSON flag as stale.\n\nPostHog is the fit when replay must follow **product events**, flags, and experiments. That is [PostHog vs Hotjar](/compare/posthog-vs-hotjar/), not a larger Hotjar Growth SKU."
+    },
+    {
+      "id": "same-traffic",
+      "title": "What you actually pay at the same traffic",
+      "content": "Units still do not match. The table uses **recordings you can watch** where PostHog publishes a rate, and **Hotjar’s listed replay count** for Growth packs. Clarity stays **$0** if the project stays under **100,000 recorded sessions/day**.\n\n| If you need… | Hotjar (list, 24 Nov 2026) | Clarity | PostHog Cloud web replay |\n|---|---|---|---|\n| Sampled overlay, **$0** | **Free**: 200k sessions, **5%** replay (max **10k**), 1-month access | **$0**; 30-day recordings | **$0** through **5k** recordings |\n| About **7k** recordings / month | Growth **7k**: **$49/mo** list (**$39** advertised annual), **7k** replays | **$0** | **$10** overage (2k × $0.0050) |\n| About **20k** recordings / month | Growth **20k**: **$119/mo**, **20k** replays | **$0** | **$67.50** |\n| **100k monthly sessions** of heatmap coverage | Free already includes **200k** sessions at **$0** (replay still sampled). Growth **100k** lists **$409/mo** and only **20k** replays | **$0** (100k/month is far under the **100k/day** cap) | Replay bill depends on **how many sessions you record**, not on pageviews. **100k recordings** ≈ **$272.50** |\n\nRead that **100k** row twice. Buying Hotjar Growth **100k sessions** does **not** buy **100k** recordings. It buys heatmap/funnel coverage of 100k sessions and **20k** listed replays at **$409/month**. Free already covers **200k** heatmap sessions at **$0** if a **5%** replay sample is enough.\n\nClarity wins **Hotjar vs Clarity** on **list price**. You still trade away Growth surveys, zone-based heatmaps, 13-month analytics access, and 2-month replay access.\n\nPostHog wins on **recording volume past ~7k** versus Hotjar Growth list prices, **if** you only needed replay. You then own a product-analytics install, not a marketing heatmap suite."
+    },
+    {
+      "id": "traffic-pairing",
+      "title": "Pair a cheap traffic tool — do not scale replay as analytics",
+      "content": "Replay invoices get large when teams use Hotjar or PostHog as **channel analytics**. Heatmaps do not answer “which campaign sent this visit?” Keep [web vs product analytics](/learn/web-vs-product-analytics/) as the split.\n\n[Fathom](https://usefathom.com/ref/U4V5UE) and [DataFast](https://datafa.st/?via=analyticsvs) are the lightweight pageview (and DataFast **revenue**) pairings. Neither includes heatmaps or session replay in our [Fathom](/tools/fathom/) or [DataFast](/tools/datafast/) feature flags.\n\n[Fathom pricing](https://usefathom.com/pricing) (checked **24 November 2026**): hosted **Standard** starts at **$15/month** for **100,000** monthly pageviews. Every hosted plan includes the same analytics features and **at least 50 sites**. Extra sites in packs of **50** for **$10/month**. Custom events **count toward** the pageview allowance. **7-day** trial, card required. Fathom states **no cookie banners required** for its product; confirm with counsel.\n\nDataFast dollars are not a static HTML table. Our [directory snapshot](/tools/datafast/) (**11 November 2026**) lists Starter from **$9/month at 10k events**. Confirm the [homepage widget](https://datafa.st/#pricing) before you buy. Primer: [Stripe revenue attribution](/learn/stripe-revenue-attribution/). Head-to-head: [Fathom vs DataFast](/compare/fathom-vs-datafast/).\n\nA common cheaper stack is **Fathom or DataFast + Hotjar Free** (or Clarity) on a few URLs — not a 100k Hotjar Growth pack used as GA4."
+    },
+    {
+      "id": "how-to-choose",
+      "title": "Which price you should actually pay",
+      "content": "1. **Pay $0 and watch recordings weekly** — [Microsoft Clarity](https://clarity.microsoft.com/) if 30-day retention and the daily session ceiling are fine; **Hotjar Free** if you want Contentsquare heatmaps and a 5% sample (max 10k) on up to 200k sessions; **PostHog** if 5,000 web recordings/month next to events is the job.\n2. **Pay Hotjar Growth** when you can name the Free ceiling: replay sample too thin, 1-month analytics access too short, you need a second or third project, or you want zone-based heatmaps. Start at the **7k** pack unless heatmap coverage of every session is the requirement. SKUs: [Hotjar pricing](/learn/hotjar-pricing/). Profile: [Hotjar](/tools/hotjar/).\n3. **Pay PostHog per recording** when replay must follow funnels, flags, and errors. Use billing limits. See [PostHog vs Hotjar](/compare/posthog-vs-hotjar/).\n4. **Do not climb Hotjar session packs to replace GA4 or Fathom.** Add [Fathom](https://usefathom.com/ref/U4V5UE) or [DataFast](https://datafa.st/?via=analyticsvs) for traffic or Stripe revenue.\n5. **Switch vendors for reasons other than price** (surveys, enterprise capture, another UX suite) on [Hotjar alternatives](/learn/hotjar-alternatives/) — that page is the list; this page is the invoice.\n\n### Sources checked 24 November 2026\n\n- [Hotjar pricing](https://www.hotjar.com/pricing/) — **301** to Contentsquare with `utm_source=hotjar-pricing`\n- [Contentsquare pricing](https://www.contentsquare.com/pricing/) — Free/Growth SKUs, replay caps, billing FAQ\n- [Microsoft Clarity](https://clarity.microsoft.com/) — free forever, no limits on traffic (homepage)\n- [Clarity FAQ](https://learn.microsoft.com/en-us/clarity/faq) — $0 model, 100k sessions/project/day, heatmap and recording limits\n- [Clarity recordings overview](https://learn.microsoft.com/en-us/clarity/session-recordings/recordings-overview) — 30-day retention, 1% or 10/day sample to 9 months\n- [PostHog pricing](https://posthog.com/pricing) — free allowances, event vs recording meters, retention FAQ\n- [PostHog session replay pricing](https://posthog.com/session-replay/pricing) — per-recording bands\n- [PostHog heatmaps docs](https://posthog.com/docs/toolbar/heatmaps) — free ingest, 3-page free cap\n- [Fathom pricing](https://usefathom.com/pricing) — $15/month at 100k pageviews\n- Directory (Hotjar snapshot flagged stale): [Hotjar](/tools/hotjar/), [PostHog](/tools/posthog/), [Fathom](/tools/fathom/), [DataFast](/tools/datafast/)\n- Related: [Hotjar pricing](/learn/hotjar-pricing/), [Hotjar alternatives](/learn/hotjar-alternatives/), [website heatmaps](/learn/website-heatmaps/), [PostHog vs Hotjar](/compare/posthog-vs-hotjar/)\n\nUnverifiable, so omitted: Clarity pricing-page marketing copy that did not render as static HTML in this check (homepage + FAQ used instead); Pro/Enterprise Hotjar dollars; rounded annual prices for Growth SKUs above 7k; live DataFast widget dollars beyond the 11 November directory snapshot; Plus/Business daily-session prices as current."
+    }
+  ]
+}

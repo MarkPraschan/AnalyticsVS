@@ -1,0 +1,145 @@
+{
+  "title": "How to migrate Google Analytics to Fathom (including the GA data importer)",
+  "slug": "switch-google-analytics-to-fathom",
+  "description": "Migrate Google Analytics to Fathom: check GA4 needs, set up Fathom, import Google Analytics data with the GA4 importer, map events, then remove GA.",
+  "seoTitle": "Migrate Google Analytics to Fathom (GA Importer)",
+  "answerUnderTitle": "Switching is a planned cutover, not a one-click replace. Confirm you can live without Google Ads attribution and GA4 explorations, add Fathom beside GA4, import supported daily GA4 history with Fathom’s importer (it does not import events or Universal Analytics), recreate a short list of conversions, then take GA off the site once the overlap looks trustworthy.",
+  "publishedOn": "2026-11-24",
+  "category": "guides",
+  "status": "published",
+  "quickAnswer": "**To migrate Google Analytics to Fathom:** keep GA4 running, add the Fathom embed, import supported **GA4** history with Fathom’s Google Analytics importer, recreate events with `fathom.trackEvent`, compare both dashboards for a few days, then remove gtag/GTM tags that fire GA. The importer copies **daily** dashboard-shaped data, **not events**, and **cannot recover Universal Analytics** after Google deleted UA on 1 July 2024.",
+  "keyTakeaways": [
+    "Run Fathom beside GA4 first. Do not delete Google tags until live Fathom traffic and the import look right.",
+    "Fathom’s importer is GA4-only. Google deleted Universal Analytics data as of 1 July 2024; Fathom cannot bring that history back.",
+    "Imported data is daily, not hourly. Fathom cannot import GA events. Repeat the same date range twice and you double-count.",
+    "Large imports can take up to 48 hours. If a run fails on millions of pageviews, split it into 1- or 2-year ranges.",
+    "Map GA4 key events to a few named Fathom events going forward. Custom events count toward Fathom’s pageview allowance.",
+    "DataFast is a fair alternative when the job is Stripe (or similar) revenue by channel — it documents a Plausible import, not a Google Analytics importer."
+  ],
+  "heroCta": {
+    "toolId": "fathom",
+    "headline": "Start the switch in Fathom",
+    "note": "Hosted Fathom includes a GA4 importer on every plan. Add the script, import supported history, then drop GA when you are ready. Referred customers get $10 off their first invoice.",
+    "label": "Try Fathom"
+  },
+  "toolShortlistHeading": "Tools for this switch",
+  "faq": [
+    {
+      "question": "How do I migrate Google Analytics to Fathom?",
+      "answer": "Create a Fathom site, paste the embed script (leave GA4 in place), import your GA4 property from Site settings → More → Imports, recreate conversions with fathom.trackEvent, compare both dashboards for a few days, then remove the Google tags. Fathom’s switching guide is the vendor walkthrough."
+    },
+    {
+      "question": "Can I import Google Analytics data into Fathom?",
+      "answer": "Yes, for Google Analytics 4. In the site’s Imports page, start a new import, authorize Google, pick the GA4 property, map a domain, choose All history or a date range, and start the import. Fathom does not charge extra for historical imports. Imported history stays available to view and export while your Fathom subscription is active."
+    },
+    {
+      "question": "Does Fathom import GA4 events or goals?",
+      "answer": "No. Fathom’s importer docs state they cannot import events. Recreate the conversions you still need with fathom.trackEvent after the script is live. Historical event and goal counts stay in GA4 (or a BigQuery export you already set up)."
+    },
+    {
+      "question": "Can I import Universal Analytics (UA) data into Fathom?",
+      "answer": "No. Google deleted Universal Analytics data as of 1 July 2024. Fathom’s importer cannot recover data Google no longer holds. Only GA4 properties can be imported."
+    },
+    {
+      "question": "How long does the Fathom Google Analytics importer take?",
+      "answer": "Fathom says large imports can take up to 48 hours because of Google API request limits, and they email you when the job finishes or fails. Very large ranges (often above single-digit millions of pageviews) should be split into 1- or 2-year chunks."
+    },
+    {
+      "question": "Should I run Fathom and Google Analytics at the same time?",
+      "answer": "Yes, for a few days of overlap. Fathom’s numbers will not match GA4 exactly: different visitor rules, bot filtering, cookies, URL parameters, and timezones. Avoid importing GA dates that already have Fathom collection, or you will roughly double those days."
+    },
+    {
+      "question": "Does DataFast import Google Analytics data?",
+      "answer": "DataFast documents an import from Plausible, not from Google Analytics. If you need GA4 history on the new dashboard, Fathom’s GA4 importer is the documented path on this site. Pick DataFast when channel-to-payment revenue matters more than bringing GA charts across."
+    }
+  ],
+  "relatedComparisons": [
+    "google-analytics-vs-fathom",
+    "google-analytics-vs-datafast"
+  ],
+  "relatedTools": [
+    "fathom",
+    "google-analytics-4",
+    "datafast"
+  ],
+  "relatedGuides": [
+    "ga4-alternatives-gdpr"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compare/google-analytics-vs-fathom/",
+      "label": "Google Analytics vs Fathom"
+    },
+    {
+      "href": "/learn/google-analytics-cost/",
+      "label": "Is Google Analytics free? GA4 and 360 cost"
+    },
+    {
+      "href": "/tools/fathom/",
+      "label": "Fathom Analytics profile"
+    },
+    {
+      "href": "/learn/ga4-alternatives-gdpr/",
+      "label": "GA4 alternatives for GDPR"
+    },
+    {
+      "href": "/learn/setup-events-plausible-fathom/",
+      "label": "How to set up events in Plausible and Fathom"
+    },
+    {
+      "href": "/learn/cookieless-analytics/",
+      "label": "Cookieless analytics primer"
+    }
+  ],
+  "toolShortlist": [
+    {
+      "toolId": "fathom",
+      "bestFor": "Marketing sites leaving GA4 that want cookieless traffic stats plus a documented GA4 history import. Referred customers get $10 off their first invoice."
+    },
+    {
+      "toolId": "datafast",
+      "bestFor": "Indie SaaS that cares more about Stripe (or similar) revenue by channel than about importing GA4 charts. Documents a Plausible import, not a Google Analytics importer."
+    },
+    {
+      "toolId": "google-analytics-4",
+      "bestFor": "Teams that still need Google Ads, Search Console as the source of truth, Looker Studio, or BigQuery — keep GA4, or run it beside Fathom for ads only."
+    }
+  ],
+  "sections": [
+    {
+      "id": "what-to-check-before-you-switch",
+      "title": "What to check before you switch",
+      "content": "Treat this as a **cutover**, not a settings toggle. [Google Analytics 4](/tools/google-analytics-4/) is free, event-based, and wired into Google Ads, Search Console, Looker Studio, and optional BigQuery. [Fathom](/tools/fathom/) is a paid, cookieless marketing dashboard. If weekly work lives in Google’s ads or warehouse stack, you may want both tools — or you may want to stay on GA4. Head-to-head: [Google Analytics vs Fathom](/compare/google-analytics-vs-fathom/). Cost of staying: [Is Google Analytics free?](/learn/google-analytics-cost/).\n\n### Questions that decide the migration\n\n1. **Do you bid on GA4 key events in Google Ads?** Fathom does not replace native Google Ads attribution. Keep GA4 for ads, or rebuild conversions in Google Ads without GA.\n2. **Do you need explorations, funnels, or BigQuery-scale event tables?** Fathom will not recreate those reports. The importer only brings data that matches how Fathom’s dashboard is shaped.\n3. **Is the pain consent banners, script weight, or a dashboard nobody opens?** That is the usual reason to move. Primer: [cookieless analytics](/learn/cookieless-analytics/). GDPR shortlist: [GA4 alternatives for GDPR](/learn/ga4-alternatives-gdpr/).\n4. **Do you still have Universal Analytics (UA-…) history you hoped to keep?** Google [deleted Universal Analytics data as of 1 July 2024](https://support.google.com/analytics/answer/11583528) (page opened **24 November 2026**). Fathom [cannot import UA](https://usefathom.com/docs/features/ga-importer).\n5. **How far back does GA4 still hold event-level data?** Google’s [data retention](https://support.google.com/analytics/answer/7667196) setting (opened **24 November 2026**) is **2 or 14 months** of user- and event-level data on standard properties. That setting **does not affect standard aggregated reports**. Fathom’s importer talks to Google’s API for dashboard-shaped daily data — not a warehouse of every event.\n\n### What “done” looks like\n\nYou are done when (a) Fathom shows live pageviews for the pages you care about, (b) the import finished without doubling dates you already collected in Fathom, (c) a short event list fires on real conversions, and (d) Google tags that send hits to GA4 are gone from production (unless you deliberately keep GA4 for ads)."
+    },
+    {
+      "id": "set-up-fathom",
+      "title": "Set up Fathom (leave GA4 in place)",
+      "content": "[Fathom’s switching guide](https://usefathom.com/docs/how-tos/switch-from-google-analytics) (opened **24 November 2026**) is explicit: create a site, add the embed, **leave Google Analytics installed** while you check the numbers.\n\n### Account and script\n\n1. Create a Fathom account (or log in) and add a site.\n2. Copy the embed from site settings. Fathom’s [embed docs](https://usefathom.com/docs/script/embed) (opened **24 November 2026**) use one line in the document head, with your Site ID in `data-site` and `defer` on the script.\n3. WordPress, Webflow, Shopify, and other CMS installs have [integration guides](https://usefathom.com/docs/integrations/wordpress) instead of a hand-pasted snippet.\n4. Visit a page, then confirm the hit in Fathom’s realtime count. Fathom’s [install check](https://usefathom.com/docs/start/install) is that realtime number, not a tag-assistant quiz.\n\nSingle-page apps that do not get a full page load on navigation should use Fathom’s SPA embed flag (`data-spa=\"auto\"`) from the [advanced script settings](https://usefathom.com/docs/script/script-advanced) (opened **24 November 2026**).\n\n### What it costs (vendor page, 24 November 2026)\n\n[Fathom pricing](https://usefathom.com/pricing) (opened **24 November 2026**):\n\n- **Standard** starts at **$15/month** at **100,000** monthly pageviews (USD).\n- **Business** is **$39/month** at the same 100k traffic band, adding team seats, roles, a 365-day audit log, and higher API limits.\n- Standard and Business both cover **100k to 25 million** pageviews; over **25 million** is a custom plan.\n- **Every plan includes the same analytics features**, including **Google Analytics import**, events, UTMs, and “full analytics history while subscribed.”\n- **50 sites** included; extra sites in packs of 50 at **$10/month** (or **$100/year**) per pack.\n- Custom events **count toward** the monthly pageview allowance.\n- **7-day free trial**; a card is required; Fathom emails before billing starts.\n- Yearly plans cost **10×** the monthly price (two months free, in Fathom’s wording).\n\nOur [Fathom directory snapshot](/tools/fathom/) of the pageview ladder (**19 November 2026**) listed **$15 / 100k**, **$25 / 200k**, **$45 / 500k**, **$60 / 1M**, **$100 / 2M**, **$140 / 5M**, **$200 / 10M**. Confirm the traffic slider on the vendor page before you buy — Fathom now also splits **Standard vs Business** at each traffic band.\n\nFathom states **no cookie banners required** for its product on that pricing page. Its [cookies article](https://usefathom.com/docs/troubleshooting/cookies) (opened **24 November 2026**) says the **embed script does not use cookies or similar**, and that **other scripts** on the page may still need a banner. That is vendor copy, not legal advice."
+    },
+    {
+      "id": "import-google-analytics-data",
+      "title": "Import Google Analytics data with Fathom’s importer",
+      "content": "This is how you **import Google Analytics data** so the Fathom chart is not empty on day one. Follow Fathom’s [Google Analytics Importer](https://usefathom.com/docs/features/ga-importer) docs (opened **24 November 2026**). The marketing page [Import GA4 data into Fathom](https://usefathom.com/features/ga-importer) (same day) matches the same limits.\n\n### Steps\n\n1. Open the Fathom site’s settings, click **More**, then **Imports**.\n2. Click **New import**.\n3. Select **Google Analytics (GA4)** as the source.\n4. Sign in with Google and complete Google’s authorization.\n5. Select the GA4 property.\n6. Enter the **domain** you want the imported rows mapped to.\n7. Choose a timeframe: **All** historical data, or **Date specific**.\n8. Click **Start Import**. Progress, cancel, and delete live on the same Imports page.\n\nFathom will **email** you when the import finishes or fails. Because of Google API request limits, a job **can take up to 48 hours**.\n\nFathom’s feature page states they **do not charge extra** for historical imports, and imported history stays available to **view and export while your Fathom subscription is active**.\n\n### What it imports — and what it does not\n\nFathom says they import **all of the data they are able to** from Google’s API, limited to what they can **show on their dashboards**. Documented limits (same importer FAQ, **24 November 2026**):\n\n| Topic | What Fathom documents |\n|---|---|\n| Properties | **GA4 only**. UA is gone on Google’s side (1 July 2024). |\n| Grain | **Daily** rows only — not hourly — to avoid Google API limits. |\n| Events | **Not imported.** |\n| Filters | You **cannot filter** imported GA data the way you filter native Fathom data. |\n| Completeness | Only data that matches Fathom’s dashboard shape; Google’s API may omit some devices, referrers, etc. |\n| Duplicates | The **same site + same period imported twice** imports that data **twice**. |\n| Devices | GA and Fathom classify devices differently, so those numbers will not match. |\n| UTMs | Fathom **groups** the same UTM words with different letter case (`Buffer` vs `buffer`); GA does not. |\n| Time on page | When Google’s API exposes it, Fathom maps **Audience → Overview → Avg. Session Duration** into “Avg time on page.” |\n| URL query strings | Fathom **strips most parameters** for privacy, so GA’s `/?email=…` and `/?userid=…` rows collapse onto `/`. |\n| Timezones | Rows can land on **adjacent calendar days** if the Fathom dashboard timezone differs from how GA stored the day. |\n\nFathom also tells you **not to import dates that overlap Fathom collection**, or you get **approximately double** the data for those days. Use the date picker. If you mess up, **delete the import** — Fathom says that removes the GA import without deleting native Fathom data. You can also hide imported rows from the dashboard with **Show imported data** in **Options**.\n\n### If the import fails\n\nFathom’s first retry: in GA4, **Admin → Property settings → User analysis**, turn **Enable user metric reporting** **off**, then import again.\n\nThe most common failure they document is **too much data in one run** — often **above single-digit millions of pageviews**. Split into **1-year or 2-year** date-specific chunks and run them one after another.\n\nTemporary Google Analytics API errors are the other documented cause. Retry later if the range is not huge. If it still fails, Fathom asks you to contact support with the **Site ID**."
+    },
+    {
+      "id": "map-events-and-goals",
+      "title": "Map GA4 events and goals onto Fathom",
+      "content": "The importer **will not** carry GA4 events, key events, or Universal Analytics goals. Rebuild the conversions you still need on the live site.\n\n### Inventory in GA4\n\nIn GA4, list the **key events** (conversions) and any custom events a weekly decision depends on — signup, contact, download, purchase. Ignore noisy enhanced-measurement clicks you never look at. Primer: [How to set up events in GA4](/learn/setup-events-ga4/).\n\nAim for a **short** list on Fathom (a handful of named conversions on a marketing site). Fathom events are pageview-first goals, not a product taxonomy. Primer: [events in Plausible and Fathom](/learn/setup-events-plausible-fathom/).\n\n### Recreate them with trackEvent\n\nFathom’s [Creating and using events](https://usefathom.com/docs/events/overview) (opened **24 November 2026**):\n\n- Use `fathom.trackEvent('newsletter signup')` for a named conversion.\n- Optional value is `_value` in **cents**: `fathom.trackEvent('Purchase', { _value: 1999 })`.\n- Put the call **after** the Fathom embed so `fathom` exists.\n- You do **not** pre-create the event in the dashboard; it appears after the first completion.\n- You **cannot rename** an event in Fathom once it has been collected; change the name you send from code if you need a new series.\n- Avoid special characters and emojis in names.\n- As of **25 October 2023**, Fathom no longer supports `trackGoal` for **new** events. Existing `trackGoal` calls still work.\n\nDefault conversion rate is **event completions / pageviews**. Site settings → **Event Conversion Formula** can switch that to **event completions / people**.\n\nCustom events **share the pageview allowance** ([pricing FAQ](https://usefathom.com/pricing), opened **24 November 2026**). Do not 1:1 copy a noisy GA4 event stream.\n\n### What you leave behind\n\nGA4 parameters, user properties, audiences, and exploration funnels have no Fathom equivalent. Valued Fathom events are a conversion total, not an items array. If the job is **which channel produced a Stripe charge**, that is a different product — [DataFast](/tools/datafast/) and [Google Analytics vs DataFast](/compare/google-analytics-vs-datafast/) — not something the Fathom importer fills in."
+    },
+    {
+      "id": "run-both-side-by-side",
+      "title": "Run Fathom and GA4 side by side",
+      "content": "Fathom’s switching guide says to give it **a few days of overlapping data**. Their [why stats differ](https://usefathom.com/docs/troubleshooting/differences) page (opened **24 November 2026**) is the checklist for that week.\n\nExpect different totals. Documented reasons:\n\n- **Ad blockers and browsers** block some analytics (Google more often than a small first-party-style script, in Fathom’s telling).\n- **Unique visitors:** Fathom [resets uniques each day](https://usefathom.com/docs/start/measurement) (24-hour visitor-day, salt rotates at midnight UTC). GA4 can stitch longer when cookies/consent allow.\n- **Bots:** Fathom says it filters aggressively by default; GA only excludes known bots/spiders unless you add filters.\n- **Time on page / site:** Fathom currently uses a departure ping, capped at **30 minutes** on the differences page (their newer measurement page describes session duration from those pings).\n- **Coverage:** both tags must be on the **same pages** for the same dates.\n\nDo **not** treat a gap as a broken install until those definitions are on the table. Use Fathom [comparison mode](https://usefathom.com/docs/how-tos/compare-dates) to compare two Fathom periods with each other — that is not the same as matching GA4.\n\nWhile both tags run, you still send data to Google. That is the point of the overlap. Keep it short once you trust Fathom.\n\n### Optional Fathom extras after the overlap\n\nFathom’s switching guide lists exclude-your-own-visits, shared dashboards, and [Google Search Console](https://usefathom.com/docs/features/google-search-console) (opened **24 November 2026**) so search queries can sit on the same dashboard. Connecting GSC does **not** require keeping the GA4 tag."
+    },
+    {
+      "id": "remove-google-analytics",
+      "title": "Remove Google Analytics",
+      "content": "Only after live Fathom traffic looks right **and** the import you wanted has finished (or you accepted a blank history).\n\nFrom [Switch from Google Analytics](https://usefathom.com/docs/how-tos/switch-from-google-analytics) (opened **24 November 2026**):\n\n1. Remove the **Google Analytics / gtag / GTM tags that fire GA** from the site. If GA4 lives in Google Tag Manager, unpublish or pause those tags — do not leave a second copy in the theme “just in case.”\n2. Leave the Fathom snippet or CMS plugin in place.\n3. **Update the privacy policy.** Fathom links a sample from that switching page. Adapt it; it is not legal advice.\n\nYou do **not** need to delete the GA4 property on day one. Fathom’s importer FAQ says to keep Google until you are sure Fathom has the history you need. Deleting the Google **account** is a separate, irreversible Admin action — do not rush it.\n\nIf other scripts still set cookies (ads pixels, chat, a CMP), removing GA4 does not remove the banner. Fathom’s cookies article is only about **its** embed.\n\nKeep a GA4 login (or a BigQuery export you already configured) if legal or finance still wants an archive. Standard GA4 aggregated reports are not limited by the 2/14-month event-retention control; event-level explorations are."
+    },
+    {
+      "id": "when-not-to-switch-to-fathom",
+      "title": "When Fathom is the wrong destination",
+      "content": "Stay on GA4, or run both permanently, when Google Ads, app+web, or BigQuery is the product. Fathom is hosted web analytics: pages, referrers, UTMs, simple events. It is not a warehouse and not an ads platform.\n\n### DataFast, briefly\n\n[DataFast](https://datafa.st/?via=analyticsvs) is the other AnalyticsVS affiliate in this lane. Use it when the question is **which channel produced paying customers** via Stripe or a similar processor — not when you need Fathom’s GA4 importer. DataFast’s docs list [import from Plausible](https://datafa.st/docs/import-from-plausible) (opened **24 November 2026**); they do **not** document a Google Analytics importer.\n\nDataFast’s homepage (opened **24 November 2026**) still describes **Starter** (1 site, 1 seat, 3 years retention) vs **Growth** (30 sites, 30 seats, 5+ years), a **14-day trial with no card**, and event bands including **10k / 100k / 200k / 1M+**. Dollar amounts live in a homepage widget, not a static table. Our [directory snapshot](/tools/datafast/) (**11 November 2026**) of that widget lists Starter **$9/month at 10k events**. Confirm the widget before you buy.\n\nDefault DataFast script **uses cookies**; the vendor says you may need a banner depending on jurisdiction. A [cookieless script](https://datafa.st/docs/gdpr-cookieless-tracking) exists, with weaker multi-day attribution.\n\nCompare: [Fathom vs DataFast](/compare/fathom-vs-datafast/).\n\n### Sources checked 24 November 2026\n\n- [Fathom: Switch from Google Analytics](https://usefathom.com/docs/how-tos/switch-from-google-analytics)\n- [Fathom: Google Analytics Importer](https://usefathom.com/docs/features/ga-importer)\n- [Fathom: Import GA4 data (feature page)](https://usefathom.com/features/ga-importer)\n- [Fathom pricing](https://usefathom.com/pricing)\n- [Fathom embed script](https://usefathom.com/docs/script/embed)\n- [Fathom events](https://usefathom.com/docs/events/overview)\n- [Fathom: why stats differ](https://usefathom.com/docs/troubleshooting/differences)\n- [Fathom cookies / consent banner](https://usefathom.com/docs/troubleshooting/cookies)\n- [Fathom Search Console](https://usefathom.com/docs/features/google-search-console)\n- [Google: UA shutdown](https://support.google.com/analytics/answer/11583528)\n- [Google: GA4 data retention](https://support.google.com/analytics/answer/7667196)\n- [DataFast: import from Plausible](https://datafa.st/docs/import-from-plausible)\n- [DataFast homepage / pricing FAQ](https://datafa.st/#pricing)"
+    }
+  ]
+}

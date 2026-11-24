@@ -42,7 +42,12 @@
       "content": "We publish recorded script benchmarks for both tools. Color bands on those pages use absolute thresholds documented on [methodology](/methodology/)."
     }
   ],
+  "afterVerdict": "Ready to switch? Follow [how to migrate Google Analytics to Fathom](/learn/switch-google-analytics-to-fathom/), including Fathom’s GA4 data importer, event mapping, and a side-by-side cutover.",
   "relatedLinks": [
+    {
+      "href": "/learn/switch-google-analytics-to-fathom/",
+      "label": "How to migrate Google Analytics to Fathom"
+    },
     {
       "href": "/compare/fathom-vs-datafast/",
       "label": "Fathom vs DataFast"

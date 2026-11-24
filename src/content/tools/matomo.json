@@ -38,46 +38,46 @@
     "tiers": [
       {
         "limit": 50000,
-        "price": 29,
+        "price": 22,
         "label": "Cloud · up to 50K hits"
       },
       {
         "limit": 100000,
-        "price": null,
+        "price": 38,
         "label": "Cloud · up to 100K hits"
       },
       {
         "limit": 300000,
-        "price": null,
+        "price": 75,
         "label": "Cloud · up to 300K hits"
       },
       {
         "limit": 600000,
-        "price": null,
+        "price": 118,
         "label": "Cloud · up to 600K hits"
       },
       {
         "limit": 1000000,
-        "price": null,
+        "price": 172,
         "label": "Cloud · up to 1M hits"
       },
       {
         "limit": 2000000,
-        "price": null,
+        "price": 334,
         "label": "Cloud · up to 2M hits"
       },
       {
         "limit": 5000000,
-        "price": null,
+        "price": 822,
         "label": "Cloud · up to 5M hits"
       },
       {
         "limit": 10000000,
-        "price": null,
-        "label": "Cloud · 10M+ hits"
+        "price": 1600,
+        "label": "Cloud · up to 10M hits"
       }
     ],
-    "notes": "Matomo Cloud entry price €29/month excl. tax for 50K hits verified Nov 19, 2026 on matomo.org/pricing/. Higher Cloud tiers scale by hits — confirm mid-tier amounts on the vendor page (directory mid-tiers left null until re-verified). On-Premise Community core is free; premium plugins/bundles are paid.",
+    "notes": "Matomo Cloud EUR prices from matomo.org/pricing/ JSON-LD UnitPriceSpecification, checked 24 Nov 2026 (excl. tax): €22 at 50K hits (USD $26), then €38 / €75 / €118 / €172 / €334 / €822 / €1,600 through 10M hits. On-Premise Community is €0; paid bundles start at Team €230/month.",
     "projectLimits": {
       "included": 30,
       "billingModel": "tiered",
